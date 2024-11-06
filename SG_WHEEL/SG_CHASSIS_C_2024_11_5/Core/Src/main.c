@@ -55,7 +55,7 @@
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
-
+void Init();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -71,7 +71,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+   __disable_irq();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -100,7 +100,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
-
+	Init();	//只能放RTOS上面初始化
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -191,7 +191,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
+  else if (htim->Instance == TIM7) {
 
+  }
   /* USER CODE END Callback 1 */
 }
 
