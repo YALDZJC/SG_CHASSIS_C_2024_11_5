@@ -1,9 +1,9 @@
 sg_chassis_c_2024_11_5/cmsis_os2.o: \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c \
-  D:\Keil5\ARM\ARMCLANG\Bin\..\include\string.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\string.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
-  D:\Keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  D:\Keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \

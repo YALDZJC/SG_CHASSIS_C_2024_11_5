@@ -613,6 +613,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\BSP\Init.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Can.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\BSP\Can.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
