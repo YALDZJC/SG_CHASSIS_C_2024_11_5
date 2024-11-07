@@ -1,6 +1,7 @@
 sg_chassis_c_2024_11_5/chassistask.o: User\APP\ChassisTask.cpp \
   User\APP\ChassisTask.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
+<<<<<<< Updated upstream:SG_CHASSIS_C_2024_11_5/MDK-ARM/SG_CHASSIS_C_2024_11_5/chassistask.d
   D:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
   D:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   D:\Keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -50,3 +51,11 @@ sg_chassis_c_2024_11_5/chassistask.o: User\APP\ChassisTask.cpp \
   D:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\__undef_macros \
   D:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\string.h \
   D:\Keil5\ARM\ARMCLANG\Bin\..\include\string.h User\BSP\Key.hpp
+=======
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\stddef.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  E:\Keil5\ARM\ARMCLANG\Bin\..\include\libcxx\__nullptr
+>>>>>>> Stashed changes:SG_WHEEL/SG_CHASSIS_C_2024_11_5/MDK-ARM/SG_CHASSIS_C_2024_11_5/chassistask.d

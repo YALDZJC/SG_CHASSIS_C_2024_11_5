@@ -8,10 +8,10 @@ uint8_t RM_Clicker::pData[18] = { 0 };//初始化
 void RM_Clicker::ClearORE(UART_HandleTypeDef* huart,uint8_t* pData,int Size)
 {
 	if( __HAL_UART_GET_FLAG( huart, UART_FLAG_ORE ) != RESET )
-		{
-			__HAL_UART_CLEAR_OREFLAG( huart );
-			HAL_UARTEx_ReceiveToIdle_DMA( huart, pData, Size );
-		}
+	{
+		__HAL_UART_CLEAR_OREFLAG( huart );
+		HAL_UARTEx_ReceiveToIdle_DMA( huart, pData, Size );
+	}
 }
 
 void RM_Clicker::Init()
@@ -53,6 +53,7 @@ bool RM_Clicker::ISDir()
 	RC_Ctl.Dir = RM_Clicker::dirTime.ISDir(50) || Dir;
 	if(RC_Ctl.Dir)
 		RM_Clicker::ClearORE(&ClickerHuart,RM_Clicker::pData,sizeof(RM_Clicker::pData));
+	
   return RC_Ctl.Dir;
 }
 
