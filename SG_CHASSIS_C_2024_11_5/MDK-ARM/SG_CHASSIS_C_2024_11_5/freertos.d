@@ -1,7 +1,7 @@
 sg_chassis_c_2024_11_5/freertos.o: ..\Core\Src\freertos.c \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  E:\Keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  E:\Keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\Keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
