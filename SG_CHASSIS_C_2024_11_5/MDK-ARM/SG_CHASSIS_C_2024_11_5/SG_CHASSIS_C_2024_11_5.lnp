@@ -40,7 +40,7 @@
 "sg_chassis_c_2024_11_5\port.o"
 "sg_chassis_c_2024_11_5\dr16.o"
 "sg_chassis_c_2024_11_5\init.o"
-"sg_chassis_c_2024_11_5\can_1.o"
+"sg_chassis_c_2024_11_5\bsp_can.o"
 "sg_chassis_c_2024_11_5\chassistask.o"
 "sg_chassis_c_2024_11_5\communicationtask.o"
 "sg_chassis_c_2024_11_5\refeetask.o"

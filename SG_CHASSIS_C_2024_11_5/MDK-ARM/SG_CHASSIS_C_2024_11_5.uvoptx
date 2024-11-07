@@ -220,6 +220,10 @@
       <pMultCmdsp></pMultCmdsp>
       <SystemViewers>
         <Entry>
+          <Name>System Viewer\CAN1</Name>
+          <WinId>35903</WinId>
+        </Entry>
+        <Entry>
           <Name>System Viewer\TIM7</Name>
           <WinId>35905</WinId>
         </Entry>
@@ -783,8 +787,8 @@
       <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\User\BSP\Can.cpp</PathWithFileName>
-      <FilenameWithoutPath>Can.cpp</FilenameWithoutPath>
+      <PathWithFileName>.\User\BSP\Bsp_Can.cpp</PathWithFileName>
+      <FilenameWithoutPath>Bsp_Can.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

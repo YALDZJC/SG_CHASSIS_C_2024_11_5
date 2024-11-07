@@ -1,50 +1,50 @@
-#include "Can.hpp"
+#include "Bsp_Can.hpp"
 #include "My_hal.hpp"
 
 void F4_CAN::Filter_Init()
 {
   	CAN_FilterTypeDef Filter;
-	Filter.FilterActivation = CAN_FILTER_ENABLE;//ä½¿èƒ½è¿‡æ»¤å™¨
-	Filter.FilterBank = 0;//é€šé“
-	Filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;//ç¼“å†²å™¨
-	Filter.FilterIdHigh = 0x0;//é«˜16
-	Filter.FilterIdLow = 0x0;//ä½16
-	Filter.FilterMaskIdHigh = 0x0;//é«˜16
-	Filter.FilterMaskIdLow = 0x0;//ä½16
-	Filter.FilterMode = CAN_FILTERMODE_IDMASK;//æ©ç 
+	Filter.FilterActivation = CAN_FILTER_ENABLE;//Ê¹ÄÜ¹ıÂËÆ÷
+	Filter.FilterBank = 0;//Í¨µÀ
+	Filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;//»º³åÆ÷
+	Filter.FilterIdHigh = 0x0;//¸ß16
+	Filter.FilterIdLow = 0x0;//µÍ16
+	Filter.FilterMaskIdHigh = 0x0;//¸ß16
+	Filter.FilterMaskIdLow = 0x0;//µÍ16
+	Filter.FilterMode = CAN_FILTERMODE_IDMASK;//ÑÚÂë
 	Filter.FilterScale = CAN_FILTERSCALE_32BIT;
 	Filter.SlaveStartFilterBank = 14;	
 	HAL_CAN_ConfigFilter(&hcan1,&Filter);
-	Filter.FilterBank = 14;//é€šé“
+	Filter.FilterBank = 14;//Í¨µÀ
 	Filter.SlaveStartFilterBank = 28;	
 	HAL_CAN_ConfigFilter(&hcan2,&Filter);
 }
  
 void F4_CAN::Can_Init()
 {
-	//å¼€å¯can
+	//¿ªÆôcan
 	HAL_CAN_Start(&hcan1);
-	//è®¾ç½®ä¸­æ–­
+	//ÉèÖÃÖĞ¶Ï
 	HAL_CAN_ActivateNotification(&hcan1,CAN_IT_RX_FIFO0_MSG_PENDING);
-	//å¼€å¯can
+	//¿ªÆôcan
 	HAL_CAN_Start(&hcan2);
-	//è®¾ç½®ä¸­æ–­
+	//ÉèÖÃÖĞ¶Ï
 	HAL_CAN_ActivateNotification(&hcan2,CAN_IT_RX_FIFO0_MSG_PENDING);
 }
 
 void F4_CAN::Can_Send(CAN_HandleTypeDef* han,uint32_t StdId,uint8_t* s_data,uint32_t pTxMailbox)
 {
 	CAN_TxHeaderTypeDef TxHeader;
-	TxHeader.DLC = 8;//é•¿åº¦
-	TxHeader.ExtId = 0;//æ‰©å±•id
-	TxHeader.IDE = CAN_ID_STD;//æ ‡å‡†
-	TxHeader.RTR = CAN_RTR_DATA;//æ•°æ®å¸§
+	TxHeader.DLC = 8;//³¤¶È
+	TxHeader.ExtId = 0;//À©Õ¹id
+	TxHeader.IDE = CAN_ID_STD;//±ê×¼
+	TxHeader.RTR = CAN_RTR_DATA;//Êı¾İÖ¡
 	TxHeader.StdId = StdId;//id
 	TxHeader.TransmitGlobalTime = DISABLE;
 	
 	if(HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0)
 	{
-		//å‘é€é‚®ç®±
+		//·¢ËÍÓÊÏä
 		HAL_CAN_AddTxMessage(han,&TxHeader,s_data,&pTxMailbox);
 	}
 }

@@ -30,3 +30,4 @@ inline void BSP_CAN_Init(BSP_CAN *can)
 	can->BSP_CAN_Init();
 }
 
+static F4_CAN CAN;
