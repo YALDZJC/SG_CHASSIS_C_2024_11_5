@@ -25,6 +25,18 @@ public:
     Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t* MotorAddress,uint8_t* idxs);
     //数据解析
     void Parse(CAN_RxHeaderTypeDef  RxHeader,uint8_t RxHeaderData[]);
+
+    //获取数据
+    float GetMotorData(int16_t address, Motor_Data_Type DataType)
+    {
+        return this->motorData[GET_Motor_ID_ADDRESS_BIND_(address)].Data[DataType];
+    }
+
+	//获取类型
+	inline Motor_t *GetMotor(int16_t address)
+    {
+        return &this->motorData[GET_Motor_ID_ADDRESS_BIND_(address)];
+    }
 };
 
 

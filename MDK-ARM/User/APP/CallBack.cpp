@@ -15,6 +15,8 @@ Dji_Motor Motor2006(0x200, _Motor2006_SIZE, _Motor2006_, _Motor2006_ID_);
 Dji_Motor Motor3508(0x200, _Motor3508_SIZE, _Motor3508_, _Motor3508_ID_);
 Dji_Motor Motor6020(0x204, _Motor6020_SIZE, _Motor6020_, _Motor6020_ID_);
 
+int pos;
+
 //can_filo0中断接收
 CAN_RxHeaderTypeDef RxHeader;	//can接收数据
 uint8_t RxHeaderData[8] = { 0 };
@@ -26,6 +28,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	{
 		Motor3508.Parse(RxHeader,RxHeaderData);
 		Motor6020.Parse(RxHeader,RxHeaderData);
+		pos = Motor6020.GetMotorData(0x205, Angle);
 	}
 	if(hcan == &hcan2)
 	{

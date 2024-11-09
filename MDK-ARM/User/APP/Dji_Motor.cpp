@@ -24,17 +24,17 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
 	if(idx == -1)return;//如果超越数组大小，或者不存在id
 
 	//数据解析
-	this->motorData[idx].Data[Motor_Data_Angle] = (int16_t)(RxHeaderData[0]) << 8 | RxHeaderData[1];
+	this->motorData[idx].Data[Angle] = (int16_t)(RxHeaderData[0]) << 8 | RxHeaderData[1];
 	//转子速度
-	this->motorData[idx].Data[Motor_Data_Speed] = (int16_t)(RxHeaderData[2]) << 8 | RxHeaderData[3];
-	this->motorData[idx].Data[Motor_Data_Torque] = (int16_t)(RxHeaderData[4]) << 8 | RxHeaderData[5];
+	this->motorData[idx].Data[Speed] = (int16_t)(RxHeaderData[2]) << 8 | RxHeaderData[3];
+	this->motorData[idx].Data[Torque] = (int16_t)(RxHeaderData[4]) << 8 | RxHeaderData[5];
     //温度
-    this->motorData[idx].Data[Motor_Data_Temperature] = (int16_t)(RxHeaderData[6]);
+    this->motorData[idx].Data[Temperature] = (int16_t)(RxHeaderData[6]);
     //数据累加
-	if(this->motorData[idx].LastData[Motor_Data_Angle] != this->motorData[idx].Data[Motor_Data_Angle] && this->motorData[idx].LastData[Motor_Data_Angle] != -1)
+	if(this->motorData[idx].LastData[Angle] != this->motorData[idx].Data[Angle] && this->motorData[idx].LastData[Angle] != -1)
 	{
-		int lastData = this->motorData[idx].LastData[Motor_Data_Angle];
-		int Data = this->motorData[idx].Data[Motor_Data_Angle];
+		int lastData = this->motorData[idx].LastData[Angle];
+		int Data = this->motorData[idx].Data[Angle];
 		if(Data - lastData < -4000)//正转
 			this->motorData[idx].AddData += (8191 - lastData + Data);
 		else if(Data - lastData > 4000)//反转
@@ -45,14 +45,14 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
 
 	//数据上一次更新
 	//数据解析
-	this->motorData[idx].LastData[Motor_Data_Angle] = this->motorData[idx].Data[Motor_Data_Angle];
+	this->motorData[idx].LastData[Angle] = this->motorData[idx].Data[Angle];
 	//转子速度
-	this->motorData[idx].LastData[Motor_Data_Speed] = this->motorData[idx].Data[Motor_Data_Speed];
-	this->motorData[idx].LastData[Motor_Data_Torque] = this->motorData[idx].Data[Motor_Data_Torque];
+	this->motorData[idx].LastData[Speed] = this->motorData[idx].Data[Speed];
+	this->motorData[idx].LastData[Torque] = this->motorData[idx].Data[Torque];
 	//初始化数据
 	if(this->motorData[idx].InitFlag == 0)
 	{
-		this->motorData[idx].InitData = this->motorData[idx].Data[Motor_Data_Angle];
+		this->motorData[idx].InitData = this->motorData[idx].Data[Angle];
 		this->motorData[idx].InitFlag = 1;
 	}
     //更新时间
