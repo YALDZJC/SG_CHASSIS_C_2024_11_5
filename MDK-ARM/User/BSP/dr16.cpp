@@ -1,5 +1,5 @@
-#include "My_hal.hpp"
 #include "dr16.hpp"
+#include "My_hal.hpp"
 
 RC_Ctl_t RM_Clicker::RC_Ctl = { 0 };//初始化
 RM_StaticTime RM_Clicker::dirTime = { 0 };//初始化

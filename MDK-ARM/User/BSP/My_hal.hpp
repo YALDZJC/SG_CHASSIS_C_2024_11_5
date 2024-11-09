@@ -1,14 +1,14 @@
 #pragma once
 
-#define IS_F4 (0x00)  //使用can
-#define IS_F7 (0x01)//使用fdcan
+#define IS_F4 (0x00)  //使锟斤拷can
+#define IS_H7 (0x01)//使锟斤拷fdcan
 
-#define RM_IS_Fx (IS_F4)//定义使用facan还是can
+#define RM_IS_Fx (IS_F4)//锟斤拷锟斤拷使锟斤拷facan锟斤拷锟斤拷can
 
 #if (RM_IS_Fx == IS_F4)
 	#include "stm32f4xx_hal.h"
 	#include "can.h"
-#elif (RM_IS_Fx == IS_F7)
+#elif (RM_IS_Fx == IS_H7)
 	#include "stm32h7xx_hal.h"
 	#include "stm32h7xx_hal_fdcan.h"
 	#include "fdcan.h"
@@ -17,26 +17,26 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
-/***********************fdcan或者can使用定义********************************/
+/***********************fdcan锟斤拷锟斤拷can使锟矫讹拷锟斤拷********************************/
 //#include "RM_FDCan.h"
 
-/*fdcan与can来回切换*/
-#define RM_IS_HAL_CAN (0x00)  //使用can
-#define RM_IS_HAL_FDCAN (0x01)//使用fdcan
+/*fdcan锟斤拷can锟斤拷锟斤拷锟叫伙拷*/
+#define RM_IS_HAL_CAN (0x00)  //使锟斤拷can
+#define RM_IS_HAL_FDCAN (0x01)//使锟斤拷fdcan
 
-#define RM_IS_HAL_FDorCAN (RM_IS_HAL_CAN)//定义使用facan还是can
+#define RM_IS_HAL_FDorCAN (RM_IS_HAL_CAN)//锟斤拷锟斤拷使锟斤拷facan锟斤拷锟斤拷can
 /*
-RM_FDorCAN_HandleTypeDef 原can或者facan的结构体
-RM_FDorCAN_RxHeaderTypeDef 原can或者facan的接收结构体
-RM_FDorCAN_TxHeaderTypeDef 原can或者facan的发送结构体
-FDorCAN_ID 原can或者facan的id
-RM_FDorCAN_Filter_Init 过滤器配置
-RM_FDorCAN_Init 初始化
-RM_FDorCAN_Send 发送函数
-RM_FDorCAN_RxFifo0PendingCallback 原can或者facan的接收回调函数，注意：参数数量不一样!!!
+RM_FDorCAN_HandleTypeDef 原can锟斤拷锟斤拷facan锟侥结构锟斤拷
+RM_FDorCAN_RxHeaderTypeDef 原can锟斤拷锟斤拷facan锟侥斤拷锟秸结构锟斤拷
+RM_FDorCAN_TxHeaderTypeDef 原can锟斤拷锟斤拷facan锟侥凤拷锟酵结构锟斤拷
+FDorCAN_ID 原can锟斤拷锟斤拷facan锟斤拷id
+RM_FDorCAN_Filter_Init 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+RM_FDorCAN_Init 锟斤拷始锟斤拷
+RM_FDorCAN_Send 锟斤拷锟酵猴拷锟斤拷
+RM_FDorCAN_RxFifo0PendingCallback 原can锟斤拷锟斤拷facan锟侥斤拷锟秸回碉拷锟斤拷锟斤拷锟斤拷注锟解：锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷一锟斤拷!!!
 */
 
-/*实现fdcan与can无缝切换*/
+/*实锟斤拷fdcan锟斤拷can锟睫凤拷锟叫伙拷*/
 #if (RM_IS_HAL_FDorCAN == RM_IS_HAL_CAN)
  #define RM_FDorCAN_HandleTypeDef           CAN_HandleTypeDef
  #define RM_FDorCAN_RxHeaderTypeDef         CAN_RxHeaderTypeDef

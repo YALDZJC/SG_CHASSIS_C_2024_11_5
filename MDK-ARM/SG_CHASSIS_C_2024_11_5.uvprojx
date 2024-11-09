@@ -648,6 +648,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\APP\CallBack.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Dji_Motor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\Dji_Motor.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

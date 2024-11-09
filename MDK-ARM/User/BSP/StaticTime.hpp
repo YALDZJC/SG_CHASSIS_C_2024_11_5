@@ -37,7 +37,7 @@ inline bool RM_StaticTime::ISGL(uint32_t targetTime, uint8_t percentage)
 inline bool RM_StaticTime::ISDir(uint32_t dirTime)
 {
 	if(HAL_GetTick() - this->lastTime >= dirTime)return true;
-  return false;
+  	return false;
 }
 
 inline bool RM_StaticTime::ISFromOne(uint64_t nowTime, uint64_t targetTime)

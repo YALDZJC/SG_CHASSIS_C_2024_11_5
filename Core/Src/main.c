@@ -100,7 +100,10 @@ int main(void)
   MX_USART6_UART_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
-	Init();	//只能放RTOS上面初始化
+
+	//只能放RTOS上面初始化
+  Init();	
+  
   /* USER CODE END 2 */
 
   /* Init scheduler */
