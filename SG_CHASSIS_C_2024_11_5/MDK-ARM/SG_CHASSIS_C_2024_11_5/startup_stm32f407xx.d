@@ -1,1 +1,0 @@
-sg_chassis_c_2024_11_5\startup_stm32f407xx.o: startup_stm32f407xx.s
