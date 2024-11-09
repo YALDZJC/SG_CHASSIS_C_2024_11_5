@@ -37,19 +37,21 @@ typedef struct
 
 class RM_Motor
 {
-public:
+protected:
 	int16_t init_address;//首地址
-    Motor_t* motorData;
-    uint8_t MotorSize;
-    uint8_t idxs[_Motor_ID_IDX_BIND_SIZE_];
+    uint8_t MotorSize;	 //电机数量
+    uint8_t idxs[_Motor_ID_IDX_BIND_SIZE_];	//电机最大个数
 
-	int GET_Motor_ID_ADDRESS_BIND_(int address);
-	void _Motor_ID_IDX_BIND_(uint8_t* ids,uint8_t size);
+	int GET_Motor_ID_ADDRESS_BIND_(int address);			//获取对应下标
+	void _Motor_ID_IDX_BIND_(uint8_t* ids,uint8_t size);	//电机绑定
+  	uint8_t ISDir();	//断链
+
+public:
+
+    Motor_t* motorData;
 
 	//数据解析
     virtual void Parse(CAN_RxHeaderTypeDef  RxHeader,uint8_t RxHeaderData[]) = 0;
-	//断链
-  	uint8_t ISDir();
 	//获取速度
 	inline int GetMotorDataSpeed(int16_t address)
     {

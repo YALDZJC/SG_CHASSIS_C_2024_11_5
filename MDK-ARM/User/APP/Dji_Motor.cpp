@@ -1,5 +1,6 @@
 #include "Dji_Motor.hpp"
 
+//初始化电机信息
 Dji_Motor::Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t* MotorAddress,uint8_t* idxs)
 {
 	this->_Motor_ID_IDX_BIND_(idxs, MotorSize);
@@ -15,6 +16,7 @@ Dji_Motor::Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t* MotorAddress,u
   	this->MotorSize = MotorSize;
 }
 
+//初始数据解算
 void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData[])
 {
     if(!(FDorCAN_ID(RxHeader) >= 0x200 && FDorCAN_ID(RxHeader) <= 0x208) || this->MotorSize == 0)return;	
