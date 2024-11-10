@@ -22,14 +22,18 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
     if(!(FDorCAN_ID(RxHeader) >= 0x200 && FDorCAN_ID(RxHeader) <= 0x208) || this->MotorSize == 0)return;	
 	int idx = GET_Motor_ID_ADDRESS_BIND_(FDorCAN_ID(RxHeader));
 	if(idx == -1)return;//如果超越数组大小，或者不存在id
+	this->motorData[idx].DirFlag = this->motorData[idx].dirTime.ISDir(10);
 
-	//数据解析
-	this->motorData[idx].Data[Angle] = (int16_t)(RxHeaderData[0]) << 8 | RxHeaderData[1];
-	//转子速度
-	this->motorData[idx].Data[Speed] = (int16_t)(RxHeaderData[2]) << 8 | RxHeaderData[3];
-	this->motorData[idx].Data[Torque] = (int16_t)(RxHeaderData[4]) << 8 | RxHeaderData[5];
-    //温度
-    this->motorData[idx].Data[Temperature] = (int16_t)(RxHeaderData[6]);
+	// 数据解析
+	this->motorData[idx].Data[Angle] = (float)((int16_t)(RxHeaderData[0] << 8 | RxHeaderData[1]));
+
+	// 转子速度
+	this->motorData[idx].Data[Speed] = (float)((int16_t)(RxHeaderData[2] << 8 | RxHeaderData[3]));
+	this->motorData[idx].Data[Torque] = (float)((int16_t)(RxHeaderData[4] << 8 | RxHeaderData[5]));
+
+	// 温度
+	this->motorData[idx].Data[Temperature] = (float)((int16_t)(RxHeaderData[6]));
+	
     //数据累加
 	if(this->motorData[idx].LastData[Angle] != this->motorData[idx].Data[Angle] && this->motorData[idx].LastData[Angle] != -1)
 	{
@@ -57,6 +61,32 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
 	}
     //更新时间
     this->motorData[idx].dirTime.UpLastTime();
+}
+
+//过零处理
+float Dji_Motor::Zero_crossing_processing(float expectations, float feedback, float maxpos )
+{
+	double tempcin = expectations;
+	if(maxpos != 0)
+	{
+		tempcin = fmod(expectations,maxpos);
+		double x1 = feedback;
+		if(tempcin < 0)
+			x1 -= maxpos;
+		//过0处理
+		if(tempcin - feedback < -maxpos/2)
+			tempcin += maxpos;			
+		if(tempcin - feedback > maxpos/2)
+			tempcin -= maxpos;
+	}
+	return tempcin;
+}
+
+//设置发送数据
+void setMSD(Motor_send_data_t* msd,int16_t data,int id)
+{
+	msd->Data[(id - 1) * 2] = data >> 8;
+  msd->Data[(id - 1) * 2 + 1] = data << 8 >> 8;	
 }
 
 

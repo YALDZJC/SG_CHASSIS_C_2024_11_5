@@ -1,28 +1,9 @@
 #pragma once
 #include "My_hal.hpp"
+#include "stdxxx.hpp"
+#include "can.h"
 
-class BSP_CAN
-{
-public:
+void CAN_Filter_Init();
+void Can_Init();
+void Can_Send(CAN_HandleTypeDef* han,uint32_t StdId,uint8_t* s_data,uint32_t pTxMailbox);
 
-    virtual void Filter_Init() = 0;
-    virtual void Can_Init() = 0;
-
-    virtual void Can_Send(CAN_HandleTypeDef* han,uint32_t StdId,uint8_t* s_data,uint32_t pTxMailbox) = 0;
-    
-    void BSP_CAN_Init()
-    {
-        Filter_Init();
-        Can_Init();
-    }
-};
-
-class F4_CAN : public BSP_CAN
-{
-public:
-    void Filter_Init();
-    void Can_Init();
-    void Can_Send(CAN_HandleTypeDef* han, uint32_t StdId, uint8_t* s_data, uint32_t pTxMailbox);
-};
-
-static F4_CAN CAN;

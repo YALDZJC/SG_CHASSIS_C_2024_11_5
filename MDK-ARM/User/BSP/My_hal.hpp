@@ -1,4 +1,5 @@
 #pragma once
+#include "Bsp_Can.hpp"
 
 #define IS_F4 (0x00)  //ʹ��can
 #define IS_H7 (0x01)//ʹ��fdcan
@@ -44,7 +45,7 @@ RM_FDorCAN_RxFifo0PendingCallback ԭcan����facan�Ľ��ջص���
  #define FDorCAN_ID(x) (x.StdId)
 	#define RM_FDorCAN_Filter_Init             RM_CAN_Filter_Init()
  #define RM_FDorCAN_Init(x)                    			RM_Can_Init()
- #define RM_FDorCAN_Send(x,ID,s_data,pTxMailbox)          RM_Can_Send(x,ID,s_data,pTxMailbox)
+ #define RM_FDorCAN_Send(x,ID,s_data,pTxMailbox)          Can_Send(x,ID,s_data,pTxMailbox)
 #elif (RM_IS_HAL_FDorCAN == RM_IS_HAL_FDCAN)
  #define RM_FDorCAN_HandleTypeDef           FDCAN_HandleTypeDef
  #define RM_FDorCAN_RxHeaderTypeDef         FDCAN_RxHeaderTypeDef

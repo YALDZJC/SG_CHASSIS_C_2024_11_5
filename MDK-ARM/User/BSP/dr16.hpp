@@ -76,5 +76,3 @@ public:
   //遥控器数据解析
   static void Parse(UART_HandleTypeDef *huart, int Size);
 };
-
-static RM_Clicker dr16;

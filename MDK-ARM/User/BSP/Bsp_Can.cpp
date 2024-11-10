@@ -1,50 +1,51 @@
 #include "Bsp_Can.hpp"
 #include "My_hal.hpp"
 
-void F4_CAN::Filter_Init()
+void CAN_Filter_Init()
 {
   	CAN_FilterTypeDef Filter;
-	Filter.FilterActivation = CAN_FILTER_ENABLE;//Ê¹ÄÜ¹ýÂËÆ÷
-	Filter.FilterBank = 0;//Í¨µÀ
-	Filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;//»º³åÆ÷
-	Filter.FilterIdHigh = 0x0;//¸ß16
-	Filter.FilterIdLow = 0x0;//µÍ16
-	Filter.FilterMaskIdHigh = 0x0;//¸ß16
-	Filter.FilterMaskIdLow = 0x0;//µÍ16
-	Filter.FilterMode = CAN_FILTERMODE_IDMASK;//ÑÚÂë
+	Filter.FilterActivation = CAN_FILTER_ENABLE;//Ê¹ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	Filter.FilterBank = 0;//Í¨ï¿½ï¿½
+	Filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	Filter.FilterIdHigh = 0x0;//ï¿½ï¿½16
+	Filter.FilterIdLow = 0x0;//ï¿½ï¿½16
+	Filter.FilterMaskIdHigh = 0x0;//ï¿½ï¿½16
+	Filter.FilterMaskIdLow = 0x0;//ï¿½ï¿½16
+	Filter.FilterMode = CAN_FILTERMODE_IDMASK;//ï¿½ï¿½ï¿½ï¿½
 	Filter.FilterScale = CAN_FILTERSCALE_32BIT;
 	Filter.SlaveStartFilterBank = 14;	
 	HAL_CAN_ConfigFilter(&hcan1,&Filter);
-	Filter.FilterBank = 14;//Í¨µÀ
+	Filter.FilterBank = 14;//Í¨ï¿½ï¿½
 	Filter.SlaveStartFilterBank = 28;	
 	HAL_CAN_ConfigFilter(&hcan2,&Filter);
 }
  
-void F4_CAN::Can_Init()
+void Can_Init()
 {
-	//¿ªÆôcan1
+	CAN_Filter_Init();
+	//ï¿½ï¿½ï¿½ï¿½can1
 	HAL_CAN_Start(&hcan1);
-	//ÉèÖÃÖÐ¶Ï
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 	HAL_CAN_ActivateNotification(&hcan1,CAN_IT_RX_FIFO0_MSG_PENDING);
-	//¿ªÆôcan2
+	//ï¿½ï¿½ï¿½ï¿½can2
 	HAL_CAN_Start(&hcan2);
-	//ÉèÖÃÖÐ¶Ï
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 	HAL_CAN_ActivateNotification(&hcan2,CAN_IT_RX_FIFO0_MSG_PENDING);
 }
 
-void F4_CAN::Can_Send(CAN_HandleTypeDef* han,uint32_t StdId,uint8_t* s_data,uint32_t pTxMailbox)
+void Can_Send(CAN_HandleTypeDef* han,uint32_t StdId,uint8_t* s_data,uint32_t pTxMailbox)
 {
 	CAN_TxHeaderTypeDef TxHeader;
-	TxHeader.DLC = 8;//³¤¶È
-	TxHeader.ExtId = 0;//À©Õ¹id
-	TxHeader.IDE = CAN_ID_STD;//±ê×¼
-	TxHeader.RTR = CAN_RTR_DATA;//Êý¾ÝÖ¡
+	TxHeader.DLC = 8;//ï¿½ï¿½ï¿½ï¿½
+	TxHeader.ExtId = 0;//ï¿½ï¿½Õ¹id
+	TxHeader.IDE = CAN_ID_STD;//ï¿½ï¿½×¼
+	TxHeader.RTR = CAN_RTR_DATA;//ï¿½ï¿½ï¿½ï¿½Ö¡
 	TxHeader.StdId = StdId;//id
 	TxHeader.TransmitGlobalTime = DISABLE;
 	
 	if(HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 0)
 	{
-		//·¢ËÍÓÊÏä
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		HAL_CAN_AddTxMessage(han,&TxHeader,s_data,&pTxMailbox);
 	}
 }

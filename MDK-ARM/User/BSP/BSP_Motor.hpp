@@ -23,8 +23,9 @@ typedef struct
 	uint8_t Data[8];
 }Motor_send_data_t;
 
-typedef struct 
+class Motor_t
 {
+public:
     int16_t address;//地址
 	float Data[4];//数据
 	float LastData[4];//历史数据
@@ -33,7 +34,7 @@ typedef struct
 	bool  InitFlag;//初始化标记
 	bool  DirFlag;//死亡标记
 	RM_StaticTime dirTime;//运行时间
-}Motor_t;	//电机
+};	//电机
 
 class RM_Motor
 {
@@ -43,20 +44,30 @@ protected:
     uint8_t idxs[_Motor_ID_IDX_BIND_SIZE_];	//电机最大个数
 
 	void _Motor_ID_IDX_BIND_(uint8_t* ids,uint8_t size);	//电机绑定
-  	uint8_t ISDir();	//断连
 	uint8_t Motor_Data;
 
 public:
 	//电机数据
     Motor_t* motorData;	
+		Motor_send_data_t* Motor_send_data;
+
+  	uint8_t ISDir();	//断连
+
 	//获取对应下标
 	int GET_Motor_ID_ADDRESS_BIND_(int address);	
+	//获取数据
+    inline float GetMotorData(int16_t address, Motor_Data_Type DataType)
+    {
+        return this->motorData[GET_Motor_ID_ADDRESS_BIND_(address)].Data[DataType];
+    }
+	//获取上一数据
+    inline float GetMotorLastData(int16_t address, Motor_Data_Type DataType)
+    {
+        return this->motorData[GET_Motor_ID_ADDRESS_BIND_(address)].LastData[DataType];
+    }
+
 	//数据解析
     virtual void Parse(CAN_RxHeaderTypeDef  RxHeader,uint8_t RxHeaderData[]) = 0;
-    // 通用获取电机数据的方法
-    virtual float GetMotorData(int16_t address, Motor_Data_Type DataType) = 0;
-	//获取类型
-	virtual inline Motor_t *GetMotor(int16_t address) = 0;
 };
 
 
