@@ -668,6 +668,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\Algorithm\PID.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Wheel.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\Algorithm\Wheel.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

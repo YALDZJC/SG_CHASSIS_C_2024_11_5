@@ -33,7 +33,7 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
 
 	// 温度
 	this->motorData[idx].Data[Temperature] = (float)((int16_t)(RxHeaderData[6]));
-	
+
     //数据累加
 	if(this->motorData[idx].LastData[Angle] != this->motorData[idx].Data[Angle] && this->motorData[idx].LastData[Angle] != -1)
 	{
@@ -88,5 +88,4 @@ void setMSD(Motor_send_data_t* msd,int16_t data,int id)
 	msd->Data[(id - 1) * 2] = data >> 8;
   msd->Data[(id - 1) * 2 + 1] = data << 8 >> 8;	
 }
-
 

@@ -28,10 +28,10 @@ int RM_Motor::GET_Motor_ID_ADDRESS_BIND_(int address)
 uint8_t RM_Motor::ISDir()
 {
 	bool is_dir = 0;
-  for (int i = 0; i < this->MotorSize; i++)
-  {
-    is_dir |= this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].DirFlag = 
-			this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].dirTime.ISDir(10);
-  }
-  return is_dir;
+	for (int i = 0; i < this->MotorSize; i++)
+	{
+	  is_dir |= this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].DirFlag = 
+				this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].dirTime.ISDir(10);
+	}
+	return is_dir;
 }
