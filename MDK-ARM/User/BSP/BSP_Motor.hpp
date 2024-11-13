@@ -8,11 +8,11 @@
 #define _Motor_ID_IDX_BIND_SIZE_ 5
 
 //为抽象类定义的枚举，让枚举作为传参，在子类中实现具体枚举
+//这是C++中的重载特性
 enum Equip_Data_Type
 {
 
 };
-
 
 //电机发送数据
 typedef struct 
@@ -23,7 +23,7 @@ typedef struct
 class Motor_t
 {
 public:
-    int16_t address;//地址
+  int16_t address;//地址
 	float Data[4];//数据
 	float LastData[4];//历史数据
 	float AddData;//累加数据
@@ -46,7 +46,7 @@ protected:
 public:
 	//电机数据
     Motor_t* motorData;	
-		Motor_send_data_t* Motor_send_data;
+	Motor_send_data_t* Motor_send_data;
 
   	uint8_t ISDir();	//断连
 
@@ -62,8 +62,9 @@ public:
 	{
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].LastData[DataType];
 	}
+	
 	//数据解析
-    void Parse(CAN_RxHeaderTypeDef  RxHeader,uint8_t RxHeaderData[]);
+    virtual void Parse(CAN_RxHeaderTypeDef  RxHeader,uint8_t RxHeaderData[]) = 0;
 };
 
 

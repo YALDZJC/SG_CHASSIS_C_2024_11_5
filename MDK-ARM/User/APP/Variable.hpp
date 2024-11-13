@@ -2,6 +2,8 @@
 #include "dr16.hpp"
 #include "PID.hpp"
 #include "My_hal.hpp"
+#include "Wheel.hpp"
+
 //发送id
 #define SEND_MOTOR_ID_2006 (0x200)
 #define SEND_MOTOR_ID_3508 (0x200)
@@ -19,7 +21,7 @@
 
 //数量
 #define _Motor2006_SIZE 1
-#define _Motor3508_SIZE 4
+#define _Motor3508_SIZE 1
 #define _Motor6020_SIZE 1
 
 extern Motor_t _Motor2006_[_Motor2006_SIZE];
@@ -46,6 +48,8 @@ extern PID DEMO_6020_IN;
 extern TD td_speed;
 
 extern RM_Clicker dr16;
+
+extern Wheel<Mecanum> mecanumWheel;
 
 //发送6020数据
 void Send_6020_CAN();

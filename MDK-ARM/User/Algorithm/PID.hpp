@@ -52,18 +52,15 @@ private:
   /* data */
 public:
 	Pid_t pid;
-	PID()
+	PID(double Ierror = 0)
 	{
+		this->pid.Break_I = Ierror;
 		this->pid.td_e.r = 100;
 	}
-	//积分上限和变速积分
-	void SetMixI(double maxi,double IerrorA,double IerrorB);
 	//位置式pid获取
 	double GetPidPos(Kpid_t kpid,double cin,double feedback,double max);
 	//清除pid
 	void clearPID();
 	//清除增量
 	void PidRstDelta();
-	//增量式pid获取
-	double GetPidDelta(Kpid_t kpid,double cin,double feedback,double max);
 };

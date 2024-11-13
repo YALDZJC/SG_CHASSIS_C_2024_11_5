@@ -19,9 +19,14 @@ Dji_Motor::Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t* MotorAddress,u
 //初始数据解算
 void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData[])
 {
-    if(!(FDorCAN_ID(RxHeader) >= 0x200 && FDorCAN_ID(RxHeader) <= 0x208) || this->MotorSize == 0)return;	
+    if(!(FDorCAN_ID(RxHeader) >= 0x200 && FDorCAN_ID(RxHeader) <= 0x208) || this->MotorSize == 0)
+		return;	
+
 	int idx = GET_Motor_ID_ADDRESS_BIND_(FDorCAN_ID(RxHeader));
-	if(idx == -1)return;//如果超越数组大小，或者不存在id
+
+	if(idx == -1)
+		return;//如果超越数组大小，或者不存在id
+		
 	this->motorData[idx].DirFlag = this->motorData[idx].dirTime.ISDir(10);
 
 	// 数据解析
