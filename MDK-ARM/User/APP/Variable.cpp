@@ -1,7 +1,6 @@
 #include "Variable.hpp"
 #include "My_hal.hpp"
 
-
 //发送6020数据
 void Send_6020_CAN()
 {
@@ -18,6 +17,9 @@ Motor_t _Motor6020_[_Motor6020_SIZE] = { 0 };uint8_t _Motor6020_ID_[_Motor6020_S
 Dji_Motor Motor2006(0x200, _Motor2006_SIZE, _Motor2006_, _Motor2006_ID_);
 Dji_Motor Motor3508(0x200, _Motor3508_SIZE, _Motor3508_, _Motor3508_ID_);
 Dji_Motor Motor6020(0x204, _Motor6020_SIZE, _Motor6020_, _Motor6020_ID_);
+
+Motor_t _Motor4310_[_DM4310_SIZE] = { 0 }; uint8_t _Motor4310_ID_[_DM4310_SIZE] = { 1 }; uint8_t _Motor4310_SendID_[_DM4310_SIZE] = { 1 };
+DM_Motor Motor4310(0x00, _DM4310_SIZE, _Motor4310_, _Motor4310_ID_, _Motor4310_SendID_);
 
 Kpid_t K_DEMO_6020(0, 0, 0);
 PID DEMO_6020(0);

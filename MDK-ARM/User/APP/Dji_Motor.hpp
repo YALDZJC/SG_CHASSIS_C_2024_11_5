@@ -7,11 +7,11 @@
 //电机反馈数据枚举，分别是转角，速度，转矩，温度，外加一个停止模式
 enum Dji_Data
 {
-	Angle = 0x00,
-	Speed = 0x01,
-	Torque = 0x02,
-	Temperature = 0x03,
-	Stop = 0x04,
+	Dji_Angle = 0x00,
+	Dji_Speed = 0x01,
+	Dji_Torque = 0x02,
+	Dji_Temperature = 0x03,
+	Dji_Stop = 0x04,
 };
 
 class Dji_Motor : public RM_Motor 

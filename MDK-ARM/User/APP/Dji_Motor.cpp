@@ -19,7 +19,7 @@ Dji_Motor::Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t* MotorAddress,u
 //初始数据解算
 void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData[])
 {
-    if(!(FDorCAN_ID(RxHeader) >= 0x200 && FDorCAN_ID(RxHeader) <= 0x208) || this->MotorSize == 0)
+    if(!(FDorCAN_ID(RxHeader) >= this->init_address && FDorCAN_ID(RxHeader) <= this->init_address + 10) || this->MotorSize == 0)
 		return;	
 
 	int idx = GET_Motor_ID_ADDRESS_BIND_(FDorCAN_ID(RxHeader));
@@ -30,20 +30,21 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
 	this->motorData[idx].DirFlag = this->motorData[idx].dirTime.ISDir(10);
 
 	// 数据解析
-	this->motorData[idx].Data[Angle] = (float)((int16_t)(RxHeaderData[0] << 8 | RxHeaderData[1]));
+	this->motorData[idx].Data[Dji_Angle] = (float)((int16_t)(RxHeaderData[0] << 8 | RxHeaderData[1]));
 
 	// 转子速度
-	this->motorData[idx].Data[Speed] = (float)((int16_t)(RxHeaderData[2] << 8 | RxHeaderData[3]));
-	this->motorData[idx].Data[Torque] = (float)((int16_t)(RxHeaderData[4] << 8 | RxHeaderData[5]));
+	this->motorData[idx].Data[Dji_Speed] = (float)((int16_t)(RxHeaderData[2] << 8 | RxHeaderData[3]));
+	this->motorData[idx].Data[Dji_Torque] = (float)((int16_t)(RxHeaderData[4] << 8 | RxHeaderData[5]));
 
 	// 温度
-	this->motorData[idx].Data[Temperature] = (float)((int16_t)(RxHeaderData[6]));
+	this->motorData[idx].Data[Dji_Temperature] = (float)((int16_t)(RxHeaderData[6]));
 
     //数据累加
-	if(this->motorData[idx].LastData[Angle] != this->motorData[idx].Data[Angle] && this->motorData[idx].LastData[Angle] != -1)
+	if(this->motorData[idx].LastData[Dji_Angle] != this->motorData[idx].Data[Dji_Angle] && this->motorData[idx].LastData[Dji_Angle] != -1)
 	{
-		int lastData = this->motorData[idx].LastData[Angle];
-		int Data = this->motorData[idx].Data[Angle];
+		int lastData = this->motorData[idx].LastData[Dji_Angle];
+		int Data = this->motorData[idx].Data[Dji_Angle];
+		
 		if(Data - lastData < -4000)//正转
 			this->motorData[idx].AddData += (8191 - lastData + Data);
 		else if(Data - lastData > 4000)//反转
@@ -54,14 +55,14 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData
 
 	//数据上一次更新
 	//数据解析
-	this->motorData[idx].LastData[Angle] = this->motorData[idx].Data[Angle];
+	this->motorData[idx].LastData[Dji_Angle] = this->motorData[idx].Data[Dji_Angle];
 	//转子速度
-	this->motorData[idx].LastData[Speed] = this->motorData[idx].Data[Speed];
-	this->motorData[idx].LastData[Torque] = this->motorData[idx].Data[Torque];
+	this->motorData[idx].LastData[Dji_Speed] = this->motorData[idx].Data[Dji_Speed];
+	this->motorData[idx].LastData[Dji_Torque] = this->motorData[idx].Data[Dji_Torque];
 	//初始化数据
 	if(this->motorData[idx].InitFlag == 0)
 	{
-		this->motorData[idx].InitData = this->motorData[idx].Data[Angle];
+		this->motorData[idx].InitData = this->motorData[idx].Data[Dji_Angle];
 		this->motorData[idx].InitFlag = 1;
 	}
     //更新时间

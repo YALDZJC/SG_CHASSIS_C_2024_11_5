@@ -23,13 +23,14 @@ typedef struct
 class Motor_t
 {
 public:
-  int16_t address;//地址
+  	int16_t address;//地址
 	float Data[4];//数据
 	float LastData[4];//历史数据
 	float AddData;//累加数据
 	int16_t InitData;//初始化数据
 	bool  InitFlag;//初始化标记
 	bool  DirFlag;//死亡标记
+	int16_t Send_ID;	//达妙电机会用到，dji电机因为发送id与接收id一样，所以不用写
 	RM_StaticTime dirTime;//运行时间
 };	//电机
 

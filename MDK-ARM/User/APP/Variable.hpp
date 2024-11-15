@@ -3,6 +3,7 @@
 #include "PID.hpp"
 #include "My_hal.hpp"
 #include "Wheel.hpp"
+#include "Dm_Motor.hpp"
 
 //发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -24,17 +25,12 @@
 #define _Motor3508_SIZE 1
 #define _Motor6020_SIZE 1
 
-extern Motor_t _Motor2006_[_Motor2006_SIZE];
-extern uint8_t _Motor2006_ID_[_Motor2006_SIZE];
-extern Motor_t _Motor3508_[_Motor3508_SIZE];
-extern uint8_t _Motor3508_ID_[_Motor3508_SIZE];
-extern Motor_t _Motor6020_[_Motor6020_SIZE];
-extern uint8_t _Motor6020_ID_[_Motor6020_SIZE];
+#define _DM4310_SIZE 1
 
 extern Dji_Motor Motor2006;
 extern Dji_Motor Motor3508;
 extern Dji_Motor Motor6020;
-
+extern DM_Motor Motor4310;
 //提供一个默认数据变量
 extern Motor_send_data_t msd_6020;
 extern Motor_send_data_t msd_3508_2006;
