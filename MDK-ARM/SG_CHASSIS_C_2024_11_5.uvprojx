@@ -663,6 +663,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\APP\Variable.cpp</FilePath>
             </File>
+            <File>
+              <FileName>State.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\State.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

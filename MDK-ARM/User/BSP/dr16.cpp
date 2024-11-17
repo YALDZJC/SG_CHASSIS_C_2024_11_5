@@ -34,7 +34,8 @@ RC_Ctl_t RM_Clicker::ParseData()
 	RC_CtrlData.mouse.press_l = pData[12];
 	RC_CtrlData.mouse.press_r = pData[13];
 	RC_CtrlData.key.v = ((int16_t)pData[14]) | ((int16_t)pData[15] << 8);
-	
+	RC_CtrlData.rc.sw = ((int16_t)pData[16]) | ((int16_t)pData[17] << 8) ;
+
 	return RC_CtrlData;
 }
 

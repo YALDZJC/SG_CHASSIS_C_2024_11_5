@@ -26,6 +26,7 @@
 #define RC_LY                      (int16_t)(RM_Clicker::RC_Ctl.rc.ch3 - 1024)
 #define RC_RX                      (int16_t)(RM_Clicker::RC_Ctl.rc.ch0 - 1024)
 #define RC_RY                      (int16_t)(RM_Clicker::RC_Ctl.rc.ch1 - 1024)
+#define RC_SW                      (int16_t)(RM_Clicker::RC_Ctl.rc.sw - 1024)
 
 #define ClickerHuart huart3
 //结构体
@@ -39,6 +40,7 @@ typedef struct
 	 uint16_t ch3;
 	 uint8_t s1;
 	 uint8_t s2;
+	 uint16_t sw;
  }rc;
  struct 
  {

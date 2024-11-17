@@ -48,5 +48,3 @@ void SG::UpDate(float vx,float vy,float vw,float MaxSpeed)//speed最大速度
 	this->angle[3] = atan2(tempvx[3] , tempvy[3]) * 180 / 3.14 * 8191 / 360;
 }
 
-
-    
