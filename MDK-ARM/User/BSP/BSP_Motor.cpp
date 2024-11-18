@@ -1,5 +1,4 @@
 #include "BSP_Motor.hpp"
-
 void RM_Motor::_Motor_ID_IDX_BIND_(uint8_t* ids,uint8_t size)
 {
 	uint8_t idxs[_Motor_ID_IDX_BIND_SIZE_];

@@ -12,7 +12,26 @@ void CommunicationTask(void* argument);
 }
 #endif
 
-/***************************云台到底盘数据*********************************/
+class Communicat_Data
+{
+public:
+	Communicat_Data(uint16_t size)
+	{
+		size_ = size;
+		data_ = new uint16_t[size_];
+	}
+	~Communicat_Data()
+	{
+		delete[] data_;
+	}
+
+protected:
+    
+private:
+	uint16_t* data_;
+	uint16_t size_;
+};
+
 struct Gimbal_to_Chassis_Data_t
 {
 	uint8_t head;//帧头

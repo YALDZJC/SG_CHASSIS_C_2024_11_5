@@ -20,8 +20,8 @@
 	#define Universal   ((L_MODE1 && R_MODE1) || (L_MODE1 && R_MODE2) || (L_MODE1 && R_MODE3))//（1）万向模式
 	#define Follow      (L_MODE2 && R_MODE1) || (L_MODE2 && R_MODE3)//（2）底盘跟随
 	#define Rotating    (L_MODE3 && R_MODE1) || (L_MODE3 && R_MODE2)//（3）小陀螺
-    #define KeyBoard    (L_MODE2 && L_MODE2)    //（4键鼠模式）
-    #define Stop        (L_MODE3 && L_MODE3)    //（5停止模式）
+    #define KeyBoard    (L_MODE2 && R_MODE2)    //（4键鼠模式）
+    #define Stop        (L_MODE3 && R_MODE3)    //（5停止模式）
 
 #elif CONTROL_SIG == 1
 	#define stop_mode (Gimbal_to_Chassis_Data.stop)//（9）
