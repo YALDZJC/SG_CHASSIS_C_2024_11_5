@@ -56,4 +56,15 @@ RM_FDorCAN_RxFifo0PendingCallback ԭcan����facan�Ľ��ջص���
  #define RM_FDorCAN_Send(x,ID,s_data)          RM_FDCan_Send(x,ID,s_data)
 #endif
 
+
+
+
 /**************************************************************************/
+#include "HAL.hpp"
+
+class My_hal : public HAL
+{
+public:
+	My_hal() = default;
+	
+};
