@@ -10,7 +10,6 @@ bool HAL::check()
 {
     return hal != nullptr;
 }
-
 bool HAL::inject(HAL *_hal)
 {
     if (_hal == nullptr)
@@ -30,4 +29,5 @@ void HAL::destroy()
     delete hal;
     hal = nullptr;
 }
+
 

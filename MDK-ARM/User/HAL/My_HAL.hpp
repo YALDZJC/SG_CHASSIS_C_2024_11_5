@@ -26,16 +26,6 @@
 #define RM_IS_HAL_FDCAN (0x01) // ʹ��fdcan
 
 #define RM_IS_HAL_FDorCAN (RM_IS_HAL_CAN) // ����ʹ��facan����can
-/*
-RM_FDorCAN_HandleTypeDef ԭcan����facan�Ľṹ��
-RM_FDorCAN_RxHeaderTypeDef ԭcan����facan�Ľ��սṹ��
-RM_FDorCAN_TxHeaderTypeDef ԭcan����facan�ķ��ͽṹ��
-FDorCAN_ID ԭcan����facan��id
-RM_FDorCAN_Filter_Init ����������
-RM_FDorCAN_Init ��ʼ��
-RM_FDorCAN_Send ���ͺ���
-RM_FDorCAN_RxFifo0PendingCallback ԭcan����facan�Ľ��ջص�������ע�⣺����������һ��!!!
-*/
 
 /*ʵ��fdcan��can�޷��л�*/
 #if (RM_IS_HAL_FDorCAN == RM_IS_HAL_CAN)
@@ -61,11 +51,21 @@ RM_FDorCAN_RxFifo0PendingCallback ԭcan����facan�Ľ��ջص���
 
 class My_hal : public HAL
 {
+private:
+	void _timer_init();
+	void _dr16_init();
+	void _can_init();
+	void _referee_init();
+	void _darw_graphic_init();
+	void _capactal_init();
+
 public:
 	My_hal() = default;
 
 public:
 	void _delay(unsigned long _mill) override;
+
+	void _osDelay(unsigned long _mill) override;
 
 	unsigned long _GetTick() override;
 
@@ -74,4 +74,17 @@ public:
 	float _cosf(float x) override;
 
 	float _sqrt(float in, float pOut) override;
+
+public:
+	inline void init() override
+	{
+		_timer_init();
+		_dr16_init();
+		_can_init();
+		_referee_init();
+		_darw_graphic_init();
+		_capactal_init();
+	}
+
 };
+

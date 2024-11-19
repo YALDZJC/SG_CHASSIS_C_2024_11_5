@@ -2,11 +2,14 @@
 #include "cmsis_os2.h"
 #include "Bsp_Can.hpp"
 #include "Variable.hpp"
+#include "HAL.hpp"
 
 float tar_angle;
 
 float pos;
 float speed;
+float pi = 3.1415926;
+float hz;
 void ChassisTask(void* argument) 
 {
   for (;;) 
@@ -26,8 +29,11 @@ void ChassisTask(void* argument)
 
 		// setMSD(&msd_6020, DEMO_6020_IN.pid.cout, 1);
 		// pos = Motor6020.GetEquipData(0x205, Angle);
+		pos = HAL::sinf(2*pi*hz);
+		hz+=0.001;
+
 		Send_6020_CAN();
     
-		osDelay(1);
+		HAL::osDelay(1);
   }
 }

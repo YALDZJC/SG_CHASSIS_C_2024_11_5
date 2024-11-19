@@ -2,6 +2,7 @@
 #include "cmsis_os2.h"
 #include "Variable.hpp"
 #include "State.hpp"
+
 #define SIZE 8
 
 uint8_t format[8] = {0XAA};
@@ -44,6 +45,6 @@ void CommunicationTask(void *argument)
 			Gimbal_to_Chassis_Data.Rotating_t = (bool)(format[5] & 0x10) | (bool)(format[5] & 0x08); // 小陀螺
 		}
 
-		osDelay(1);
+		HAL::osDelay(1);
 	}
 }

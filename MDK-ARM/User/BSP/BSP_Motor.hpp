@@ -30,7 +30,7 @@ public:
 	int16_t InitData;	//初始化数据
 	bool  InitFlag;		//初始化标记
 	bool  DirFlag;		//死亡标记
-	int16_t Send_ID;	//达妙电机会用到，dji电机因为发送id与接收id一样，所以不用写
+	int16_t Send_ID;	//达妙电机会用到，dji电机不用写
 	RM_StaticTime dirTime;//运行时间
 };	//电机
 

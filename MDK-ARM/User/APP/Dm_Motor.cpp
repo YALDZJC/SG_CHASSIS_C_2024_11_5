@@ -90,6 +90,54 @@ void DM_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef  RxHeader, uint8_t RxHeaderData[
     this->motorData[idx].dirTime.UpLastTime();
 }
 
+/**
+ * @brief 利用C++函数重载特性，可以实现一句函数实现三种模式
+ * 
+ * @param hcan 
+ * @param _pos 
+ * @param _vel 
+ * @param _KP 
+ * @param _KD 
+ * @param _torq 
+ */
+void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef *hcan, float _pos, float _vel, float _KP, float _KD, float _torq)
+{
+    uint16_t pos_tmp, vel_tmp, kp_tmp, kd_tmp, tor_tmp;
+    pos_tmp = float_to_uint(_pos, P_MIN, P_MAX, 16);
+    vel_tmp = float_to_uint(_vel, V_MIN, V_MAX, 12);
+    kp_tmp = float_to_uint(_KP, KP_MIN, KP_MAX, 12);
+    kd_tmp = float_to_uint(_KD, KD_MIN, KD_MAX, 12);
+    tor_tmp = float_to_uint(_torq, T_MIN, T_MAX, 12);
+
+    this->send_data[0] = (pos_tmp >> 8);
+    this->send_data[1] = (pos_tmp);
+    this->send_data[2] = (vel_tmp >> 4);
+    this->send_data[3] = ((vel_tmp & 0xF) << 4) | (kp_tmp >> 8);
+    this->send_data[4] = kp_tmp;
+    this->send_data[5] = (kd_tmp >> 4);
+    this->send_data[6] = ((kd_tmp & 0xF) << 4) | (tor_tmp >> 8);
+    this->send_data[7] = tor_tmp;
+
+    RM_FDorCAN_Send(hcan, this->motorData[this->Date_IDX].Send_ID, this->send_data, CAN_TX_MAILBOX1); // 发送
+}
+
+void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef *hcan, float _vel, float _pos)
+{
+
+    uint8_t *pbuf, *vbuf;
+    pbuf = (uint8_t *)&_pos;
+    vbuf = (uint8_t *)&_vel;
+    this->send_data[0] = *pbuf;
+    this->send_data[1] = *(pbuf + 1);
+    this->send_data[2] = *(pbuf + 2);
+    this->send_data[3] = *(pbuf + 3);
+    this->send_data[4] = *vbuf;
+    this->send_data[5] = *(vbuf + 1);
+    this->send_data[6] = *(vbuf + 2);
+    this->send_data[7] = *(vbuf + 3);
+
+    RM_FDorCAN_Send(hcan, this->motorData[this->Date_IDX].Send_ID, this->send_data, CAN_TX_MAILBOX1); // 发送
+}
 void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef* hcan, float _vel)
 {
   uint8_t *vbuf;
@@ -98,44 +146,7 @@ void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef* hcan, float _vel)
   this->send_data[1] = *(vbuf+1);
   this->send_data[2] = *(vbuf+2);
   this->send_data[3] = *(vbuf+3);
-	
 }
 
-void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef* hcan, float _vel, float _pos)
-{
 
-  uint8_t *pbuf,*vbuf;
-  pbuf = (uint8_t*)&_pos;
-  vbuf = (uint8_t*)&_vel;
-  this->send_data[0] = *pbuf;
-  this->send_data[1] = *(pbuf+1);
-  this->send_data[2] = *(pbuf+2);
-  this->send_data[3] = *(pbuf+3);
-  this->send_data[4] = *vbuf;
-  this->send_data[5] = *(vbuf+1);
-  this->send_data[6] = *(vbuf+2);
-  this->send_data[7] = *(vbuf+3);
-	
-    RM_FDorCAN_Send(hcan, this->motorData[this->Date_IDX].Send_ID, this->send_data, CAN_TX_MAILBOX1);//发送
-}
 
-void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef* hcan, float _pos, float _vel,float _KP, float _KD, float _torq)
-{
-  uint16_t pos_tmp,vel_tmp,kp_tmp,kd_tmp,tor_tmp;
-  pos_tmp = float_to_uint(_pos, P_MIN, P_MAX, 16);
-  vel_tmp = float_to_uint(_vel, V_MIN, V_MAX, 12);
-  kp_tmp  = float_to_uint(_KP,  KP_MIN,KP_MAX,12);
-  kd_tmp  = float_to_uint(_KD,  KD_MIN,KD_MAX,12);
-  tor_tmp = float_to_uint(_torq,T_MIN, T_MAX, 12);
-
-  this->send_data[0] = (pos_tmp >> 8);
-  this->send_data[1] = (pos_tmp);
-  this->send_data[2] = (vel_tmp >> 4);
-  this->send_data[3] = ((vel_tmp&0xF)<<4)|(kp_tmp>>8);
-  this->send_data[4] = kp_tmp;
-  this->send_data[5] = (kd_tmp >> 4);
-  this->send_data[6] = ((kd_tmp&0xF)<<4)|(tor_tmp>>8);
-  this->send_data[7] = tor_tmp;  
-	
-    RM_FDorCAN_Send(hcan, this->motorData[this->Date_IDX].Send_ID, this->send_data, CAN_TX_MAILBOX1);//发送
-}
