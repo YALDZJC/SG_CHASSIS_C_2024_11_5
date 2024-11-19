@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;./User/APP;./User/BSP;./User/Algorithm;C:\Users\Administrator.DESKTOP-IAACAVF\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;./User/APP;./User/BSP;./User/Algorithm;C:\Users\Administrator.DESKTOP-IAACAVF\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include;.\User\HAL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -694,9 +694,9 @@
               <FilePath>.\User\HAL\HAL.cpp</FilePath>
             </File>
             <File>
-              <FileName>MyHAL.cpp</FileName>
+              <FileName>My_HAL.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\User\HAL\MyHAL.cpp</FilePath>
+              <FilePath>.\User\HAL\My_HAL.cpp</FilePath>
             </File>
           </Files>
         </Group>
