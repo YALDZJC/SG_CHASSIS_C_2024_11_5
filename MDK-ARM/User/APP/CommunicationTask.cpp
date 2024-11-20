@@ -4,6 +4,7 @@
 #include "State.hpp"
 
 #define SIZE 8
+Gimbal_to_Chassis_Data_t Gimbal_to_Chassis_Data;
 
 uint8_t format[8] = {0XAA};
 void CommunicationTask(void *argument)
@@ -45,6 +46,6 @@ void CommunicationTask(void *argument)
 			Gimbal_to_Chassis_Data.Rotating_t = (bool)(format[5] & 0x10) | (bool)(format[5] & 0x08); // 小陀螺
 		}
 
-		HAL::osDelay(1);
+		osDelay(1);
 	}
 }

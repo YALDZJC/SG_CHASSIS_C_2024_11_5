@@ -5,6 +5,6 @@ void RefeeTask(void* argument) {
   for (;;) 
 	{
 		
-		HAL::osDelay(1);
+		osDelay(1);
   }
 }

@@ -34,6 +34,6 @@ void ChassisTask(void* argument)
 
 		Send_6020_CAN();
     
-		HAL::osDelay(1);
+		osDelay(1);
   }
 }

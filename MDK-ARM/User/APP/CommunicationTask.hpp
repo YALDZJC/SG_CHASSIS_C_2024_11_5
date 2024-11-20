@@ -76,4 +76,4 @@ struct Gimbal_to_Chassis_Data_t
 	bool dir;
 };
 //数据
-Gimbal_to_Chassis_Data_t Gimbal_to_Chassis_Data; 
+extern Gimbal_to_Chassis_Data_t Gimbal_to_Chassis_Data; 
