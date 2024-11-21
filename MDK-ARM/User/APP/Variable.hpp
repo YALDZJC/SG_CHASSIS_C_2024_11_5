@@ -41,7 +41,10 @@ extern Kpid_t K_DEMO_6020_IN;
 extern PID DEMO_6020_IN;
 
 extern TD td_speed;
-
+extern TD td_vw;
+extern TD td_vx;
+extern TD td_vy;
+extern TD td_zero;
 extern RM_Clicker dr16;
 
 extern Wheel<Mecanum> mecanumWheel;

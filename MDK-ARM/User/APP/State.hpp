@@ -1,7 +1,12 @@
 #pragma once
 
+#include <memory>
 #include "stdxxx.hpp"
 #include "CommunicationTask.hpp"
+#include <map>
+#include <string>
+#include "dr16.hpp"
+#include "PID.hpp"
 
 #define L_MODE1 (RM_Clicker::RC_Ctl.rc.s1 == 1) // 底盘动作
 #define L_MODE2 (RM_Clicker::RC_Ctl.rc.s1 == 3) // 底盘动作
@@ -33,73 +38,105 @@
 #define Stop (Gimbal_to_Chassis_Data.stop)			   // （5停止模式）
 #endif
 
-class Task
+#define MAX_TASK 5 // 任务最大数量
+
+enum State
+{
+	Universal_State = 1,
+	Follow_State,
+	Rotating_State,
+	Stop_State
+};
+
+class ChassisState
 {
 public:
+	// 期望值
+	float tar_AGV_angle[4];
+	float tar_AGV_speed[4];
+	float Zero_crossing[4];
+
+	void Wheel_UpData();
+
+	void Tar_Updata();
+
+	void TD_Updata();
+
+	void PID_Updata();
+
 	virtual void upData() = 0;
-	virtual ~Task() = default;
+	virtual ~ChassisState() = default;
 };
 
-class Universal_mode : public Task
-{
-public:
-	void upData() ;
-};
-
-class Follow_mode : public Task
-{
-public:
-	void upData() ;
-};
-
-class Rotating_mode : public Task
-{
-public:
-	void upData() ;
-};
-
-class Stop_mode : public Task
+class Universal_mode : public ChassisState
 {
 public:
 	void upData();
 };
 
-class Chassis_task : public Task
+class Follow_mode : public ChassisState
+{
+public:
+	void upData();
+};
+
+class Rotating_mode : public ChassisState
+{
+public:
+	void upData();
+};
+
+class Stop_mode : public ChassisState
+{
+public:
+	void upData();
+};
+
+class Chassis_task
 {
 private:
-	static const uint8_t MAX_TASK = 10;
-	Task *task[MAX_TASK] = {nullptr};
-
 	uint8_t taskCount = 0;
+	std::unique_ptr<ChassisState> curState;
+	std::map<uint8_t, ChassisState *> stateMap;
 
 public:
-	bool AddTask(Task *newTask)
+	uint8_t GetState()
+	{
+		if (Universal)
+			return Universal_State;
+		else if (Follow)
+			return Follow_State;
+		else if (Rotating)
+			return Rotating_State;
+		else if (Stop)
+			return Stop_State;
+		else
+			return Stop_State;
+	}
+	bool AddState(const uint8_t &taskName, ChassisState *newTask)
 	{
 		if (taskCount < MAX_TASK)
 		{
-			this->task[taskCount] = newTask;
+			stateMap[taskName] = newTask;
 			taskCount++;
 			return true;
 		}
 		return false;
 	}
+	void setState(State newState)
+	{
+		auto it = stateMap.find(newState);
+		if (it != stateMap.end())
+		{
+			curState.reset(it->second); // 释放当前管理的对象，并接管新的对象
+		}
+	}
 	void upData()
 	{
-		if (Gimbal_to_Chassis_Data.Universal_t == true)
+		setState(static_cast<State>(GetState())); // 根据当前状态选择对应的处理函数
+		if (curState != nullptr)
 		{
-			task[0]->upData();
-		}
-		if (Gimbal_to_Chassis_Data.Follow_t == true)
-		{
-			task[1]->upData();
-		}
-		if (Gimbal_to_Chassis_Data.Rotating_t == true)
-		{
-			task[2]->upData();
-		}
-		if (Gimbal_to_Chassis_Data.Rotating_t == true)
-		{
-			task[3]->upData();
+			curState->upData();
 		}
 	}
 };

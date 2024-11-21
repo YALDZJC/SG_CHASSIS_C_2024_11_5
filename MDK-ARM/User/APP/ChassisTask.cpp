@@ -3,6 +3,7 @@
 #include "Bsp_Can.hpp"
 #include "Variable.hpp"
 #include "HAL.hpp"
+#include "State.hpp"
 
 float tar_angle;
 
@@ -29,6 +30,9 @@ void ChassisTask(void* argument)
 
 		// setMSD(&msd_6020, DEMO_6020_IN.pid.cout, 1);
 		// pos = Motor6020.GetEquipData(0x205, Angle);
+
+
+
 		pos = HAL::sinf(2*pi*hz);
 		hz+=0.001;
 
