@@ -1,6 +1,8 @@
 #include "State.hpp"
 #include "variable.hpp"
 
+
+int a;
 void ChassisState::Wheel_UpData()
 {
     mecanumWheel.WheelType.UpDate(td_vx.x1, td_vy.x1, td_vw.x1, 8191);
@@ -28,33 +30,24 @@ void ChassisState::TD_Updata()
 
 void Universal_mode::upData()
 {
-    if (Universal)
-    {
-        Wheel_UpData();
-        Tar_Updata();
-    }
+a = 0;
+    Wheel_UpData();
+    Tar_Updata();
+    
 }
 
 void Follow_mode::upData()
 {
-    if (Follow)
-    {
-
-    }
+a = 1;
 }
 
 void Rotating_mode::upData()
 {
-    if (Rotating)
-    {
-
-    }
+a = 2;
 }
 
 void Stop_mode::upData()
 {
-    if(Stop)
-    {
-
-    }
+a = 3;
 }
+

@@ -1,6 +1,7 @@
 #include "Variable.hpp"
 #include "My_hal.hpp"
 
+
 //发送6020数据
 void Send_6020_CAN()
 {
@@ -36,3 +37,6 @@ TD td_vy(40);
 TD td_zero(80);
 
 RM_Clicker dr16;
+
+Chassis_task chassis_task;
+

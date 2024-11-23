@@ -3,6 +3,7 @@
 #include "PID.hpp"
 #include "Wheel.hpp"
 #include "Dm_Motor.hpp"
+#include "State.hpp"
 
 //发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -51,3 +52,7 @@ extern Wheel<Mecanum> mecanumWheel;
 
 //发送6020数据
 void Send_6020_CAN();
+
+
+extern Chassis_task chassis_task;
+

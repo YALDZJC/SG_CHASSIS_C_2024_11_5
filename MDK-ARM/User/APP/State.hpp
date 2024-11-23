@@ -38,14 +38,14 @@
 #define Stop (Gimbal_to_Chassis_Data.stop)			   // （5停止模式）
 #endif
 
-#define MAX_TASK 5 // 任务最大数量
+#define MAX_TASK 6 // 任务最大数量
 
 enum State
 {
-	Universal_State = 1,
+	Universal_State = 0,
 	Follow_State,
 	Rotating_State,
-	Stop_State
+	Stop_State,
 };
 
 class ChassisState
@@ -92,15 +92,17 @@ public:
 	void upData();
 };
 
+
 class Chassis_task
 {
 private:
 	uint8_t taskCount = 0;
-	std::unique_ptr<ChassisState> curState;
+	State curTask;
+	ChassisState *curState;
 	std::map<uint8_t, ChassisState *> stateMap;
 
 public:
-	uint8_t GetState()
+	State GetState()
 	{
 		if (Universal)
 			return Universal_State;
@@ -113,27 +115,29 @@ public:
 		else
 			return Stop_State;
 	}
-	bool AddState(const uint8_t &taskName, ChassisState *newTask)
+	bool AddState(uint8_t &taskName, ChassisState *newTask)
 	{
-		if (taskCount < MAX_TASK)
-		{
-			stateMap[taskName] = newTask;
-			taskCount++;
-			return true;
-		}
-		return false;
+		if (taskCount >= MAX_TASK)
+		 	return false;
+
+		stateMap[taskName] = newTask;
+		taskCount++;
+
+		return true;
 	}
 	void setState(State newState)
 	{
 		auto it = stateMap.find(newState);
 		if (it != stateMap.end())
 		{
-			curState.reset(it->second); // 释放当前管理的对象，并接管新的对象
+			curState = it->second; // 直接赋值，不释放当前对象
 		}
 	}
+
 	void upData()
 	{
-		setState(static_cast<State>(GetState())); // 根据当前状态选择对应的处理函数
+		curTask = GetState();
+		setState(curTask); // 根据当前状态选择对应的处理函数
 		if (curState != nullptr)
 		{
 			curState->upData();
