@@ -1,6 +1,7 @@
 #include "HAL.hpp"
 
 HAL *HAL::hal = nullptr;
+
 HAL *HAL::get()
 {
     return hal;

@@ -21,9 +21,10 @@ public:
     //数据解析
     void Parse(CAN_RxHeaderTypeDef RxHeader,uint8_t RxHeaderData[]);
     float Zero_crossing_processing(float expectations, float feedback, float maxpos );
+    double MinPosHelm(float expectations, float feedback, float *speed, float maxspeed, float maxpos);
 
-    float GetEquipData(int16_t address, Dji_Data DataType) 
-	{
+    float GetEquipData(int16_t address, Dji_Data DataType)
+    {
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].Data[DataType];
     }
 

@@ -21,6 +21,7 @@ void My_hal::_can_init()
 {
     Can_Init();
 }
+
 void My_hal::_referee_init()
 {
 
@@ -35,8 +36,8 @@ void My_hal::_capactal_init()
 {
 
 }
-    void
-My_hal::_delay(unsigned long _mill)
+
+void My_hal::_delay(unsigned long _mill)
 {
     HAL_Delay(_mill);
 }
@@ -45,6 +46,7 @@ void My_hal::_osDelay(unsigned long _mill)
 {
     osDelay(_mill);
 }
+
 unsigned long My_hal::_GetTick()
 {
     return HAL_GetTick();

@@ -28,12 +28,12 @@ PID DEMO_6020(0);
 Kpid_t K_DEMO_6020_IN(0, 0, 0);
 PID DEMO_6020_IN(0);
 
-Wheel<Mecanum> mecanumWheel;
+Wheel_t<SG> Wheel;
 
 TD td_speed(100);
-TD td_vw(10);
-TD td_vx(40);
-TD td_vy(40);
+TD tar_vw(10);
+TD tar_vx(40);
+TD tar_vy(40);
 TD td_zero(80);
 
 RM_Clicker dr16;
