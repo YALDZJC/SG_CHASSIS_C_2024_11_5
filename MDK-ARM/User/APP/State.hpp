@@ -92,17 +92,16 @@ public:
 	void upData();
 };
 
-
 class Chassis_task
 {
 private:
 	uint8_t taskCount = 0;
-	State curTask;
-	ChassisState *curState;
-	std::map<uint8_t, ChassisState *> stateMap;
+	State curState;
+	ChassisState *curTask;	//当前状态
+	ChassisState *stateArray[MAX_TASK] = {nullptr}; // 存储状态对象
 
 public:
-	State GetState()
+	State GetState() // 判断当前状态的名称
 	{
 		if (Universal)
 			return Universal_State;
@@ -115,32 +114,31 @@ public:
 		else
 			return Stop_State;
 	}
-	bool AddState(uint8_t &taskName, ChassisState *newTask)
+
+	bool AddState(const State &taskName, ChassisState *newTask) // 设置状态的名称与对应的状态对象
 	{
 		if (taskCount >= MAX_TASK)
-		 	return false;
+			return false;
 
-		stateMap[taskName] = newTask;
+		stateArray[taskName] = newTask;
 		taskCount++;
 
 		return true;
 	}
-	void setState(State newState)
+
+	void setState(State newState) // 设置当前状态
 	{
-		auto it = stateMap.find(newState);
-		if (it != stateMap.end())
-		{
-			curState = it->second; // 直接赋值，不释放当前对象
-		}
+		curTask = stateArray[newState];
 	}
 
 	void upData()
 	{
-		curTask = GetState();
-		setState(curTask); // 根据当前状态选择对应的处理函数
-		if (curState != nullptr)
+		curState = GetState();
+		setState(curState); // 根据当前状态选择对应的处理函数
+
+		if (curTask != nullptr) // 当前状态不为空
 		{
-			curState->upData();
+			curTask->upData(); // 一键更新
 		}
 	}
 };

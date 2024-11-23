@@ -32,7 +32,7 @@ void ChassisTask(void *argument)
 		// pos = Motor6020.GetEquipData(0x205, Angle);
 
 		chassis_task.upData();
-
+		tar_angle = chassis_task.GetState();
 		pos = HAL::sinf(2 * pi * hz);
 		hz += 0.001;
 
