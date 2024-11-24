@@ -20,6 +20,9 @@ public:
 
 class SG : public Wheel_Basic
 {
+private:
+  float _speed[4];
+
 public:
   float speed[4];
   float angle[4];

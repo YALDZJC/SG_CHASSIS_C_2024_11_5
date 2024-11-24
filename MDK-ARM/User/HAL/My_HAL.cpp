@@ -5,6 +5,7 @@
 #include "BSP_Can.hpp"
 #include "tim.h"
 #include "Variable.hpp"
+#include "math.h"
 
 //初始化
 void My_hal::_timer_init()
@@ -67,3 +68,7 @@ float My_hal::_sqrt(float in, float pOut)
     return arm_sqrt_f32(in, &pOut);
 }
 
+float My_hal::_atan2(float x, float y)
+{
+    return atan2f(x, y);
+}

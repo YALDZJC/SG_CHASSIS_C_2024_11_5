@@ -60,7 +60,6 @@ private:
 	void _referee_init();
 	void _darw_graphic_init();
 	void _capactal_init();
-
 public:
 	My_hal() = default;
 
@@ -76,6 +75,8 @@ public:
 	float _cosf(float x) override;
 
 	float _sqrt(float in, float pOut) override;
+	
+	float _atan2(float x, float y) override;
 
 
 public:

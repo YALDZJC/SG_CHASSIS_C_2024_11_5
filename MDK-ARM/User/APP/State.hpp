@@ -30,7 +30,6 @@ public:
 	void PID_Updata();
 
 	virtual void upData() = 0;
-	virtual ~ChassisState() = default;
 };
 
 class Universal_mode : public ChassisState

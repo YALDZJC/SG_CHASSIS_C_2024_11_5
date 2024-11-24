@@ -10,13 +10,13 @@ void RM_Clicker::ClearORE(UART_HandleTypeDef* huart,uint8_t* pData,int Size)
 	if( __HAL_UART_GET_FLAG( huart, UART_FLAG_ORE ) != RESET )
 	{
 		__HAL_UART_CLEAR_OREFLAG( huart );
-		HAL_UARTEx_ReceiveToIdle_DMA( huart, pData, Size );
+		HAL_UARTEx_ReceiveToIdle_DMA(huart, pData, Size);
 	}
 }
 
 void RM_Clicker::Init()
 {
-	HAL_UARTEx_ReceiveToIdle_DMA(&ClickerHuart,RM_Clicker::pData,sizeof(RM_Clicker::pData));
+	HAL_UARTEx_ReceiveToIdle_DMA(&ClickerHuart, RM_Clicker::pData, sizeof(RM_Clicker::pData));
 }
 
 RC_Ctl_t RM_Clicker::ParseData()
@@ -66,7 +66,7 @@ void RM_Clicker::Parse(UART_HandleTypeDef *huart, int Size)
 		RM_Clicker::RC_Ctl = RM_Clicker::ParseData();
 		RM_Clicker::dirTime.UpLastTime();
 	}
-	HAL_UARTEx_ReceiveToIdle_DMA(&ClickerHuart,RM_Clicker::pData,sizeof(RM_Clicker::pData));
+	HAL_UARTEx_ReceiveToIdle_DMA(&ClickerHuart, RM_Clicker::pData, sizeof(RM_Clicker::pData));
 }
 
 

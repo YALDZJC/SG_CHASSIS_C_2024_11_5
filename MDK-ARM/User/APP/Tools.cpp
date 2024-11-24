@@ -1,5 +1,6 @@
 #include "Tools.hpp"
 #include "usart.h"
+
 void Tools_t::vofaSend(float x1, float x2, float x3, float x4, float x5, float x6)
 {
     const uint8_t sendSize = 4;

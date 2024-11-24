@@ -1,6 +1,9 @@
 // 提供底层驱动，主要封装各种常用函数
 #pragma once
 
+#ifndef HAL_H_
+#define HAL_H_
+
 class HAL
 {
 private:
@@ -28,11 +31,15 @@ public:
     // 数学函数接口封装
     static float sinf(float x) { return get()->_sinf(x); }
     virtual float _sinf(float x) { return 0; }
-		
+
     static float cosf(float x) { return get()->_cosf(x); }
     virtual float _cosf(float x) { return 0; }
-		
+
     static float sqrt(float in, float pOut) { return get()->_sqrt(in, pOut); }
     virtual float _sqrt(float in, float pOut) { return 0; }
 
+    static float atan2(float x, float y) { return get()->_atan2(x, y); }
+    virtual float _atan2(float x, float y) { return 0; }
 };
+
+#endif

@@ -127,39 +127,39 @@ double Dji_Motor::MinPosHelm(float expectations, float feedback, float *speed, f
 	// x3反馈位置
 	double x1 = 0, x2 = 0, x3 = 0;
 	double tempcin = fmod(expectations, maxpos);
-	// x1 = tempcin;
-	// x2 = tempcin + 8191 / 2;
-	// x3 = feedback;
-	// if (tempcin < 0)
-	// 	x3 -= maxpos;
-	// // 过0处理
-	// if (x1 - x3 < -maxpos / 2)
-	// 	x1 += maxpos;
+	x1 = tempcin;
+	x2 = tempcin + 8191 / 2;
+	x3 = feedback;
+	if (tempcin < 0)
+		x3 -= maxpos;
+	// 过0处理
+	if (x1 - x3 < -maxpos / 2)
+		x1 += maxpos;
 
-	// if (x1 - x3 > maxpos / 2)
-	// 	x1 -= maxpos;
+	if (x1 - x3 > maxpos / 2)
+		x1 -= maxpos;
 
-	// if (x2 - x3 < -maxpos / 2)
-	// 	x2 += maxpos;
+	if (x2 - x3 < -maxpos / 2)
+		x2 += maxpos;
 
-	// if (x2 - x3 > maxpos / 2)
-	// 	x2 -= maxpos;
+	if (x2 - x3 > maxpos / 2)
+		x2 -= maxpos;
 
-	// // 两个最小角度
-	// int minangle1 = 0, minangle2 = 0;
-	// minangle1 = fabs(x1 - x3);
-	// minangle2 = fabs(x2 - x3);
-	// // 角度比较，看选择哪个角度
-	// if (minangle1 <= minangle2)
-	// {
-	// 	tempcin = x1;
-	// 	*speed = *speed;
-	// }
-	// else
-	// {
-	// 	tempcin = x2;
-	// 	*speed = -*speed;
-	// }
+	// 两个最小角度
+	int minangle1 = 0, minangle2 = 0;
+	minangle1 = fabs(x1 - x3);
+	minangle2 = fabs(x2 - x3);
+	// 角度比较，看选择哪个角度
+	if (minangle1 <= minangle2)
+	{
+		tempcin = x1;
+		*speed = *speed;
+	}
+	else
+	{
+		tempcin = x2;
+		*speed = -*speed;
+	}
 	return tempcin;
 }
 
