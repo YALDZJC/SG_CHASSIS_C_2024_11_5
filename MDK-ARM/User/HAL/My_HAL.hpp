@@ -52,6 +52,8 @@
 class My_hal : public HAL
 {
 private:
+
+private:
 	void _timer_init();
 	void _dr16_init();
 	void _can_init();
@@ -74,6 +76,7 @@ public:
 	float _cosf(float x) override;
 
 	float _sqrt(float in, float pOut) override;
+
 
 public:
 	inline void init() override

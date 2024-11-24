@@ -668,6 +668,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\APP\State.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Tools.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\Tools.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

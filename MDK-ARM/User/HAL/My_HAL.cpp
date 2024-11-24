@@ -67,6 +67,3 @@ float My_hal::_sqrt(float in, float pOut)
     return arm_sqrt_f32(in, &pOut);
 }
 
-
-
-

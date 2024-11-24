@@ -2,7 +2,6 @@
 #include "My_hal.hpp"
 #include "Variable.hpp"
 
-
 //can_filo0中断接收
 CAN_RxHeaderTypeDef RxHeader;	//can接收数据
 uint8_t RxHeaderData[8] = { 0 };

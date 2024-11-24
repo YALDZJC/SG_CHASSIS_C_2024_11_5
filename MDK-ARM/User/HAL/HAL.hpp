@@ -34,4 +34,5 @@ public:
 		
     static float sqrt(float in, float pOut) { return get()->_sqrt(in, pOut); }
     virtual float _sqrt(float in, float pOut) { return 0; }
+
 };

@@ -4,6 +4,7 @@
 #include "Wheel.hpp"
 #include "Dm_Motor.hpp"
 #include "State.hpp"
+#include "Tools.hpp"
 
 //发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -60,4 +61,4 @@ void Send_6020_CAN();
 
 
 extern Chassis_task chassis_task;
-
+extern Tools_t Tools;
