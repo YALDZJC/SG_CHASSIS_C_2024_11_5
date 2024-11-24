@@ -70,14 +70,6 @@ public:
 
 	unsigned long _GetTick() override;
 
-	float _sinf(float x) override;
-
-	float _cosf(float x) override;
-
-	float _sqrt(float in, float pOut) override;
-	
-	float _atan2(float x, float y) override;
-
 
 public:
 	inline void init() override

@@ -30,16 +30,16 @@ public:
     virtual unsigned long _GetTick() { return 0; }
     // 数学函数接口封装
     static float sinf(float x) { return get()->_sinf(x); }
-    virtual float _sinf(float x) { return 0; }
+    virtual float _sinf(float x);
 
     static float cosf(float x) { return get()->_cosf(x); }
-    virtual float _cosf(float x) { return 0; }
+    virtual float _cosf(float x);
 
     static float sqrt(float in, float pOut) { return get()->_sqrt(in, pOut); }
-    virtual float _sqrt(float in, float pOut) { return 0; }
+    virtual float _sqrt(float in, float pOut);
 
     static float atan2(float x, float y) { return get()->_atan2(x, y); }
-    virtual float _atan2(float x, float y) { return 0; }
+    virtual float _atan2(float x, float y);
 };
 
 #endif
