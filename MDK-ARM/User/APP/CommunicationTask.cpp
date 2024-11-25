@@ -1,7 +1,7 @@
 #include "CommunicationTask.hpp"
 #include "cmsis_os2.h"
-#include "Variable.hpp"
-#include "State.hpp"
+// #include "Variable.hpp"
+// #include "State.hpp"
 
 #define SIZE 8
 Gimbal_to_Chassis_Data_t Gimbal_to_Chassis_Data;

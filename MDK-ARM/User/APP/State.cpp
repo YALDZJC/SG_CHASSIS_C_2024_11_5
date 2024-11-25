@@ -15,11 +15,11 @@ void ChassisState::Tar_Updata()
     if (CONTROL_SIG == 0)
         tar_vw.Calc(TAR_RX);
 }
-
-//将运动学解算相关，并对速度与角度进行过零处理
+int speed_t;
+// 将运动学解算相关，并对速度与角度进行过零处理
 void ChassisState::Wheel_UpData()
 {
-	
+
     // 对轮子进行运动学变换
     Wheel.WheelType.UpDate(tar_vx.x1, tar_vy.x1, tar_vw.x1, 8191);
 
@@ -29,15 +29,18 @@ void ChassisState::Wheel_UpData()
     tar_speed[2] = Wheel.WheelType.speed[2];
     tar_speed[3] = Wheel.WheelType.speed[3];
     // 储存最小角判断的角度
-    getMinPos[0] = Motor6020.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(L_Forward_ID, Dji_Speed), &tar_speed[0], 8191, 8191);
-    getMinPos[1] = Motor6020.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(L_Back_ID   , Dji_Speed), &tar_speed[1], 8191, 8191);
-    getMinPos[2] = Motor6020.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(R_Back_ID   , Dji_Speed), &tar_speed[2], 8191, 8191);
-    getMinPos[3] = Motor6020.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(R_Forward_ID, Dji_Speed), &tar_speed[3], 8191, 8191);
-//    //过零处理
-		Zero_cross[0] = Motor6020.Zero_crossing_processing(getMinPos[0], Motor6020.GetEquipData(L_Forward_ID, Dji_Angle), 8191);
-		Zero_cross[1] = Motor6020.Zero_crossing_processing(getMinPos[1], Motor6020.GetEquipData(L_Back_ID   , Dji_Angle), 8191);
-		Zero_cross[2] = Motor6020.Zero_crossing_processing(getMinPos[2], Motor6020.GetEquipData(R_Back_ID   , Dji_Angle), 8191);
-		Zero_cross[3] = Motor6020.Zero_crossing_processing(getMinPos[3], Motor6020.GetEquipData(R_Forward_ID, Dji_Angle), 8191);
+    getMinPos[0] = Tools.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(L_Forward_ID, Dji_Speed), &tar_speed[0], 8191, 8191);
+    getMinPos[1] = Tools.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(L_Back_ID,    Dji_Speed), &tar_speed[1], 8191, 8191);
+    getMinPos[2] = Tools.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(R_Back_ID,    Dji_Speed), &tar_speed[2], 8191, 8191);
+    getMinPos[3] = Tools.MinPosHelm(tar_vx.x1, Motor6020.GetEquipData(R_Forward_ID, Dji_Speed), &tar_speed[3], 8191, 8191);
+    // 过零处理
+    Zero_cross[0] = Tools.Zero_crossing_processing(getMinPos[0], Motor6020.GetEquipData(L_Forward_ID,   Dji_Angle), 8191);
+    Zero_cross[1] = Tools.Zero_crossing_processing(getMinPos[1], Motor6020.GetEquipData(L_Back_ID,      Dji_Angle), 8191);
+    Zero_cross[2] = Tools.Zero_crossing_processing(getMinPos[2], Motor6020.GetEquipData(R_Back_ID,      Dji_Angle), 8191);
+    Zero_cross[3] = Tools.Zero_crossing_processing(getMinPos[3], Motor6020.GetEquipData(R_Forward_ID,   Dji_Angle), 8191);
+
+    Motor6020.setMSD(&msd_6020, speed_t, Get_MOTOR_SET_ID_6020(0x205));
+    Motor6020.Send_CAN(&msd_6020, SEND_MOTOR_ID_6020);
 }
 
 // 滤波器更新
