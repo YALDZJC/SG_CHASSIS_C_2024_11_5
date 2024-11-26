@@ -41,13 +41,35 @@ extern Dji_Motor Motor3508;
 extern Dji_Motor Motor6020;
 extern DM_Motor  Motor4310;
 
-extern Kpid_t K_DEMO_6020;
-extern PID DEMO_6020;
+// PID角度环设置
+extern Kpid_t Kpid_6020_angle;
+extern PID pid_angle_0x205;
+extern PID pid_angle_0x206;
+extern PID pid_angle_0x207;
+extern PID pid_angle_0x208;
+extern Kpid_t Kpid_6020_vel;
+extern PID pid_vel_0x205;
+extern PID pid_vel_0x206;
+extern PID pid_vel_0x207;
+extern PID pid_vel_0x208;
 
-extern Kpid_t K_DEMO_6020_IN;
-extern PID DEMO_6020_IN;
+// PID速度环设置
+extern Kpid_t Kpid_3508_vel;
+extern PID pid_vel_0x201;
+extern PID pid_vel_0x202;
+extern PID pid_vel_0x203;
+extern PID pid_vel_0x204;
 
-extern TD td_speed;
+extern TD td_6020_1;
+extern TD td_6020_2;
+extern TD td_6020_3;
+extern TD td_6020_4;
+
+extern TD td_3508_1;
+extern TD td_3508_2;
+extern TD td_3508_3;
+extern TD td_3508_4;
+
 extern TD tar_vw;
 extern TD tar_vx;
 extern TD tar_vy;
@@ -58,3 +80,7 @@ extern Wheel_t<SG> Wheel;
 
 extern Chassis_task chassis_task;
 extern Tools_t Tools;
+extern Chassis_Data_t Chassis_Data;
+
+
+

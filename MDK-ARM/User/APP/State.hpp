@@ -2,6 +2,7 @@
 
 #include "stdxxx.hpp"
 #include "CommunicationTask.hpp"
+#include "PID.hpp"
 
 #define MAX_TASK 6 // 任务最大数量
 
@@ -13,21 +14,37 @@ enum State
 	Stop_State,
 };
 
-class ChassisState
+typedef struct 
 {
-public:
 	// 期望值
 	float getMinPos[4];
 	float tar_speed[4];
 	float Zero_cross[4];
+} Chassis_Data_t;
+
+
+class ChassisState
+{
+public:
+	void Tar_Updata();
 
 	void Wheel_UpData();
-
-	void Tar_Updata();
 
 	void Filtering();
 
 	void PID_Updata();
+
+	void CAN_Updata();
+
+	void Base_UpData()
+	{
+		Tar_Updata();
+		Wheel_UpData();
+		CAN_Updata();
+		Filtering();
+		PID_Updata();
+	}
+
 
 	virtual void upData() = 0;
 };
@@ -63,6 +80,7 @@ private:
 	State curState;
 	ChassisState *curTask;	//当前状态
 	ChassisState *stateArray[MAX_TASK] = {nullptr}; // 存储状态对象
+	ChassisState *Base_Task;		
 
 public:
 	State GetState() // 判断当前状态的名称
@@ -102,6 +120,7 @@ public:
 
 		if (curTask != nullptr) // 当前状态不为空
 		{
+			Base_Task->Base_UpData();
 			curTask->upData(); // 一键更新
 		}
 	}
