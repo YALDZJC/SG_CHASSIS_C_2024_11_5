@@ -3,10 +3,11 @@
 #include "BSP_Can.hpp"
 #include "Variable.hpp"
 #include "State.hpp"
-static Universal_mode Universal_t;
-static Follow_mode Follow_t;
-static Rotating_mode Rotating_t;
-static Stop_mode stop;
+
+Universal_mode Universal_t;
+Follow_mode Follow_t;
+Rotating_mode Rotating_t;
+Stop_mode stop;
 //Defalut_t Defalut_t_t;
 
 void Init()

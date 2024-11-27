@@ -19,6 +19,8 @@ typedef struct
 	// 期望值
 	float getMinPos[4];
 	float tar_speed[4];
+	float tar_angle[4];
+
 	float Zero_cross[4];
 } Chassis_Data_t;
 
@@ -34,15 +36,21 @@ public:
 
 	void PID_Updata();
 
-	void CAN_Updata();
+	void CAN_Setting();
+
+	void CAN_Send();
 
 	void Base_UpData()
 	{
 		Tar_Updata();
 		Wheel_UpData();
-		CAN_Updata();
 		Filtering();
+
 		PID_Updata();
+
+		CAN_Setting();
+		CAN_Send();
+
 	}
 
 
@@ -120,7 +128,6 @@ public:
 
 		if (curTask != nullptr) // 当前状态不为空
 		{
-			Base_Task->Base_UpData();
 			curTask->upData(); // 一键更新
 		}
 	}

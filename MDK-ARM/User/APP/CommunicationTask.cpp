@@ -1,6 +1,6 @@
 #include "CommunicationTask.hpp"
 #include "cmsis_os2.h"
-// #include "Variable.hpp"
+#include "Variable.hpp"
 // #include "State.hpp"
 
 #define SIZE 8
@@ -45,7 +45,6 @@ void CommunicationTask(void *argument)
 //			Gimbal_to_Chassis_Data.Follow_t = (bool)(format[5] & 0x20);								 // 主云台
 //			Gimbal_to_Chassis_Data.Rotating_t = (bool)(format[5] & 0x10) | (bool)(format[5] & 0x08); // 小陀螺
 //		}
-
 		osDelay(1);
 	}
 }

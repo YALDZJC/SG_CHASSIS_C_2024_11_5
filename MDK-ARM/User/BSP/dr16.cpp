@@ -46,15 +46,13 @@ RM_Clicker::RM_Clicker()
 
 bool RM_Clicker::ISDir()
 {
-  bool Dir = false;
-	Dir |= (RC_Ctl.rc.ch0 >= 364) && (RC_Ctl.rc.ch0 <= 1684);
-	Dir |= (RC_Ctl.rc.ch1 >= 364) && (RC_Ctl.rc.ch1 <= 1684);
-	Dir |= (RC_Ctl.rc.ch2 >= 364) && (RC_Ctl.rc.ch2 <= 1684);
-	Dir |= (RC_Ctl.rc.ch3 >= 364) && (RC_Ctl.rc.ch3 <= 1684);
-	RC_Ctl.Dir = RM_Clicker::dirTime.ISDir(50) || Dir;
-	if(RC_Ctl.Dir)
-		RM_Clicker::ClearORE(&ClickerHuart,RM_Clicker::pData,sizeof(RM_Clicker::pData));
-	
+  char Dir = 0;
+	Dir |= ~(RC_Ctl.rc.ch0 >= 364) & (RC_Ctl.rc.ch0 <= 1684);
+	Dir |= ~(RC_Ctl.rc.ch1 >= 364) & (RC_Ctl.rc.ch1 <= 1684);
+	Dir |= ~(RC_Ctl.rc.ch2 >= 364) & (RC_Ctl.rc.ch2 <= 1684);
+	Dir |= ~(RC_Ctl.rc.ch3 >= 364) & (RC_Ctl.rc.ch3 <= 1684);
+	RC_Ctl.Dir = RM_Clicker::dirTime.ISDir(50) | Dir;
+	if(RC_Ctl.Dir)RM_Clicker::ClearORE(&ClickerHuart,RM_Clicker::pData,sizeof(RM_Clicker::pData));
   return RC_Ctl.Dir;
 }
 

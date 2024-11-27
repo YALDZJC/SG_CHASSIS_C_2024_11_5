@@ -12,6 +12,7 @@ bool HAL::check()
 {
     return hal != nullptr;
 }
+
 bool HAL::inject(HAL *_hal)
 {
     if (_hal == nullptr)
@@ -23,6 +24,7 @@ bool HAL::inject(HAL *_hal)
     hal = _hal;
     return true;
 }
+
 void HAL::destroy()
 {
     if (hal == nullptr)
@@ -31,6 +33,7 @@ void HAL::destroy()
     delete hal;
     hal = nullptr;
 }
+
 float HAL::_sinf(float x)
 {
     return arm_sin_f32(x);

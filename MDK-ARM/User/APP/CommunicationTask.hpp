@@ -23,7 +23,7 @@
 #define Follow (L_MODE2 && R_MODE1) || (L_MODE2 && R_MODE3)								 // （2）底盘跟随
 #define Rotating (L_MODE3 && R_MODE1) || (L_MODE3 && R_MODE2)							 // （3）小陀螺
 #define KeyBoard (L_MODE2 && R_MODE2)													 // （4键鼠模式）
-#define Stop (L_MODE3 && R_MODE3)														 // （5停止模式）
+#define Stop (L_MODE3 && R_MODE3) 														 // （5停止模式）
 
 //期望值切换
 #define TAR_LX RC_LX

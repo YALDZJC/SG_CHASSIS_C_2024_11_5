@@ -23,15 +23,28 @@
 
 //数量
 #define _Motor2006_SIZE 1
-#define _Motor3508_SIZE 1
+#define _Motor3508_SIZE 4
 #define _Motor6020_SIZE 4
 #define _DM4310_SIZE 1
 
 // ID号
-#define L_Forward_ID 0x205
-#define L_Back_ID    0x206
-#define R_Back_ID    0x207
-#define R_Forward_ID 0x208
+#define L_Forward_6020_ID   0x205
+#define L_Back_6020_ID      0x206
+#define R_Back_6020_ID      0x207
+#define R_Forward_6020_ID   0x208
+
+// ID号
+#define L_Forward_3508_ID   0x201
+#define L_Back_3508_ID      0x202
+#define R_Back_3508_ID      0x203
+#define R_Forward_3508_ID   0x204
+
+#define Chassis_angle_Init_0x205 5146 + 2048
+#define Chassis_angle_Init_0x206 7403 + 2048
+#define Chassis_angle_Init_0x207 5323 + 2048
+#define Chassis_angle_Init_0x208 3303 + 2048
+
+extern uint32_t Send_ms;
 
 extern Motor_send_data_t msd_6020;
 extern Motor_send_data_t msd_3508_2006;

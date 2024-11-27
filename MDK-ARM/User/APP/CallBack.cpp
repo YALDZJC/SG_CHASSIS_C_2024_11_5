@@ -13,9 +13,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	if(hcan == &hcan1)
 	{
 		Motor3508.Parse(RxHeader,RxHeaderData);
-		Motor6020.Parse(RxHeader,RxHeaderData);
-		
-//		Motor4310.Parse(RxHeader,RxHeaderData);
+		Motor6020.Parse(RxHeader,RxHeaderData);		
 	}
 	if(hcan == &hcan2)
 	{
