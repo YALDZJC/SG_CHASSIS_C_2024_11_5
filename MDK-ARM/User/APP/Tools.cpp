@@ -1,6 +1,16 @@
 #include "Tools.hpp"
 #include "usart.h"
 
+/**
+ * @brief 用于vofa发送波形数据
+ * 
+ * @param x1 
+ * @param x2 
+ * @param x3 
+ * @param x4 
+ * @param x5 
+ * @param x6 
+ */
 void Tools_t::vofaSend(float x1, float x2, float x3, float x4, float x5, float x6)
 {
     const uint8_t sendSize = 4;

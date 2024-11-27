@@ -92,7 +92,13 @@ void Dji_Motor::setMSD(Motor_send_data_t *msd, int16_t data, int id)
 	msd->Data[(id - 1) * 2 + 1] = data << 8 >> 8;
 }
 
-void Dji_Motor::Send_CAN(Motor_send_data_t *msd, uint16_t SendID)
+void Dji_Motor::Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID)
+{
+	// 发送
+	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
+}
+
+void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
 {
 	// 发送
 	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);

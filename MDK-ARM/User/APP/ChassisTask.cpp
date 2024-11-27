@@ -9,6 +9,6 @@ void ChassisTask(void *argument)
 	for (;;)
 	{
 		chassis_task.upData();
-		osDelay(1);
+		osDelay(2);
 	}
 }

@@ -29,7 +29,8 @@ public:
     // 设置id
     void setMSD(Motor_send_data_t *msd, int16_t data, int id);
     // 发送id
-    void Send_CAN(Motor_send_data_t *msd, uint16_t SendID);
+    void Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID);
+    void Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID);
 
     // 得到当前值
     inline float GetEquipData(int16_t address, Dji_Data DataType)

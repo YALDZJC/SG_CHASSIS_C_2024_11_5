@@ -40,15 +40,15 @@ void ChassisState::Wheel_UpData()
     Chassis_Data.getMinPos[3] = Tools.MinPosHelm(Chassis_Data.tar_angle[3] + Chassis_angle_Init_0x208, Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[3], 8191, 8191);
 
     // 过零处理
-    Chassis_Data.Zero_cross[0] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 8191);
-    Chassis_Data.Zero_cross[1] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 8191);
-    Chassis_Data.Zero_cross[2] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 8191);
-    Chassis_Data.Zero_cross[3] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 8191);
+    Chassis_Data.Zero_cross[0] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 8192);
+    Chassis_Data.Zero_cross[1] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 8192);
+    Chassis_Data.Zero_cross[2] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 8192);
+    Chassis_Data.Zero_cross[3] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 8192);
 }
 // 滤波器更新
 void ChassisState::Filtering()
 {
-		//电机一般速度反馈噪声大
+	//电机一般速度反馈噪声大
     td_6020_1.Calc(Motor6020.GetEquipData(L_Forward_6020_ID,Dji_Speed));
     td_6020_2.Calc(Motor6020.GetEquipData(L_Back_6020_ID,		Dji_Speed));
     td_6020_3.Calc(Motor6020.GetEquipData(R_Back_6020_ID,		Dji_Speed));
@@ -59,10 +59,12 @@ void ChassisState::Filtering()
     td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
     td_3508_4.Calc(Motor3508.GetEquipData(R_Forward_3508_ID, Dji_Speed));
 }
-bool dir = false;
+
+float kp,kd;
+float p_out, D_out;
+
 void ChassisState::PID_Updata()
 {
-    
     if (dr16.ISDir())
     {
         Chassis_Data.tar_speed[0] = Chassis_Data.tar_speed[1] = Chassis_Data.tar_speed[2] = Chassis_Data.tar_speed[3] = 0;
@@ -77,7 +79,7 @@ void ChassisState::PID_Updata()
     pid_angle_0x206.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle),		30000);
     pid_angle_0x207.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle),		30000);
     pid_angle_0x208.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle),30000);
-
+		
     pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout, td_6020_1.x1, 30000);
     pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout, td_6020_2.x1, 30000);
     pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout, td_6020_3.x1, 30000);
@@ -106,15 +108,19 @@ float sin_t;
 uint32_t ms;
 void ChassisState::CAN_Send()
 {
+    CAN_TxHeaderTypeDef* TxHeader;
+
     // 发送数据
     if (Send_ms == 0)
     {
-        Motor6020.Send_CAN(&msd_6020, SEND_MOTOR_ID_6020);
+			Motor3508.Send_CAN_MAILBOX0(&msd_3508_2006, SEND_MOTOR_ID_3508);
+
     }
     else if (Send_ms == 1)
     {
-        Motor3508.Send_CAN(&msd_3508_2006, SEND_MOTOR_ID_3508);
+			Motor6020.Send_CAN_MAILBOX1(&msd_6020, SEND_MOTOR_ID_6020);
     }
+
 
     Send_ms++;
     Send_ms %= 2;
@@ -122,9 +128,7 @@ void ChassisState::CAN_Send()
 		ms++;
 		sin_t =	HAL::sinf(2 * 3.1415926 * ms * 0.001 * 0.5);
 
-    Tools.vofaSend(td_6020_4.x1, td_6020_3.x1, pid_vel_0x208.pid.cout, pid_vel_0x207.pid.cout, sin_t, 0);
-		
-		
+    Tools.vofaSend(Motor6020.GetEquipData(0x205, Dji_Angle), Motor6020.GetEquipData(0x206, Dji_Angle), Motor6020.GetEquipData(0x207, Dji_Angle), Motor6020.GetEquipData(0x208, Dji_Angle), sin_t, 0);
 }
 
 void Universal_mode::upData()

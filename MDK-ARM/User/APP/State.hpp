@@ -50,7 +50,6 @@ public:
 
 		CAN_Setting();
 		CAN_Send();
-
 	}
 
 
