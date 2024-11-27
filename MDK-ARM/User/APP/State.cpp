@@ -80,23 +80,28 @@ void ChassisState::PID_Updata()
     pid_angle_0x207.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle),		30000);
     pid_angle_0x208.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle),30000);
 		
-    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout, td_6020_1.x1, 30000);
-    pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout, td_6020_2.x1, 30000);
-    pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout, td_6020_3.x1, 30000);
-    pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout, td_6020_4.x1, 30000);
+    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout + feed_6020_1.UpData(Chassis_Data.Zero_cross[0]), td_6020_1.x1, 30000);
+    pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout + feed_6020_2.UpData(Chassis_Data.Zero_cross[1]), td_6020_2.x1, 30000);
+    pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout + feed_6020_3.UpData(Chassis_Data.Zero_cross[2]), td_6020_3.x1, 30000);
+    pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout + feed_6020_4.UpData(Chassis_Data.Zero_cross[3]), td_6020_4.x1, 30000);
 
     pid_vel_0x201.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[0], td_3508_1.x1, 16384.0f);
-    pid_vel_0x202.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[1], td_3508_2.x1, 16384.0f);
-    pid_vel_0x203.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, 16384.0f);
+    pid_vel_0x202.GetPidPos(Kpid_3508_vel,  Chassis_Data.tar_speed[1], td_3508_2.x1, 16384.0f);
+    pid_vel_0x203.GetPidPos(Kpid_3508_vel,  Chassis_Data.tar_speed[2], td_3508_3.x1, 16384.0f);
     pid_vel_0x204.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, 16384.0f);
+
+    Chassis_Data.final_6020_Out[0] = pid_vel_0x205.pid.cout;
+    Chassis_Data.final_6020_Out[1] = pid_vel_0x206.pid.cout;
+    Chassis_Data.final_6020_Out[2] = pid_vel_0x207.pid.cout;
+    Chassis_Data.final_6020_Out[3] = pid_vel_0x208.pid.cout;
 }
 
 void ChassisState::CAN_Setting()
 {
-    Motor6020.setMSD(&msd_6020, pid_vel_0x205.pid.cout, Get_MOTOR_SET_ID_6020(0x205));
-    Motor6020.setMSD(&msd_6020, pid_vel_0x206.pid.cout, Get_MOTOR_SET_ID_6020(0x206));
-    Motor6020.setMSD(&msd_6020, pid_vel_0x207.pid.cout, Get_MOTOR_SET_ID_6020(0x207));
-    Motor6020.setMSD(&msd_6020,	pid_vel_0x208.pid.cout, Get_MOTOR_SET_ID_6020(0x208));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
+    Motor6020.setMSD(&msd_6020,	Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
     Motor3508.setMSD(&msd_3508_2006, pid_vel_0x201.pid.cout, Get_MOTOR_SET_ID_3508(0x201));
     Motor3508.setMSD(&msd_3508_2006, pid_vel_0x202.pid.cout, Get_MOTOR_SET_ID_3508(0x202));
@@ -113,7 +118,7 @@ void ChassisState::CAN_Send()
     // 发送数据
     if (Send_ms == 0)
     {
-			Motor3508.Send_CAN_MAILBOX0(&msd_3508_2006, SEND_MOTOR_ID_3508);
+//			Motor3508.Send_CAN_MAILBOX0(&msd_3508_2006, SEND_MOTOR_ID_3508);
 
     }
     else if (Send_ms == 1)
@@ -128,7 +133,7 @@ void ChassisState::CAN_Send()
 		ms++;
 		sin_t =	HAL::sinf(2 * 3.1415926 * ms * 0.001 * 0.5);
 
-    Tools.vofaSend(Motor6020.GetEquipData(0x205, Dji_Angle), Motor6020.GetEquipData(0x206, Dji_Angle), Motor6020.GetEquipData(0x207, Dji_Angle), Motor6020.GetEquipData(0x208, Dji_Angle), sin_t, 0);
+    Tools.vofaSend(Motor6020.GetEquipData(0x205, Dji_Angle), Chassis_Data.Zero_cross[0], feed_6020_1.cout, 0, sin_t, 0);
 }
 
 void Universal_mode::upData()

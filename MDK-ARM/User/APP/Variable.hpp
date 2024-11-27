@@ -87,6 +87,13 @@ extern TD tar_vw;
 extern TD tar_vx;
 extern TD tar_vy;
 extern TD td_zero;
+
+// 前馈
+extern FeedTar feed_6020_1;
+extern FeedTar feed_6020_2;
+extern FeedTar feed_6020_3;
+extern FeedTar feed_6020_4;
+
 extern RM_Clicker dr16;
 
 extern Wheel_t<SG> Wheel;

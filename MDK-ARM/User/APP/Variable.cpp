@@ -22,7 +22,7 @@ PID pid_angle_0x206;
 PID pid_angle_0x207;
 PID pid_angle_0x208;
 // PID角度环设置
-Kpid_t Kpid_6020_vel(150, 0, 0);
+Kpid_t Kpid_6020_vel(80, 0, 0);
 PID pid_vel_0x205;
 PID pid_vel_0x206;
 PID pid_vel_0x207;
@@ -56,7 +56,13 @@ TD tar_vx(40);
 TD tar_vy(40);
 TD td_zero(80);
 
-//创建遥控器实例
+//前馈
+FeedTar feed_6020_1(200, 10);
+FeedTar feed_6020_2(200, 10);
+FeedTar feed_6020_3(200, 10);
+FeedTar feed_6020_4(200, 10);
+
+// 创建遥控器实例
 RM_Clicker dr16;
 
 //创建底盘任务实例

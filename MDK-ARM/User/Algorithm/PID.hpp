@@ -64,3 +64,40 @@ public:
 	//清除增量
 	void PidRstDelta();
 };
+
+class FeedForward
+{
+protected:
+	// 输出
+	float k;
+	// 输出限幅
+	float max_cout;
+
+public:
+	float cout;
+
+	FeedForward(float max_cout, float k) : max_cout(max_cout), k(k), cout(0) {}
+	double GetCout() { return cout; }
+};
+
+class FeedTar : public FeedForward
+{
+private:
+	// 上一次目标
+	float last_target;
+	// 目标误差
+	float target_e;
+
+public:
+	FeedTar(float max_cout, float k) : FeedForward(max_cout, k), last_target(0), target_e(0) {}
+
+	double UpData(float feedback);
+};
+
+class FeedRotating : public FeedForward
+{
+public:
+	FeedRotating(float max_cout, float k) : FeedForward(max_cout, k) {}
+
+	double UpData(float feedback);
+};

@@ -22,6 +22,10 @@ typedef struct
 	float tar_angle[4];
 
 	float Zero_cross[4];
+
+	float final_3508_Out[4];
+	float final_6020_Out[4];
+
 } Chassis_Data_t;
 
 
