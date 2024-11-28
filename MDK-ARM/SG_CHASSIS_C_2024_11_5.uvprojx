@@ -688,6 +688,16 @@
               <FileType>8</FileType>
               <FilePath>.\User\Algorithm\Wheel.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Matrix.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Algorithm\Matrix.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>RLS.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Algorithm\RLS.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

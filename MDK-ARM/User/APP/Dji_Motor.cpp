@@ -103,3 +103,26 @@ void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
 	// 发送
 	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
 }
+
+double Dji_Motor::GetTorque_6020(float n)
+{
+	Dji_Motor_Torque.I_torque = 0.00018310546875 * n;	//3 / 16384 * n
+	Dji_Motor_Torque.K_torque = 0.741;					// 0.741 * 减速比;
+	Dji_Motor_Torque.Torque = Dji_Motor_Torque.I_torque * Dji_Motor_Torque.K_torque;
+
+	return Dji_Motor_Torque.Torque;
+}
+
+double Dji_Motor::GetTorque_3508(double n)
+{
+	double I_torque;
+	double K_torque;
+	double Torque;
+
+	I_torque = 0.001220703125 * n;	// 20 / 16384 * n
+	K_torque = 0.01562;		// 0.3 * 减速比;
+
+	Torque = I_torque * K_torque;
+
+	return Torque;
+}

@@ -4,8 +4,6 @@
 #include "My_hal.hpp"
 #include "stdxxx.hpp"
 
-
-
 // 电机反馈数据枚举，分别是转角，速度，转矩，温度，外加一个停止模式
 enum Dji_Data
 {
@@ -16,8 +14,18 @@ enum Dji_Data
     Dji_Stop = 0x04,
 };
 
+struct Dji_Motor_Torque_t
+{
+    double I_torque;
+    double K_torque;
+    double Torque;
+};
+
 class Dji_Motor : public RM_Motor
 {
+private:
+    Dji_Motor_Torque_t Dji_Motor_Torque;
+
 public:
     Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t *MotorAddress, uint8_t *idxs);
     // 数据解析
@@ -31,6 +39,9 @@ public:
     // 发送id
     void Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID);
     void Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID);
+
+    double GetTorque_6020(float n);
+    double GetTorque_3508(double n);
 
     // 得到当前值
     inline float GetEquipData(int16_t address, Dji_Data DataType)

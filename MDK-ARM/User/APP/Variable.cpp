@@ -35,6 +35,12 @@ PID pid_vel_0x202;
 PID pid_vel_0x203;
 PID pid_vel_0x204;
 
+//力矩控制
+Kpid_t Kpid_6020_T(0, 0, 0);
+PID pid_T_0x207;
+Kpid_t Kpid_3508_T(0, 0, 0);
+PID pid_T_0x201;
+
 //尖括号里填底盘类型
 Wheel_t<SG> Wheel;
 
@@ -49,6 +55,10 @@ TD td_3508_1(100);
 TD td_3508_2(100);
 TD td_3508_3(100);
 TD td_3508_4(100);
+
+//力矩滤波
+TD td6020_torque(100);
+TD td3508_torque(100);
 
 //期望值滤波
 TD tar_vw(10);

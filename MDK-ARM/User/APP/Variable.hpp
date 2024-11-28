@@ -73,6 +73,15 @@ extern PID pid_vel_0x202;
 extern PID pid_vel_0x203;
 extern PID pid_vel_0x204;
 
+// 力矩控制
+extern Kpid_t Kpid_6020_T;
+extern PID pid_T_0x207;
+extern Kpid_t Kpid_3508_T;
+extern PID pid_T_0x201;
+
+extern TD td6020_torque;
+extern TD td3508_torque;
+
 extern TD td_6020_1;
 extern TD td_6020_2;
 extern TD td_6020_3;

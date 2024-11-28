@@ -105,4 +105,13 @@ double Tools_t::MinPosHelm(float expectations, float feedback, float *speed, flo
     }
     return tempcin;
 }
+double T_t, Vel_t;
+double Tools_t::GetMachinePower(double T, double Vel)
+{
+    T_t = T;
+    Vel_t = Vel;
 
+    double Pm = (T * Vel) / 9.55f;
+
+    return Pm;
+}

@@ -16,4 +16,6 @@ public:
     float Zero_crossing_processing(float expectations, float feedback, float maxpos);
     // 最小角判断
     double MinPosHelm(float expectations, float feedback, float *speed, float maxspeed, float maxpos);
+
+    double GetMachinePower(double T, double Vel);
 };
