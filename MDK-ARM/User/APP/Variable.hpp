@@ -40,9 +40,9 @@
 #define R_Forward_3508_ID   0x204
 
 #define Chassis_angle_Init_0x205 7344
-#define Chassis_angle_Init_0x206 5424
+#define Chassis_angle_Init_0x206 5424 + 4096
 #define Chassis_angle_Init_0x207 3141
-#define Chassis_angle_Init_0x208 5316
+#define Chassis_angle_Init_0x208 5316 + 4096
 
 extern uint32_t Send_ms;
 

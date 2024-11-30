@@ -38,14 +38,14 @@ void SG::UpDate(float vx,float vy,float vw,float MaxSpeed)//speed最大速度
 	tempvw = -vw;
 
 	tempvy[0] = tempvy[0] - tempvw * HAL::cosf(_angle);
-	tempvy[1] = tempvy[1] - tempvw * HAL::cosf(_angle);
+	tempvy[1] = tempvy[1] + tempvw * HAL::cosf(_angle);
 	tempvy[2] = tempvy[2] + tempvw * HAL::cosf(_angle);
-	tempvy[3] = tempvy[3] + tempvw * HAL::cosf(_angle);
+	tempvy[3] = tempvy[3] - tempvw * HAL::cosf(_angle);
 	// 线速度vx                      HAL::cosf
-	tempvx[0] = tempvx[0] - tempvw * HAL::cosf(_angle);
-	tempvx[1] = tempvx[1] + tempvw * HAL::cosf(_angle);
-	tempvx[2] = tempvx[2] + tempvw * HAL::cosf(_angle);
-	tempvx[3] = tempvx[3] - tempvw * HAL::cosf(_angle);
+	tempvx[0] = tempvx[0] - tempvw * HAL::sinf(_angle);
+	tempvx[1] = tempvx[1] - tempvw * HAL::sinf(_angle);
+	tempvx[2] = tempvx[2] + tempvw * HAL::sinf(_angle);
+	tempvx[3] = tempvx[3] + tempvw * HAL::sinf(_angle);
 	//*x是比例
 	this->speed[0] = sqrt(tempvy[0] * tempvy[0] + tempvx[0] * tempvx[0]) / 660.0f * MaxSpeed;
 	this->speed[1] = sqrt(tempvy[1] * tempvy[1] + tempvx[1] * tempvx[1]) / 660.0f * MaxSpeed;

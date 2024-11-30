@@ -109,10 +109,8 @@ void ChassisState::PID_Updata()
     //    pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout, td_6020_3.x1, 30000);
     //    pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout, td_6020_4.x1, 30000);
 
-    pid_T_0x201.GetPidPos(Kpid_3508_T, Chassis_Data.tar_Torque[0], td3508_torque.x1, 16384.0f);
-
-    pid_vel_0x201.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[0], td_3508_1.x1, 16384.0f);
-    pid_vel_0x202.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[1], td_3508_2.x1, 16384.0f);
+    pid_vel_0x201.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[0], td_3508_1.x1, 16384.0f);
+    pid_vel_0x202.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, 16384.0f);
     pid_vel_0x203.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, 16384.0f);
     pid_vel_0x204.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, 16384.0f);
 
