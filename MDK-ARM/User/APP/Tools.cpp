@@ -53,6 +53,20 @@ float Tools_t::Zero_crossing_processing(float expectations, float feedback, floa
     return tempcin;
 }
 
+float Tools_t::Round_Error(float expectations, float ERR, float maxpos)
+{
+    double tempcin = expectations;
+    if (maxpos != 0)
+    {
+        // 过0处理
+        if (ERR < -maxpos / 2)
+            tempcin = 0;
+        if (ERR > maxpos / 2)
+            tempcin = 0;
+    }
+    return tempcin;
+}
+
 /**
  * @brief 对最小角进行判断
  *
@@ -105,12 +119,9 @@ double Tools_t::MinPosHelm(float expectations, float feedback, float *speed, flo
     }
     return tempcin;
 }
-double T_t, Vel_t;
+
 double Tools_t::GetMachinePower(double T, double Vel)
 {
-    T_t = T;
-    Vel_t = Vel;
-
     double Pm = (T * Vel) / 9.55f;
 
     return Pm;

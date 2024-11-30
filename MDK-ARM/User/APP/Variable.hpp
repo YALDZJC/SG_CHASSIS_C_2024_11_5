@@ -39,10 +39,10 @@
 #define R_Back_3508_ID      0x203
 #define R_Forward_3508_ID   0x204
 
-#define Chassis_angle_Init_0x205 5146 + 2048
-#define Chassis_angle_Init_0x206 7403 + 2048
-#define Chassis_angle_Init_0x207 5323 + 2048
-#define Chassis_angle_Init_0x208 3303 + 2048
+#define Chassis_angle_Init_0x205 7344
+#define Chassis_angle_Init_0x206 5424
+#define Chassis_angle_Init_0x207 3141
+#define Chassis_angle_Init_0x208 5316
 
 extern uint32_t Send_ms;
 
@@ -95,7 +95,7 @@ extern TD td_3508_4;
 extern TD tar_vw;
 extern TD tar_vx;
 extern TD tar_vy;
-extern TD td_zero;
+extern TD td_FF_Tar;
 
 // 前馈
 extern FeedTar feed_6020_1;

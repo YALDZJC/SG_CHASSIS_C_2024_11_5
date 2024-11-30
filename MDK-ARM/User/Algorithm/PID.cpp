@@ -57,14 +57,19 @@ double PID::GetPidPos(Kpid_t kpid, double cin, double feedback, double max)
 
 double FeedTar::UpData(float feedback)
 {
-	target_e = feedback - last_target;
-	cout = target_e * k;
-	last_target = feedback;
+	new_target = feedback;
 
-	if (cout > max_cout)
-		cout = max_cout;
-	if (cout < -max_cout)
-		cout = -max_cout;
+	target_e = new_target - last_target;
+
+	cout = target_e * k;
+	cout_e = cout - last_cout;
+ if (cout > max_cout)
+ 	cout = max_cout;
+ if (cout < -max_cout)
+ 	cout = -max_cout;
+
+	last_target = new_target;
+	last_cout = cout;
 
 	return cout;
 }

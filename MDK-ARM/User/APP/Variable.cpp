@@ -16,13 +16,13 @@ Dji_Motor Motor3508(0x200, _Motor3508_SIZE, _Motor3508_, _Motor3508_ID_);
 Dji_Motor Motor6020(0x204, _Motor6020_SIZE, _Motor6020_, _Motor6020_ID_);
 
 //PID角度环设置
-Kpid_t Kpid_6020_angle(0.15, 0, 0);
+Kpid_t Kpid_6020_angle(0.35, 0, 0);
 PID pid_angle_0x205;
 PID pid_angle_0x206;
 PID pid_angle_0x207;
 PID pid_angle_0x208;
 // PID角度环设置
-Kpid_t Kpid_6020_vel(80, 0, 0);
+Kpid_t Kpid_6020_vel(110, 0, 0);
 PID pid_vel_0x205;
 PID pid_vel_0x206;
 PID pid_vel_0x207;
@@ -41,14 +41,14 @@ PID pid_T_0x207;
 Kpid_t Kpid_3508_T(0, 0, 0);
 PID pid_T_0x201;
 
-//尖括号里填底盘类型
+// 尖括号里填底盘类型
 Wheel_t<SG> Wheel;
 
 //6020速度滤波
-TD td_6020_1(100);
-TD td_6020_2(100);
-TD td_6020_3(100);
-TD td_6020_4(100);
+TD td_6020_1(400);
+TD td_6020_2(400);
+TD td_6020_3(400);
+TD td_6020_4(400);
 
 //3508速度滤波
 TD td_3508_1(100);
@@ -62,15 +62,15 @@ TD td3508_torque(100);
 
 //期望值滤波
 TD tar_vw(10);
-TD tar_vx(40);
+TD tar_vx(100);
 TD tar_vy(40);
-TD td_zero(80);
+TD td_FF_Tar(100);
 
 //前馈
-FeedTar feed_6020_1(200, 10);
-FeedTar feed_6020_2(200, 10);
-FeedTar feed_6020_3(200, 10);
-FeedTar feed_6020_4(200, 10);
+FeedTar feed_6020_1(200, 8);
+FeedTar feed_6020_2(200, 8);
+FeedTar feed_6020_3(200, 8);
+FeedTar feed_6020_4(200, 8);
 
 // 创建遥控器实例
 RM_Clicker dr16;
