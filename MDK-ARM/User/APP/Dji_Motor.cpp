@@ -120,7 +120,7 @@ double Dji_Motor::GetTorque_3508(double n)
 	double Torque;
 
 	I_torque = 0.001220703125 * n;	// 20 / 16384 * n
-	K_torque = 0.01562;		// 0.3 * 减速比;
+	K_torque = 0.246 * (17.0f / 268.0f); // 0.3 * 减速比;
 
 	Torque = I_torque * K_torque;
 

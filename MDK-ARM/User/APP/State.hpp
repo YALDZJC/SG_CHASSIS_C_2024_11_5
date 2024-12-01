@@ -27,6 +27,8 @@ typedef struct
 	double final_3508_Out[4];
 	float final_6020_Out[4];
 	float FF_Zero_cross[4];
+	float Power[4];
+	float ALL_Power;
 } Chassis_Data_t;
 
 

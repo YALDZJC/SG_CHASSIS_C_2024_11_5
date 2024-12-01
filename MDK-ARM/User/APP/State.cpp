@@ -72,6 +72,7 @@ void ChassisState::Filtering()
 float kp, kd;
 float p_out, D_out;
 float Error;
+float POWER;
 void ChassisState::PID_Updata()
 {
     if (dr16.ISDir())
@@ -123,6 +124,15 @@ void ChassisState::PID_Updata()
     Chassis_Data.final_3508_Out[1] = pid_vel_0x202.pid.cout;
     Chassis_Data.final_3508_Out[2] = pid_vel_0x203.pid.cout;
     Chassis_Data.final_3508_Out[3] = pid_vel_0x204.pid.cout;
+
+    Chassis_Data.Power[0] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x201, Dji_Torque)), Motor3508.GetEquipData(0x201, Dji_Speed));
+    Chassis_Data.Power[1] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x202, Dji_Torque)), Motor3508.GetEquipData(0x202, Dji_Speed));
+    Chassis_Data.Power[2] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x203, Dji_Torque)), Motor3508.GetEquipData(0x203, Dji_Speed));
+    Chassis_Data.Power[3] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x204, Dji_Torque)), Motor3508.GetEquipData(0x204, Dji_Speed));
+
+    Chassis_Data.ALL_Power = Chassis_Data.Power[0] + Chassis_Data.Power[1] + Chassis_Data.Power[2] + Chassis_Data.Power[3];
+		POWER += Chassis_Data.ALL_Power * 0.001;
+		
 }
 
 void ChassisState::CAN_Setting()
@@ -140,8 +150,6 @@ void ChassisState::CAN_Setting()
 
 void ChassisState::CAN_Send()
 {
-    CAN_TxHeaderTypeDef *TxHeader;
-
     // 发送数据
     if (Send_ms == 0)
     {
@@ -155,12 +163,12 @@ void ChassisState::CAN_Send()
     Send_ms++;
     Send_ms %= 2;
 
-    Tools.vofaSend(Chassis_Data.FF_Zero_cross[0],
-                   feed_6020_1.cout,
-                   feed_6020_1.target_e,
-                   feed_6020_1.last_target,
-                   feed_6020_1.cout_e,
-                   0);
+    Tools.vofaSend(Chassis_Data.ALL_Power,
+                   Chassis_Data.Power[0],
+                   Chassis_Data.Power[1],
+                   Chassis_Data.Power[2],
+                   Chassis_Data.Power[3],
+                   POWER);
 }
 
 void Universal_mode::upData()
@@ -170,7 +178,7 @@ void Universal_mode::upData()
 
 void Follow_mode::upData()
 {
-    //	Base_UpData();
+    Base_UpData();
     // Tar_Updata();
 
     // Wheel_UpData();
@@ -180,6 +188,8 @@ void Follow_mode::upData()
 
 void Rotating_mode::upData()
 {
+	    Base_UpData();
+
     // Tar_Updata();
 
     // Wheel_UpData();
@@ -189,5 +199,5 @@ void Rotating_mode::upData()
 
 void Stop_mode::upData()
 {
-    a = 3;
+    Base_UpData();
 }
