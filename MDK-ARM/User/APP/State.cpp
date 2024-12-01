@@ -85,7 +85,7 @@ void ChassisState::PID_Updata()
         Chassis_Data.getMinPos[3] = Chassis_angle_Init_0x208;
     }
 
-		feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
+	feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
     feed_6020_2.UpData(Chassis_Data.Zero_cross[1]);
     feed_6020_3.UpData(Chassis_Data.Zero_cross[2]);
     feed_6020_4.UpData(Chassis_Data.Zero_cross[3]);
@@ -125,14 +125,24 @@ void ChassisState::PID_Updata()
     Chassis_Data.final_3508_Out[2] = pid_vel_0x203.pid.cout;
     Chassis_Data.final_3508_Out[3] = pid_vel_0x204.pid.cout;
 
-    Chassis_Data.Power[0] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x201, Dji_Torque)), Motor3508.GetEquipData(0x201, Dji_Speed));
-    Chassis_Data.Power[1] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x202, Dji_Torque)), Motor3508.GetEquipData(0x202, Dji_Speed));
-    Chassis_Data.Power[2] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x203, Dji_Torque)), Motor3508.GetEquipData(0x203, Dji_Speed));
-    Chassis_Data.Power[3] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x204, Dji_Torque)), Motor3508.GetEquipData(0x204, Dji_Speed));
+    Chassis_Data._3508Power[0] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x201, Dji_Torque)), Motor3508.GetEquipData(0x201, Dji_Speed));
+    Chassis_Data._3508Power[1] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x202, Dji_Torque)), Motor3508.GetEquipData(0x202, Dji_Speed));
+    Chassis_Data._3508Power[2] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x203, Dji_Torque)), Motor3508.GetEquipData(0x203, Dji_Speed));
+    Chassis_Data._3508Power[3] = Tools.GetMachinePower(Motor3508.GetTorque_3508(Motor3508.GetEquipData(0x204, Dji_Torque)), Motor3508.GetEquipData(0x204, Dji_Speed));
 
-    Chassis_Data.ALL_Power = Chassis_Data.Power[0] + Chassis_Data.Power[1] + Chassis_Data.Power[2] + Chassis_Data.Power[3];
-		POWER += Chassis_Data.ALL_Power * 0.001;
-		
+    Chassis_Data._6020Power[0] = Tools.GetMachinePower(Motor6020.GetTorque_6020(Motor6020.GetEquipData(0x205, Dji_Torque)), Motor6020.GetEquipData(0x205, Dji_Speed));
+    Chassis_Data._6020Power[1] = Tools.GetMachinePower(Motor6020.GetTorque_6020(Motor6020.GetEquipData(0x206, Dji_Torque)), Motor6020.GetEquipData(0x206, Dji_Speed));
+    Chassis_Data._6020Power[2] = Tools.GetMachinePower(Motor6020.GetTorque_6020(Motor6020.GetEquipData(0x207, Dji_Torque)), Motor6020.GetEquipData(0x207, Dji_Speed));
+    Chassis_Data._6020Power[3] = Tools.GetMachinePower(Motor6020.GetTorque_6020(Motor6020.GetEquipData(0x208, Dji_Torque)), Motor6020.GetEquipData(0x208, Dji_Speed));
+
+    Chassis_Data.Wheel_Power[0] = Chassis_Data._3508Power[0] + Chassis_Data._6020Power[0];
+    Chassis_Data.Wheel_Power[1] = Chassis_Data._3508Power[1] + Chassis_Data._6020Power[1];
+    Chassis_Data.Wheel_Power[2] = Chassis_Data._3508Power[2] + Chassis_Data._6020Power[2];
+    Chassis_Data.Wheel_Power[3] = Chassis_Data._3508Power[3] + Chassis_Data._6020Power[3];
+
+    Chassis_Data.ALL_Power = Chassis_Data.Wheel_Power[0] + Chassis_Data.Wheel_Power[1] + Chassis_Data.Wheel_Power[2] + Chassis_Data.Wheel_Power[3];
+
+    POWER += Chassis_Data.ALL_Power * 0.001;
 }
 
 void ChassisState::CAN_Setting()
@@ -163,11 +173,11 @@ void ChassisState::CAN_Send()
     Send_ms++;
     Send_ms %= 2;
 
-    Tools.vofaSend(Chassis_Data.ALL_Power,
-                   Chassis_Data.Power[0],
-                   Chassis_Data.Power[1],
-                   Chassis_Data.Power[2],
-                   Chassis_Data.Power[3],
+    Tools.vofaSend(Motor6020.GetTorque_6020(Motor6020.GetEquipData(0x205, Dji_Torque)),
+                   Chassis_Data.Wheel_Power[0],
+                   Chassis_Data.Wheel_Power[1],
+                   Chassis_Data.Wheel_Power[2],
+                   Chassis_Data.Wheel_Power[3],
                    POWER);
 }
 

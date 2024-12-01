@@ -27,7 +27,11 @@ typedef struct
 	double final_3508_Out[4];
 	float final_6020_Out[4];
 	float FF_Zero_cross[4];
-	float Power[4];
+	float _3508Power[4];
+	float _6020Power[4];
+
+	float Wheel_Power[4];
+
 	float ALL_Power;
 } Chassis_Data_t;
 
@@ -90,13 +94,14 @@ public:
 class Chassis_task
 {
 private:
+
 	uint8_t taskCount = 0;
 	State curState;
 	ChassisState *curTask;	//当前状态
 	ChassisState *stateArray[MAX_TASK] = {nullptr}; // 存储状态对象
-	ChassisState *Base_Task;		
 
 public:
+
 	State GetState() // 判断当前状态的名称
 	{
 		if (Universal)

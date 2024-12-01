@@ -51,19 +51,19 @@ TD td_6020_3(400);
 TD td_6020_4(400);
 
 //3508速度滤波
-TD td_3508_1(100);
-TD td_3508_2(100);
-TD td_3508_3(100);
-TD td_3508_4(100);
+TD td_3508_1(250);
+TD td_3508_2(250);
+TD td_3508_3(250);
+TD td_3508_4(250);
 
 //力矩滤波
 TD td6020_torque(100);
 TD td3508_torque(100);
 
 //期望值滤波
-TD tar_vw(10);
-TD tar_vx(100);
-TD tar_vy(40);
+TD tar_vw(30);
+TD tar_vx(30);
+TD tar_vy(30);
 TD td_FF_Tar(100);
 
 //前馈
