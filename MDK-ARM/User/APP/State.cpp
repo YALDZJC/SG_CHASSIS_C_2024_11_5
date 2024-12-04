@@ -167,7 +167,7 @@ void ChassisState::CAN_Send()
     }
     else if (Send_ms == 1)
     {
-        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_ID_6020);
+        Motor6020.Send_CAN_MAILBOX1(&msd_6020, SEND_MOTOR_ID_6020);
     }
 
     Send_ms++;

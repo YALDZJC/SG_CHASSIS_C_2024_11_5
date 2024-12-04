@@ -30,10 +30,10 @@ void Tools_t::vofaSend(float x1, float x2, float x3, float x4, float x5, float x
 /**
  * @brief 用于处理6020的零点
  *
- * @param expectations
- * @param feedback
- * @param maxpos
- * @return float
+ * @param expectations  期望值
+ * @param feedback      反馈值
+ * @param maxpos        最大值
+ * @return float        处理的零点
  */
 float Tools_t::Zero_crossing_processing(float expectations, float feedback, float maxpos)
 {
@@ -70,12 +70,12 @@ float Tools_t::Round_Error(float expectations, float ERR, float maxpos)
 /**
  * @brief 对最小角进行判断
  *
- * @param expectations
- * @param feedback
- * @param speed
- * @param maxspeed
- * @param maxpos
- * @return double
+ * @param expectations  期望值
+ * @param feedback      反馈值
+ * @param speed         速度
+ * @param maxspeed      最大速度
+ * @param maxpos        最大角度
+ * @return double       最小角度
  */
 double Tools_t::MinPosHelm(float expectations, float feedback, float *speed, float maxspeed, float maxpos)
 {
@@ -120,6 +120,13 @@ double Tools_t::MinPosHelm(float expectations, float feedback, float *speed, flo
     return tempcin;
 }
 
+/**
+ * @brief 获取电机的功率
+ *
+ * @param T 电机力矩
+ * @param Vel 电机速度
+ * @return double 电机机械功率
+ */
 double Tools_t::GetMachinePower(double T, double Vel)
 {
     double Pm = (T * Vel) / 9.55f;

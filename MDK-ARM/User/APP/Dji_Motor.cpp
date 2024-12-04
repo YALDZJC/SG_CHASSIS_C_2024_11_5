@@ -83,8 +83,6 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[
 	this->motorData[idx].dirTime.UpLastTime();
 }
 
-
-
 // 设置发送数据
 void Dji_Motor::setMSD(Motor_send_data_t *msd, int16_t data, int id)
 {
@@ -95,7 +93,7 @@ void Dji_Motor::setMSD(Motor_send_data_t *msd, int16_t data, int id)
 void Dji_Motor::Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID)
 {
 	// 发送
-	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
+	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX0);
 }
 
 void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
@@ -106,8 +104,8 @@ void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
 
 double Dji_Motor::GetTorque_6020(float n)
 {
-	Dji_Motor_Torque.I_torque = 0.00018310546875 * n;	//3 / 16384 * n
-	Dji_Motor_Torque.K_torque = 0.741;					// 0.741 * 减速比;
+	Dji_Motor_Torque.I_torque = 0.00018310546875 * n; // 3 / 16384 * n
+	Dji_Motor_Torque.K_torque = 0.741;				  // 0.741 * 减速比;
 	Dji_Motor_Torque.Torque = Dji_Motor_Torque.I_torque * Dji_Motor_Torque.K_torque;
 
 	return Dji_Motor_Torque.Torque;
@@ -119,7 +117,7 @@ double Dji_Motor::GetTorque_3508(double n)
 	double K_torque;
 	double Torque;
 
-	I_torque = 0.001220703125 * n;	// 20 / 16384 * n
+	I_torque = 0.001220703125 * n;		 // 20 / 16384 * n
 	K_torque = 0.246 * (17.0f / 268.0f); // 0.3 * 减速比;
 
 	Torque = I_torque * K_torque;
