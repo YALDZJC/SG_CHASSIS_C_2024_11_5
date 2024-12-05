@@ -6,6 +6,7 @@
 #include "State.hpp"
 #include "Tools.hpp"
 #include "PM01.hpp"
+#include "PowerTask.hpp"
 
 // 发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -22,6 +23,8 @@
 #define Get_MOTOR_SET_STDID_3508(x) (x + 0x200)
 #define Get_MOTOR_SET_STDID_6020(x) (x + 0x204)
 
+#define Get_InitID_3508(x) (x + 0x201)
+#define Get_InitID_6020(x) (x + 0x205);
 //数量
 #define _Motor2006_SIZE 1
 #define _Motor3508_SIZE 4
@@ -113,3 +116,5 @@ extern Tools_t Tools;
 extern Chassis_Data_t Chassis_Data;
 
 extern PM01 pm01;
+
+extern SGPowerControl::PowerTask_t PowerControl;
