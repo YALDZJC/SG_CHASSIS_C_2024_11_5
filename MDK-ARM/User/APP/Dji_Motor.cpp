@@ -10,7 +10,7 @@
  * @param MotorAddress
  * @param idxs
  */
-Dji_Motor::Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t *MotorAddress, uint8_t *idxs)
+Dji_Motor::Dji_Motor(int16_t address, uint8_t MotorSize, Dji_Motor_Data *MotorAddress, uint8_t *idxs)
 {
 	this->_Motor_ID_IDX_BIND_(idxs, MotorSize);
 

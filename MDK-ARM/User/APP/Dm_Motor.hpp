@@ -2,7 +2,6 @@
 
 #include "BSP_Motor.hpp"
 #include "My_hal.hpp"
-#include "stdxxx.hpp"
 
 // 速度模式
 #define DM_V_ID DM_YAW_CAN_ID + 0x200
@@ -25,6 +24,20 @@
 #define T_MIN (-10)
 #define T_MAX (10)
 
+class DM_Motor_Data
+{
+public:
+    int16_t address;       // 地址
+    float Data[4];         // 数据
+    float LastData[4];     // 历史数据
+    float AddData;         // 累加数据
+    int16_t InitData;      // 初始化数据
+    bool InitFlag;         // 初始化标记
+    bool DirFlag;          // 死亡标记
+    int16_t Send_ID;       // 达妙电机会用到，dji电机不用写
+    RM_StaticTime dirTime; // 运行时间
+}; // 电机
+
 // 电机反馈数据枚举，分别是转角，速度，转矩，温度，外加一个停止模式
 enum DM_Data
 {
@@ -44,10 +57,12 @@ private:
     int float_to_uint(float x, float x_min, float x_max, int bits);
 
 public:
+    DM_Motor_Data *motorData;
+
     uint8_t send_data[8];
     uint8_t Date_IDX;
 
-    DM_Motor(int16_t address, uint8_t MotorSize, Motor_t *MotorAddress, uint8_t *idxs, uint8_t *Send_ID);
+    DM_Motor(int16_t address, uint8_t MotorSize, DM_Motor_Data *MotorAddress, uint8_t *idxs, uint8_t *Send_ID);
     // 数据解析
     void Parse(RM_FDorCAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[]);
     // 设置电机数据，力矩控制

@@ -5,6 +5,7 @@
 #include "Dm_Motor.hpp"
 #include "State.hpp"
 #include "Tools.hpp"
+#include "PM01.hpp"
 
 // 发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -111,5 +112,4 @@ extern Chassis_task chassis_task;
 extern Tools_t Tools;
 extern Chassis_Data_t Chassis_Data;
 
-
-
+extern PM01 pm01;

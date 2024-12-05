@@ -2,7 +2,20 @@
 
 #include "BSP_Motor.hpp"
 #include "My_hal.hpp"
-#include "stdxxx.hpp"
+
+class Dji_Motor_Data
+{
+public:
+    int16_t address;       // 地址
+    float Data[4];         // 数据
+    float LastData[4];     // 历史数据
+    float AddData;         // 累加数据
+    int16_t InitData;      // 初始化数据
+    bool InitFlag;         // 初始化标记
+    bool DirFlag;          // 死亡标记
+    int16_t Send_ID;       // 达妙电机会用到，dji电机不用写
+    RM_StaticTime dirTime; // 运行时间
+}; // 电机
 
 // 电机反馈数据枚举，分别是转角，速度，转矩，温度，外加一个停止模式
 enum Dji_Data
@@ -27,7 +40,9 @@ private:
     Dji_Motor_Torque_t Dji_Motor_Torque;
 
 public:
-    Dji_Motor(int16_t address, uint8_t MotorSize, Motor_t *MotorAddress, uint8_t *idxs);
+    Dji_Motor_Data *motorData;
+
+    Dji_Motor(int16_t address, uint8_t MotorSize, Dji_Motor_Data *MotorAddress, uint8_t *idxs);
     // 数据解析
     void Parse(CAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[]);
     // 过零处理

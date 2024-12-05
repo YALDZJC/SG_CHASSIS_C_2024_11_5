@@ -17,7 +17,7 @@ int DM_Motor::float_to_uint(float x, float x_min, float x_max, int bits)
 }
 
 // 初始化电机信息
-DM_Motor::DM_Motor(int16_t address, uint8_t MotorSize, Motor_t *MotorAddress, uint8_t *idxs, uint8_t *Send_ID)
+DM_Motor::DM_Motor(int16_t address, uint8_t MotorSize, DM_Motor_Data *MotorAddress, uint8_t *idxs, uint8_t *Send_ID)
 {
     this->_Motor_ID_IDX_BIND_(idxs, MotorSize);
 

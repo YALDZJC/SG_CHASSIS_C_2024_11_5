@@ -24,7 +24,7 @@ bool is_sin;
 void ChassisState::Wheel_UpData()
 {
     // 对轮子进行运动学变换
-    Wheel.WheelType.UpDate(tar_vx.x1, tar_vy.x1, tar_vw.x1, 16384);
+    Wheel.WheelType.UpDate(tar_vx.x1, tar_vy.x1, tar_vw.x1, 8191);
 
     // 储存最小角判断的速度
     Chassis_Data.tar_speed[0] = Wheel.WheelType.speed[0];
@@ -85,7 +85,7 @@ void ChassisState::PID_Updata()
         Chassis_Data.getMinPos[3] = Chassis_angle_Init_0x208;
     }
 
-	feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
+		feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
     feed_6020_2.UpData(Chassis_Data.Zero_cross[1]);
     feed_6020_3.UpData(Chassis_Data.Zero_cross[2]);
     feed_6020_4.UpData(Chassis_Data.Zero_cross[3]);
@@ -104,11 +104,6 @@ void ChassisState::PID_Updata()
     pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout, td_6020_2.x1, 30000);
     pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout, td_6020_3.x1, 30000);
     pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout, td_6020_4.x1, 30000);
-
-    //    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout, td_6020_1.x1, 30000);
-    //    pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout, td_6020_2.x1, 30000);
-    //    pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout, td_6020_3.x1, 30000);
-    //    pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout, td_6020_4.x1, 30000);
 
     pid_vel_0x201.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[0], td_3508_1.x1, 16384.0f);
     pid_vel_0x202.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, 16384.0f);
@@ -173,9 +168,9 @@ void ChassisState::CAN_Send()
     Send_ms++;
     Send_ms %= 2;
 
-    Tools.vofaSend(Motor6020.GetTorque_6020(Motor6020.GetEquipData(0x205, Dji_Torque)),
-                   Chassis_Data.Wheel_Power[0],
-                   Chassis_Data.Wheel_Power[1],
+    Tools.vofaSend(Motor3508.GetEquipData(0x201, Dji_Speed),
+                   Chassis_Data.tar_speed[0],
+                   td_3508_1.x1,
                    Chassis_Data.Wheel_Power[2],
                    Chassis_Data.Wheel_Power[3],
                    POWER);

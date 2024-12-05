@@ -52,9 +52,11 @@ private:
   /* data */
 public:
 	Pid_t pid;
-	PID(double Ierror = 0)
+	PID(double Ierror = 0, double MixI = 0)
 	{
 		this->pid.Break_I = Ierror;
+		this->pid.MixI = MixI;
+
 		this->pid.td_e.r = 100;
 	}
 	//位置式pid获取
