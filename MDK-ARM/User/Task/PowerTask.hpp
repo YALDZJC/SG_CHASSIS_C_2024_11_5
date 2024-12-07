@@ -4,18 +4,18 @@
 
 namespace SGPowerControl
 {
-struct PowerData_t
+struct PowerUpData_t
 {
     /* data */
-    float _3508Torque[4];
-    float _6020Torque[4];
+    float Cmd_Power[4];
+    float Cmd_Torque[4];
 
-    float _3508Power[4];
-    float _6020Power[4];
+    float Cur_Power[4];
+    float Cur_Torque[4];
 
-    float Wheel_Power[4];
+    float Cur_ALL_Power;
+    float Cmd_ALL_Power;
 
-    float ALL_Power;
     float Energy;
 };
 
@@ -29,9 +29,14 @@ class PowerTask_t
 private:
 
 public:
-    PowerData_t PowerData;
+    PowerUpData_t _6020_PowerData;
+    PowerUpData_t _3508_PowerData;
 
-    void SGPowerFromCurr();
+    float ALL_Power;
+    float Energy;
+
+    void UpSteerData();
+    void UpWheelData();
 };
 
 } // namespace PowerCon

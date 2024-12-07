@@ -34,6 +34,7 @@ float sin_t;
 uint32_t ms;
 float hz;
 bool is_sin;
+uint16_t pos;
 // 将运动学解算相关，并对速度与角度进行过零处理
 void ChassisState::Wheel_UpData()
 {
@@ -64,10 +65,10 @@ void ChassisState::Wheel_UpData()
         ms++;
     }
     else
-        sin_t = Chassis_Data.getMinPos[0];
+        sin_t = pos;
 
     // 过零处理
-    Chassis_Data.Zero_cross[0] = Tools.Zero_crossing_processing(sin_t, Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 8192);
+    Chassis_Data.Zero_cross[0] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 8192);
     Chassis_Data.Zero_cross[1] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 8192);
     Chassis_Data.Zero_cross[2] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 8192);
     Chassis_Data.Zero_cross[3] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 8192);
@@ -85,6 +86,8 @@ void ChassisState::Filtering()
     td_3508_2.Calc(Motor3508.GetEquipData(L_Back_3508_ID, Dji_Speed));
     td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
     td_3508_4.Calc(Motor3508.GetEquipData(R_Forward_3508_ID, Dji_Speed));
+	
+	td_6020_angle_1.Calc(Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle));
 }
 
 float kp, kd;
@@ -115,52 +118,52 @@ void ChassisState::PID_Updata()
     Chassis_Data.FF_Zero_cross[2] = Tools.Round_Error(feed_6020_3.cout, feed_6020_3.target_e, 8191);
     Chassis_Data.FF_Zero_cross[3] = Tools.Round_Error(feed_6020_4.cout, feed_6020_4.target_e, 8191);
 
-    pid_angle_0x205.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 30000);
-    pid_angle_0x206.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 30000);
-    pid_angle_0x207.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 30000);
-    pid_angle_0x208.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 30000);
+    pid_angle_0x205.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[0], Motor6020.GetEquipData(0x205, Dji_Angle), 16384);
+    pid_angle_0x206.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 16384);
+    pid_angle_0x207.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 16384);
+    pid_angle_0x208.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 16384);
 
-    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout + Chassis_Data.FF_Zero_cross[0], td_6020_1.x1, 30000);
-    pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout + Chassis_Data.FF_Zero_cross[1], td_6020_2.x1, 30000);
-    pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout + Chassis_Data.FF_Zero_cross[2], td_6020_3.x1, 30000);
-    pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout + Chassis_Data.FF_Zero_cross[3], td_6020_4.x1, 30000);
+    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout + Chassis_Data.FF_Zero_cross[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed), 16384);
+    pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout + Chassis_Data.FF_Zero_cross[1], td_6020_2.x1, 16384);
+    pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout + Chassis_Data.FF_Zero_cross[2], td_6020_3.x1, 16384);
+    pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout + Chassis_Data.FF_Zero_cross[3], td_6020_4.x1, 16384);
 
     pid_vel_0x201.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[0], td_3508_1.x1, 16384.0f);
     pid_vel_0x202.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, 16384.0f);
     pid_vel_0x203.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, 16384.0f);
     pid_vel_0x204.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, 16384.0f);
 
-    Chassis_Data.final_6020_Out[0] = pid_vel_0x205.pid.cout;
-    //    Chassis_Data.final_6020_Out[1] = pid_vel_0x206.pid.cout;
-    //    Chassis_Data.final_6020_Out[2] = pid_vel_0x207.pid.cout;
-    //    Chassis_Data.final_6020_Out[3] = pid_vel_0x208.pid.cout;
+    Chassis_Data.final_6020_Out[0] = pid_angle_0x205.pid.cout;
+    Chassis_Data.final_6020_Out[1] = pid_vel_0x206.pid.cout;
+    Chassis_Data.final_6020_Out[2] = pid_vel_0x207.pid.cout;
+    Chassis_Data.final_6020_Out[3] = pid_vel_0x208.pid.cout;
 
-    //    Chassis_Data.final_3508_Out[0] = pid_vel_0x201.pid.cout;
-    //    Chassis_Data.final_3508_Out[1] = pid_vel_0x202.pid.cout;
-    //    Chassis_Data.final_3508_Out[2] = pid_vel_0x203.pid.cout;
-    //    Chassis_Data.final_3508_Out[3] = pid_vel_0x204.pid.cout;
+    Chassis_Data.final_3508_Out[0] = pid_vel_0x201.pid.cout;
+    Chassis_Data.final_3508_Out[1] = pid_vel_0x202.pid.cout;
+    Chassis_Data.final_3508_Out[2] = pid_vel_0x203.pid.cout;
+    Chassis_Data.final_3508_Out[3] = pid_vel_0x204.pid.cout;
 
-    if (ms % 100 == 0 && is_sin == true && ms < 300000)
-    {
-        measure_cmd[i] = Chassis_Data.final_6020_Out[0];
-        measure_speed[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed);
-        measure_curent[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Torque);
+//    if (ms % 100 == 0 && is_sin == true && ms < 300000)
+//    {
+//        measure_cmd[i] = Chassis_Data.final_6020_Out[0];
+//        measure_speed[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed);
+//        measure_curent[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Torque);
 
-        i++;
-    }
+//        i++;
+//    }
 }
 
 void ChassisState::CAN_Setting()
 {
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
-    //    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
-    //    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
-    //    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[2], Get_MOTOR_SET_ID_3508(0x203));
-    //    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[3], Get_MOTOR_SET_ID_3508(0x204));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[2], Get_MOTOR_SET_ID_3508(0x203));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[3], Get_MOTOR_SET_ID_3508(0x204));
 }
 
 void ChassisState::CAN_Send()
@@ -168,22 +171,22 @@ void ChassisState::CAN_Send()
     // 发送数据
     if (Send_ms == 0)
     {
-        //        Motor3508.Send_CAN_MAILBOX0(&msd_3508_2006, SEND_MOTOR_ID_3508);
+        Motor3508.Send_CAN_MAILBOX1(&msd_3508_2006, SEND_MOTOR_ID_3508);
     }
     else if (Send_ms == 1)
     {
-        Motor6020.Send_CAN_MAILBOX1(&msd_6020, SEND_MOTOR_ID_6020);
+        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_ID_6020);
     }
 
     Send_ms++;
     Send_ms %= 2;
 
-    Tools.vofaSend(Vol2Current(Chassis_Data.final_6020_Out[0]),
-                   Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Torque),
-                   Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed),
-                   PowerControl.PowerData.Wheel_Power[2],
-                   PowerControl.PowerData.Wheel_Power[3],
-                   POWER);
+    Tools.vofaSend(PowerControl._6020_PowerData.Cmd_ALL_Power,
+                   PowerControl._6020_PowerData.Cur_ALL_Power,
+                   PowerControl._3508_PowerData.Cmd_ALL_Power,
+                   PowerControl._3508_PowerData.Cur_ALL_Power,
+                   PowerControl.ALL_Power,
+                   PowerControl.Energy);
 }
 
 void Universal_mode::upData()

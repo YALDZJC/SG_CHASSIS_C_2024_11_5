@@ -12,6 +12,7 @@
 #define SEND_MOTOR_ID_2006 (0x200)
 #define SEND_MOTOR_ID_3508 (0x200)
 #define SEND_MOTOR_ID_6020 (0x1FF)
+#define SEND_MOTOR_CurrentID_6020 (0x1FE)
 
 //获取设置id
 #define Get_MOTOR_SET_ID_2006(x) (x - 0x200)
@@ -24,7 +25,7 @@
 #define Get_MOTOR_SET_STDID_6020(x) (x + 0x204)
 
 #define Get_InitID_3508(x) (x + 0x201)
-#define Get_InitID_6020(x) (x + 0x205);
+#define Get_InitID_6020(x) (x + 0x205)
 //数量
 #define _Motor2006_SIZE 1
 #define _Motor3508_SIZE 4
@@ -90,6 +91,7 @@ extern TD td_6020_1;
 extern TD td_6020_2;
 extern TD td_6020_3;
 extern TD td_6020_4;
+extern TD td_6020_angle_1;
 
 extern TD td_3508_1;
 extern TD td_3508_2;
