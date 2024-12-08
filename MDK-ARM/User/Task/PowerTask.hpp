@@ -1,11 +1,17 @@
 #pragma once
 
 #include "PM01.hpp"
+#include "RLS.hpp"
+#include "arm_math.h"
+
+#define My_PI 3.14152653529799323
 
 namespace SGPowerControl
 {
 struct PowerUpData_t
 {
+    // PowerUpData_t() = delete;
+
     /* data */
     float Cmd_Power[4];
     float Cmd_Torque[4];
@@ -17,12 +23,16 @@ struct PowerUpData_t
     float Cmd_ALL_Power;
 
     float Energy;
+
+    float k1, k2, k3;
+
+    float EstimatedPower;
+    float EffectivePower;
+
 };
 
-// class PowerLimitator
-// {
-//     public
-// };
+
+
 
 class PowerTask_t
 {
@@ -34,12 +44,15 @@ public:
 
     float ALL_Power;
     float Energy;
+    // Math::RLS<2> rls;
 
     void UpSteerData();
     void UpWheelData();
+
 };
 
 } // namespace PowerCon
+static inline float rpm2av(float rpm) { return rpm * My_PI / 30.0f; }
 
 #ifdef __cplusplus
 extern "C"

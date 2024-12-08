@@ -133,7 +133,7 @@ void ChassisState::PID_Updata()
     pid_vel_0x203.GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, 16384.0f);
     pid_vel_0x204.GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, 16384.0f);
 
-    Chassis_Data.final_6020_Out[0] = pid_angle_0x205.pid.cout;
+    Chassis_Data.final_6020_Out[0] = pid_vel_0x205.pid.cout;
     Chassis_Data.final_6020_Out[1] = pid_vel_0x206.pid.cout;
     Chassis_Data.final_6020_Out[2] = pid_vel_0x207.pid.cout;
     Chassis_Data.final_6020_Out[3] = pid_vel_0x208.pid.cout;
@@ -175,7 +175,7 @@ void ChassisState::CAN_Send()
     }
     else if (Send_ms == 1)
     {
-        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_ID_6020);
+        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);
     }
 
     Send_ms++;
@@ -183,10 +183,10 @@ void ChassisState::CAN_Send()
 
     Tools.vofaSend(PowerControl._6020_PowerData.Cmd_ALL_Power,
                    PowerControl._6020_PowerData.Cur_ALL_Power,
+                   PowerControl._6020_PowerData.EstimatedPower,
                    PowerControl._3508_PowerData.Cmd_ALL_Power,
                    PowerControl._3508_PowerData.Cur_ALL_Power,
-                   PowerControl.ALL_Power,
-                   PowerControl.Energy);
+                   PowerControl._3508_PowerData.EstimatedPower);
 }
 
 void Universal_mode::upData()
