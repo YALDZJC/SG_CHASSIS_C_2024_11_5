@@ -7,6 +7,7 @@
 #include "Tools.hpp"
 #include "PM01.hpp"
 #include "PowerTask.hpp"
+#include "EvenTask.hpp"
 
 // 发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -120,3 +121,4 @@ extern Chassis_Data_t Chassis_Data;
 extern PM01 pm01;
 
 extern SGPowerControl::PowerTask_t PowerControl;
+extern Event::EventManager EventParse;

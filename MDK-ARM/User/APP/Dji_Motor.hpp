@@ -55,6 +55,8 @@ public:
     void Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID);
     void Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID);
 
+    uint8_t ISDir();
+
     double GetTorque_6020(float n);
     double GetTorque_3508(double n);
 
@@ -68,5 +70,10 @@ public:
     inline float GetEquipLastData(int16_t address, Dji_Data DataType)
     {
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].LastData[DataType];
+    }
+
+    bool GetDir(int16_t address)
+    {
+        return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].DirFlag;
     }
 };

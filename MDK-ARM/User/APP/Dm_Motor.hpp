@@ -65,6 +65,9 @@ public:
     DM_Motor(int16_t address, uint8_t MotorSize, DM_Motor_Data *MotorAddress, uint8_t *idxs, uint8_t *Send_ID);
     // 数据解析
     void Parse(RM_FDorCAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[]);
+
+    uint8_t ISDir();
+
     // 设置电机数据，力矩控制
     // MIT模式
     void ctrl_Motor(RM_FDorCAN_HandleTypeDef *hcan, float _vel, float _pos, float _KP, float _KD, float _torq);

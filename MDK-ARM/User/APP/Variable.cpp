@@ -90,3 +90,5 @@ Chassis_Data_t Chassis_Data;
 PM01 pm01;
 
 SGPowerControl::PowerTask_t PowerControl;
+
+Event::EventManager EventParse;

@@ -124,3 +124,13 @@ double Dji_Motor::GetTorque_3508(double n)
 
 	return Torque;
 }
+uint8_t Dji_Motor::ISDir()
+{
+	bool is_dir = 0;
+	for (int i = 0; i < this->MotorSize; i++)
+	{
+		is_dir |= this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].DirFlag =
+				this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].dirTime.ISDir(10);
+	}
+	return is_dir;
+}

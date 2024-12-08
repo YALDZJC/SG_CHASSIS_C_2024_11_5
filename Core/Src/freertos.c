@@ -89,6 +89,13 @@ const osThreadAttr_t rlsTask_attributes = {
   .stack_size = 1024 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for eventTask */
+osThreadId_t eventTaskHandle;
+const osThreadAttr_t eventTask_attributes = {
+  .name = "eventTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -101,6 +108,7 @@ extern void CommunicationTask(void *argument);
 extern void RefeeTask(void *argument);
 extern void PowerTask(void *argument);
 extern void RLSTask(void *argument);
+extern void EventTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -148,6 +156,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of rlsTask */
   rlsTaskHandle = osThreadNew(RLSTask, NULL, &rlsTask_attributes);
+
+  /* creation of eventTask */
+  eventTaskHandle = osThreadNew(EventTask, NULL, &eventTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

@@ -23,4 +23,3 @@ int RM_Motor::GET_Motor_ID_ADDRESS_BIND_(int address)
 
 	return this->idxs[idx];
 }
-

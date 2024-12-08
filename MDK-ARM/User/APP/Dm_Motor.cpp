@@ -146,3 +146,14 @@ void DM_Motor::ctrl_Motor(RM_FDorCAN_HandleTypeDef *hcan, float _vel)
     this->send_data[2] = *(vbuf + 2);
     this->send_data[3] = *(vbuf + 3);
 }
+
+uint8_t DM_Motor::ISDir()
+{
+    bool is_dir = 0;
+    for (int i = 0; i < this->MotorSize; i++)
+    {
+        is_dir |= this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].DirFlag =
+            this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].dirTime.ISDir(10);
+    }
+    return is_dir;
+}

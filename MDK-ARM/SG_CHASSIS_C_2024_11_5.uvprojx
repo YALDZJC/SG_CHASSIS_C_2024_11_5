@@ -826,6 +826,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\Task\PowerTask.cpp</FilePath>
             </File>
+            <File>
+              <FileName>EvenTask.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\Task\EvenTask.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

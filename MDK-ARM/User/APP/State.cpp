@@ -183,10 +183,10 @@ void ChassisState::CAN_Send()
 
     Tools.vofaSend(PowerControl._6020_PowerData.Cmd_ALL_Power,
                    PowerControl._6020_PowerData.Cur_ALL_Power,
-                   PowerControl._6020_PowerData.EstimatedPower,
+                   PowerControl.Energy,
                    PowerControl._3508_PowerData.Cmd_ALL_Power,
                    PowerControl._3508_PowerData.Cur_ALL_Power,
-                   PowerControl._3508_PowerData.EstimatedPower);
+                   PowerControl.ALL_Power);
 }
 
 void Universal_mode::upData()

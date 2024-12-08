@@ -28,10 +28,12 @@ public:
 	Motor_send_data_t* Motor_send_data;
 
 	//获取对应下标
-	int GET_Motor_ID_ADDRESS_BIND_(int address);	
-	
-	//数据解析
-    virtual void Parse(CAN_RxHeaderTypeDef  RxHeader,uint8_t RxHeaderData[]) = 0;
+	int GET_Motor_ID_ADDRESS_BIND_(int address);
+
+	virtual uint8_t ISDir() = 0;
+
+	// 数据解析
+	virtual void Parse(CAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[]) = 0;
 };
 
 
