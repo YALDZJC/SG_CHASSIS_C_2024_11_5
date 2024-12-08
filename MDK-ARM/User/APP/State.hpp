@@ -3,6 +3,7 @@
 #include "stdxxx.hpp"
 #include "CommunicationTask.hpp"
 #include "PID.hpp"
+#include "dr16.hpp"
 
 #define MAX_TASK 6 // 任务最大数量
 

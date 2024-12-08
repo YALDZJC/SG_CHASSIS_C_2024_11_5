@@ -1,7 +1,6 @@
 #include "State.hpp"
 #include "Variable.hpp"
 #include "Dji_Motor.hpp"
-#include "dr16.hpp"
 
 int a;
 float measure_cmd[300];
@@ -67,6 +66,16 @@ void ChassisState::Wheel_UpData()
     else
         sin_t = pos;
 
+    if (dr16.ISDir())
+    {
+        Chassis_Data.tar_speed[0] = Chassis_Data.tar_speed[1] = Chassis_Data.tar_speed[2] = Chassis_Data.tar_speed[3] = 0;
+
+        Chassis_Data.getMinPos[0] = Chassis_angle_Init_0x205;
+        Chassis_Data.getMinPos[1] = Chassis_angle_Init_0x206;
+        Chassis_Data.getMinPos[2] = Chassis_angle_Init_0x207;
+        Chassis_Data.getMinPos[3] = Chassis_angle_Init_0x208;
+    }
+
     // 过零处理
     Chassis_Data.Zero_cross[0] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 8192);
     Chassis_Data.Zero_cross[1] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 8192);
@@ -86,8 +95,8 @@ void ChassisState::Filtering()
     td_3508_2.Calc(Motor3508.GetEquipData(L_Back_3508_ID, Dji_Speed));
     td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
     td_3508_4.Calc(Motor3508.GetEquipData(R_Forward_3508_ID, Dji_Speed));
-	
-	td_6020_angle_1.Calc(Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle));
+
+    td_6020_angle_1.Calc(Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle));
 }
 
 float kp, kd;
@@ -98,15 +107,6 @@ int i;
 
 void ChassisState::PID_Updata()
 {
-    if (dr16.ISDir())
-    {
-        Chassis_Data.tar_speed[0] = Chassis_Data.tar_speed[1] = Chassis_Data.tar_speed[2] = Chassis_Data.tar_speed[3] = 0;
-
-        Chassis_Data.getMinPos[0] = Chassis_angle_Init_0x205;
-        Chassis_Data.getMinPos[1] = Chassis_angle_Init_0x206;
-        Chassis_Data.getMinPos[2] = Chassis_angle_Init_0x207;
-        Chassis_Data.getMinPos[3] = Chassis_angle_Init_0x208;
-    }
 
     feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
     feed_6020_2.UpData(Chassis_Data.Zero_cross[1]);
@@ -123,7 +123,7 @@ void ChassisState::PID_Updata()
     pid_angle_0x207.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 16384);
     pid_angle_0x208.GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 16384);
 
-    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout + Chassis_Data.FF_Zero_cross[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed), 16384);
+    pid_vel_0x205.GetPidPos(Kpid_6020_vel, pid_angle_0x205.pid.cout + Chassis_Data.FF_Zero_cross[0], td_6020_1.x1, 16384);
     pid_vel_0x206.GetPidPos(Kpid_6020_vel, pid_angle_0x206.pid.cout + Chassis_Data.FF_Zero_cross[1], td_6020_2.x1, 16384);
     pid_vel_0x207.GetPidPos(Kpid_6020_vel, pid_angle_0x207.pid.cout + Chassis_Data.FF_Zero_cross[2], td_6020_3.x1, 16384);
     pid_vel_0x208.GetPidPos(Kpid_6020_vel, pid_angle_0x208.pid.cout + Chassis_Data.FF_Zero_cross[3], td_6020_4.x1, 16384);
@@ -143,14 +143,14 @@ void ChassisState::PID_Updata()
     Chassis_Data.final_3508_Out[2] = pid_vel_0x203.pid.cout;
     Chassis_Data.final_3508_Out[3] = pid_vel_0x204.pid.cout;
 
-//    if (ms % 100 == 0 && is_sin == true && ms < 300000)
-//    {
-//        measure_cmd[i] = Chassis_Data.final_6020_Out[0];
-//        measure_speed[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed);
-//        measure_curent[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Torque);
+    //    if (ms % 100 == 0 && is_sin == true && ms < 300000)
+    //    {
+    //        measure_cmd[i] = Chassis_Data.final_6020_Out[0];
+    //        measure_speed[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed);
+    //        measure_curent[i] = Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Torque);
 
-//        i++;
-//    }
+    //        i++;
+    //    }
 }
 
 void ChassisState::CAN_Setting()
@@ -217,5 +217,26 @@ void Rotating_mode::upData()
 
 void Stop_mode::upData()
 {
-    Base_UpData();
+    // Base_UpData();
+    Tar_Updata();
+    for (int i = 0; i < 4; i++)
+    {
+        Chassis_Data.final_6020_Out[i] = 0;
+        Chassis_Data.final_3508_Out[i] = 0;
+    }
+
+    // PID_Updata();
+
+    pid_vel_0x201.clearPID();
+    pid_vel_0x202.clearPID();
+    pid_vel_0x203.clearPID();
+    pid_vel_0x204.clearPID();
+
+    pid_vel_0x205.clearPID();
+    pid_vel_0x206.clearPID();
+    pid_vel_0x207.clearPID();
+    pid_vel_0x208.clearPID();
+
+    CAN_Setting();
+    CAN_Send();
 }
