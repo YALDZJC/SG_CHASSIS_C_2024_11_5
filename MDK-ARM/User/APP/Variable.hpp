@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Dji_Motor.hpp"
 #include "dr16.hpp"
 #include "PID.hpp"
@@ -45,10 +47,26 @@
 #define R_Back_3508_ID      0x203
 #define R_Forward_3508_ID   0x204
 
-#define Chassis_angle_Init_0x205 7344
-#define Chassis_angle_Init_0x206 5424 + 4096
-#define Chassis_angle_Init_0x207 3141
-#define Chassis_angle_Init_0x208 5316 + 4096
+#define Chassis_angle_Init_0x205 7427
+#define Chassis_angle_Init_0x206 5391 + 4096
+#define Chassis_angle_Init_0x207 3210
+#define Chassis_angle_Init_0x208 5400 + 4096
+
+typedef struct
+{
+    // 期望值
+    float getMinPos[4];
+    float tar_speed[4];
+    float tar_angle[4];
+    float tar_Torque[4];
+
+    float Zero_cross[4];
+
+    double final_3508_Out[4];
+    float final_6020_Out[4];
+    float FF_Zero_cross[4];
+
+} Chassis_Data_t;
 
 extern uint32_t Send_ms;
 
@@ -114,11 +132,9 @@ extern RM_Clicker dr16;
 
 extern Wheel_t<SG> Wheel;
 
-extern Chassis_task chassis_task;
 extern Tools_t Tools;
 extern Chassis_Data_t Chassis_Data;
 
 extern PM01 pm01;
 
 extern SGPowerControl::PowerTask_t PowerControl;
-extern Event::EventManager EventParse;

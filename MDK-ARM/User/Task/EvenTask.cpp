@@ -3,12 +3,14 @@
 #include "cmsis_os2.h"
 
 using namespace Event;
+
+Event::EventManager EventParse;
 void EventTask(void *argument)
 {
-    Dir::inject(new My_Dir);
     for (;;)
     {
-        Dir::Dir_Streel();
+        Dir::inject(new My_Dir);
+
         osDelay(1);
     }
 }
@@ -32,7 +34,7 @@ bool Dir::inject(Dir *_dir)
         return false;
     }
 
-    _dir->init();
+    _dir->UpEvent();
     dir = _dir;
     return true;
 }
@@ -46,7 +48,17 @@ void Dir::destroy()
     dir = nullptr;
 }
 
-bool Dir::_Dir_Streel()
+bool My_Dir::Dir_Remote()
+{
+    bool Dir = dr16.ISDir();
+
+		EventParse.DirData.Dr16 = Dir;
+	
+    return Dir;
+}
+
+
+bool My_Dir::Dir_Streel()
 {
     bool Dir = Motor6020.ISDir();
 
@@ -54,11 +66,11 @@ bool Dir::_Dir_Streel()
     {
         EventParse.DirData.Stree[i] = Motor6020.GetDir(Get_InitID_6020(i));
     }
-    
+
     return Dir;
 }
 
-bool Dir::_Dir_Wheel()
+bool My_Dir::Dir_Wheel()
 {
     bool Dir = Motor3508.ISDir();
 
@@ -68,9 +80,4 @@ bool Dir::_Dir_Wheel()
     }
 
     return Dir;
-}
-
-bool Dir::_Dir_Remote()
-{
-    return dr16.ISDir();
 }

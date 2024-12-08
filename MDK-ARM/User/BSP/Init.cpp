@@ -1,7 +1,6 @@
 #include "Init.hpp"
 #include "My_hal.hpp"
 #include "BSP_Can.hpp"
-#include "Variable.hpp"
 #include "State.hpp"
 
 Universal_mode Universal_t;

@@ -2,8 +2,7 @@
 
 #include "stdxxx.hpp"
 #include "CommunicationTask.hpp"
-#include "PID.hpp"
-#include "dr16.hpp"
+#include "EvenTask.hpp"
 
 #define MAX_TASK 6 // 任务最大数量
 
@@ -14,23 +13,6 @@ enum State
 	Rotating_State,
 	Stop_State,
 };
-
-typedef struct 
-{
-	// 期望值
-	float getMinPos[4];
-	float tar_speed[4];
-	float tar_angle[4];
-	float tar_Torque[4];
-
-	float Zero_cross[4];
-
-	double final_3508_Out[4];
-	float final_6020_Out[4];
-	float FF_Zero_cross[4];
-
-} Chassis_Data_t;
-
 
 class ChassisState
 {
@@ -98,19 +80,8 @@ private:
 
 public:
 
-	State GetState() // 判断当前状态的名称
-	{
-		if (Universal)
-			return Universal_State;
-		else if (Follow)
-			return Follow_State;
-		else if (Rotating)
-			return Rotating_State;
-		else if (Stop)
-			return Stop_State;
-		else
-			return Stop_State;
-	}
+	State GetState();// 判断当前状态的名称
+
 
 	bool AddState(const State &taskName, ChassisState *newTask) // 设置状态的名称与对应的状态对象
 	{
@@ -139,3 +110,5 @@ public:
 		}
 	}
 };
+
+extern Chassis_task chassis_task;

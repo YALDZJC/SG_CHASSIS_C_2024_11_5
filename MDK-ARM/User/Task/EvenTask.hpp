@@ -10,6 +10,7 @@ namespace Event
         bool Wheel[4];
     };
 
+
     class Dir
     {
     private:
@@ -20,44 +21,41 @@ namespace Event
         static bool check(); // check if there is a hal instance.
 
         static bool inject(Dir *_dir); // inject HAL instance and run hal_init.
+
         static void destroy();         // destroy HAL instance.
-
         virtual ~Dir() = default;
-        virtual void init() {}
-        virtual void UpData() {}
+        virtual void UpEvent() {}
 
     public:
-        static bool Dir_Remote() { return get()->_Dir_Remote(); }
-        virtual bool _Dir_Remote();
-
-        static bool Dir_Streel() { return get()->_Dir_Streel(); }
-        virtual bool _Dir_Streel();
-
-        static bool Dir_Wheel() { return get()->_Dir_Wheel(); }
-        virtual bool _Dir_Wheel();
-    };
-
-    class EventManager
-    {
-    public:
-        Dir_Data_t DirData;
     };
 
     class My_Dir : public Dir
     {
     private:
-
+        bool Dir_Streel();
+        bool Dir_Wheel();
+        bool Dir_Remote();
 
     public:
         My_Dir() = default;
 
-        inline void UpData() override
+        inline void UpEvent() override
         {
-            
+            Dir_Remote();
+            Dir_Streel();
+            Dir_Wheel();
         }
+    };
 
+    class EventManager
+    {
+    public:
+
+        Dir_Data_t DirData;
     };
 }
+
+extern Event::EventManager EventParse;
 
 #ifdef __cplusplus
 extern "C"
