@@ -68,8 +68,10 @@ public:
 
 	void _osDelay(unsigned long _mill) override;
 
-	unsigned long _GetTick() override;
+	void _Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) override;
+	void _Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) override;
 
+	unsigned long _GetTick() override;
 
 public:
 	inline void init() override

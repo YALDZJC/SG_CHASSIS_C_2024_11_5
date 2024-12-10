@@ -45,10 +45,6 @@ public:
     Dji_Motor(int16_t address, uint8_t MotorSize, Dji_Motor_Data *MotorAddress, uint8_t *idxs);
     // 数据解析
     void Parse(CAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[]);
-    // 过零处理
-    float Zero_crossing_processing(float expectations, float feedback, float maxpos);
-    // 最小角判断
-    double MinPosHelm(float expectations, float feedback, float *speed, float maxspeed, float maxpos);
     // 设置id
     void setMSD(Motor_send_data_t *msd, int16_t data, int id);
     // 发送id
@@ -72,7 +68,7 @@ public:
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].LastData[DataType];
     }
 
-    bool GetDir(int16_t address)
+    inline bool GetDir(int16_t address)
     {
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].DirFlag;
     }

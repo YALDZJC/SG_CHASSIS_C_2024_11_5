@@ -6,6 +6,7 @@ namespace Event
     {
         /* data */
         bool Dr16;
+        bool MeterPower;
         bool Stree[4];
         bool Wheel[4];
     };
@@ -35,6 +36,7 @@ namespace Event
         bool Dir_Streel();
         bool Dir_Wheel();
         bool Dir_Remote();
+        bool Dir_MeterPower();
 
     public:
         My_Dir() = default;
@@ -44,6 +46,7 @@ namespace Event
             Dir_Remote();
             Dir_Streel();
             Dir_Wheel();
+            Dir_MeterPower();
         }
     };
 

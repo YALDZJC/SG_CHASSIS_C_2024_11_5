@@ -752,6 +752,11 @@
               <FilePath>.\User\APP\Dm_Motor.cpp</FilePath>
             </File>
             <File>
+              <FileName>PowerMeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\PowerMeter.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Variable.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\User\APP\Variable.cpp</FilePath>

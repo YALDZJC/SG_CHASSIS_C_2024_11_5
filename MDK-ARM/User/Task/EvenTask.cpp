@@ -81,3 +81,14 @@ bool My_Dir::Dir_Wheel()
 
     return Dir;
 }
+
+bool My_Dir::Dir_MeterPower()
+{
+    bool Dir = MeterPower.ISDir();
+
+    EventParse.DirData.MeterPower = Dir;
+
+    return Dir;
+}
+
+

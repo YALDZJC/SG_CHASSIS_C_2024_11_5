@@ -1,4 +1,5 @@
 #include "Dji_Motor.hpp"
+#include "HAL.hpp"
 
 // 初始化电机信息
 /**
@@ -99,7 +100,7 @@ void Dji_Motor::Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID)
 void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
 {
 	// 发送
-	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
+	HAL::Can_SendDATA(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
 }
 
 double Dji_Motor::GetTorque_6020(float n)

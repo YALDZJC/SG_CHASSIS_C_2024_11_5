@@ -10,6 +10,7 @@
 #include "PM01.hpp"
 #include "PowerTask.hpp"
 #include "EvenTask.hpp"
+#include "PowerMeter.hpp"
 
 // 发送id
 #define SEND_MOTOR_ID_2006 (0x200)
@@ -33,7 +34,7 @@
 #define _Motor2006_SIZE 1
 #define _Motor3508_SIZE 4
 #define _Motor6020_SIZE 4
-#define _DM4310_SIZE 1
+#define _PowerMeter_SIZE 1
 
 // ID号
 #define L_Forward_6020_ID   0x205
@@ -77,6 +78,8 @@ extern Dji_Motor Motor2006;
 extern Dji_Motor Motor3508;
 extern Dji_Motor Motor6020;
 extern DM_Motor  Motor4310;
+
+extern PowerMeter::Meter MeterPower;
 
 // PID角度环设置
 extern Kpid_t Kpid_6020_angle;

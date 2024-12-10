@@ -38,6 +38,7 @@ void My_hal::_capactal_init()
 
 }
 
+
 void My_hal::_delay(unsigned long _mill)
 {
     HAL_Delay(_mill);
@@ -53,3 +54,36 @@ unsigned long My_hal::_GetTick()
     return HAL_GetTick();
 }
 
+void My_hal::_Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox)
+{
+    CAN_TxHeaderTypeDef TxHeader;
+    TxHeader.DLC = 8;            // 长度
+    TxHeader.ExtId = 0;          // 扩展id
+    TxHeader.IDE = CAN_ID_STD;   // 标准
+    TxHeader.RTR = CAN_RTR_DATA; // 数据帧
+    TxHeader.StdId = StdId;      // id
+    TxHeader.TransmitGlobalTime = DISABLE;
+
+    if (HAL_CAN_GetTxMailboxesFreeLevel(han) != 0)
+    {
+        // 发送邮箱
+        HAL_CAN_AddTxMessage(han, &TxHeader, s_data, &pTxMailbox);
+    }
+}
+
+void My_hal::_Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox)
+{
+    CAN_TxHeaderTypeDef TxHeader;
+    TxHeader.DLC = 8;              // 长度
+    TxHeader.ExtId = 0;            // 扩展id
+    TxHeader.IDE = CAN_ID_STD;     // 标准
+    TxHeader.RTR = CAN_RTR_REMOTE; // 数据帧
+    TxHeader.StdId = StdId;        // id
+    TxHeader.TransmitGlobalTime = DISABLE;
+
+    if (HAL_CAN_GetTxMailboxesFreeLevel(han) != 0)
+    {
+        // 发送邮箱
+        HAL_CAN_AddTxMessage(han, &TxHeader, s_data, &pTxMailbox);
+    }
+}

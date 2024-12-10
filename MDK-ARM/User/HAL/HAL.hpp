@@ -1,6 +1,8 @@
 // 提供底层驱动，主要封装各种常用函数
 #pragma once
 
+#include "can.h"
+
 #ifndef HAL_H_
 #define HAL_H_
 
@@ -23,9 +25,17 @@ public:
     static void delay(unsigned long _mill) { get()->_delay(_mill); }
     virtual void _delay(unsigned long _mill) {}
 
-    static void osDelay(unsigned long _mill) { get()->osDelay(_mill); }
+    static void osDelay(unsigned long _mill) { get()->_osDelay(_mill); }
     virtual void _osDelay(unsigned long _mill) {}
 
+
+    static void Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) { get()->_Can_SendREMOTE(han, StdId, s_data, pTxMailbox); }
+    virtual void _Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) {}
+
+    static void Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) { get()->_Can_SendDATA(han, StdId, s_data, pTxMailbox); }
+    virtual void _Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) {}
+
+public:
     static unsigned long GetTick() { return get()->_GetTick(); }
     virtual unsigned long _GetTick() { return 0; }
     // 数学函数接口封装
