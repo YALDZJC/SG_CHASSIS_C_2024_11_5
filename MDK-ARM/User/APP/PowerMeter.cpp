@@ -28,13 +28,16 @@ void Meter::Parse(CAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[])
     this->meterData[idx].DirFlag = this->meterData[idx].dirTime.ISDir(10);
 
     // 电压
-    this->meterData[idx].Data[Voltage] = (float)((int16_t)(RxHeaderData[0] << 8 | RxHeaderData[1]));
+    this->meterData[idx].Data[Voltage] = (float)((int32_t)(RxHeaderData[1] << 8) | (int32_t)(RxHeaderData[0])) / 100.0f;
 
     // 电流
-    this->meterData[idx].Data[Current] = (float)((int16_t)(RxHeaderData[2] << 8 | RxHeaderData[3]));
+    this->meterData[idx].Data[Current] = (float)((int32_t)(RxHeaderData[3] << 8) | (int32_t)(RxHeaderData[2])) / 100.0f;
 
     // 功率 = 电压 * 电流
     this->meterData[idx].Data[Power] = this->meterData[idx].Data[Voltage] * this->meterData[idx].Data[Current];
+
+    //能量=功率对时间的积分
+    this->meterData[idx].Data[Energy] += this->meterData[idx].Data[Power];
 
     // 更新时间
     this->meterData[idx].dirTime.UpLastTime();

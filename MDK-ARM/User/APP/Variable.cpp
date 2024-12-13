@@ -33,7 +33,7 @@ PID pid_vel_0x207;
 PID pid_vel_0x208;
 
 // PID速度环设置
-Kpid_t Kpid_3508_vel(8, 0.3, 0);
+Kpid_t Kpid_3508_vel(8, 0, 0);
 PID pid_vel_0x201(1000, 8000);
 PID pid_vel_0x202(1000, 8000);
 PID pid_vel_0x203(1000, 8000);
@@ -91,4 +91,3 @@ Chassis_Data_t Chassis_Data;
 PM01 pm01;
 
 SGPowerControl::PowerTask_t PowerControl;
-

@@ -14,41 +14,25 @@ namespace Event
 
     class Dir
     {
-    private:
-        static Dir *dir;
+    public:
+        static bool Dir_Streel();
+        static bool Dir_Wheel();
+        static bool Dir_Remote();
+        static bool Dir_MeterPower();
 
     public:
-        static Dir *get();   // get hal instance.
-        static bool check(); // check if there is a hal instance.
-
-        static bool inject(Dir *_dir); // inject HAL instance and run hal_init.
-
-        static void destroy();         // destroy HAL instance.
-        virtual ~Dir() = default;
-        virtual void UpEvent() {}
-
-    public:
-    };
-
-    class My_Dir : public Dir
-    {
-    private:
-        bool Dir_Streel();
-        bool Dir_Wheel();
-        bool Dir_Remote();
-        bool Dir_MeterPower();
-
-    public:
-        My_Dir() = default;
-
-        inline void UpEvent() override
+        static void UpEvent() 
         {
             Dir_Remote();
             Dir_Streel();
             Dir_Wheel();
             Dir_MeterPower();
         }
+
+    public:
     };
+
+  
 
     class EventManager
     {

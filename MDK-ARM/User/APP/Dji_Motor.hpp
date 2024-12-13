@@ -53,8 +53,7 @@ public:
 
     uint8_t ISDir();
 
-    double GetTorque_6020(float n);
-    double GetTorque_3508(double n);
+    double GetTorque(double n);
 
     // 得到当前值
     inline float GetEquipData(int16_t address, Dji_Data DataType)

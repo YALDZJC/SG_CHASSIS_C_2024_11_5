@@ -29,14 +29,14 @@ void PM01::PM01Parse(CAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[])
         PM01_Data.In_Data[Ampere]   = (float)(RxHeaderData[4] << 8 | RxHeaderData[5]) * 0.01f;
         break;
     case 0x612:
-        PM01_Data.Out_Data[Power] = (float)(RxHeaderData[0] << 8 | RxHeaderData[1]) * 0.01f;
+        PM01_Data.Out_Data[Power]   = (float)(RxHeaderData[0] << 8 | RxHeaderData[1]) * 0.01f;
         PM01_Data.Out_Data[Voltage] = (float)(RxHeaderData[2] << 8 | RxHeaderData[3]) * 0.01f;
-        PM01_Data.Out_Data[Ampere] = (float)(RxHeaderData[4] << 8 | RxHeaderData[5]) * 0.01f;
+        PM01_Data.Out_Data[Ampere]  = (float)(RxHeaderData[4] << 8 | RxHeaderData[5]) * 0.01f;
         break;
     case 0x613:
-        Temperature = (RxHeaderData[0] << 8 | RxHeaderData[1]) * 0.1f;
-        PM01_Time.Add_Time = (RxHeaderData[2] << 8 | RxHeaderData[3]);
-        PM01_Time.Cur_Time = (RxHeaderData[4] << 8 | RxHeaderData[5]);
+        Temperature         = (RxHeaderData[0] << 8 | RxHeaderData[1]) * 0.1f;
+        PM01_Time.Add_Time  = (RxHeaderData[2] << 8 | RxHeaderData[3]);
+        PM01_Time.Cur_Time  = (RxHeaderData[4] << 8 | RxHeaderData[5]);
         break;
     default:
         break;

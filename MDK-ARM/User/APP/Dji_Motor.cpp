@@ -103,27 +103,38 @@ void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
 	HAL::Can_SendDATA(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
 }
 
-double Dji_Motor::GetTorque_6020(float n)
+double Dji_Motor::GetTorque(double n)
 {
-	Dji_Motor_Torque.I_torque = 0.00018310546875 * n; // 3 / 16384 * n
-	Dji_Motor_Torque.K_torque = 0.741;				  // 0.741 * 减速比;
-	Dji_Motor_Torque.Torque = Dji_Motor_Torque.I_torque * Dji_Motor_Torque.K_torque;
+	if(this->init_address == 0x200)
+	{
+		double I_torque;
+		double K_torque;
+		double Torque;
 
-	return Dji_Motor_Torque.Torque;
-}
+		I_torque = 0.001220703125 * n;		 // 20 / 16384 * n
+		K_torque = 0.246 * (17.0f / 268.0f); // 0.3 * 减速比;
 
-double Dji_Motor::GetTorque_3508(double n)
-{
-	double I_torque;
-	double K_torque;
-	double Torque;
+		Torque = I_torque * K_torque;
 
-	I_torque = 0.001220703125 * n;		 // 20 / 16384 * n
-	K_torque = 0.246 * (17.0f / 268.0f); // 0.3 * 减速比;
+		return Torque;
+	}
+	else if (this->init_address == 0x204)
+	{
+		double I_torque;
+		double K_torque;
+		double Torque;
 
-	Torque = I_torque * K_torque;
+		I_torque = 0.00018310546875 * n; // 3 / 16384 * n
+		K_torque = 0.741;				  // 0.741 * 减速比;
+		Torque = I_torque * K_torque;
 
-	return Torque;
+		return Torque;
+	}
+	else
+		return 0;
+
+
+		
 }
 uint8_t Dji_Motor::ISDir()
 {

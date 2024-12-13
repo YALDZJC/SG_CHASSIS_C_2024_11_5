@@ -89,7 +89,6 @@ void ChassisState::Filtering()
     td_3508_2.Calc(Motor3508.GetEquipData(L_Back_3508_ID, Dji_Speed));
     td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
     td_3508_4.Calc(Motor3508.GetEquipData(R_Forward_3508_ID, Dji_Speed));
-
 }
 
 float kp, kd;
@@ -164,9 +163,9 @@ void ChassisState::CAN_Send()
     Send_ms++;
     Send_ms %= 2;
 
-    Tools.vofaSend(Chassis_Data.Zero_cross[0],
+    Tools.vofaSend(MeterPower.GetPower(),
                    Motor6020.GetEquipData(0x205, Dji_Angle),
-                   PowerControl._6020_PowerData.Cur_ALL_Power,
+                   PowerControl._3508_PowerData.EstimatedPower,
                    Motor6020.GetEquipData(0x206, Dji_Angle),
                    PowerControl._3508_PowerData.Cur_ALL_Power,
                    PowerControl.ALL_Power);
@@ -226,8 +225,8 @@ void Stop_mode::upData()
 
 State Chassis_task::GetState()
 {
-		if(EventParse.DirData.Dr16)
-				return Stop_State;
+	if(EventParse.DirData.Dr16)
+		return Stop_State;
     if (Universal)
         return Universal_State;
     if (Follow)

@@ -3,29 +3,27 @@
 #include "math.h"
 #include "arm_math.h"
 
-
 float32_t armcos(float32_t x)
 {
 	return arm_cos_f32(x);
 }
 
-
-void Mecanum::UpDate(float vx,float vy,float vw,float MaxSpeed)//speed最大速度
+void Mecanum::UpDate(float vx, float vy, float vw, float MaxSpeed) // speed最大速度
 {
-	if(MaxSpeed != 0)
+	if (MaxSpeed != 0)
 	{
 		this->kx = fabs(vx) / (MaxSpeed * 2);
 		this->ky = fabs(vy) / (MaxSpeed * 2);
 	}
 
-  //解算速度差
+	// 解算速度差
 	this->speed[0] = ((1.0 - this->kx) * vx + (1.0 - this->kx) * vy - vw);
 	this->speed[1] = ((1.0 - this->kx) * vx - (1.0 - this->kx) * vy + vw);
 	this->speed[2] = ((1.0 - this->kx) * vx + (1.0 - this->kx) * vy + vw);
 	this->speed[3] = ((1.0 - this->kx) * vx - (1.0 - this->kx) * vy - vw);
 }
 
-void SG::UpDate(float vx,float vy,float vw,float MaxSpeed)//speed最大速度
+void SG::UpDate(float vx, float vy, float vw, float MaxSpeed) // speed最大速度
 {
 	// 特殊角度
 	float _angle = 45 * 3.14 / 180;
@@ -56,6 +54,4 @@ void SG::UpDate(float vx,float vy,float vw,float MaxSpeed)//speed最大速度
 	this->angle[1] = atan2(tempvx[1], tempvy[1]) * 180 / 3.14 * 8191 / 360;
 	this->angle[2] = atan2(tempvx[2], tempvy[2]) * 180 / 3.14 * 8191 / 360;
 	this->angle[3] = atan2(tempvx[3], tempvy[3]) * 180 / 3.14 * 8191 / 360;
-
 }
-

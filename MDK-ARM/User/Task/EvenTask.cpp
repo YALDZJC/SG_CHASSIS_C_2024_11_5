@@ -9,46 +9,12 @@ void EventTask(void *argument)
 {
     for (;;)
     {
-        Dir::inject(new My_Dir);
+        Dir::UpEvent();
 
         osDelay(1);
     }
 }
-
-Dir *Dir::dir = nullptr;
-
-Dir *Dir::get()
-{
-    return dir;
-}
-
-bool Dir::check()
-{
-    return dir != nullptr;
-}
-
-bool Dir::inject(Dir *_dir)
-{
-    if (_dir == nullptr)
-    {
-        return false;
-    }
-
-    _dir->UpEvent();
-    dir = _dir;
-    return true;
-}
-
-void Dir::destroy()
-{
-    if (dir == nullptr)
-        return;
-
-    delete dir;
-    dir = nullptr;
-}
-
-bool My_Dir::Dir_Remote()
+bool Dir::Dir_Remote()
 {
     bool Dir = dr16.ISDir();
 
@@ -57,8 +23,7 @@ bool My_Dir::Dir_Remote()
     return Dir;
 }
 
-
-bool My_Dir::Dir_Streel()
+bool Dir::Dir_Streel()
 {
     bool Dir = Motor6020.ISDir();
 
@@ -70,7 +35,7 @@ bool My_Dir::Dir_Streel()
     return Dir;
 }
 
-bool My_Dir::Dir_Wheel()
+bool Dir::Dir_Wheel()
 {
     bool Dir = Motor3508.ISDir();
 
@@ -82,7 +47,7 @@ bool My_Dir::Dir_Wheel()
     return Dir;
 }
 
-bool My_Dir::Dir_MeterPower()
+bool Dir::Dir_MeterPower()
 {
     bool Dir = MeterPower.ISDir();
 

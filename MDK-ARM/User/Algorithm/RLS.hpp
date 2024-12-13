@@ -19,7 +19,9 @@ namespace Math
         /**
          * @brief The constructor
          * @param delta_ The intialized non-singular value of the transfer matrix
-         * @param lambda_ The forgotten index
+         * @param lambda_ The fo
+		
+		rgotten index
          */
         constexpr RLS(float delta_, float lambda_)
             : dimension(dim), lambda(lambda_), delta(delta_), lastUpdate(0), updateCnt(0), defaultParamsVector(Matrixf<dim, 1>::zeros())

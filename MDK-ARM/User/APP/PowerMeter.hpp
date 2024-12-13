@@ -10,14 +10,15 @@ namespace PowerMeter
     {
         Voltage = 0x00,
         Current = 0x01,
-        Power = 0x02
+        Power = 0x02,
+        Energy = 0x03,
     };
 
     class Meter_Data
     {
     public:
         int16_t address;       // 地址
-        float Data[3];         // 数据
+        float Data[4];         // 数据
         int16_t InitData;      // 初始化数据
         bool InitFlag;         // 初始化标记
         bool DirFlag;          // 死亡标记
@@ -37,7 +38,6 @@ namespace PowerMeter
         uint8_t ISDir();
 
     public:
-
         inline float GetVoltage()
         {
             return meterData->Data[Voltage];

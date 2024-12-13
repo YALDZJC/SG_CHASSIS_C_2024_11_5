@@ -7,15 +7,15 @@ using namespace SGPowerControl;
 
 uint32_t pm01_ms = 0;
 
-Math::RLS<2> rls(1e-5f, 0.99999f);
 
 void PowerTask(void *argument)
 {
 
     for (;;)
     {
-        PowerControl.UpSteerData();
-        PowerControl.UpWheelData();
+
+
+        // PowerControl.UpWheelData();
         osDelay(1);
     }
 }
@@ -29,36 +29,25 @@ void RLSTask(void *argument)
 
     for (;;)
     {
-        //        for(int i = 0; i < 4; i++)
-        //        {
-        //            PowerControl._6020_PowerData.EffectivePower += Motor6020.GetEquipData(Get_InitID_6020(i), Dji_Speed) * Motor6020.GetEquipData(Get_InitID_6020(i), Dji_Torque);
-        //            samples[0][0] += fabsf(rpm2av(Motor6020.GetEquipData(Get_InitID_6020(i), Dji_Speed)));
-        //            samples[1][0] += PowerControl._6020_PowerData.Cur_Torque[i] * PowerControl._6020_PowerData.Cur_Torque[i];
-        //        }
+        PowerControl._3508_PowerData.UpCalcVariables(Chassis_Data.final_3508_Out, Motor3508);
+        PowerControl._3508_PowerData.UpCalcVariables(Chassis_Data.final_6020_Out, Motor6020);
 
-        //        params = rls.update(samples, PowerControl._6020_PowerData.Cmd_ALL_Power);
-        //        PowerControl._6020_PowerData.k1 = fmax(params[0][0], 1e-5f); // In case the k1 diverge to negative number
-        //        PowerControl._6020_PowerData.k2 = fmax(params[1][0], 1e-5f); // In case the k2
-
-        PowerControl._6020_PowerData.EstimatedPower = PowerControl._6020_PowerData.k1 * samples[0][0] + PowerControl._6020_PowerData.k2 * samples[1][0] + PowerControl._6020_PowerData.k3;
+        //        PowerControl._6020_PowerData.EstimatedPower = PowerControl._6020_PowerData.k1 * samples[0][0] + PowerControl._6020_PowerData.k2 * samples[1][0] + PowerControl._6020_PowerData.k3;
 
         PowerControl._3508_PowerData.EffectivePower = 0;
-				EffectivePower_t = 0;
+
         samples[0][0] = 0;
         samples[1][0] = 0;
+
         for (int i = 0; i < 4; i++)
         {
             PowerControl._3508_PowerData.EffectivePower += (rpm2av(Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Speed)) * PowerControl._3508_PowerData.Cur_Torque[i]);
-						EffectivePower_t += (rpm2av(Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Speed)) * PowerControl._3508_PowerData.Cmd_Torque[i]);
-            samples[0][0] += fabsf(rpm2av(Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Speed)));
-            samples[1][0] += PowerControl._3508_PowerData.Cmd_Torque[i] * PowerControl._3508_PowerData.Cmd_Torque[i];
-        }
-        //        }
-        
-        W2 = samples[0][0];
-        T2 = samples[1][0];
 
-        params = rls.update(samples, PowerControl._3508_PowerData.Cur_ALL_Power - EffectivePower_t);
+            samples[0][0] += fabsf(rpm2av(Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Speed)));
+            samples[1][0] += PowerControl._3508_PowerData.Cur_Torque[i] * PowerControl._3508_PowerData.Cur_Torque[i];
+        }
+
+        params = PowerControl._3508_PowerData.rls.update(samples, MeterPower.GetPower() - PowerControl._3508_PowerData.EffectivePower);
         PowerControl._3508_PowerData.k1 = fmax(params[0][0], 1e-5f); // In case the k1 diverge to negative number
         PowerControl._3508_PowerData.k2 = fmax(params[1][0], 1e-5f); // In case the k2
 
@@ -67,64 +56,29 @@ void RLSTask(void *argument)
         osDelay(1);
     }
 }
-void PowerTask_t::UpSteerData()
-{
-    // 更新反馈力矩
-    for (int i = 0; i < 4; i++)
-    {
-        _6020_PowerData.Cur_Torque[i] = Motor6020.GetTorque_6020(Motor6020.GetEquipData(Get_InitID_6020(i), Dji_Torque));
-    }
-    // 从反馈值算出功率
-    for (int i = 0; i < 4; i++)
-    {
-        _6020_PowerData.Cur_Power[i] = Tools.GetMachinePower(_6020_PowerData.Cur_Torque[i], Motor6020.GetEquipData(Get_InitID_6020(i), Dji_Speed));
-    }
-    // 更新目标力矩
-    for (int i = 0; i < 4; i++)
-    {
-        _6020_PowerData.Cmd_Torque[i] = Motor6020.GetTorque_6020(Chassis_Data.final_6020_Out[i]);
-    }
-    // 从目标值算出功率
-    for (int i = 0; i < 4; i++)
-    {
-        _6020_PowerData.Cmd_Power[i] = Tools.GetMachinePower(_6020_PowerData.Cmd_Torque[i], Motor6020.GetEquipData(Get_InitID_6020(i), Dji_Speed));
-    }
 
-    _6020_PowerData.Cmd_ALL_Power = _6020_PowerData.Cmd_Power[0] + _6020_PowerData.Cmd_Power[1] + _6020_PowerData.Cmd_Power[2] + _6020_PowerData.Cmd_Power[3];
-
-    _6020_PowerData.Cur_ALL_Power = _6020_PowerData.Cur_Power[0] + _6020_PowerData.Cur_Power[1] + _6020_PowerData.Cur_Power[2] + _6020_PowerData.Cur_Power[3];
-
-    _6020_PowerData.Energy += _6020_PowerData.Cur_ALL_Power * 0.001;
-}
-
-void PowerTask_t::UpWheelData()
+void PowerUpData_t::UpCalcVariables(float *final_Out, Dji_Motor &motor)
 {
     for (int i = 0; i < 4; i++)
     {
-        _3508_PowerData.Cur_Torque[i] = Motor3508.GetTorque_3508(Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Torque));
+        Cur_Torque[i] = motor.GetTorque(motor.GetEquipData(Get_InitID_3508(i), Dji_Torque));
     }
 
     for (int i = 0; i < 4; i++)
     {
-        _3508_PowerData.Cur_Power[i] = Tools.GetMachinePower(_3508_PowerData.Cur_Torque[i], Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Speed));
+        Cur_Power[i] = Tools.GetMachinePower(Cur_Torque[i], motor.GetEquipData(Get_InitID_3508(i), Dji_Speed));
     }
 
     for (int i = 0; i < 4; i++)
     {
-        _3508_PowerData.Cmd_Torque[i] = Motor3508.GetTorque_3508(Chassis_Data.final_3508_Out[i]);
+        Cmd_Torque[i] = motor.GetTorque(final_Out[i]);
     }
 
     for (int i = 0; i < 4; i++)
     {
-        _3508_PowerData.Cmd_Power[i] = Tools.GetMachinePower(_3508_PowerData.Cmd_Torque[i], Motor3508.GetEquipData(Get_InitID_3508(i), Dji_Speed));
+        Cmd_Power[i] = Tools.GetMachinePower(Cmd_Torque[i], motor.GetEquipData(Get_InitID_3508(i), Dji_Speed));
     }
 
-    _3508_PowerData.Cmd_ALL_Power = _3508_PowerData.Cmd_Power[0] + _3508_PowerData.Cmd_Power[1] + _3508_PowerData.Cmd_Power[2] + _3508_PowerData.Cmd_Power[3];
-
-    _3508_PowerData.Cur_ALL_Power = _3508_PowerData.Cur_Power[0] + _3508_PowerData.Cur_Power[1] + _3508_PowerData.Cur_Power[2] + _3508_PowerData.Cur_Power[3];
-
-    _3508_PowerData.Energy += _3508_PowerData.Cur_ALL_Power * 0.001;
-
-    ALL_Power = _3508_PowerData.Cur_ALL_Power + _6020_PowerData.Cur_ALL_Power;
-    Energy += ALL_Power * 0.001;
+    Cmd_ALL_Power = Cmd_Power[0] + Cmd_Power[1] + Cmd_Power[2] + Cmd_Power[3];
+    Cur_ALL_Power = Cur_Power[0] + Cur_Power[1] + Cur_Power[2] + Cur_Power[3];
 }

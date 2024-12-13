@@ -24,7 +24,8 @@ inline void RM_StaticTime::UpLastTime()
 inline bool RM_StaticTime::ISOne(uint32_t targetTime)
 {
 	this->key.UpKey(HAL_GetTick() % targetTime);//ÊäÈë¸üĞÂ×´Ì¬
-	if (this->key.GetRisingKey())return true;
+	if (this->key.GetRisingKey()) return true;
+
 	return false;
 }
 

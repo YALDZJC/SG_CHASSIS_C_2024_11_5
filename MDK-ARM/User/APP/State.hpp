@@ -17,6 +17,7 @@ enum State
 class ChassisState
 {
 public:
+
 	void Tar_Updata();
 
 	void Wheel_UpData();
@@ -82,7 +83,6 @@ public:
 
 	State GetState();// 判断当前状态的名称
 
-
 	bool AddState(const State &taskName, ChassisState *newTask) // 设置状态的名称与对应的状态对象
 	{
 		if (taskCount >= MAX_TASK)
@@ -112,3 +112,4 @@ public:
 };
 
 extern Chassis_task chassis_task;
+

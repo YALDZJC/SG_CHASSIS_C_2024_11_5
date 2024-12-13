@@ -3,16 +3,24 @@
 #include "PM01.hpp"
 #include "RLS.hpp"
 #include "arm_math.h"
+#include "Dji_Motor.hpp"
 
 #define My_PI 3.14152653529799323
 
 namespace SGPowerControl
 {
-struct PowerUpData_t
+class PowerUpData_t
 {
+public:
     // PowerUpData_t() = delete;
+    Math::RLS<2> rls;
 
-    /* data */
+    PowerUpData_t()
+        : rls(1e-5f, 0.99999f) // 使用构造函数初始化列表进行初始化
+    {
+    }
+
+        /* data */
     float Cmd_Power[4];
     float Cmd_Torque[4];
 
@@ -29,9 +37,10 @@ struct PowerUpData_t
     float EstimatedPower;
     float EffectivePower;
 
+    void UpRLS();
+
+    void UpCalcVariables(float *final_Out, Dji_Motor &motor);
 };
-
-
 
 
 class PowerTask_t
@@ -44,11 +53,20 @@ public:
 
     float ALL_Power;
     float Energy;
-    // Math::RLS<2> rls;
 
-    void UpSteerData();
-    void UpWheelData();
+    // void UpSteerData();
+    // void UpWheelData();
 
+    inline float GetEstWheelPow()
+    {
+        return _3508_PowerData.EstimatedPower;
+    }
+    inline float GetEstStringPow()
+    {
+        return _6020_PowerData.EstimatedPower;
+    }
+
+    
 };
 
 } // namespace PowerCon
