@@ -164,11 +164,11 @@ void ChassisState::CAN_Send()
     Send_ms %= 2;
 
     Tools.vofaSend(MeterPower.GetPower(),
-                   Motor6020.GetEquipData(0x205, Dji_Angle),
-                   PowerControl.Wheel_PowerData.EstimatedPower,
-                   Motor6020.GetEquipData(0x206, Dji_Angle),
                    PowerControl.Wheel_PowerData.Cur_ALL_Power,
-                   PowerControl.ALL_Power);
+                   PowerControl.Wheel_PowerData.EstimatedPower,
+                   PowerControl.String_PowerData.Cur_ALL_Power,
+                   PowerControl.String_PowerData.EstimatedPower,
+                   0);
 }
 
 void Universal_mode::upData()
