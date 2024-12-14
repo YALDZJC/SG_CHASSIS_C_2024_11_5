@@ -165,9 +165,9 @@ void ChassisState::CAN_Send()
 
     Tools.vofaSend(MeterPower.GetPower(),
                    Motor6020.GetEquipData(0x205, Dji_Angle),
-                   PowerControl._3508_PowerData.EstimatedPower,
+                   PowerControl.Wheel_PowerData.EstimatedPower,
                    Motor6020.GetEquipData(0x206, Dji_Angle),
-                   PowerControl._3508_PowerData.Cur_ALL_Power,
+                   PowerControl.Wheel_PowerData.Cur_ALL_Power,
                    PowerControl.ALL_Power);
 }
 

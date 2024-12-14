@@ -60,9 +60,9 @@ void Dji_Motor::Parse(RM_FDorCAN_RxHeaderTypeDef RxHeader, uint8_t RxHeaderData[
 		int lastData = this->motorData[idx].LastData[Dji_Angle];
 		int Data = this->motorData[idx].Data[Dji_Angle];
 
-		if (Data - lastData < -4000) // 正转
+		if (Data - lastData < -4096) // 正转
 			this->motorData[idx].AddData += (8191 - lastData + Data);
-		else if (Data - lastData > 4000) // 反转
+		else if (Data - lastData > 4096) // 反转
 			this->motorData[idx].AddData += -(8191 - Data + lastData);
 		else
 			this->motorData[idx].AddData += (Data - lastData);
@@ -134,7 +134,7 @@ double Dji_Motor::GetTorque(double n)
 		return 0;
 
 
-		
+
 }
 uint8_t Dji_Motor::ISDir()
 {

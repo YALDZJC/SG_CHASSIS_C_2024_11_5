@@ -48,22 +48,19 @@ class PowerTask_t
 private:
 
 public:
-    PowerUpData_t _6020_PowerData;
-    PowerUpData_t _3508_PowerData;
+    PowerUpData_t String_PowerData;
+    PowerUpData_t Wheel_PowerData;
 
     float ALL_Power;
     float Energy;
 
-    // void UpSteerData();
-    // void UpWheelData();
-
     inline float GetEstWheelPow()
     {
-        return _3508_PowerData.EstimatedPower;
+        return Wheel_PowerData.EstimatedPower;
     }
     inline float GetEstStringPow()
     {
-        return _6020_PowerData.EstimatedPower;
+        return String_PowerData.EstimatedPower;
     }
 
     

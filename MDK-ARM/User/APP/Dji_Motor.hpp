@@ -61,6 +61,11 @@ public:
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].Data[DataType];
     }
 
+    inline float GetEquipData_for(int16_t i, Dji_Data DataType)
+    {
+        return this->motorData[i].Data[DataType];
+    }
+
     // 得到上一次值
     inline float GetEquipLastData(int16_t address, Dji_Data DataType)
     {
