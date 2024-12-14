@@ -17,7 +17,6 @@ namespace SGPowerControl
 
         float Cur_Power[4];
         float Cur_Torque[4];
-        float k1, k2, k3;
 
     public:
         // PowerUpData_t() = delete;
@@ -29,6 +28,8 @@ namespace SGPowerControl
         }
 
         /* data */
+        float k1, k2, k3 = 8.50f;
+
         float Cur_ALL_Power;
         float Cmd_ALL_Power;
 
@@ -42,6 +43,8 @@ namespace SGPowerControl
 
         void UpRLS(float *final_Out, Dji_Motor &motor);
         void UpCalcVariables(float *final_Out, Dji_Motor &motor);
+
+        void UpMAXPower(PID pid, Dji_Motor &motor);
     };
 
     class PowerTask_t

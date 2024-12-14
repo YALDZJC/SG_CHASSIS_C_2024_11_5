@@ -13,7 +13,6 @@ void PowerTask(void *argument)
     for (;;)
     {
 
-        // PowerControl.UpWheelData();
         osDelay(1);
     }
 }
@@ -25,7 +24,7 @@ void RLSTask(void *argument)
     for (;;)
     {
         PowerControl.Wheel_PowerData.UpRLS(Chassis_Data.final_3508_Out, Motor3508);
-			  PowerControl.String_PowerData.UpRLS(Chassis_Data.final_6020_Out, Motor6020);
+		PowerControl.String_PowerData.UpRLS(Chassis_Data.final_6020_Out, Motor6020);
 
         osDelay(1);
     }
@@ -74,9 +73,26 @@ void PowerUpData_t::UpRLS(float *final_Out, Dji_Motor &motor)
         samples[1][0] += Cur_Torque[i] * Cur_Torque[i];
     }
 
-    params = rls.update(samples, MeterPower.GetPower() - EffectivePower - 8.1);
-    k1 = fmax(params[0][0], 1e-5f); // In case the k1 diverge to negative number
-    k2 = fmax(params[1][0], 1e-5f); // In case the k2
 
-    EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + 8.1;
+    if(EventParse.DirData.MeterPower == false)
+    {
+        params = rls.update(samples, MeterPower.GetPower() - EffectivePower - k3);
+        k1 = fmax(params[0][0], 1e-5f); // In case the k1 diverge to negative number
+        k2 = fmax(params[1][0], 1e-5f); // In case the k2
+    }
+    EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;
 }
+
+void PowerUpData_t::UpMAXPower(PID pid, Dji_Motor &motor)
+{
+    float sumErr;
+
+    for(int i = 0; i < 4; i++)
+    {
+        sumErr += pid.GetErr();
+    }
+
+    
+
+}
+

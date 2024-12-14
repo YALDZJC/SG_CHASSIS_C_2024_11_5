@@ -65,6 +65,11 @@ public:
 	void clearPID();
 	//清除增量
 	void PidRstDelta();
+
+	inline float GetErr()
+	{
+		return this->pid.now_e;
+	}
 };
 
 
