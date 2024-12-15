@@ -83,22 +83,14 @@ extern PowerMeter::Meter MeterPower;
 
 // PID角度环设置
 extern Kpid_t Kpid_6020_angle;
-extern PID pid_angle_0x205;
-extern PID pid_angle_0x206;
-extern PID pid_angle_0x207;
-extern PID pid_angle_0x208;
+extern PID pid_angle_String[4];
+
 extern Kpid_t Kpid_6020_vel;
-extern PID pid_vel_0x205;
-extern PID pid_vel_0x206;
-extern PID pid_vel_0x207;
-extern PID pid_vel_0x208;
+extern PID pid_vel_String[4];
 
 // PID速度环设置
 extern Kpid_t Kpid_3508_vel;
-extern PID pid_vel_0x201;
-extern PID pid_vel_0x202;
-extern PID pid_vel_0x203;
-extern PID pid_vel_0x204;
+extern PID pid_vel_Wheel[4];
 
 // 力矩控制
 extern Kpid_t Kpid_6020_T;
@@ -124,7 +116,7 @@ extern TD tar_vw;
 extern TD tar_vx;
 extern TD tar_vy;
 extern TD td_FF_Tar;
-
+extern TD td_Power[4];
 // 前馈
 extern FeedTar feed_6020_1;
 extern FeedTar feed_6020_2;
@@ -140,4 +132,3 @@ extern Chassis_Data_t Chassis_Data;
 
 extern PM01 pm01;
 
-extern SGPowerControl::PowerTask_t PowerControl;

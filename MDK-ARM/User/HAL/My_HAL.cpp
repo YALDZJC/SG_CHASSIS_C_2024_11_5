@@ -87,3 +87,4 @@ void My_hal::_Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_
         HAL_CAN_AddTxMessage(han, &TxHeader, s_data, &pTxMailbox);
     }
 }
+

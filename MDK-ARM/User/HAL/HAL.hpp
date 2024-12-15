@@ -50,6 +50,12 @@ public:
 
     static float atan2(float x, float y) { return get()->_atan2(x, y); }
     virtual float _atan2(float x, float y);
+
+    static int sgn(float x) { return get()->_sgn(x); }
+    virtual int _sgn(float x);
+
+    static float floatEqual(float a, float b) { return get()->_floatEqual(a, b); }
+    virtual float _floatEqual(float a, float b);
 };
 
 #endif

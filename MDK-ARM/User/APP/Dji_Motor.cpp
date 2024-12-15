@@ -111,8 +111,8 @@ double Dji_Motor::GetTorque(double n)
 		double K_torque;
 		double Torque;
 
-		I_torque = 0.001220703125 * n;		 // 20 / 16384 * n
-		K_torque = 0.246 * (17.0f / 268.0f); // 0.3 * 减速比;
+		I_torque = 0.001220703125 * n;		// 20 / 16384 * n
+		K_torque = 0.194 * 17.0f / 268.0f;	// 0.3 * 减速比;
 
 		Torque = I_torque * K_torque;
 
@@ -132,9 +132,6 @@ double Dji_Motor::GetTorque(double n)
 	}
 	else
 		return 0;
-
-
-
 }
 uint8_t Dji_Motor::ISDir()
 {

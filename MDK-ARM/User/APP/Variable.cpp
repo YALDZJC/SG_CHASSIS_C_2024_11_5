@@ -21,23 +21,33 @@ PowerMeter::Meter MeterPower(0x210, _PowerMeter_SIZE, _MeterPowerData_, _PowerMe
 
 // PID角度环设置
 Kpid_t Kpid_6020_angle(0.45, 0, 0);
-PID pid_angle_0x205;
-PID pid_angle_0x206;
-PID pid_angle_0x207;
-PID pid_angle_0x208;
+// PID pid_angle_0x205;
+// PID pid_angle_0x206;
+// PID pid_angle_0x207;
+// PID pid_angle_0x208;
+PID pid_angle_String[4];
+
+
 // PID角度环设置
 Kpid_t Kpid_6020_vel(100, 0, 0);
-PID pid_vel_0x205;
-PID pid_vel_0x206;
-PID pid_vel_0x207;
-PID pid_vel_0x208;
+// PID pid_vel_0x205;
+// PID pid_vel_0x206;
+// PID pid_vel_0x207;
+// PID pid_vel_0x208;
+PID pid_vel_String[4];
 
 // PID速度环设置
 Kpid_t Kpid_3508_vel(8, 0, 0);
-PID pid_vel_0x201(1000, 8000);
-PID pid_vel_0x202(1000, 8000);
-PID pid_vel_0x203(1000, 8000);
-PID pid_vel_0x204(1000, 8000);
+// PID pid_vel_0x201(1000, 8000);
+// PID pid_vel_0x202(1000, 8000);
+// PID pid_vel_0x203(1000, 8000);
+// PID pid_vel_0x204(1000, 8000);
+PID pid_vel_Wheel[4] = {
+    {1000, 8000},
+    {1000, 8000},
+    {1000, 8000},
+    {1000, 8000},
+};
 
 // 力矩控制
 Kpid_t Kpid_6020_T(0, 0, 0);
@@ -73,6 +83,14 @@ TD tar_vx(30);
 TD tar_vy(30);
 TD td_FF_Tar(100);
 
+TD td_Power[4] = {
+    {100},
+    {100},
+    {100},
+    {100},
+
+};
+
 // 前馈
 FeedTar feed_6020_1(50, 5);
 FeedTar feed_6020_2(50, 5);
@@ -90,4 +108,3 @@ Chassis_Data_t Chassis_Data;
 
 PM01 pm01;
 
-SGPowerControl::PowerTask_t PowerControl;

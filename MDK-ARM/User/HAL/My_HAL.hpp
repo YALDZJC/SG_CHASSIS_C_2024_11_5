@@ -68,6 +68,8 @@ public:
 
 	void _osDelay(unsigned long _mill) override;
 
+	// int _sgn(float x) override; 
+
 	void _Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) override;
 	void _Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) override;
 

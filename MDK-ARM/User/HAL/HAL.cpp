@@ -54,3 +54,19 @@ float HAL::_atan2(float x, float y)
     return atan2f(x, y);
 }
 
+// 默认的取符号函数
+int HAL::_sgn(float x)
+{
+    if (x > 0)
+        return 1;
+
+    else if (x < 0)
+        return -1;
+
+    return 0;
+}
+
+float HAL::_floatEqual(float a, float b)
+{
+    return fabs(a - b) < 1e-6f;
+}
