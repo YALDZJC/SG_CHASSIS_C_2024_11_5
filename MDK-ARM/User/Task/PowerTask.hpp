@@ -9,7 +9,7 @@
 #define toque_coefficient 1.572977718013743e-6f
 //  #define toque_coefficient  1.99688994e-6f // (20/16384)*(0.3)*(187/3591)/9.55
 
-#define pMAX 50
+#define pMAX 40.0f
 
 namespace SGPowerControl
 {
@@ -31,8 +31,8 @@ namespace SGPowerControl
             : rls(1e-5f, 0.99999f) // 使用构造函数初始化列表进行初始化
         {
             MAXPower = 50;
-					k1 = 2.99999992e-05;
-					k2 = 2.49999999e-07;
+            k1 = 2.74885309e-07;
+            k2 = 2.49999999e-07;
         }
 
         /* data */
@@ -44,6 +44,8 @@ namespace SGPowerControl
         float Energy;
 
         float EstimatedPower;
+        float Initial_Est_power[4];
+
         float EffectivePower;
 
         float pMaxPower[4];
@@ -60,15 +62,13 @@ namespace SGPowerControl
 
         //计算应分配的力矩
         void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid);
-        float initial_give_power[4]; // initial power from PID calculation
-        float initial_total_power = 0;
+
         float scaled_give_power[4];
 
         float maxPowerLimited;
         float sumPowerCmd_before_clamp;
-				
-				    float sumErr;
-
+				float power_scale;
+		float sumErr;
     };
 
     class PowerTask_t

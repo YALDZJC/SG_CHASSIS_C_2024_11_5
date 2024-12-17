@@ -144,7 +144,6 @@ void ChassisState::PID_Updata()
     // PowerControl.Wheel_PowerData.Cmd_MaxT[2] = pid_vel_Wheel[2].pid.cout;
     // PowerControl.Wheel_PowerData.Cmd_MaxT[3] = pid_vel_Wheel[3].pid.cout;
 
-    PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel);
 
     // pid_vel_Wheel[0].pid.cout = PowerControl.Wheel_PowerData.Cmd_MaxT[0];
     // pid_vel_Wheel[1].pid.cout = PowerControl.Wheel_PowerData.Cmd_MaxT[1];
@@ -155,14 +154,17 @@ void ChassisState::PID_Updata()
     Chassis_Data.final_3508_Out[1] = pid_vel_Wheel[1].pid.cout;
     Chassis_Data.final_3508_Out[2] = pid_vel_Wheel[2].pid.cout;
     Chassis_Data.final_3508_Out[3] = pid_vel_Wheel[3].pid.cout;
+		
+		PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel);
+
 }
 
 void ChassisState::CAN_Setting()
 {
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
@@ -194,8 +196,8 @@ void ChassisState::CAN_Send()
                    PowerControl.Wheel_PowerData.Cur_ALL_Power,
                    PowerControl.Wheel_PowerData.EstimatedPower,
                    Chassis_Data.final_3508_Out[0],
-                   PowerControl.Wheel_PowerData.Cmd_MaxT[0],
-                   Motor3508.GetTorque(Motor3508.GetEquipData_for(0, Dji_Torque)));
+                   Chassis_Data.final_3508_Out[1],
+                   Chassis_Data.final_3508_Out[2]);
 }
 
 void Universal_mode::upData()
