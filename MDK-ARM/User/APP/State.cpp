@@ -161,10 +161,10 @@ void ChassisState::PID_Updata()
 
 void ChassisState::CAN_Setting()
 {
-//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
-//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
-//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
+    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
+    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
+    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
@@ -195,7 +195,7 @@ void ChassisState::CAN_Send()
     Tools.vofaSend(MeterPower.GetPower(),
                    PowerControl.Wheel_PowerData.Cur_ALL_Power,
                    PowerControl.Wheel_PowerData.EstimatedPower,
-                   Chassis_Data.final_3508_Out[0],
+                   PowerControl.Wheel_PowerData.Cur_EstimatedPower,
                    Chassis_Data.final_3508_Out[1],
                    Chassis_Data.final_3508_Out[2]);
 }

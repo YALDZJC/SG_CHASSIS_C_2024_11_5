@@ -9,7 +9,7 @@
 #define toque_coefficient 1.572977718013743e-6f
 //  #define toque_coefficient  1.99688994e-6f // (20/16384)*(0.3)*(187/3591)/9.55
 
-#define pMAX 40.0f
+#define pMAX 120.0f
 
 namespace SGPowerControl
 {
@@ -44,6 +44,8 @@ namespace SGPowerControl
         float Energy;
 
         float EstimatedPower;
+				float Cur_EstimatedPower;
+
         float Initial_Est_power[4];
 
         float EffectivePower;

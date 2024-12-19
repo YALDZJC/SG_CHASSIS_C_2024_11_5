@@ -76,4 +76,16 @@ public:
     {
         return this->motorData[this->GET_Motor_ID_ADDRESS_BIND_(address)].DirFlag;
     }
+
+    float GetTorqueFeedback(int16_t address);
+    float GetRPMFeedback(int16_t address);
 };
+inline float Dji_Motor::GetTorqueFeedback(int16_t address)
+{
+    return this->motorData[address].LastData[Dji_Torque];
+}
+
+inline float Dji_Motor::GetRPMFeedback(int16_t address)
+{
+    return this->motorData[address].LastData[Dji_Speed];
+}

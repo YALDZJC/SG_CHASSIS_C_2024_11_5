@@ -36,8 +36,9 @@ Kpid_t Kpid_6020_vel(100, 0, 0);
 // PID pid_vel_0x208;
 PID pid_vel_String[4];
 
+
 // PID速度环设置
-Kpid_t Kpid_3508_vel(5, 0.15, 0);
+Kpid_t Kpid_3508_vel(5, 0, 0);
 // PID pid_vel_0x201(1000, 8000);
 // PID pid_vel_0x202(1000, 8000);
 // PID pid_vel_0x203(1000, 8000);
