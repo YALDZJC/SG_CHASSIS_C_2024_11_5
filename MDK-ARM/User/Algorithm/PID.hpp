@@ -70,6 +70,15 @@ public:
 	{
 		return this->pid.now_e;
 	}
+
+	inline float GetCout()
+	{
+		return this->pid.cout;
+	}
+	inline float GetCin()
+	{
+		return this->pid.cin;
+	}
 };
 
 

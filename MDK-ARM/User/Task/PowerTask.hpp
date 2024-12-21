@@ -7,15 +7,25 @@
 #define My_PI 3.14152653529799323
 #define toque_const 1.502e-5f
 #define toque_coefficient 1.572977718013743e-6f
+#define toque_coefficient_6020 1.420745050719895e-5f
 //  #define toque_coefficient  1.99688994e-6f // (20/16384)*(0.3)*(187/3591)/9.55
 
 #define pMAX 120.0f
 
 namespace SGPowerControl
 {
+    struct PowerObj
+    {
+    public:
+        float pidOutput;    // torque current command, [-maxOutput, maxOutput], no unit
+        float curAv;        // Measured angular velocity, [-maxAv, maxAv], rad/s
+        float setAv;        // target angular velocity, [-maxAv, maxAv], rad/s
+        float pidMaxOutput; // pid max output
+    };
+
     class PowerUpData_t
     {
-    private:
+    public:
         float Cmd_Power[4];
         float Cmd_Torque[4];
 
@@ -30,9 +40,9 @@ namespace SGPowerControl
         PowerUpData_t()
             : rls(1e-5f, 0.99999f) // 使用构造函数初始化列表进行初始化
         {
-            MAXPower = 50;
-            k1 = 2.74885309e-07;
-            k2 = 2.49999999e-07;
+            MAXPower = 40;
+            k1 = 2.32443824e-07;
+            k2 = 2.32332226e-07;
         }
 
         /* data */
@@ -53,7 +63,10 @@ namespace SGPowerControl
         float pMaxPower[4];
         double Cmd_MaxT[4];
 
-        Matrixf<2, 1> samples;
+        float delta;
+
+        Matrixf<2, 1>
+            samples;
         Matrixf<2, 1> params;
 
         void UpRLS(PID *pid, Dji_Motor &motor);
@@ -64,13 +77,11 @@ namespace SGPowerControl
 
         //计算应分配的力矩
         void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid);
+        float GetControlledOutput(Dji_Motor &motor, PID *pid);
 
-        float scaled_give_power[4];
-
-        float maxPowerLimited;
-        float sumPowerCmd_before_clamp;
-				float power_scale;
 		float sumErr;
+
+        float newTorqueCurrent[4];
     };
 
     class PowerTask_t
@@ -93,8 +104,13 @@ namespace SGPowerControl
         }
     };
 
+
+
+
 } // namespace PowerCon
 static inline float rpm2av(float rpm) { return rpm * My_PI / 30.0f; }
+static inline bool floatEqual(float a, float b) { return fabs(a - b) < 1e-5f; }
+
 
 extern SGPowerControl::PowerTask_t PowerControl;
 

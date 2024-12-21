@@ -111,6 +111,7 @@ extern TD td_3508_1;
 extern TD td_3508_2;
 extern TD td_3508_3;
 extern TD td_3508_4;
+extern TD td_3508_speed[4];
 
 extern TD tar_vw;
 extern TD tar_vx;

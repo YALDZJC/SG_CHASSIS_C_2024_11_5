@@ -3,13 +3,13 @@
 
 /**
  * @brief 用于vofa发送波形数据
- * 
- * @param x1 
- * @param x2 
- * @param x3 
- * @param x4 
- * @param x5 
- * @param x6 
+ *
+ * @param x1
+ * @param x2
+ * @param x3
+ * @param x4
+ * @param x5
+ * @param x6
  */
 void Tools_t::vofaSend(float x1, float x2, float x3, float x4, float x5, float x6)
 {
@@ -132,4 +132,14 @@ double Tools_t::GetMachinePower(double T, double Vel)
     double Pm = (T * Vel) / 9.55f;
 
     return Pm;
+}
+
+float Tools_t::clamp(float value, float maxValue)
+{
+    if (value < -maxValue)
+        return -maxValue;
+    else if (value > maxValue)
+        return maxValue;
+
+    return value;
 }
