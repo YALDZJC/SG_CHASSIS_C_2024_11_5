@@ -34,18 +34,18 @@ void ChassisState::Wheel_UpData()
     Wheel.WheelType.UpDate(tar_vx.x1, tar_vy.x1, tar_vw.x1, 7200);
 
     // 储存最小角判断的速度
-    Chassis_Data.tar_speed[0] = Wheel.WheelType.speed[0];
-    Chassis_Data.tar_speed[1] = Wheel.WheelType.speed[1];
-    Chassis_Data.tar_speed[2] = Wheel.WheelType.speed[2];
-    Chassis_Data.tar_speed[3] = Wheel.WheelType.speed[3];
-
-    // 储存最小角判断的速度
-    Chassis_Data.tar_angle[0] = Wheel.WheelType.angle[0];
-    Chassis_Data.tar_angle[1] = Wheel.WheelType.angle[1];
-    Chassis_Data.tar_angle[2] = Wheel.WheelType.angle[2];
-    Chassis_Data.tar_angle[3] = Wheel.WheelType.angle[3];
+    for (int i = 0; i < 4; i++)
+    {
+        Chassis_Data.tar_speed[i] = Wheel.WheelType.speed[i];
+    }
 
     // 储存最小角判断的角度
+    for (int i = 0; i < 4; i++)
+    {
+        Chassis_Data.tar_angle[i] = Wheel.WheelType.angle[i];
+    }
+
+    // 进行最小角判断
     Chassis_Data.getMinPos[0] = Tools.MinPosHelm(Chassis_Data.tar_angle[0] + Chassis_angle_Init_0x205, Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[0], 16384, 8192);
     Chassis_Data.getMinPos[1] = Tools.MinPosHelm(Chassis_Data.tar_angle[1] + Chassis_angle_Init_0x206, Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[1], 16384, 8192);
     Chassis_Data.getMinPos[2] = Tools.MinPosHelm(Chassis_Data.tar_angle[2] + Chassis_angle_Init_0x207, Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[2], 16384, 8192);
@@ -60,6 +60,10 @@ void ChassisState::Wheel_UpData()
         sin_t = pos;
 
     // 过零处理
+    // for(int i = 0; i < 4; i++)
+    // {
+    //    Chassis_Data.Zero_cross[i] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[i], Motor6020.GetAngleFeedback(i), 8192);
+    // }
     Chassis_Data.Zero_cross[0] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[0], Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Angle), 8192);
     Chassis_Data.Zero_cross[1] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 8192);
     Chassis_Data.Zero_cross[2] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 8192);
@@ -69,11 +73,6 @@ void ChassisState::Wheel_UpData()
 void ChassisState::Filtering()
 {
     // 电机一般速度反馈噪声大
-    td_6020_1.Calc(Motor6020.GetEquipData(L_Forward_6020_ID, Dji_Speed));
-    td_6020_2.Calc(Motor6020.GetEquipData(L_Back_6020_ID, Dji_Speed));
-    td_6020_3.Calc(Motor6020.GetEquipData(R_Back_6020_ID, Dji_Speed));
-    td_6020_4.Calc(Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Speed));
-
     td_3508_1.Calc(Motor3508.GetEquipData(L_Forward_3508_ID, Dji_Speed));
     td_3508_2.Calc(Motor3508.GetEquipData(L_Back_3508_ID, Dji_Speed));
     td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
@@ -84,54 +83,40 @@ void ChassisState::Filtering()
         td_3508_speed[i].Calc(Motor3508.GetRPMFeedback(i));
     }
 }
-
-float kp, kd;
-float p_out, D_out;
-float Error;
-float POWER;
-int i;
 void ChassisState::PID_Updata()
 {
-    feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
-    feed_6020_2.UpData(Chassis_Data.Zero_cross[1]);
-    feed_6020_3.UpData(Chassis_Data.Zero_cross[2]);
-    feed_6020_4.UpData(Chassis_Data.Zero_cross[3]);
+    // 舵向电机更新
+    for (int i = 0; i < 4; i++)
+    {
+        // 舵向电机前馈更新
+        feed_6020[i].UpData(Chassis_Data.Zero_cross[i]);
+        Chassis_Data.FF_Zero_cross[i] = Tools.Round_Error(feed_6020[i].cout, feed_6020[i].target_e, 8191);
 
-    Chassis_Data.FF_Zero_cross[0] = Tools.Round_Error(feed_6020_1.cout, feed_6020_1.target_e, 8191);
-    Chassis_Data.FF_Zero_cross[1] = Tools.Round_Error(feed_6020_2.cout, feed_6020_2.target_e, 8191);
-    Chassis_Data.FF_Zero_cross[2] = Tools.Round_Error(feed_6020_3.cout, feed_6020_3.target_e, 8191);
-    Chassis_Data.FF_Zero_cross[3] = Tools.Round_Error(feed_6020_4.cout, feed_6020_4.target_e, 8191);
+        // 舵向电机角度环更新
+        pid_angle_String[i].GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[i], Motor6020.GetAngleFeedback(i), 16384.0f);
+        // 舵向电机速度环更新
+        pid_vel_String[i].GetPidPos(Kpid_6020_vel, pid_angle_String[i].pid.cout + Chassis_Data.FF_Zero_cross[i], Motor6020.GetRPMFeedback(i), 16384);
+    }
 
-    pid_angle_String[0].GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[0], Motor6020.GetEquipData(0x205, Dji_Angle), 16384);
-    pid_angle_String[1].GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[1], Motor6020.GetEquipData(L_Back_6020_ID, Dji_Angle), 16384);
-    pid_angle_String[2].GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[2], Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), 16384);
-    pid_angle_String[3].GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[3], Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), 16384);
-
-    pid_vel_String[0].GetPidPos(Kpid_6020_vel, pid_angle_String[0].pid.cout + Chassis_Data.FF_Zero_cross[0], Motor6020.GetEquipData(0x205, Dji_Speed), 16384);
-    pid_vel_String[1].GetPidPos(Kpid_6020_vel, pid_angle_String[1].pid.cout + Chassis_Data.FF_Zero_cross[1], Motor6020.GetEquipData(0x206, Dji_Speed), 16384);
-    pid_vel_String[2].GetPidPos(Kpid_6020_vel, pid_angle_String[2].pid.cout + Chassis_Data.FF_Zero_cross[2], Motor6020.GetEquipData(0x207, Dji_Speed), 16384);
-    pid_vel_String[3].GetPidPos(Kpid_6020_vel, pid_angle_String[3].pid.cout + Chassis_Data.FF_Zero_cross[3], Motor6020.GetEquipData(0x208, Dji_Speed), 16384);
-
-    pid_vel_Wheel[0].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[0], td_3508_1.x1, 16384);
-    pid_vel_Wheel[1].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, 16384);
-    pid_vel_Wheel[2].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, 16384);
-    pid_vel_Wheel[3].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, 16384);
-    
-
+    // 轮毂电机速度环更新
+    for (int i = 0; i < 4; i++)
+    {
+        pid_vel_Wheel[i].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[i], td_3508_speed[i].x1, 16384.0f);
+    }
 }
 
 void ChassisState::CAN_Setting()
 {
-    // 如果，没有超功率就沿用pid输出，如果超功率就进入功率控制部分的判断
-    Chassis_Data.final_3508_Out[0] = pid_vel_Wheel[0].pid.cout;
-    Chassis_Data.final_3508_Out[1] = pid_vel_Wheel[1].pid.cout;
-    Chassis_Data.final_3508_Out[2] = pid_vel_Wheel[2].pid.cout;
-    Chassis_Data.final_3508_Out[3] = pid_vel_Wheel[3].pid.cout;
+    for (int i = 0; i < 4; i++)
+    {
+        Chassis_Data.final_6020_Out[i] = pid_vel_String[i].GetCout();
+    }
 
-    Chassis_Data.final_6020_Out[0] = pid_vel_String[0].GetCout();
-    Chassis_Data.final_6020_Out[1] = pid_vel_String[1].GetCout();
-    Chassis_Data.final_6020_Out[2] = pid_vel_String[2].GetCout();
-    Chassis_Data.final_6020_Out[3] = pid_vel_String[3].GetCout();
+    // 如果，没有超功率就沿用pid输出，如果超功率就进入功率控制部分的判断
+    for (int i = 0; i < 4; i++)
+    {
+        Chassis_Data.final_3508_Out[i] = pid_vel_Wheel[i].GetCout();
+    }
 
     // 功率控制部分
     PowerControl.String_PowerData.UpScaleMaxPow(pid_angle_String, Motor6020);
@@ -139,7 +124,6 @@ void ChassisState::CAN_Setting()
 
     PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
     PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel, toque_const_3508);
-
 
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
     //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
@@ -168,7 +152,7 @@ void ChassisState::CAN_Send()
     Send_ms %= 2;
 
     Tools.vofaSend(MeterPower.GetPower(),
-                   PowerControl.Wheel_PowerData.EstimatedPower,
+                   PowerControl.String_PowerData.EstimatedPower,
                    PowerControl.String_PowerData.pMaxPower[0],
                    PowerControl.String_PowerData.pMaxPower[1],
                    PowerControl.String_PowerData.pMaxPower[2],

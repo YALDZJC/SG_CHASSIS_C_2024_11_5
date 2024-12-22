@@ -79,13 +79,19 @@ public:
 
     float GetTorqueFeedback(int16_t address);
     float GetRPMFeedback(int16_t address);
+    float GetAngleFeedback(int16_t address);
 };
 inline float Dji_Motor::GetTorqueFeedback(int16_t address)
 {
-    return this->motorData[address].LastData[Dji_Torque];
+    return this->motorData[address].Data[Dji_Torque];
 }
 
 inline float Dji_Motor::GetRPMFeedback(int16_t address)
 {
-    return this->motorData[address].LastData[Dji_Speed];
+    return this->motorData[address].Data[Dji_Speed];
+}
+
+inline float Dji_Motor::GetAngleFeedback(int16_t address)
+{
+    return this->motorData[address].Data[Dji_Angle];
 }

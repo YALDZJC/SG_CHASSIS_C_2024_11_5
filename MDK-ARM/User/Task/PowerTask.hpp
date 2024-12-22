@@ -26,11 +26,6 @@ namespace SGPowerControl
     class PowerUpData_t
     {
     public:
-        float Cmd_Power[4];
-        float Cmd_Torque[4];
-
-        float Cur_Power[4];
-        float Cur_Torque[4];
 
     public:
         // PowerUpData_t() = delete;
@@ -40,9 +35,7 @@ namespace SGPowerControl
         PowerUpData_t()
             : rls(1e-5f, 0.99999f) // 使用构造函数初始化列表进行初始化
         {
-            MAXPower = 50;
-            k1 = 2.32443824e-07;
-            k2 = 2.32332226e-07;
+
         }
 
         /* data */
@@ -88,6 +81,17 @@ namespace SGPowerControl
     {
     private:
     public:
+        PowerTask_t()
+        {
+            Wheel_PowerData.MAXPower = 50;
+            Wheel_PowerData.k1 = 2.32443824e-07;
+            Wheel_PowerData.k2 = 2.32332226e-07;
+
+            String_PowerData.MAXPower = 50 * 0.8f;
+            String_PowerData.k1 = -3.58174657e-05;
+            String_PowerData.k2 = 2.06377621e-07;
+        }
+
         PowerUpData_t String_PowerData;
         PowerUpData_t Wheel_PowerData;
 
@@ -103,10 +107,6 @@ namespace SGPowerControl
             return String_PowerData.EstimatedPower;
         }
     };
-
-
-
-
 } // namespace PowerCon
 static inline float rpm2av(float rpm) { return rpm * My_PI / 30.0f; }
 static inline bool floatEqual(float a, float b) { return fabs(a - b) < 1e-5f; }

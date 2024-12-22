@@ -119,6 +119,8 @@ extern TD tar_vy;
 extern TD td_FF_Tar;
 extern TD td_Power[4];
 // 前馈
+extern FeedTar feed_6020[4];
+
 extern FeedTar feed_6020_1;
 extern FeedTar feed_6020_2;
 extern FeedTar feed_6020_3;

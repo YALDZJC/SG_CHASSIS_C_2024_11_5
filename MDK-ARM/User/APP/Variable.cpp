@@ -98,6 +98,13 @@ TD td_Power[4] = {
 };
 
 // 前馈
+FeedTar feed_6020[4] = {
+    {50, 5},
+    {50, 5},
+    {50, 5},
+    {50, 5},
+};
+
 FeedTar feed_6020_1(50, 5);
 FeedTar feed_6020_2(50, 5);
 FeedTar feed_6020_3(50, 5);
