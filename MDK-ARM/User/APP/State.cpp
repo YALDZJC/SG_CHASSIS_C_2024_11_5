@@ -11,17 +11,6 @@ float measure_curent[300];
 // 创建底盘任务实例
 Chassis_task chassis_task;
 
-float Vol2Current(float x)
-{
-    //    return 0.0112 * x -2.0547;
-    // return 0.4362 * x + 28.7583;
-
-    float p3 = 0.7431;
-    float p4 = -160.397;
-
-    return p3 * x + p4;
-}
-
 // 将期望值做滤波后传入轮子
 void ChassisState::Tar_Updata()
 {
@@ -90,11 +79,10 @@ void ChassisState::Filtering()
     td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
     td_3508_4.Calc(Motor3508.GetEquipData(R_Forward_3508_ID, Dji_Speed));
 
-    for(int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
         td_3508_speed[i].Calc(Motor3508.GetRPMFeedback(i));
     }
-
 }
 
 float kp, kd;
@@ -104,7 +92,6 @@ float POWER;
 int i;
 void ChassisState::PID_Updata()
 {
-
     feed_6020_1.UpData(Chassis_Data.Zero_cross[0]);
     feed_6020_2.UpData(Chassis_Data.Zero_cross[1]);
     feed_6020_3.UpData(Chassis_Data.Zero_cross[2]);
@@ -129,61 +116,40 @@ void ChassisState::PID_Updata()
     pid_vel_Wheel[1].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, 16384);
     pid_vel_Wheel[2].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, 16384);
     pid_vel_Wheel[3].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, 16384);
+    
 
-    // pid_vel_Wheel[0].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[0], td_3508_1.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[0]);
-    // pid_vel_Wheel[1].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[1]);
-    // pid_vel_Wheel[2].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[2]);
-    // pid_vel_Wheel[3].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[3]);
+}
 
-    // pid_vel_Wheel[0].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[0], td_3508_1.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[0] * 36000.0);
-    // pid_vel_Wheel[1].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[1], td_3508_2.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[1] * 36000.0);
-    // pid_vel_Wheel[2].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[2], td_3508_3.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[2] * 36000.0);
-    // pid_vel_Wheel[3].GetPidPos(Kpid_3508_vel, -Chassis_Data.tar_speed[3], td_3508_4.x1, PowerControl.Wheel_PowerData.Cmd_MaxT[3] * 36000.0);
-
-
-//    Chassis_Data.final_3508_Out[0] = pid_vel_Wheel[0].pid.cout;
-//    Chassis_Data.final_3508_Out[1] = pid_vel_Wheel[1].pid.cout;
-//    Chassis_Data.final_3508_Out[2] = pid_vel_Wheel[2].pid.cout;
-//    Chassis_Data.final_3508_Out[3] = pid_vel_Wheel[3].pid.cout;
+void ChassisState::CAN_Setting()
+{
+    // 如果，没有超功率就沿用pid输出，如果超功率就进入功率控制部分的判断
+    Chassis_Data.final_3508_Out[0] = pid_vel_Wheel[0].pid.cout;
+    Chassis_Data.final_3508_Out[1] = pid_vel_Wheel[1].pid.cout;
+    Chassis_Data.final_3508_Out[2] = pid_vel_Wheel[2].pid.cout;
+    Chassis_Data.final_3508_Out[3] = pid_vel_Wheel[3].pid.cout;
 
     Chassis_Data.final_6020_Out[0] = pid_vel_String[0].GetCout();
     Chassis_Data.final_6020_Out[1] = pid_vel_String[1].GetCout();
     Chassis_Data.final_6020_Out[2] = pid_vel_String[2].GetCout();
     Chassis_Data.final_6020_Out[3] = pid_vel_String[3].GetCout();
 
+    // 功率控制部分
     PowerControl.String_PowerData.UpScaleMaxPow(pid_angle_String, Motor6020);
-    PowerControl.String_PowerData.UpCalcMaxTorque(Chassis_Data.final_6020_Out, Motor6020, pid_vel_String);
+    PowerControl.String_PowerData.UpCalcMaxTorque(Chassis_Data.final_6020_Out, Motor6020, pid_vel_String, toque_const_6020);
 
-    // Chassis_Data.final_6020_Out[0] = pid_vel_String[0].GetCout();
-    // Chassis_Data.final_6020_Out[1] = pid_vel_String[1].GetCout();
-    // Chassis_Data.final_6020_Out[2] = pid_vel_String[2].GetCout();
-    // Chassis_Data.final_6020_Out[3] = pid_vel_String[3].GetCout();
-
-//    PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
-//    PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel);
+    PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
+    PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel, toque_const_3508);
 
 
-    // PowerControl.Wheel_PowerData.GetControlledOutput(Motor3508, pid_vel_Wheel);
-}
-
-void ChassisState::CAN_Setting()
-{
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
-
-
-//       Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
-//       Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
-//       Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[2], Get_MOTOR_SET_ID_3508(0x203));
-//       Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[3], Get_MOTOR_SET_ID_3508(0x204));
-
-    // Motor3508.setMSD(&msd_3508_2006, PowerControl.Wheel_PowerData.Cmd_MaxT[0], Get_MOTOR_SET_ID_3508(0x201));
-    // Motor3508.setMSD(&msd_3508_2006, PowerControl.Wheel_PowerData.Cmd_MaxT[1], Get_MOTOR_SET_ID_3508(0x202));
-    // Motor3508.setMSD(&msd_3508_2006, PowerControl.Wheel_PowerData.Cmd_MaxT[2], Get_MOTOR_SET_ID_3508(0x203));
-    // Motor3508.setMSD(&msd_3508_2006, PowerControl.Wheel_PowerData.Cmd_MaxT[3], Get_MOTOR_SET_ID_3508(0x204));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[2], Get_MOTOR_SET_ID_3508(0x203));
+    Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[3], Get_MOTOR_SET_ID_3508(0x204));
 }
 
 void ChassisState::CAN_Send()
@@ -202,11 +168,11 @@ void ChassisState::CAN_Send()
     Send_ms %= 2;
 
     Tools.vofaSend(MeterPower.GetPower(),
-                   PowerControl.String_PowerData.EstimatedPower,
-                   PowerControl.String_PowerData.Cur_EstimatedPower,
-                   Motor3508.GetRPMFeedback(0),
-                   Chassis_Data.final_6020_Out[0],
-                   Chassis_Data.final_6020_Out[2]);
+                   PowerControl.Wheel_PowerData.EstimatedPower,
+                   PowerControl.String_PowerData.pMaxPower[0],
+                   PowerControl.String_PowerData.pMaxPower[1],
+                   PowerControl.String_PowerData.pMaxPower[2],
+                   PowerControl.String_PowerData.pMaxPower[3]);
 }
 
 void Universal_mode::upData()

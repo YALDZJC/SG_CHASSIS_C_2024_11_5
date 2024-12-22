@@ -5,9 +5,9 @@
 #include "Variable.hpp"
 
 #define My_PI 3.14152653529799323
-#define toque_const 1.502e-5f
-#define toque_coefficient 1.572977718013743e-6f
-#define toque_coefficient_6020 1.420745050719895e-5f
+// #define toque_const 1.502e-5f
+#define toque_const_3508 1.572977718013743e-6f
+#define toque_const_6020 1.420745050719895e-5f
 //  #define toque_coefficient  1.99688994e-6f // (20/16384)*(0.3)*(187/3591)/9.55
 
 #define pMAX 120.0f
@@ -40,7 +40,7 @@ namespace SGPowerControl
         PowerUpData_t()
             : rls(1e-5f, 0.99999f) // 使用构造函数初始化列表进行初始化
         {
-            MAXPower = 40;
+            MAXPower = 50;
             k1 = 2.32443824e-07;
             k2 = 2.32332226e-07;
         }
@@ -69,17 +69,17 @@ namespace SGPowerControl
             samples;
         Matrixf<2, 1> params;
 
-        void UpRLS(PID *pid, Dji_Motor &motor);
+        void UpRLS(PID *pid, Dji_Motor &motor, const float toque_const);
         void UpCalcVariables(PID *pid, Dji_Motor &motor);
 
         // 等比缩放的最大分配功率
         void UpScaleMaxPow(PID *pid, Dji_Motor &motor);
 
         //计算应分配的力矩
-        void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid);
+        void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const);
         float GetControlledOutput(Dji_Motor &motor, PID *pid);
 
-		float sumErr;
+        float sumErr;
 
         float newTorqueCurrent[4];
     };

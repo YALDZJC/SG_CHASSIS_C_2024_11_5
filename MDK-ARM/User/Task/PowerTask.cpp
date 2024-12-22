@@ -23,48 +23,14 @@ void RLSTask(void *argument)
 {
     for (;;)
     {
-        PowerControl.Wheel_PowerData.UpRLS(pid_vel_Wheel, Motor3508);
-        PowerControl.String_PowerData.UpRLS(pid_vel_String, Motor6020);
+        PowerControl.Wheel_PowerData.UpRLS(pid_vel_Wheel, Motor3508, toque_const_3508);
+        PowerControl.String_PowerData.UpRLS(pid_vel_String, Motor6020, toque_const_6020);
 
         osDelay(1);
     }
 }
 
-// void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor)
-// {
-//     EffectivePower = 0;
-//     samples[0][0] = 0;
-//     samples[1][0] = 0;
-
-//     for (int i = 0; i < 4; i++)
-//     {
-//         EffectivePower += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Speed) * toque_coefficient;
-
-//         samples[0][0] += motor.GetEquipData_for(i, Dji_Speed) * motor.GetEquipData_for(i, Dji_Speed);
-//         samples[1][0] += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Torque);
-//     }
-
-//     if (EventParse.DirData.MeterPower == false)
-//     {
-//         params = rls.update(samples, MeterPower.GetPower() - EffectivePower - k3);
-//         k1 = fmax(params[0][0], 1e-8f);  // In case the k1 diverge to negative number
-//         k2 = fmax(params[1][0], 1e-8f);  // In case the k2 diverge to negative number
-//     }
-//     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;
-
-//     EstimatedPower = 0;
-//     for (int i = 0; i < 4; i++)
-//     {
-//         Initial_Est_power[i] = k1 * motor.GetEquipData_for(i, Dji_Speed) * motor.GetEquipData_for(i, Dji_Speed) +
-//                                k2 * pid[i].pid.cout * toque_coefficient * pid[i].pid.cout * toque_coefficient + pid[i].pid.cout * motor.GetEquipData_for(i, Dji_Speed) * toque_coefficient + k3 / 4.0f;
-
-//         if (Initial_Est_power[i] < 0) // negative power not included (transitory)
-//             continue;
-//         EstimatedPower += Initial_Est_power[i];
-//     }
-// }
-
-void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor)
+void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
 {
     EffectivePower = 0;
     samples[0][0] = 0;
@@ -72,7 +38,7 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor)
 
     for (int i = 0; i < 4; i++)
     {
-        EffectivePower += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Speed) * toque_coefficient_6020;
+        EffectivePower += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Speed) * toque_const;
 
         samples[0][0] += motor.GetEquipData_for(i, Dji_Speed) * motor.GetEquipData_for(i, Dji_Speed);
         samples[1][0] += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Torque);
@@ -90,8 +56,8 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor)
     for (int i = 0; i < 4; i++)
     {
         Initial_Est_power[i] = k1 * motor.GetEquipData_for(i, Dji_Speed) * motor.GetEquipData_for(i, Dji_Speed) +
-                               k2 * pid[i].pid.cout * toque_coefficient_6020 * pid[i].pid.cout * toque_coefficient_6020 + 
-															 pid[i].pid.cout * motor.GetEquipData_for(i, Dji_Speed) * toque_coefficient_6020 + k3;
+                               k2 * pid[i].pid.cout * toque_const * pid[i].pid.cout * toque_const +
+                               pid[i].pid.cout * motor.GetEquipData_for(i, Dji_Speed) * toque_const + k3/4.0;
 
         if (Initial_Est_power[i] < 0) // negative power not included (transitory)
             continue;
@@ -117,35 +83,7 @@ void PowerUpData_t::UpScaleMaxPow(PID *pid, Dji_Motor &motor)
     }
 }
 
-// void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid)
-// {
-//    if (EstimatedPower > MAXPower)
-//    {
-//        for (int i = 0; i < 4; i++)
-//        {
-//            float omega = motor.GetEquipData_for(i, Dji_Speed);
-
-//            float A = k1;
-//            float B = toque_coefficient * omega;
-//            float C = k2 * omega * omega + k3 / 4 - pMaxPower[i];
-
-//            delta = (B * B) - 4.0f * A * C;
-//            if (delta <= 0)
-//            {
-//                Cmd_MaxT[i] = -B / (2.0f * A);
-//            }
-
-//            Cmd_MaxT[i] = pid[i].GetCout() > 0.0f ? (-B + sqrtf(delta)) / (2.0f * k2)
-//                                                  : (-B - sqrtf(delta)) / (2.0f * k2);
-
-//            Cmd_MaxT[i] = Tools.clamp(Cmd_MaxT[i], 16384.0f);
-
-//            final_Out[i] = Cmd_MaxT[i];
-//        }
-//    }
-// }
-uint32_t asdf;
-void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid)
+void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const)
 {
     if (EstimatedPower > MAXPower)
     {
@@ -154,8 +92,8 @@ void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid
             float omega = motor.GetEquipData_for(i, Dji_Speed);
 
             float A = k2;
-            float B = toque_coefficient_6020 * omega;
-            float C = k1 * omega * omega + k3 / 4 - 10;
+            float B = toque_const * omega;
+            float C = k1 * omega * omega + k3 / 4 - pMaxPower[i];
 
             delta = (B * B) - 4.0f * A * C;
             if (delta <= 0)
@@ -168,9 +106,8 @@ void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid
 
             Cmd_MaxT[i] = Tools.clamp(Cmd_MaxT[i], 16384.0f);
 
-            final_Out[i] = Cmd_MaxT[i] * 0.8f;
+            final_Out[i] = Cmd_MaxT[i];
         }
-				asdf++;
     }
 
 }
