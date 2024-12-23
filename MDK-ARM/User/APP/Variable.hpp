@@ -98,15 +98,6 @@ extern PID pid_T_0x207;
 extern Kpid_t Kpid_3508_T;
 extern PID pid_T_0x201;
 
-extern TD td6020_torque;
-extern TD td3508_torque;
-
-extern TD td_6020_1;
-extern TD td_6020_2;
-extern TD td_6020_3;
-extern TD td_6020_4;
-extern TD td_6020_angle_1;
-
 extern TD td_3508_1;
 extern TD td_3508_2;
 extern TD td_3508_3;

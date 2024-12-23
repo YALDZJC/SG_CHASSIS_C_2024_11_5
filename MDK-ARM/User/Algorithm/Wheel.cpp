@@ -3,11 +3,6 @@
 #include "math.h"
 #include "arm_math.h"
 
-float32_t armcos(float32_t x)
-{
-	return arm_cos_f32(x);
-}
-
 void Mecanum::UpDate(float vx, float vy, float vw, float MaxSpeed) // speed最大速度
 {
 	if (MaxSpeed != 0)

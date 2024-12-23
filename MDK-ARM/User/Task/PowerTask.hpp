@@ -25,29 +25,29 @@ namespace SGPowerControl
 
     class PowerUpData_t
     {
-    public:
+    private:
 
+    
     public:
         // PowerUpData_t() = delete;
         Math::RLS<2> rls;
+
+        Matrixf<2, 1> samples;
+        Matrixf<2, 1> params;
 
         float MAXPower;
         PowerUpData_t()
             : rls(1e-5f, 0.99999f) // 使用构造函数初始化列表进行初始化
         {
-
         }
 
         /* data */
         float k1, k2, k3 = 8.50f, k0;
 
-        float Cur_ALL_Power;
-        float Cmd_ALL_Power;
-
         float Energy;
 
         float EstimatedPower;
-				float Cur_EstimatedPower;
+        float Cur_EstimatedPower;
 
         float Initial_Est_power[4];
 
@@ -56,30 +56,15 @@ namespace SGPowerControl
         float pMaxPower[4];
         double Cmd_MaxT[4];
 
-        float delta;
-
-        Matrixf<2, 1>
-            samples;
-        Matrixf<2, 1> params;
-
         void UpRLS(PID *pid, Dji_Motor &motor, const float toque_const);
-        void UpCalcVariables(PID *pid, Dji_Motor &motor);
-
         // 等比缩放的最大分配功率
         void UpScaleMaxPow(PID *pid, Dji_Motor &motor);
-
-        //计算应分配的力矩
+        // 计算应分配的力矩
         void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const);
-        float GetControlledOutput(Dji_Motor &motor, PID *pid);
-
-        float sumErr;
-
-        float newTorqueCurrent[4];
     };
 
     class PowerTask_t
     {
-    private:
     public:
         PowerTask_t()
         {
@@ -94,10 +79,6 @@ namespace SGPowerControl
 
         PowerUpData_t String_PowerData;
         PowerUpData_t Wheel_PowerData;
-
-        float ALL_Power;
-        float Energy;
-
         inline float GetEstWheelPow()
         {
             return Wheel_PowerData.EstimatedPower;
@@ -107,10 +88,8 @@ namespace SGPowerControl
             return String_PowerData.EstimatedPower;
         }
     };
-} // namespace PowerCon
-static inline float rpm2av(float rpm) { return rpm * My_PI / 30.0f; }
+} // namespace PowerControl
 static inline bool floatEqual(float a, float b) { return fabs(a - b) < 1e-5f; }
-
 
 extern SGPowerControl::PowerTask_t PowerControl;
 
@@ -119,7 +98,6 @@ extern "C"
 {
 #endif
 
-    void PowerTask(void *argument);
     void RLSTask(void *argument);
 
 #ifdef __cplusplus

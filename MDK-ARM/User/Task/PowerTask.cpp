@@ -9,14 +9,6 @@ SGPowerControl::PowerTask_t PowerControl;
 
 uint32_t pm01_ms = 0;
 
-void PowerTask(void *argument)
-{
-    for (;;)
-    {
-        osDelay(1);
-    }
-}
-
 float W2, T2;
 float EffectivePower_t;
 void RLSTask(void *argument)
@@ -50,6 +42,7 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
         k1 = params[0][0]; // In case the k1 diverge to negative number
         k2 = params[1][0]; // In case the k2 diverge to negative number
     }
+
     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;
 
     EstimatedPower = 0;
@@ -61,6 +54,7 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
 
         if (Initial_Est_power[i] < 0) // negative power not included (transitory)
             continue;
+
         EstimatedPower += Initial_Est_power[i];
     }
 }
@@ -95,7 +89,7 @@ void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid
             float B = toque_const * omega;
             float C = k1 * omega * omega + k3 / 4 - pMaxPower[i];
 
-            delta = (B * B) - 4.0f * A * C;
+            float delta = (B * B) - 4.0f * A * C;
             if (delta <= 0)
             {
                 Cmd_MaxT[i] = -B / (2.0f * A);

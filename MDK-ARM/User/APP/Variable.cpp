@@ -21,28 +21,14 @@ PowerMeter::Meter MeterPower(0x210, _PowerMeter_SIZE, _MeterPowerData_, _PowerMe
 
 // PID角度环设置
 Kpid_t Kpid_6020_angle(0.4, 0, 0);
-// PID pid_angle_0x205;
-// PID pid_angle_0x206;
-// PID pid_angle_0x207;
-// PID pid_angle_0x208;
 PID pid_angle_String[4];
-
 
 // PID角度环设置
 Kpid_t Kpid_6020_vel(100, 0, 0);
-// PID pid_vel_0x205;
-// PID pid_vel_0x206;
-// PID pid_vel_0x207;
-// PID pid_vel_0x208;
 PID pid_vel_String[4];
-
 
 // PID速度环设置
 Kpid_t Kpid_3508_vel(5, 0.2, 0);
-// PID pid_vel_0x201(1000, 8000);
-// PID pid_vel_0x202(1000, 8000);
-// PID pid_vel_0x203(1000, 8000);
-// PID pid_vel_0x204(1000, 8000);
 PID pid_vel_Wheel[4] = {
     {1000, 8000},
     {1000, 8000},
@@ -50,30 +36,10 @@ PID pid_vel_Wheel[4] = {
     {1000, 8000},
 };
 
-// 力矩控制
-Kpid_t Kpid_6020_T(0, 0, 0);
-PID pid_T_0x207;
-Kpid_t Kpid_3508_T(0, 0, 0);
-PID pid_T_0x201;
-
 // 尖括号里填底盘类型
 Wheel_t<SG> Wheel;
 
-// 6020速度滤波
-TD td_6020_1(400);
-TD td_6020_2(400);
-TD td_6020_3(400);
-TD td_6020_4(400);
-
-TD td_6020_angle_1(400);
-
-
 // 3508速度滤波
-TD td_3508_1(300);
-TD td_3508_2(300);
-TD td_3508_3(300);
-TD td_3508_4(300);
-
 TD td_3508_speed[4] = {
     {300},
     {300},

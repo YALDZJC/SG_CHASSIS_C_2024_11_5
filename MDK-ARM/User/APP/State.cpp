@@ -59,7 +59,7 @@ void ChassisState::Wheel_UpData()
     else
         sin_t = pos;
 
-    // 过零处理
+    // 过零处理         //发现直接用for会使电机疯
     // for(int i = 0; i < 4; i++)
     // {
     //    Chassis_Data.Zero_cross[i] = Tools.Zero_crossing_processing(Chassis_Data.getMinPos[i], Motor6020.GetAngleFeedback(i), 8192);
@@ -73,11 +73,6 @@ void ChassisState::Wheel_UpData()
 void ChassisState::Filtering()
 {
     // 电机一般速度反馈噪声大
-    td_3508_1.Calc(Motor3508.GetEquipData(L_Forward_3508_ID, Dji_Speed));
-    td_3508_2.Calc(Motor3508.GetEquipData(L_Back_3508_ID, Dji_Speed));
-    td_3508_3.Calc(Motor3508.GetEquipData(R_Back_3508_ID, Dji_Speed));
-    td_3508_4.Calc(Motor3508.GetEquipData(R_Forward_3508_ID, Dji_Speed));
-
     for (int i = 0; i < 4; i++)
     {
         td_3508_speed[i].Calc(Motor3508.GetRPMFeedback(i));

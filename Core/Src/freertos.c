@@ -75,13 +75,6 @@ const osThreadAttr_t refeeTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for powerTask */
-osThreadId_t powerTaskHandle;
-const osThreadAttr_t powerTask_attributes = {
-  .name = "powerTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
 /* Definitions for rlsTask */
 osThreadId_t rlsTaskHandle;
 const osThreadAttr_t rlsTask_attributes = {
@@ -106,7 +99,6 @@ void StartDefaultTask(void *argument);
 extern void ChassisTask(void *argument);
 extern void CommunicationTask(void *argument);
 extern void RefeeTask(void *argument);
-extern void PowerTask(void *argument);
 extern void RLSTask(void *argument);
 extern void EventTask(void *argument);
 
@@ -150,9 +142,6 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of refeeTask */
   refeeTaskHandle = osThreadNew(RefeeTask, NULL, &refeeTask_attributes);
-
-  /* creation of powerTask */
-  powerTaskHandle = osThreadNew(PowerTask, NULL, &powerTask_attributes);
 
   /* creation of rlsTask */
   rlsTaskHandle = osThreadNew(RLSTask, NULL, &rlsTask_attributes);

@@ -30,13 +30,13 @@ void CommunicationTask(void *argument)
 //		{
 //			Gimbal_to_Chassis_Data.notation_RC_LY = format[1] >> 7;					// 符号位
 //			Gimbal_to_Chassis_Data._RC_LY = format[1] & 0x7f;						// 数据
-//			Gimbal_to_Chassis_Data.int16_RC_LY = Gimbal_to_Chassis_Data._RC_LY * 6; //_RC_LY解算
+//			Gimbal_to_Chassis_Data.int16_RC_LY = Gimbal_to_Chassis_Data._RC_LY * 6; //RC_LY解算
 //			if (Gimbal_to_Chassis_Data.notation_RC_LY == 0)
 //				Gimbal_to_Chassis_Data.int16_RC_LY *= -1; // 符号位解算
 
 //			Gimbal_to_Chassis_Data.notation_RC_LX = format[2] >> 7;					// 符号位
 //			Gimbal_to_Chassis_Data._RC_LX = format[2] & 0x7f;						// 数据
-//			Gimbal_to_Chassis_Data.int16_RC_LX = Gimbal_to_Chassis_Data._RC_LX * 6; //_RC_LX解算
+//			Gimbal_to_Chassis_Data.int16_RC_LX = Gimbal_to_Chassis_Data._RC_LX * 6; //RC_LX解算
 //			if (Gimbal_to_Chassis_Data.notation_RC_LX == 0)
 //				Gimbal_to_Chassis_Data.int16_RC_LX *= -1; // 符号位解算
 
