@@ -36,12 +36,12 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
         samples[1][0] += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Torque);
     }
 
-    if (EventParse.DirData.MeterPower == false)
-    {
-        params = rls.update(samples, MeterPower.GetPower() - EffectivePower - k3);
-        k1 = params[0][0]; // In case the k1 diverge to negative number
-        k2 = params[1][0]; // In case the k2 diverge to negative number
-    }
+    // if (EventParse.DirData.MeterPower == false)
+    // {
+    //     params = rls.update(samples, MeterPower.GetPower() - EffectivePower - k3);
+    //     k1 = params[0][0]; // In case the k1 diverge to negative number
+    //     k2 = params[1][0]; // In case the k2 diverge to negative number
+    // }
 
     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;
 

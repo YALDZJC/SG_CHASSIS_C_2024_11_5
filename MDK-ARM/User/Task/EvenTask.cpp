@@ -4,12 +4,22 @@
 
 using namespace Event;
 
-Event::EventManager EventParse;
+Dir Dir_Event;
+
+Buzzer Buzzer_Event{&Dir_Event};
+
+void DirUpdata()
+{
+    Dir_Event.UpEvent();
+}
+
 void EventTask(void *argument)
 {
+
     for (;;)
     {
-        Dir::UpEvent();
+        // Dir::UpEvent();
+        Buzzer_Event.Update();
 
         osDelay(1);
     }
@@ -18,18 +28,18 @@ bool Dir::Dir_Remote()
 {
     bool Dir = dr16.ISDir();
 
-		EventParse.DirData.Dr16 = Dir;
-	
+    DirData.Dr16 = Dir;
+
     return Dir;
 }
 
-bool Dir::Dir_Streel()
+bool Dir::Dir_String()
 {
     bool Dir = Motor6020.ISDir();
 
     for (int i = 0; i < 4; i++)
     {
-        EventParse.DirData.Stree[i] = Motor6020.GetDir(Get_InitID_6020(i));
+        DirData.String[i] = Motor6020.GetDir(Get_InitID_6020(i));
     }
 
     return Dir;
@@ -41,7 +51,7 @@ bool Dir::Dir_Wheel()
 
     for (int i = 0; i < 4; i++)
     {
-        EventParse.DirData.Wheel[i] = Motor3508.GetDir(Get_InitID_3508(i));
+        DirData.Wheel[i] = Motor3508.GetDir(Get_InitID_3508(i));
     }
 
     return Dir;
@@ -51,9 +61,20 @@ bool Dir::Dir_MeterPower()
 {
     bool Dir = MeterPower.ISDir();
 
-    EventParse.DirData.MeterPower = Dir;
+    DirData.MeterPower = Dir;
 
     return Dir;
 }
 
-
+/**
+ * @brief 更新事件
+ *
+ */
+void Dir::UpEvent()
+{
+    Dir_Remote();
+    Dir_String();
+    Dir_Wheel();
+    Dir_MeterPower();
+    Notify();
+}
