@@ -95,3 +95,7 @@ inline float Dji_Motor::GetAngleFeedback(int16_t address)
 {
     return this->motorData[address].Data[Dji_Angle];
 }
+
+void _Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox);
+
+

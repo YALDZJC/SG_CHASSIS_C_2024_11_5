@@ -10,7 +10,12 @@
 //初始化
 void My_hal::_timer_init()
 {
-    HAL_TIM_Base_Start_IT(&htim7);
+    // HAL_TIM_Base_Start_IT(&htim7);
+
+    // 开启定时器
+    HAL_TIM_Base_Start(&htim4);
+    // 开启PWM通道
+    HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
 }
 
 void My_hal::_dr16_init()
@@ -38,15 +43,20 @@ void My_hal::_capactal_init()
 
 }
 
+void My_hal::_buzzer_init()
+{
+
+}
+
 
 void My_hal::_delay(unsigned long _mill)
 {
-    HAL_Delay(_mill);
+    // HAL_Delay(_mill);
 }
 
 void My_hal::_osDelay(unsigned long _mill)
 {
-    osDelay(_mill);
+    // osDelay(_mill);
 }
 
 unsigned long My_hal::_GetTick()

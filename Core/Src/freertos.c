@@ -80,14 +80,14 @@ osThreadId_t rlsTaskHandle;
 const osThreadAttr_t rlsTask_attributes = {
   .name = "rlsTask",
   .stack_size = 1024 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for eventTask */
 osThreadId_t eventTaskHandle;
 const osThreadAttr_t eventTask_attributes = {
   .name = "eventTask",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 
 /* Private function prototypes -----------------------------------------------*/

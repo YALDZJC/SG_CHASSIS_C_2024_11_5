@@ -70,3 +70,5 @@ float HAL::_floatEqual(float a, float b)
 {
     return fabs(a - b) < 1e-6f;
 }
+
+

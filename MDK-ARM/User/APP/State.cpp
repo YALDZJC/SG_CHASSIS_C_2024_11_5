@@ -138,20 +138,20 @@ void ChassisState::CAN_Send()
     {
         Motor3508.Send_CAN_MAILBOX1(&msd_3508_2006, SEND_MOTOR_ID_3508);
     }
-    else if (Send_ms == 1)
-    {
-        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);
-    }
+//    else if (Send_ms == 1)
+//    {
+//        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);
+//    }
 
     Send_ms++;
     Send_ms %= 2;
 
-    Tools.vofaSend(MeterPower.GetPower(),
-                   PowerControl.String_PowerData.EstimatedPower,
-                   PowerControl.String_PowerData.pMaxPower[0],
-                   PowerControl.String_PowerData.pMaxPower[1],
-                   PowerControl.String_PowerData.pMaxPower[2],
-                   PowerControl.String_PowerData.pMaxPower[3]);
+//     Tools.vofaSend(MeterPower.GetPower(),
+//                    PowerControl.String_PowerData.EstimatedPower,
+//                    PowerControl.String_PowerData.pMaxPower[0],
+//                    PowerControl.String_PowerData.pMaxPower[1],
+//                    PowerControl.String_PowerData.pMaxPower[2],
+//                    PowerControl.String_PowerData.pMaxPower[3]);
 }
 
 void Universal_mode::upData()

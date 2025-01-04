@@ -3,6 +3,7 @@
 #include "Variable.hpp"
 #include "Tools.hpp"
 #include "math.h"
+#include "stdxxx.hpp"
 
 using namespace SGPowerControl;
 SGPowerControl::PowerTask_t PowerControl;

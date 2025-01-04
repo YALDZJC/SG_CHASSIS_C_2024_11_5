@@ -1,5 +1,6 @@
 #pragma once
 
+extern bool InitFlag;
 
 #ifdef __cplusplus
 extern "C" {

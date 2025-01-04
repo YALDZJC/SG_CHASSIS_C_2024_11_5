@@ -52,14 +52,13 @@
 class My_hal : public HAL
 {
 private:
-
-private:
 	void _timer_init();
 	void _dr16_init();
 	void _can_init();
 	void _referee_init();
 	void _darw_graphic_init();
 	void _capactal_init();
+	void _buzzer_init();
 public:
 	My_hal() = default;
 
@@ -68,9 +67,8 @@ public:
 
 	void _osDelay(unsigned long _mill) override;
 
-	// int _sgn(float x) override; 
-
 	void _Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) override;
+
 	void _Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) override;
 
 	unsigned long _GetTick() override;
@@ -84,6 +82,7 @@ public:
 		_referee_init();
 		_darw_graphic_init();
 		_capactal_init();
+		_buzzer_init();
 	}
 
 };

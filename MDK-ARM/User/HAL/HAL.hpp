@@ -3,9 +3,6 @@
 
 #include "can.h"
 
-#ifndef HAL_H_
-#define HAL_H_
-
 class HAL
 {
 private:
@@ -28,7 +25,6 @@ public:
     static void osDelay(unsigned long _mill) { get()->_osDelay(_mill); }
     virtual void _osDelay(unsigned long _mill) {}
 
-
     static void Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) { get()->_Can_SendREMOTE(han, StdId, s_data, pTxMailbox); }
     virtual void _Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox) {}
 
@@ -38,6 +34,7 @@ public:
 public:
     static unsigned long GetTick() { return get()->_GetTick(); }
     virtual unsigned long _GetTick() { return 0; }
+
     // 数学函数接口封装
     static float sinf(float x) { return get()->_sinf(x); }
     virtual float _sinf(float x);
@@ -56,6 +53,8 @@ public:
 
     static float floatEqual(float a, float b) { return get()->_floatEqual(a, b); }
     virtual float _floatEqual(float a, float b);
+
+
 };
 
-#endif
+

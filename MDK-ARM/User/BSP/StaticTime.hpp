@@ -56,3 +56,5 @@ inline bool RM_StaticTime::ISFromGL(uint64_t nowTime, uint64_t targetTime, uint8
 	return this->key.NowKey;
 }
 
+
+

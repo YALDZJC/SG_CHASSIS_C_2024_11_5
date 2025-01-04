@@ -1,12 +1,12 @@
 #include "EvenTask.hpp"
 #include "Variable.hpp"
 #include "cmsis_os2.h"
-
-using namespace Event;
+#include "tim.h"
+#include "../APP/Buzzer.h"
+#include "../BSP/Init.hpp"
+// using namespace Event;
 
 Dir Dir_Event;
-
-Buzzer Buzzer_Event{&Dir_Event};
 
 void DirUpdata()
 {
@@ -15,13 +15,14 @@ void DirUpdata()
 
 void EventTask(void *argument)
 {
+    osDelay(500);
+    Buzzer Buzzer_Event{&Dir_Event};
 
     for (;;)
     {
-        // Dir::UpEvent();
-        Buzzer_Event.Update();
+        Dir_Event.Notify();
 
-        osDelay(1);
+        osDelay(10);
     }
 }
 bool Dir::Dir_Remote()
@@ -66,6 +67,12 @@ bool Dir::Dir_MeterPower()
     return Dir;
 }
 
+bool Dir::Init_Flag()
+{
+    DirData.InitFlag = InitFlag;
+    return InitFlag;
+}
+
 /**
  * @brief 更新事件
  *
@@ -76,5 +83,5 @@ void Dir::UpEvent()
     Dir_String();
     Dir_Wheel();
     Dir_MeterPower();
-    Notify();
+    Init_Flag();
 }

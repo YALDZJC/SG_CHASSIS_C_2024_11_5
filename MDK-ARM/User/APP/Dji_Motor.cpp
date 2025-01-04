@@ -97,10 +97,29 @@ void Dji_Motor::Send_CAN_MAILBOX0(Motor_send_data_t *msd, uint16_t SendID)
 	RM_FDorCAN_Send(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX0);
 }
 
+void _Can_SendDATA(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_data, uint32_t pTxMailbox)
+{
+    CAN_TxHeaderTypeDef TxHeader;
+    TxHeader.DLC = 8;            // 长度
+    TxHeader.ExtId = 0;          // 扩展id
+    TxHeader.IDE = CAN_ID_STD;   // 标准
+    TxHeader.RTR = CAN_RTR_DATA; // 数据帧
+    TxHeader.StdId = StdId;      // id
+    TxHeader.TransmitGlobalTime = DISABLE;
+
+    if (HAL_CAN_GetTxMailboxesFreeLevel(han) != 0)
+    {
+        // 发送邮箱
+        HAL_CAN_AddTxMessage(han, &TxHeader, s_data, &pTxMailbox);
+    }
+}
+
+
 void Dji_Motor::Send_CAN_MAILBOX1(Motor_send_data_t *msd, uint16_t SendID)
 {
 	// 发送
 	HAL::Can_SendDATA(&hcan1, SendID, msd->Data, CAN_TX_MAILBOX1);
+	
 }
 
 double Dji_Motor::GetTorque(double n)
