@@ -2,6 +2,7 @@
 #pragma once
 
 #include "can.h"
+#include <string>
 
 class HAL
 {

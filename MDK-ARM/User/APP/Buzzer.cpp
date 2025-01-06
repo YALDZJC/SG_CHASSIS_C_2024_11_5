@@ -2,6 +2,8 @@
 #include "../App/Buzzer.h"
 #include "cmsis_os2.h"
 #include "HAL.hpp"
+#include "tim.h"
+
 /**
  * @brief          控制蜂鸣器定时器的分频和重载值
  * @param[in]      psc，设置定时器的分频系数

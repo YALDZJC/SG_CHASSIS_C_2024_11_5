@@ -37,11 +37,11 @@ void Tools_t::vofaSend(float x1, float x2, float x3, float x4, float x5, float x
  */
 float Tools_t::Zero_crossing_processing(float expectations, float feedback, float maxpos)
 {
-    double tempcin = expectations;
+    float tempcin = expectations;
     if (maxpos != 0)
     {
         tempcin = fmod(expectations, maxpos);
-        double x1 = feedback;
+        float x1 = feedback;
         if (tempcin < 0)
             x1 -= maxpos;
         // 过0处理
