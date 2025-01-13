@@ -101,6 +101,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_TIM7_Init();
   MX_TIM4_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
   // 只能放RTOS上面初始化
@@ -200,7 +201,6 @@ void SystemClock_Config(void)
   * @param  htim : TIM handle
   * @retval None
   */
-int i;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
@@ -213,7 +213,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   else if (htim->Instance == TIM7)
   {
     DirUpdata();
-		i++;
   }
   /* USER CODE END Callback 1 */
 }

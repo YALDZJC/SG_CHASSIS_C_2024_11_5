@@ -16,7 +16,6 @@ void Buzzer::buzzer_on(uint16_t psc, uint16_t pwm)
     __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_3, pwm);
 }
 
-
 /**
  * @brief          关闭蜂鸣器
  * @param[in]      none
@@ -61,10 +60,14 @@ void Buzzer::SYSTEM_START()
 
     is_busy = true;
 
-    buzzer_on(1, 10000);    osDelay(350);
-    buzzer_off();           osDelay(100);
-    buzzer_on(6, 10000);    osDelay(250);
-    buzzer_on(1, 10000);    osDelay(500);
+    buzzer_on(1, 10000);
+    osDelay(350);
+    buzzer_off();
+    osDelay(100);
+    buzzer_on(6, 10000);
+    osDelay(250);
+    buzzer_on(1, 10000);
+    osDelay(500);
     buzzer_off();
     is_busy = false;
 }
@@ -104,10 +107,14 @@ void Buzzer::B_B_()
 {
     STOP();
     is_busy = true;
-    buzzer_on(1, 10000);    osDelay(70);
-    buzzer_off();           osDelay(70);
-    buzzer_on(1, 10000);    osDelay(70);
-    buzzer_off();           osDelay(200);
+    buzzer_on(1, 10000);
+    osDelay(70);
+    buzzer_off();
+    osDelay(70);
+    buzzer_on(1, 10000);
+    osDelay(70);
+    buzzer_off();
+    osDelay(200);
     is_busy = false;
 }
 
@@ -115,14 +122,20 @@ void Buzzer::B_B_B_()
 {
     STOP();
     is_busy = true;
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(50);
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(50);
 
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(50);
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(50);
 
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(200);
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(200);
 
     is_busy = false;
 }
@@ -131,17 +144,25 @@ void Buzzer::B_B_B_B_()
 {
     STOP();
     is_busy = true;
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(50);
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(50);
 
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(50);
-    
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(50);
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(50);
 
-    buzzer_on(1, 10000);    osDelay(100);
-    buzzer_off();           osDelay(200);
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(50);
+
+    buzzer_on(1, 10000);
+    osDelay(100);
+    buzzer_off();
+    osDelay(200);
 
     is_busy = false;
 }
@@ -165,4 +186,3 @@ void Buzzer::B_CONTINUE()
 
     is_busy = false;
 }
-

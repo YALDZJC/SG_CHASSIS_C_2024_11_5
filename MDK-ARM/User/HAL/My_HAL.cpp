@@ -7,15 +7,19 @@
 #include "Variable.hpp"
 #include "math.h"
 
-//初始化
+// 初始化
 void My_hal::_timer_init()
 {
-    // HAL_TIM_Base_Start_IT(&htim7);
+    HAL_TIM_Base_Start_IT(&htim7);
 
     // 开启定时器
     HAL_TIM_Base_Start(&htim4);
     // 开启PWM通道
     HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+
+    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
+    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);
 }
 
 void My_hal::_dr16_init()
@@ -30,24 +34,19 @@ void My_hal::_can_init()
 
 void My_hal::_referee_init()
 {
-
 }
 
-void My_hal::_darw_graphic_init() 
+void My_hal::_darw_graphic_init()
 {
-
 }
 
 void My_hal::_capactal_init()
 {
-
 }
 
 void My_hal::_buzzer_init()
 {
-
 }
-
 
 void My_hal::_delay(unsigned long _mill)
 {
@@ -97,4 +96,3 @@ void My_hal::_Can_SendREMOTE(CAN_HandleTypeDef *han, uint32_t StdId, uint8_t *s_
         HAL_CAN_AddTxMessage(han, &TxHeader, s_data, &pTxMailbox);
     }
 }
-

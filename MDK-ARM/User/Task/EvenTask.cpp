@@ -3,10 +3,12 @@
 #include "cmsis_os2.h"
 #include "tim.h"
 #include "../APP/Buzzer.h"
+#include "../APP/LED.h"
 #include "../BSP/Init.hpp"
 // using namespace Event;
 
 Dir Dir_Event;
+LED LED_Event{&Dir_Event}; // 让LED灯先订阅，先亮灯再更新蜂鸣器
 
 void DirUpdata()
 {
@@ -15,14 +17,15 @@ void DirUpdata()
 
 void EventTask(void *argument)
 {
-    osDelay(500);
     Buzzer Buzzer_Event{&Dir_Event};
+
+    osDelay(500);
 
     for (;;)
     {
         Dir_Event.Notify();
 
-        osDelay(10);
+        osDelay(1);
     }
 }
 bool Dir::Dir_Remote()

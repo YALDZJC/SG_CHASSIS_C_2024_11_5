@@ -684,6 +684,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\APP\Buzzer.cpp</FilePath>
             </File>
+            <File>
+              <FileName>LED.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\LED.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
