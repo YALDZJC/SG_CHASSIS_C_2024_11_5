@@ -70,6 +70,7 @@ double FeedTar::UpData(float feedback)
 
 	cout = target_e * k;
 	cout_e = cout - last_cout;
+	
 	if (cout > max_cout)
 		cout = max_cout;
 	if (cout < -max_cout)

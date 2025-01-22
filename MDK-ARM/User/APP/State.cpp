@@ -1,7 +1,9 @@
 #include "State.hpp"
 #include "Variable.hpp"
-
+#include "../Algorithm/Ude.hpp"
 // #include "Dji_Motor.hpp"
+
+Ude ude(0, 1,0, 0);
 
 int a;
 float measure_cmd[300];
@@ -27,6 +29,8 @@ uint32_t ms;
 float hz;
 bool is_sin;
 uint16_t pos;
+float ude_tar;
+
 // 将运动学解算相关，并对速度与角度进行过零处理
 void ChassisState::Wheel_UpData()
 {
@@ -34,14 +38,12 @@ void ChassisState::Wheel_UpData()
     Wheel.WheelType.UpDate(tar_vx.x1, tar_vy.x1, tar_vw.x1, 7200);
 
     // 储存最小角判断的速度
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.tar_speed[i] = Wheel.WheelType.speed[i];
     }
 
     // 储存最小角判断的角度
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.tar_angle[i] = Wheel.WheelType.angle[i];
     }
 
@@ -51,12 +53,11 @@ void ChassisState::Wheel_UpData()
     Chassis_Data.getMinPos[2] = Tools.MinPosHelm(Chassis_Data.tar_angle[2] + Chassis_angle_Init_0x207, Motor6020.GetEquipData(R_Back_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[2], 16384, 8192);
     Chassis_Data.getMinPos[3] = Tools.MinPosHelm(Chassis_Data.tar_angle[3] + Chassis_angle_Init_0x208, Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[3], 16384, 8192);
 
-    if (is_sin == true)
-    {
+    if (is_sin == true) {
         sin_t = 4096 + HAL::sinf(2 * 3.1415926 * ms * 0.001 * hz) * 4000;
+				ude_tar = 4096 + HAL::sinf(2 * 3.1415926 * ms * 0.001 * hz) * 4000;
         ms++;
-    }
-    else
+    } else
         sin_t = pos;
 
     // 过零处理         //发现直接用for会使电机疯
@@ -73,16 +74,15 @@ void ChassisState::Wheel_UpData()
 void ChassisState::Filtering()
 {
     // 电机一般速度反馈噪声大
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         td_3508_speed[i].Calc(Motor3508.GetRPMFeedback(i));
     }
 }
+
 void ChassisState::PID_Updata()
 {
     // 舵向电机更新
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         // 舵向电机前馈更新
         feed_6020[i].UpData(Chassis_Data.Zero_cross[i]);
         Chassis_Data.FF_Zero_cross[i] = Tools.Round_Error(feed_6020[i].cout, feed_6020[i].target_e, 8191);
@@ -92,6 +92,12 @@ void ChassisState::PID_Updata()
         // 舵向电机速度环更新
         pid_vel_String[i].GetPidPos(Kpid_6020_vel, pid_angle_String[i].pid.cout + Chassis_Data.FF_Zero_cross[i], Motor6020.GetRPMFeedback(i), 16384);
     }
+		
+		ude_tar = Tools.Zero_crossing_processing(ude_tar, Motor6020.GetAngleFeedback(1), 8192);
+    ude_angle_demo.GetPidPos(ude_Kpid_angle, ude_tar, Motor6020.GetAngleFeedback(1), 16384.0f);
+    ude_vel_demo.GetPidPos(ude_Kpid_vel, ude_angle_demo.GetCout(), Motor6020.GetRPMFeedback(1), 16384.0f);
+
+    ude.UdeCalc(Motor6020.GetRPMFeedback(1), ude_vel_demo.GetCout(), ude_angle_demo.GetErr());
 
     // 轮毂电机速度环更新
     for (int i = 0; i < 4; i++)
@@ -100,16 +106,15 @@ void ChassisState::PID_Updata()
     }
 }
 
+bool is_ude;
 void ChassisState::CAN_Setting()
 {
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.final_6020_Out[i] = pid_vel_String[i].GetCout();
     }
 
     // 如果，没有超功率就沿用pid输出，如果超功率就进入功率控制部分的判断
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.final_3508_Out[i] = pid_vel_Wheel[i].GetCout();
     }
 
@@ -121,9 +126,14 @@ void ChassisState::CAN_Setting()
     PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel, toque_const_3508);
 
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
+
+    if (is_ude == true)
+        Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout() - ude.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
+    else
+        Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
 
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
@@ -134,24 +144,21 @@ void ChassisState::CAN_Setting()
 void ChassisState::CAN_Send()
 {
     // 发送数据
-    if (Send_ms == 0)
-    {
+    if (Send_ms == 0) {
         Motor3508.Send_CAN_MAILBOX1(&msd_3508_2006, SEND_MOTOR_ID_3508);
+    } else if (Send_ms == 1) {
+        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);
     }
-//    else if (Send_ms == 1)
-//    {
-//        Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);
-//    }
 
     Send_ms++;
     Send_ms %= 2;
 
-//     Tools.vofaSend(MeterPower.GetPower(),
-//                    PowerControl.String_PowerData.EstimatedPower,
-//                    PowerControl.String_PowerData.pMaxPower[0],
-//                    PowerControl.String_PowerData.pMaxPower[1],
-//                    PowerControl.String_PowerData.pMaxPower[2],
-//                    PowerControl.String_PowerData.pMaxPower[3]);
+    Tools.vofaSend(ude_tar,
+                   Motor6020.GetAngleFeedback(1),
+                   ude.GetCout(),
+                   ude.GetU0(),
+                   ude.rpm_,
+                   PowerControl.String_PowerData.pMaxPower[3]);
 }
 
 void Universal_mode::upData()
@@ -184,8 +191,7 @@ void Stop_mode::upData()
 {
     // Base_UpData();
     Tar_Updata();
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.final_6020_Out[i] = 0;
         Chassis_Data.final_3508_Out[i] = 0;
     }
@@ -208,16 +214,16 @@ void Stop_mode::upData()
 
 State Chassis_task::GetState()
 {
-    if (Dir_Event.DirData.Dr16)
-        return Stop_State;
-    if (Universal)
-        return Universal_State;
-    if (Follow)
-        return Follow_State;
-    if (Rotating)
-        return Rotating_State;
-    if (Stop)
-        return Stop_State;
+    // if (Dir_Event.DirData.Dr16)
+    //     return Stop_State;
+    //    if (Universal)
+    //        return Universal_State;
+    //    if (Follow)
+    //        return Follow_State;
+    //    if (Rotating)
+    //        return Rotating_State;
+    //    if (Stop)
+    //        return Stop_State;
 
-    return Stop_State;
+    return Universal_State;
 }

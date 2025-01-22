@@ -88,6 +88,11 @@ extern PID pid_angle_String[4];
 extern Kpid_t Kpid_6020_vel;
 extern PID pid_vel_String[4];
 
+extern Kpid_t ude_Kpid_angle;
+extern PID ude_angle_demo;
+extern Kpid_t ude_Kpid_vel;
+extern PID ude_vel_demo;
+
 // PID速度环设置
 extern Kpid_t Kpid_3508_vel;
 extern PID pid_vel_Wheel[4];

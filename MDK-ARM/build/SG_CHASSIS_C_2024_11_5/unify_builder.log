@@ -1,0 +1,216 @@
+[2025-01-22 11:35:20]	[info] incremental build: 62 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\can.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\dma.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\freertos.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\gpio.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\main.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\stm32f4xx_hal_msp.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\stm32f4xx_hal_timebase_tim.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\stm32f4xx_it.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\system_stm32f4xx.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\tim.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Core\Src\usart.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_can.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma_ex.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_exti.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ex.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ramfunc.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr_ex.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim_ex.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\croutine.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\list.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\port.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\queue.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\tasks.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\Middlewares\Third_Party\FreeRTOS\Source\timers.c': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Tools.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Algorithm\PID.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Algorithm\Wheel.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Bsp_Can.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\dr16.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\HAL.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\RefeeTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\startup_stm32f407xx.s': object (.o) file not exist
+
+[2025-01-22 11:35:27]	[done]
+	build successfully !
+
+[2025-01-22 11:35:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 11:35:42]	[done]
+	build successfully !
+
+[2025-01-22 11:35:52]	[done]
+	build successfully !
+
+[2025-01-22 11:36:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 11:36:17]	[done]
+	build successfully !
+
+[2025-01-22 11:36:28]	[done]
+	build successfully !
+
+[2025-01-22 11:39:37]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+
+[2025-01-22 11:39:43]	[done]
+	build successfully !
+
+[2025-01-22 11:43:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 11:43:39]	[done]
+	build successfully !
+
+[2025-01-22 11:44:01]	[done]
+	build successfully !
+
+[2025-01-22 14:04:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 14:04:54]	[done]
+	build successfully !
+
+[2025-01-22 14:44:14]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Algorithm\PID.cpp': source file has been changed.
+
+[2025-01-22 14:44:16]	[done]
+	build successfully !
+
+[2025-01-22 14:53:28]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 14:53:29]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Ude::Ude() (referred from State.o).
+Error: L6218E: Undefined symbol Ude::~Ude() (referred from State.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+
+
+[2025-01-22 15:02:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\Algorithm\Ude.hpp' has been changed.
+
+[2025-01-22 15:02:24]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/State.o -MMD ./User/APP/State.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/State.cpp:6:5: error: no matching constructor for initialization of 'Ude'
+Ude ude;
+    ^
+User/APP/../Algorithm/Ude.hpp:5:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+class Ude
+      ^
+User/APP/../Algorithm/Ude.hpp:8:5: note: candidate constructor not viable: requires 3 arguments, but 0 were provided
+    Ude(float k, float u_max, float break_I) : k_(k), u_max(u_max), break_I(break_I) { };
+    ^
+1 error generated.
+
+[2025-01-22 15:02:54]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': object (.o) file not exist
+
+[2025-01-22 15:02:56]	[done]
+	build successfully !
+
+[2025-01-22 16:19:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\Algorithm\Ude.hpp' has been changed.
+
+[2025-01-22 16:19:15]	[done]
+	build successfully !
+
+[2025-01-22 16:19:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\Algorithm\Ude.hpp' has been changed.
+
+[2025-01-22 16:19:34]	[done]
+	build successfully !
+
+[2025-01-22 16:23:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 16:23:54]	[done]
+	build successfully !
+
+[2025-01-22 16:24:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+
+[2025-01-22 16:24:21]	[done]
+	build successfully !
+
+[2025-01-22 16:26:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+
+[2025-01-22 16:26:43]	[done]
+	build successfully !
+
