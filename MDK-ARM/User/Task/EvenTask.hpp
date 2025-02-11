@@ -44,7 +44,7 @@ public:
     }
 
     // 每个观察者的更新方法
-    virtual void Update() = 0;
+    virtual bool Update() = 0;
     virtual ~IObserver() = default;
 };
 

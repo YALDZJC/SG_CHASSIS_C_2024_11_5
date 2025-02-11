@@ -639,6 +639,11 @@
               <FileType>8</FileType>
               <FilePath>.\User\BSP\BSP_Motor.cpp</FilePath>
             </File>
+            <File>
+              <FileName>HI12H3_IMU.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\SG_GIMBAL_C_2025_2_7\User\BSP\HI12H3_IMU.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

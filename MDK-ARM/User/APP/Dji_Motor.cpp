@@ -158,7 +158,7 @@ uint8_t Dji_Motor::ISDir()
 	for (int i = 0; i < this->MotorSize; i++)
 	{
 		is_dir |= this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].DirFlag =
-				this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].dirTime.ISDir(10);
+				this->motorData[GET_Motor_ID_ADDRESS_BIND_(this->motorData[i].address)].dirTime.ISDir(100);
 	}
 	return is_dir;
 }

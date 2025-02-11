@@ -44,7 +44,7 @@ public:
     {
     }
 
-    void Update();
+    bool Update();
 
     void STOP();
     void SYSTEM_START();

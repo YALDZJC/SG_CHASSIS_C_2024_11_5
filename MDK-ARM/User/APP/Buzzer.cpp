@@ -26,10 +26,8 @@ void Buzzer::buzzer_off(void)
     __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_3, 0);
 }
 
-void Buzzer::Update()
+bool Buzzer::Update()
 {
-    buzzer_time++;
-
     Dir *dir = static_cast<Dir *>(sub);
 
     dir_t[0] = dir->GetDir_Remote();
@@ -37,15 +35,27 @@ void Buzzer::Update()
     dir_t[2] = dir->GetDir_String();
     dir_t[3] = dir->GetDir_Wheel();
 
-    if (dir->Ger_Init_Flag() && buzzerInit == false)
-    {
+    if (dir->Ger_Init_Flag() && buzzerInit == false) {
         SYSTEM_START();
 
         buzzerInit = true;
     }
 
+    uint8_t String = dir->GetDir_String();
+		uint8_t Wheel = dir->GetDir_Wheel();
+
+    if (String) {
+        Buzzer::B(String);
+        osDelay(1000);
+    }
+    if (Wheel) {
+        Buzzer::B(Wheel);
+        osDelay(1000);
+    }
     // buzzer_off();
     osDelay(10);
+
+    return true;
 }
 
 void Buzzer::STOP()
@@ -74,22 +84,21 @@ void Buzzer::SYSTEM_START()
 
 void Buzzer::B(uint8_t num)
 {
-    switch (num)
-    {
-    case 1:
-        B_();
-        break;
-    case 2:
-        B_B_();
-        break;
-    case 3:
-        B_B_B_();
-        break;
-    case 4:
-        B_B_B_B_();
-    default:
-        buzzer_off();
-        break;
+    switch (num) {
+        case 1:
+            B_();
+            break;
+        case 2:
+            B_B_();
+            break;
+        case 3:
+            B_B_B_();
+            break;
+        case 4:
+            B_B_B_B_();
+        default:
+            buzzer_off();
+            break;
     }
 }
 

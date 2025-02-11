@@ -125,10 +125,10 @@ void ChassisState::CAN_Setting()
     PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
     PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel, toque_const_3508);
 
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
-    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
+//    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
+//    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
     if (is_ude == true)
         Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout() - ude.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
@@ -214,16 +214,16 @@ void Stop_mode::upData()
 
 State Chassis_task::GetState()
 {
-    // if (Dir_Event.DirData.Dr16)
-    //     return Stop_State;
-    //    if (Universal)
-    //        return Universal_State;
-    //    if (Follow)
-    //        return Follow_State;
-    //    if (Rotating)
-    //        return Rotating_State;
-    //    if (Stop)
-    //        return Stop_State;
+    if (Dir_Event.DirData.Dr16)
+        return Stop_State;
+       if (Universal)
+           return Universal_State;
+       if (Follow)
+           return Follow_State;
+       if (Rotating)
+           return Rotating_State;
+       if (Stop)
+           return Stop_State;
 
     return Universal_State;
 }

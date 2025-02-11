@@ -113,6 +113,51 @@ struct Gimbal_to_Chassis_Data_t
 	bool dir;
 };
 
+namespace Communicat
+{
+    class Gimbal_to_Chassis
+    {
+    public:
+        void Data_send();
+		void Data_receive(uint8_t *pData);
+    private:
+        uint8_t head = 0xA5; // 帧头
+
+        struct __attribute__((packed)) Direction // 方向结构体
+        {
+            uint8_t LX;
+            uint8_t LY;
+
+            uint8_t Rotating_vel;
+            uint16_t Yaw_encoder_angle_err;
+        };
+
+        struct __attribute__((packed)) ChassisMode // 底盘模式
+        {
+            uint8_t Universal_mode : 1;
+            uint8_t Follow_mode : 1;
+            uint8_t Rotating_mode : 1;
+            uint8_t stop : 1;
+        };
+
+        struct __attribute__((packed)) UiList // 底盘模式
+        {
+            uint8_t MCL : 1;
+            uint8_t CM : 1;
+            uint8_t BP : 1;
+        };
+
+        struct Direction direction;
+        struct ChassisMode chassis_mode;
+        struct UiList ui_list;
+    };
+
+    inline uint8_t getSendRc(uint16_t RcData)
+    {
+        return (RcData / 6) - 110;
+    }
+}
+
 //数据
 extern Gimbal_to_Chassis_Data_t Gimbal_to_Chassis_Data;
 

@@ -2,11 +2,70 @@
   "name": "SG_CHASSIS_C_2024_11_5",
   "type": "ARM",
   "dependenceList": [],
-  "srcDirs": [],
+  "srcDirs": [
+    "User"
+  ],
   "virtualFolder": {
     "name": "<virtual_root>",
     "files": [],
     "folders": [
+      {
+        "name": "Application",
+        "files": [],
+        "folders": [
+          {
+            "name": "MDK-ARM",
+            "files": [
+              {
+                "path": "startup_stm32f407xx.s"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "User",
+            "files": [],
+            "folders": [
+              {
+                "name": "Core",
+                "files": [
+                  {
+                    "path": "../Core/Src/main.c"
+                  },
+                  {
+                    "path": "../Core/Src/gpio.c"
+                  },
+                  {
+                    "path": "../Core/Src/freertos.c"
+                  },
+                  {
+                    "path": "../Core/Src/can.c"
+                  },
+                  {
+                    "path": "../Core/Src/dma.c"
+                  },
+                  {
+                    "path": "../Core/Src/tim.c"
+                  },
+                  {
+                    "path": "../Core/Src/usart.c"
+                  },
+                  {
+                    "path": "../Core/Src/stm32f4xx_it.c"
+                  },
+                  {
+                    "path": "../Core/Src/stm32f4xx_hal_msp.c"
+                  },
+                  {
+                    "path": "../Core/Src/stm32f4xx_hal_timebase_tim.c"
+                  }
+                ],
+                "folders": []
+              }
+            ]
+          }
+        ]
+      },
       {
         "name": "Drivers",
         "files": [],
@@ -143,180 +202,114 @@
         ]
       },
       {
-        "name": "::CMSIS",
-        "files": [],
+        "name": "HAL",
+        "files": [
+          {
+            "path": "User/HAL/HAL.cpp"
+          },
+          {
+            "path": "User/HAL/My_HAL.cpp"
+          }
+        ],
         "folders": []
       },
       {
-        "name": "User",
-        "files": [],
-        "folders": [
+        "name": "BSP",
+        "files": [
           {
-            "name": "Task",
-            "files": [
-              {
-                "path": "User/Task/CallBack.cpp"
-              },
-              {
-                "path": "User/Task/ChassisTask.cpp"
-              },
-              {
-                "path": "User/Task/CommunicationTask.cpp"
-              },
-              {
-                "path": "User/Task/RefeeTask.cpp"
-              },
-              {
-                "path": "User/Task/PowerTask.cpp"
-              },
-              {
-                "path": "User/Task/EvenTask.cpp"
-              }
-            ],
-            "folders": []
+            "path": "User/BSP/dr16.cpp"
           },
           {
-            "name": "HAL",
-            "files": [
-              {
-                "path": "User/HAL/HAL.cpp"
-              },
-              {
-                "path": "User/HAL/My_HAL.cpp"
-              }
-            ],
-            "folders": []
+            "path": "User/BSP/Init.cpp"
           },
           {
-            "name": "BSP",
-            "files": [
-              {
-                "path": "User/BSP/dr16.cpp"
-              },
-              {
-                "path": "User/BSP/Init.cpp"
-              },
-              {
-                "path": "User/BSP/Bsp_Can.cpp"
-              },
-              {
-                "path": "User/BSP/BSP_Motor.cpp"
-              }
-            ],
-            "folders": []
+            "path": "User/BSP/Bsp_Can.cpp"
           },
           {
-            "name": "Algorithm",
-            "files": [
-              {
-                "path": "User/Algorithm/PID.cpp"
-              },
-              {
-                "path": "User/Algorithm/Wheel.cpp"
-              },
-              {
-                "path": "User/Algorithm/Matrix.hpp"
-              },
-              {
-                "path": "User/Algorithm/RLS.hpp"
-              },
-              {
-                "path": "User/Algorithm/Ude.hpp"
-              }
-            ],
-            "folders": []
-          },
-          {
-            "name": "App",
-            "files": [
-              {
-                "path": "User/APP/Dji_Motor.cpp"
-              },
-              {
-                "path": "User/APP/Dm_Motor.cpp"
-              },
-              {
-                "path": "User/APP/PowerMeter.cpp"
-              },
-              {
-                "path": "User/APP/Variable.cpp"
-              },
-              {
-                "path": "User/APP/State.cpp"
-              },
-              {
-                "path": "User/APP/Tools.cpp"
-              },
-              {
-                "path": "User/APP/PM01.cpp"
-              },
-              {
-                "path": "User/APP/Buzzer.cpp"
-              },
-              {
-                "path": "User/APP/LED.cpp"
-              }
-            ],
-            "folders": []
+            "path": "User/BSP/BSP_Motor.cpp"
           }
-        ]
+        ],
+        "folders": []
       },
       {
-        "name": "Application",
-        "files": [],
-        "folders": [
+        "name": "App",
+        "files": [
           {
-            "name": "MDK-ARM",
-            "files": [
-              {
-                "path": "startup_stm32f407xx.s"
-              }
-            ],
-            "folders": []
+            "path": "User/APP/Dji_Motor.cpp"
           },
           {
-            "name": "User",
-            "files": [],
-            "folders": [
-              {
-                "name": "Core",
-                "files": [
-                  {
-                    "path": "../Core/Src/main.c"
-                  },
-                  {
-                    "path": "../Core/Src/gpio.c"
-                  },
-                  {
-                    "path": "../Core/Src/freertos.c"
-                  },
-                  {
-                    "path": "../Core/Src/can.c"
-                  },
-                  {
-                    "path": "../Core/Src/dma.c"
-                  },
-                  {
-                    "path": "../Core/Src/tim.c"
-                  },
-                  {
-                    "path": "../Core/Src/usart.c"
-                  },
-                  {
-                    "path": "../Core/Src/stm32f4xx_it.c"
-                  },
-                  {
-                    "path": "../Core/Src/stm32f4xx_hal_msp.c"
-                  },
-                  {
-                    "path": "../Core/Src/stm32f4xx_hal_timebase_tim.c"
-                  }
-                ],
-                "folders": []
-              }
-            ]
+            "path": "User/APP/Dm_Motor.cpp"
+          },
+          {
+            "path": "User/APP/PowerMeter.cpp"
+          },
+          {
+            "path": "User/APP/Variable.cpp"
+          },
+          {
+            "path": "User/APP/State.cpp"
+          },
+          {
+            "path": "User/APP/Tools.cpp"
+          },
+          {
+            "path": "User/APP/PM01.cpp"
+          },
+          {
+            "path": "User/APP/Buzzer.cpp"
+          },
+          {
+            "path": "User/APP/LED.cpp"
           }
-        ]
+        ],
+        "folders": []
+      },
+      {
+        "name": "Algorithm",
+        "files": [
+          {
+            "path": "User/Algorithm/PID.cpp"
+          },
+          {
+            "path": "User/Algorithm/Wheel.cpp"
+          },
+          {
+            "path": "User/Algorithm/Matrix.hpp"
+          },
+          {
+            "path": "User/Algorithm/RLS.hpp"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Task",
+        "files": [
+          {
+            "path": "User/Task/CallBack.cpp"
+          },
+          {
+            "path": "User/Task/ChassisTask.cpp"
+          },
+          {
+            "path": "User/Task/CommunicationTask.cpp"
+          },
+          {
+            "path": "User/Task/RefeeTask.cpp"
+          },
+          {
+            "path": "User/Task/PowerTask.cpp"
+          },
+          {
+            "path": "User/Task/EvenTask.cpp"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "::CMSIS",
+        "files": [],
+        "folders": []
       }
     ]
   },
@@ -324,7 +317,7 @@
   "deviceName": null,
   "packDir": null,
   "miscInfo": {
-    "uid": "611abb7783203c46f78645bb16f35476"
+    "uid": "b0de7d57a81bcfae400cb95251a9b65d"
   },
   "targets": {
     "SG_CHASSIS_C_2024_11_5": {
