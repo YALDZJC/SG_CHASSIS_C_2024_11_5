@@ -33,10 +33,8 @@
   ..\Core\Inc\tim.h User\APP\Variable.hpp User\APP\Dji_Motor.hpp \
   User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp User\BSP\Key.hpp \
   User\BSP\dr16.hpp User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp \
-  User\APP\Dm_Motor.hpp User\APP\State.hpp \
-  User\APP\CommunicationTask.hpp User\Task\EvenTask.hpp \
-  User\APP\Tools.hpp User\APP\PM01.hpp User\Task\PowerTask.hpp \
-  User\Algorithm\RLS.hpp \
+  User\APP\Dm_Motor.hpp User\APP\State.hpp User\APP\Tools.hpp \
+  User\APP\PM01.hpp User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
@@ -47,4 +45,4 @@
   User\Algorithm\Matrix.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\task.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
-  User\APP\PowerMeter.hpp
+  User\Task\EvenTask.hpp User\APP\PowerMeter.hpp

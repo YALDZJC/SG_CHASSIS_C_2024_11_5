@@ -27,6 +27,4 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
   ..\Core\Inc\usart.h ..\Core\Inc\gpio.h User\HAL\HAL.hpp \
-  User\APP\State.hpp User\APP\CommunicationTask.hpp User\BSP\dr16.hpp \
-  User\BSP\StaticTime.hpp User\BSP\Key.hpp User\Task\EvenTask.hpp \
-  ..\Core\Inc\tim.h
+  User\APP\State.hpp ..\Core\Inc\tim.h

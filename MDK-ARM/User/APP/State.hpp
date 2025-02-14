@@ -1,115 +1,95 @@
 #pragma once
+#include <vector>
+#include <memory>
 
-#include "stdxxx.hpp"
-#include "CommunicationTask.hpp"
-#include "EvenTask.hpp"
-
-#define MAX_TASK 6 // 任务最大数量
-
-enum State
-{
-	Universal_State = 0,
-	Follow_State,
-	Rotating_State,
-	Stop_State,
-};
-
-class ChassisState
+/**
+ * @brief 状态处理器抽象基类
+ * @detail 定义状态处理接口，所有具体状态需实现该接口
+ */
+class StateHandler
 {
 public:
+    virtual ~StateHandler() = default;
 
-	void Tar_Updata();
-
-	void Wheel_UpData();
-
-	void Filtering();
-
-	void PID_Updata();
-
-	void CAN_Setting();
-
-	void CAN_Send();
-
-	void Base_UpData()
-	{
-		Tar_Updata();
-		Wheel_UpData();
-		Filtering();
-
-		PID_Updata();
-
-		CAN_Setting();
-		CAN_Send();
-	}
-
-
-	virtual void upData() = 0;
+    /**
+     * @brief 状态行为处理函数
+     * @detail 实现具体状态下的行为逻辑
+     */
+    virtual void handle() = 0;
 };
 
-class Universal_mode : public ChassisState
+/**
+ * @brief 任务抽象基类
+ * @detail 提供任务通用接口，实现模板方法模式
+ */
+class Task
 {
 public:
-	void upData();
+    virtual ~Task() = default;
+
+    /**
+     * @brief 更新任务状态
+     * @detail 模板方法：1.更新状态 2.执行状态行为
+     */
+    void update()
+    {
+        updateState();  // 更新状态（子类实现）
+        executeState(); // 执行当前状态行为
+    }
+
+protected:
+    /**
+     * @brief 执行当前状态行为
+     * @detail 通过多态调用具体状态处理器
+     */
+    virtual void executeState() = 0;
+
+    /**
+     * @brief 更新状态机状态
+     * @detail 子类必须实现的纯虚函数
+     */
+    virtual void updateState() = 0;
 };
 
-class Follow_mode : public ChassisState
+/**
+ * @brief 任务管理器
+ * @detail 统一管理所有任务的更新周期
+ */
+class TaskManager
 {
 public:
-	void upData();
-};
+    static constexpr int MAX_TASKS = 8; // 支持最大任务数
 
-class Rotating_mode : public ChassisState
-{
-public:
-	void upData();
-};
+    /**
+     * @brief 添加任务到管理器
+     * @tparam T 任务类型（必须继承自Task）
+     * @param args 任务构造参数
+     * @return 添加成功返回true
+     */
+    template <typename T, typename... Args>
+    bool addTask(Args &&...args)
+    {
+        if (m_tasks.size() >= MAX_TASKS)
+            return false;
 
-class Stop_mode : public ChassisState
-{
-public:
-	void upData();
-};
+        m_tasks.emplace_back(
+            std::make_unique<T>(std::forward<Args>(args)...));
+        return true;
+    }
 
-class Chassis_task
-{
+    /**
+     * @brief 更新所有任务
+     * @detail 按添加顺序调用各任务的update()
+     */
+    void updateAll()
+    {
+        for (auto &task : m_tasks) {
+            if (task)
+                task->update();
+        }
+    }
+
 private:
-
-	uint8_t taskCount = 0;
-	State curState;
-	ChassisState *curTask;	//当前状态
-	ChassisState *stateArray[MAX_TASK] = {nullptr}; // 存储状态对象
-
-public:
-
-	State GetState();// 判断当前状态的名称
-
-	bool AddState(const State &taskName, ChassisState *newTask) // 设置状态的名称与对应的状态对象
-	{
-		if (taskCount >= MAX_TASK)
-			return false;
-
-		stateArray[taskName] = newTask;
-		taskCount++;
-
-		return true;
-	}
-
-	void setState(State newState) // 设置当前状态
-	{
-		curTask = stateArray[newState];
-	}
-
-	void upData()
-	{
-		curState = GetState();
-		setState(curState); // 根据当前状态选择对应的处理函数
-
-		if (curTask != nullptr) // 当前状态不为空
-		{
-			curTask->upData(); // 一键更新
-		}
-	}
+    std::vector<std::unique_ptr<Task>> m_tasks;
 };
-
-extern Chassis_task chassis_task;
 

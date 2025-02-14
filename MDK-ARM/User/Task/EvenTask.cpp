@@ -8,7 +8,9 @@
 // using namespace Event;
 
 Dir Dir_Event;
-LED LED_Event{&Dir_Event}; // 让LED灯先订阅，先亮灯再更新蜂鸣器
+
+auto LED_Event = std::make_unique<LED>(&Dir_Event); // 让LED灯先订阅，先亮灯再更新蜂鸣器
+auto Buzzer_Event = std::make_unique<Buzzer>(&Dir_Event);
 
 void DirUpdata()
 {
@@ -17,8 +19,6 @@ void DirUpdata()
 
 void EventTask(void *argument)
 {
-    Buzzer Buzzer_Event{&Dir_Event};
-
     osDelay(500);
 
     for (;;)

@@ -439,3 +439,327 @@ Not enough information to list the image map.
 Finished: 2 information, 0 warning and 3 error messages.
 
 
+[2025-02-11 11:02:35]	[info] incremental build: 11 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+
+[2025-02-11 11:02:38]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:1:
+User/Task/ChassisTask.hpp:7:28: error: expected class name
+class Gimbal_Task : public Task
+                           ^
+User/Task/ChassisTask.hpp:25:25: error: only virtual member functions can be marked 'override'
+    void executeState() override;
+                        ^~~~~~~~
+User/Task/ChassisTask.hpp:26:24: error: only virtual member functions can be marked 'override'
+    void updateState() override;
+                       ^~~~~~~~
+User/Task/ChassisTask.hpp:37:5: error: use of undeclared identifier 'std'
+    std::unique_ptr<StateHandler> m_stateHandler; // 当前状态处理器
+    ^
+User/Task/ChassisTask.hpp:37:21: error: unknown type name 'StateHandler'; did you mean 'StopHandler'?
+    std::unique_ptr<StateHandler> m_stateHandler; // 当前状态处理器
+                    ^~~~~~~~~~~~
+                    StopHandler
+User/Task/ChassisTask.hpp:33:11: note: 'StopHandler' declared here
+    class StopHandler;
+          ^
+./User/Task/ChassisTask.cpp:14:3: error: use of undeclared identifier 'chassis_task'; did you mean 'ChassisTask'?
+                chassis_task.upData();
+                ^~~~~~~~~~~~
+                ChassisTask
+./User/Task/ChassisTask.cpp:9:6: note: 'ChassisTask' declared here
+void ChassisTask(void *argument)
+     ^
+./User/Task/ChassisTask.cpp:14:15: error: member reference base type 'void (void *)' is not a structure or union
+                chassis_task.upData();
+                ~~~~~~~~~~~~^~~~~~~
+7 errors generated.
+
+[2025-02-11 11:05:16]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+
+[2025-02-11 11:05:16]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/State.o -MMD ./User/APP/State.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/State.cpp:14:1: error: unknown type name 'Chassis_task'; did you mean 'Chassis_Data_t'?
+Chassis_task chassis_task;
+^~~~~~~~~~~~
+Chassis_Data_t
+User/APP\Variable.hpp:70:3: note: 'Chassis_Data_t' declared here
+} Chassis_Data_t;
+  ^
+./User/APP/State.cpp:17:6: error: use of undeclared identifier 'ChassisState'
+void ChassisState::Tar_Updata()
+     ^
+./User/APP/State.cpp:35:6: error: use of undeclared identifier 'ChassisState'
+void ChassisState::Wheel_UpData()
+     ^
+./User/APP/State.cpp:74:6: error: use of undeclared identifier 'ChassisState'
+void ChassisState::Filtering()
+     ^
+./User/APP/State.cpp:82:6: error: use of undeclared identifier 'ChassisState'
+void ChassisState::PID_Updata()
+     ^
+./User/APP/State.cpp:110:6: error: use of undeclared identifier 'ChassisState'
+void ChassisState::CAN_Setting()
+     ^
+./User/APP/State.cpp:144:6: error: use of undeclared identifier 'ChassisState'
+void ChassisState::CAN_Send()
+     ^
+./User/APP/State.cpp:164:6: error: use of undeclared identifier 'Universal_mode'
+void Universal_mode::upData()
+     ^
+./User/APP/State.cpp:169:6: error: use of undeclared identifier 'Follow_mode'
+void Follow_mode::upData()
+     ^
+./User/APP/State.cpp:179:6: error: use of undeclared identifier 'Rotating_mode'
+void Rotating_mode::upData()
+     ^
+./User/APP/State.cpp:190:6: error: use of undeclared identifier 'Stop_mode'
+void Stop_mode::upData()
+     ^
+./User/APP/State.cpp:215:1: error: unknown type name 'State'
+State Chassis_task::GetState()
+^
+./User/APP/State.cpp:215:7: error: use of undeclared identifier 'Chassis_task'; did you mean 'Chassis_Data_t'?
+State Chassis_task::GetState()
+      ^~~~~~~~~~~~
+      Chassis_Data_t
+User/APP\Variable.hpp:70:3: note: 'Chassis_Data_t' declared here
+} Chassis_Data_t;
+  ^
+./User/APP/State.cpp:218:16: error: use of undeclared identifier 'Stop_State'
+        return Stop_State;
+               ^
+./User/APP/State.cpp:219:12: error: use of undeclared identifier 'Universal'
+       if (Universal)
+           ^
+./User/APP/State.cpp:220:19: error: use of undeclared identifier 'Universal_State'
+           return Universal_State;
+                  ^
+./User/APP/State.cpp:221:12: error: use of undeclared identifier 'Follow'
+       if (Follow)
+           ^
+./User/APP/State.cpp:222:19: error: use of undeclared identifier 'Follow_State'
+           return Follow_State;
+                  ^
+./User/APP/State.cpp:223:12: error: use of undeclared identifier 'Rotating'
+       if (Rotating)
+           ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+
+[2025-02-11 11:15:19]	[info] incremental build: 9 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+
+[2025-02-11 11:15:22]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:1:
+User/Task/ChassisTask.hpp:7:29: error: expected class name
+class Chassis_Task : public Task
+                            ^
+User/Task/ChassisTask.hpp:25:25: error: only virtual member functions can be marked 'override'
+    void executeState() override;
+                        ^~~~~~~~
+User/Task/ChassisTask.hpp:26:24: error: only virtual member functions can be marked 'override'
+    void updateState() override;
+                       ^~~~~~~~
+User/Task/ChassisTask.hpp:37:5: error: use of undeclared identifier 'std'
+    std::unique_ptr<StateHandler> m_stateHandler; // 当前状态处理器
+    ^
+User/Task/ChassisTask.hpp:37:21: error: unknown type name 'StateHandler'; did you mean 'StopHandler'?
+    std::unique_ptr<StateHandler> m_stateHandler; // 当前状态处理器
+                    ^~~~~~~~~~~~
+                    StopHandler
+User/Task/ChassisTask.hpp:33:11: note: 'StopHandler' declared here
+    class StopHandler;
+          ^
+In file included from ./User/Task/ChassisTask.cpp:3:
+In file included from User/HAL/HAL.hpp:5:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\string:527:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\algorithm:670:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\functional:506:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__functional/function.h:22:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/shared_ptr.h:21:
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/allocator.h:151:28: error: no matching constructor for initialization of 'std::unique_ptr<Task>'
+        ::new ((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                           ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/allocator_traits.h:290:13: note: in instantiation of function template specialization 'std::allocator<std::unique_ptr<Task>>::construct<std::unique_ptr<Task>, std::unique_ptr<Chassis_Task>>' requested here
+        __a.construct(__p, _VSTD::forward<_Args>(__args)...);
+            ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\vector:778:21: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::unique_ptr<Task>>>::construct<std::unique_ptr<Task>, std::unique_ptr<Chassis_Task>, void>' requested here
+    __alloc_traits::construct(this->__alloc(), _VSTD::__to_address(__tx.__pos_),
+                    ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\vector:1577:9: note: in instantiation of function template specialization 'std::vector<std::unique_ptr<Task>>::__construct_one_at_end<std::unique_ptr<Chassis_Task>>' requested here
+        __construct_one_at_end(_VSTD::forward<_Args>(__args)...);
+        ^
+User/APP/State.hpp:75:17: note: in instantiation of function template specialization 'std::vector<std::unique_ptr<Task>>::emplace_back<std::unique_ptr<Chassis_Task>>' requested here
+        m_tasks.emplace_back(
+                ^
+./User/Task/ChassisTask.cpp:12:17: note: in instantiation of function template specialization 'TaskManager::addTask<Chassis_Task>' requested here
+    taskManager.addTask<Chassis_Task>();
+                ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:118:59: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'unique_ptr<Chassis_Task, default_delete<Chassis_Task>>' to 'const unique_ptr<Task, default_delete<Task>>' for 1st argument
+class _LIBCPP_UNIQUE_PTR_TRIVIAL_ABI _LIBCPP_TEMPLATE_VIS unique_ptr {
+                                                          ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:182:21: note: candidate constructor template not viable: no known conversion from 'std::unique_ptr<Chassis_Task>' to 'std::nullptr_t' for 1st argument
+  _LIBCPP_CONSTEXPR unique_ptr(nullptr_t) _NOEXCEPT : __ptr_(__value_init_tag(), __value_init_tag()) {}
+                    ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:187:12: note: candidate constructor template not viable: no known conversion from 'std::unique_ptr<Chassis_Task>' to 'std::unique_ptr<Task>::pointer' (aka 'Task *') for 1st argument
+  explicit unique_ptr(pointer __p) _NOEXCEPT : __ptr_(__p, __value_init_tag()) {}
+           ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:210:3: note: candidate constructor not viable: no known conversion from 'unique_ptr<Chassis_Task, default_delete<Chassis_Task>>' to 'unique_ptr<Task, default_delete<Task>>' for 1st argument
+  unique_ptr(unique_ptr&& __u) _NOEXCEPT
+  ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:219:3: note: candidate template ignored: requirement 'is_convertible<Chassis_Task *, Task *>::value' was not satisfied [with _Up = Chassis_Task, _Ep = std::default_delete<Chassis_Task>]
+  unique_ptr(unique_ptr<_Up, _Ep>&& __u) _NOEXCEPT
+  ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:225:3: note: candidate template ignored: could not match 'auto_ptr' against 'unique_ptr'
+  unique_ptr(auto_ptr<_Up>&& __p,
+  ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:177:21: note: candidate constructor template not viable: requires 0 arguments, but 1 was provided
+  _LIBCPP_CONSTEXPR unique_ptr() _NOEXCEPT : __ptr_(__value_init_tag(), __value_init_tag()) {}
+                    ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:192:3: note: candidate constructor template not viable: requires 2 arguments, but 1 was provided
+  unique_ptr(pointer __p, _LValRefType<_Dummy> __d) _NOEXCEPT
+  ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:198:3: note: candidate constructor template not viable: requires 2 arguments, but 1 was provided
+  unique_ptr(pointer __p, _GoodRValRefType<_Dummy> __d) _NOEXCEPT
+  ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:207:3: note: candidate constructor template not viable: requires 2 arguments, but 1 was provided
+  unique_ptr(pointer __p, _BadRValRefType<_Dummy> __d) = delete;
+  ^
+6 errors generated.
+
+[2025-02-11 11:15:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+
+[2025-02-11 11:15:55]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by Variable.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by Init.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by My_HAL.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by CallBack.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by ChassisTask.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by EvenTask.o and CommunicationTask.o).
+Error: L6200E: Symbol taskManager multiply defined (by PowerTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 10 error messages.
+
+
+[2025-02-11 11:19:42]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+
+[2025-02-11 11:19:44]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-11 11:20:19]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\State.hpp' has been changed.
+
+[2025-02-11 11:20:21]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-11 11:20:50]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-11 11:22:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-02-11 11:22:40]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+

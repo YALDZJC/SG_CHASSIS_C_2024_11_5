@@ -30,9 +30,8 @@
   User\BSP\Bsp_Can.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
   ..\Core\Inc\usart.h ..\Core\Inc\gpio.h User\HAL\HAL.hpp \
   User\BSP\dr16.hpp User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp \
-  User\APP\Dm_Motor.hpp User\APP\State.hpp \
-  User\APP\CommunicationTask.hpp User\APP\Tools.hpp User\APP\PM01.hpp \
-  User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
+  User\APP\Dm_Motor.hpp User\APP\State.hpp User\APP\Tools.hpp \
+  User\APP\PM01.hpp User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
