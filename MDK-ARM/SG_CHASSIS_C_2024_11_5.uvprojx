@@ -620,11 +620,6 @@
           <GroupName>BSP</GroupName>
           <Files>
             <File>
-              <FileName>dr16.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\User\BSP\dr16.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Init.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\User\BSP\Init.cpp</FilePath>
@@ -643,6 +638,11 @@
               <FileName>HI12H3_IMU.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\..\SG_GIMBAL_C_2025_2_7\User\BSP\HI12H3_IMU.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Dbus.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\BSP\Dbus.cpp</FilePath>
             </File>
           </Files>
         </Group>

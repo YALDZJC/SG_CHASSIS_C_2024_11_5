@@ -3,27 +3,27 @@
 class RM_Key
 {
 public:
-    //╣╠г╟в╢л╛ё╛иор╩©лв╢л╛ё╛иоиЩяьв╢л╛ё╛об╫╣яьв╢л╛
+    //Е╫⌠Е┴█Г┼╤Ф─│О╪▄Д╦┼Д╦─Е┬╩Г┼╤Ф─│О╪▄Д╦┼Е█┤Ф╡©Г┼╤Ф─│О╪▄Д╦▀И≥█Ф╡©Г┼╤Ф─│
     bool NowKey,lastKey,RisingEdge,FallingEdge;
-    void UpKey(bool key);//╦Эпбпе╨е
-    bool GetRisingKey();//╩Ях║иоиЩяьпе╨е
-    bool GetFallingKey();//╩Ях║об╫╣яьпе╨е
+    void UpKey(bool key);//Ф⌡╢Ф√╟Д©║Е▐╥
+    bool GetRisingKey();//Х▌╥Е▐√Д╦┼Е█┤Ф╡©Д©║Е▐╥
+    bool GetFallingKey();//Х▌╥Е▐√Д╦▀И≥█Ф╡©Д©║Е▐╥
 };
 inline void RM_Key::UpKey(bool key)
 {
-    this->lastKey = this->NowKey;//╦Эпбиор╩╢нпе╨е
-    this->NowKey = key;//╩Ях║╣╠г╟пе╨е
-    this->RisingEdge = this->FallingEdge = false;//гИ©Жв╢л╛
-    if(this->NowKey - this->lastKey == 1)this->FallingEdge = true;//иХжциоиЩяьпе╨е
-    if(this->lastKey - this->NowKey == 1)this->RisingEdge = true;//иХжцоб╫╣яьпе╨е
+    this->lastKey = this->NowKey;//Ф⌡╢Ф√╟Д╦┼Д╦─Ф╛║Д©║Е▐╥
+    this->NowKey = key;//Х▌╥Е▐√Е╫⌠Е┴█Д©║Е▐╥
+    this->RisingEdge = this->FallingEdge = false;//Ф┐┘Е├╣Г┼╤Ф─│
+    if(this->NowKey - this->lastKey == 1)this->FallingEdge = true;//Х╝╬Г╫╝Д╦┼Е█┤Ф╡©Д©║Е▐╥
+    if(this->lastKey - this->NowKey == 1)this->RisingEdge = true;//Х╝╬Г╫╝Д╦▀И≥█Ф╡©Д©║Е▐╥
 }
 
 inline bool RM_Key::GetRisingKey()
 {
-    return this->RisingEdge;//иоиЩяьпе╨е
+    return this->RisingEdge;//Д╦┼Е█┤Ф╡©Д©║Е▐╥
 }
 
 inline bool RM_Key::GetFallingKey()
 {
-    return this->FallingEdge;//об╫╣яьпе╨е
+    return this->FallingEdge;//Д╦▀И≥█Ф╡©Д©║Е▐╥
 }

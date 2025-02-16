@@ -29,9 +29,9 @@
   User\BSP\stdxxx.hpp User\BSP\Key.hpp User\HAL\My_hal.hpp \
   User\BSP\Bsp_Can.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
   ..\Core\Inc\usart.h ..\Core\Inc\gpio.h User\HAL\HAL.hpp \
-  User\BSP\dr16.hpp User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp \
-  User\APP\Dm_Motor.hpp User\APP\State.hpp User\APP\Tools.hpp \
-  User\APP\PM01.hpp User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
+  User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
+  User\APP\State.hpp User\APP\Tools.hpp User\APP\PM01.hpp \
+  User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
@@ -47,4 +47,5 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
   ..\Core\Inc\tim.h User\Task\..\APP\Buzzer.h User\APP\..\BSP\stdxxx.hpp \
   User\APP\..\Task\EvenTask.hpp User\Task\..\APP\LED.h \
-  User\Task\..\BSP\Init.hpp
+  User\Task\..\BSP\Init.hpp User\Task\..\BSP\Dbus.hpp \
+  User\BSP\..\BSP\StaticTime.hpp

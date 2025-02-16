@@ -4,6 +4,10 @@
 #include "State.hpp"
 #include "Variable.hpp"
 #include "../Task/CommunicationTask.hpp"
+
+#include "../APP/Mode.hpp"
+#include "../BSP/Dbus.hpp"
+
 TaskManager taskManager;
 
 void ChassisTask(void *argument)
@@ -14,7 +18,7 @@ void ChassisTask(void *argument)
 
     for (;;) {
         taskManager.updateAll();
-        osDelay(1);
+        osDelay(2);
     }
 }
 
@@ -97,8 +101,7 @@ public:
         // Base_UpData();
         m_task.Tar_Updata();
 
-        for (int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             Chassis_Data.final_6020_Out[i] = 0;
             Chassis_Data.final_3508_Out[i] = 0;
         }
@@ -137,13 +140,21 @@ void Chassis_Task::executeState()
 uint8_t state_num;
 void Chassis_Task::updateState()
 {
-    if (Universal) {
-			m_currentState = State::UniversalState;
-    } else if (Follow) {
+    using namespace Remote;
+
+    auto switch_right = Remote::dr16.switchRight();
+    auto switch_left  = Remote::dr16.switchLeft();
+
+    if (Mode::Chassis::Universal(switch_right, switch_left)) {
+        m_currentState = State::UniversalState;
+    }
+    if (Mode::Chassis::Follow(switch_right, switch_left)) {
         m_currentState = State::FollowState;
-    } else if (Rotating) {
+    }
+    if (Mode::Chassis::Rotating(switch_right, switch_left)) {
         m_currentState = State::RotatingState;
-    } else {
+    }
+    if (Mode::Chassis::Stop(switch_right, switch_left) || Dir_Event.GetDir_Remote()) {
         m_currentState = State::StopState;
     }
 
@@ -167,12 +178,12 @@ void Chassis_Task::updateState()
 // 将期望值做滤波后传入轮子
 void Chassis_Task::Tar_Updata()
 {
-    tar_vx.Calc(TAR_LX);
-    tar_vy.Calc(TAR_LY);
-    td_FF_Tar.Calc(TAR_LX);
+    tar_vx.Calc(TAR_LX * 660);
+    tar_vy.Calc(TAR_LY * 660);
+    td_FF_Tar.Calc(TAR_LX * 660);
 
     if (CONTROL_SIG == 0)
-        tar_vw.Calc(TAR_RX);
+        tar_vw.Calc(TAR_RX * 660);
 }
 
 float sin_t;
@@ -269,15 +280,15 @@ void Chassis_Task::CAN_Setting()
     PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
     PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel, toque_const_3508);
 
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
-    //    // Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
-    //    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
+    Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[3], Get_MOTOR_SET_ID_6020(0x208));
 
-    if (is_ude == true)
-        Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
-    else
-        Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
+    //    if (is_ude == true)
+    //        Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
+    //    else
+    //        Motor6020.setMSD(&msd_6020, ude_vel_demo.GetCout(), Get_MOTOR_SET_ID_6020(0x206));
 
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[0], Get_MOTOR_SET_ID_3508(0x201));
     Motor3508.setMSD(&msd_3508_2006, Chassis_Data.final_3508_Out[1], Get_MOTOR_SET_ID_3508(0x202));
@@ -304,4 +315,3 @@ void Chassis_Task::CAN_Send()
                    0,
                    PowerControl.String_PowerData.pMaxPower[3]);
 }
-

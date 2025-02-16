@@ -763,3 +763,360 @@ Not enough information to list the image map.
 Finished: 2 information, 0 warning and 3 error messages.
 
 
+[2025-02-16 10:45:25]	[info] incremental build: 16 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\dr16.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+
+[2025-02-16 10:45:28]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-16 11:07:03]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+
+[2025-02-16 11:07:05]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:6:
+User/Task/../Task/CommunicationTask.hpp:50:2: error: #endif without #if
+#endif
+ ^
+./User/Task/ChassisTask.cpp:142:9: warning: address of function 'Mode::Chassis::Universal' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    if (Mode::Chassis::Universal) {
+    ~~  ^~~~~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:142:9: note: prefix with the address-of operator to silence this warning
+    if (Mode::Chassis::Universal) {
+        ^
+        &
+./User/Task/ChassisTask.cpp:144:16: warning: address of function 'Mode::Chassis::Follow' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    } else if (Mode::Chassis::Follow) {
+           ~~  ^~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:144:16: note: prefix with the address-of operator to silence this warning
+    } else if (Mode::Chassis::Follow) {
+               ^
+               &
+./User/Task/ChassisTask.cpp:146:16: warning: address of function 'Mode::Chassis::Rotating' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    } else if (Mode::Chassis::Rotating) {
+           ~~  ^~~~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:146:16: note: prefix with the address-of operator to silence this warning
+    } else if (Mode::Chassis::Rotating) {
+               ^
+               &
+./User/Task/ChassisTask.cpp:148:16: warning: address of function 'Mode::Chassis::Stop' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    } else if (Mode::Chassis::Stop || Dir_Event.GetDir_Remote()) {
+               ^~~~~~~~~~~~~~~~~~~ ~~
+./User/Task/ChassisTask.cpp:148:16: note: prefix with the address-of operator to silence this warning
+    } else if (Mode::Chassis::Stop || Dir_Event.GetDir_Remote()) {
+               ^
+               &
+./User/Task/ChassisTask.cpp:176:9: error: use of undeclared identifier 'CONTROL_SIG'
+    if (CONTROL_SIG == 0)
+        ^
+./User/Task/ChassisTask.cpp:177:21: error: no member named 'int16_RC_RX' in 'Gimbal_to_Chassis_Data_t'; did you mean 'int16_RC_LX'?
+        tar_vw.Calc(TAR_RX);
+                    ^
+User/Task/../Task/CommunicationTask.hpp:46:39: note: expanded from macro 'TAR_RX'
+#define TAR_RX Gimbal_to_Chassis_Data.int16_RC_RX
+                                      ^
+User/Task/../Task/CommunicationTask.hpp:85:10: note: 'int16_RC_LX' declared here
+        int16_t int16_RC_LX;//转换之后的RC_LX
+                ^
+4 warnings and 3 errors generated.
+
+[2025-02-16 11:07:44]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+
+[2025-02-16 11:07:45]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:6:
+User/Task/../Task/CommunicationTask.hpp:50:2: error: #endif without #if
+#endif
+ ^
+./User/Task/ChassisTask.cpp:141:9: warning: address of function 'Mode::Chassis::Universal' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    if (Mode::Chassis::Universal) {
+    ~~  ^~~~~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:141:9: note: prefix with the address-of operator to silence this warning
+    if (Mode::Chassis::Universal) {
+        ^
+        &
+./User/Task/ChassisTask.cpp:144:9: warning: address of function 'Mode::Chassis::Follow' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    if (Mode::Chassis::Follow) {
+    ~~  ^~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:144:9: note: prefix with the address-of operator to silence this warning
+    if (Mode::Chassis::Follow) {
+        ^
+        &
+./User/Task/ChassisTask.cpp:147:9: warning: address of function 'Mode::Chassis::Rotating' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    if (Mode::Chassis::Rotating) {
+    ~~  ^~~~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:147:9: note: prefix with the address-of operator to silence this warning
+    if (Mode::Chassis::Rotating) {
+        ^
+        &
+./User/Task/ChassisTask.cpp:150:9: warning: address of function 'Mode::Chassis::Stop' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    if (Mode::Chassis::Stop || Dir_Event.GetDir_Remote()) {
+        ^~~~~~~~~~~~~~~~~~~ ~~
+./User/Task/ChassisTask.cpp:150:9: note: prefix with the address-of operator to silence this warning
+    if (Mode::Chassis::Stop || Dir_Event.GetDir_Remote()) {
+        ^
+        &
+./User/Task/ChassisTask.cpp:178:9: error: use of undeclared identifier 'CONTROL_SIG'
+    if (CONTROL_SIG == 0)
+        ^
+./User/Task/ChassisTask.cpp:179:21: error: no member named 'int16_RC_RX' in 'Gimbal_to_Chassis_Data_t'; did you mean 'int16_RC_LX'?
+        tar_vw.Calc(TAR_RX);
+                    ^
+User/Task/../Task/CommunicationTask.hpp:46:39: note: expanded from macro 'TAR_RX'
+#define TAR_RX Gimbal_to_Chassis_Data.int16_RC_RX
+                                      ^
+User/Task/../Task/CommunicationTask.hpp:85:10: note: 'int16_RC_LX' declared here
+        int16_t int16_RC_LX;//转换之后的RC_LX
+                ^
+4 warnings and 3 errors generated.
+
+[2025-02-16 11:08:30]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+
+[2025-02-16 11:08:31]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:6:
+User/Task/../Task/CommunicationTask.hpp:50:2: error: #endif without #if
+#endif
+ ^
+./User/Task/ChassisTask.cpp:183:9: error: use of undeclared identifier 'CONTROL_SIG'
+    if (CONTROL_SIG == 0)
+        ^
+./User/Task/ChassisTask.cpp:184:21: error: no member named 'int16_RC_RX' in 'Gimbal_to_Chassis_Data_t'; did you mean 'int16_RC_LX'?
+        tar_vw.Calc(TAR_RX);
+                    ^
+User/Task/../Task/CommunicationTask.hpp:46:39: note: expanded from macro 'TAR_RX'
+#define TAR_RX Gimbal_to_Chassis_Data.int16_RC_RX
+                                      ^
+User/Task/../Task/CommunicationTask.hpp:85:10: note: 'int16_RC_LX' declared here
+        int16_t int16_RC_LX;//转换之后的RC_LX
+                ^
+3 errors generated.
+
+[2025-02-16 11:10:48]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+
+[2025-02-16 11:10:49]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:6:
+User/Task/../Task/CommunicationTask.hpp:42:2: error: #endif without #if
+#endif
+ ^
+./User/Task/ChassisTask.cpp:183:9: error: use of undeclared identifier 'CONTROL_SIG'
+    if (CONTROL_SIG == 0)
+        ^
+./User/Task/ChassisTask.cpp:184:21: error: no member named 'int16_RC_RX' in 'Gimbal_to_Chassis_Data_t'; did you mean 'int16_RC_LX'?
+        tar_vw.Calc(TAR_RX);
+                    ^
+User/Task/../Task/CommunicationTask.hpp:38:39: note: expanded from macro 'TAR_RX'
+#define TAR_RX Gimbal_to_Chassis_Data.int16_RC_RX
+                                      ^
+User/Task/../Task/CommunicationTask.hpp:77:10: note: 'int16_RC_LX' declared here
+        int16_t int16_RC_LX;//转换之后的RC_LX
+                ^
+3 errors generated.
+
+[2025-02-16 11:11:15]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+
+[2025-02-16 11:11:16]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/Task/ChassisTask.cpp:6:
+User/Task/../Task/CommunicationTask.hpp:41:2: error: #endif without #if
+#endif
+ ^
+./User/Task/ChassisTask.cpp:183:9: error: use of undeclared identifier 'CONTROL_SIG'
+    if (CONTROL_SIG == 0)
+        ^
+2 errors generated.
+
+[2025-02-16 11:12:48]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+
+[2025-02-16 11:12:50]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-16 11:14:02]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-02-16 11:14:04]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-16 11:17:39]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\dr16.hpp'
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+
+[2025-02-16 11:17:40]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/CommunicationTask.o -MMD ./User/APP/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/CommunicationTask.cpp:1:
+User/APP/CommunicationTask.hpp:4:10: fatal error: 'dr16.hpp' file not found
+#include "dr16.hpp"
+         ^~~~~~~~~~
+1 error generated.
+
+[2025-02-16 11:19:19]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+
+[2025-02-16 11:19:20]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++14 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/CommunicationTask.o -MMD ./User/APP/CommunicationTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/CommunicationTask.cpp:1:
+User/APP/CommunicationTask.hpp:4:10: fatal error: 'dr16.hpp' file not found
+#include "dr16.hpp"
+         ^~~~~~~~~~
+1 error generated.
+
+[2025-02-16 11:19:27]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.hpp' has been changed.
+
+[2025-02-16 11:19:31]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-16 11:22:03]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+
+[2025-02-16 11:22:05]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-02-16 11:23:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\del\dr16.cpp': object (.o) file not exist
+
+[2025-02-16 11:23:01]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+

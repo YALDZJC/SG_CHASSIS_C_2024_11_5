@@ -46,11 +46,12 @@ bool Buzzer::Update()
 
     if (String) {
         Buzzer::B(String);
-        osDelay(1000);
+			return false;
     }
     if (Wheel) {
         Buzzer::B(Wheel);
-        osDelay(1000);
+						return false;
+
     }
     // buzzer_off();
     osDelay(10);
@@ -107,8 +108,9 @@ void Buzzer::B_()
     STOP();
     is_busy = true;
     buzzer_on(1, 10000);
-    osDelay(70);
+    osDelay(50);
     buzzer_off();
+		osDelay(950);
     is_busy = false;
 }
 
@@ -117,13 +119,13 @@ void Buzzer::B_B_()
     STOP();
     is_busy = true;
     buzzer_on(1, 10000);
-    osDelay(70);
+    osDelay(50);
     buzzer_off();
-    osDelay(70);
+    osDelay(50);
     buzzer_on(1, 10000);
-    osDelay(70);
+    osDelay(50);
     buzzer_off();
-    osDelay(200);
+    osDelay(850);
     is_busy = false;
 }
 
@@ -132,19 +134,19 @@ void Buzzer::B_B_B_()
     STOP();
     is_busy = true;
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
     osDelay(50);
 
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
     osDelay(50);
 
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
-    osDelay(200);
+    osDelay(750);
 
     is_busy = false;
 }
@@ -154,24 +156,24 @@ void Buzzer::B_B_B_B_()
     STOP();
     is_busy = true;
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
     osDelay(50);
 
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
     osDelay(50);
 
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
     osDelay(50);
 
     buzzer_on(1, 10000);
-    osDelay(100);
+    osDelay(50);
     buzzer_off();
-    osDelay(200);
+    osDelay(650);
 
     is_busy = false;
 }

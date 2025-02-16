@@ -105,9 +105,9 @@
         "User/BSP/BSP_Motor.cpp",
         "User/BSP/Bsp_Can.cpp",
         "User/BSP/Bsp_Can.cpp",
+        "User/BSP/Dbus.cpp",
         "User/BSP/Init.cpp",
         "User/BSP/Init.cpp",
-        "User/BSP/dr16.cpp",
         "User/BSP/dr16.cpp",
         "User/HAL/HAL.cpp",
         "User/HAL/HAL.cpp",
@@ -125,6 +125,7 @@
         "User/Task/PowerTask.cpp",
         "User/Task/RefeeTask.cpp",
         "User/Task/RefeeTask.cpp",
+        "User/del/dr16.cpp",
         "startup_stm32f407xx.s"
     ],
     "sourceParams": {},

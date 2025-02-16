@@ -50,8 +50,8 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Algorithm/Wheel.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/BSP_Motor.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Bsp_Can.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Dbus.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Init.o
-./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/dr16.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/HAL/HAL.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/HAL/My_HAL.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/CallBack.o
@@ -60,5 +60,6 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/EvenTask.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/PowerTask.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/RefeeTask.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/del/dr16.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/startup_stm32f407xx.o
 ./../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4lf_math.lib

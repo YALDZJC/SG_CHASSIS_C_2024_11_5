@@ -5,6 +5,8 @@
 #include "../APP/Buzzer.h"
 #include "../APP/LED.h"
 #include "../BSP/Init.hpp"
+#include "../BSP/Dbus.hpp"
+
 // using namespace Event;
 
 Dir Dir_Event;
@@ -30,7 +32,7 @@ void EventTask(void *argument)
 }
 bool Dir::Dir_Remote()
 {
-    bool Dir = dr16.ISDir();
+    bool Dir = Remote::dr16.ISDir();
 
     DirData.Dr16 = Dir;
 

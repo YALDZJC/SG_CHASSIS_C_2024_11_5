@@ -1,7 +1,6 @@
 #pragma once
 
 #include "stdxxx.hpp"
-#include "dr16.hpp"
 #include "EvenTask.hpp"
 #define L_MODE1 (RM_Clicker::RC_Ctl.rc.s1 == 1) // 底盘动作
 #define L_MODE2 (RM_Clicker::RC_Ctl.rc.s1 == 3) // 底盘动作

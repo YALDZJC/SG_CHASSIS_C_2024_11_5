@@ -9,16 +9,21 @@ bool LED::Update(void)
     uint8_t String = dir->GetDir_String();
     uint8_t Wheel  = dir->GetDir_Wheel();
 
-    if (String) {
+    if (dir->GetDir_String()) {
         uint32_t aRGB = RED;
         aRGB_led_show(aRGB);
         return false;
     }
-    if (Wheel) {
+    if (dir->GetDir_Wheel()) {
         uint32_t aRGB = BULE;
         aRGB_led_show(aRGB);
         return false;
-
+		}
+		if(dir->GetDir_Remote())
+		{
+			  uint32_t aRGB = BLACK;
+        aRGB_led_show(aRGB);
+			  return false;
     } else {
         Normal_State();
         return true;

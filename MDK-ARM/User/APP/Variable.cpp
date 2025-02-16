@@ -20,7 +20,7 @@ PowerMeter::Meter_Data _MeterPowerData_[_PowerMeter_SIZE] = {0}; uint8_t _PowerM
 PowerMeter::Meter MeterPower(0x210, _PowerMeter_SIZE, _MeterPowerData_, _PowerMeter_ID_);
 
 // PID角度环设置
-Kpid_t Kpid_6020_angle(0.4, 0, 0);
+Kpid_t Kpid_6020_angle(0.3, 0, 0);
 PID pid_angle_String[4];
 
 // PID角度环设置
@@ -81,8 +81,6 @@ FeedTar feed_6020_2(50, 5);
 FeedTar feed_6020_3(50, 5);
 FeedTar feed_6020_4(50, 5);
 
-// 创建遥控器实例
-RM_Clicker dr16;
 
 // 创建工具实例
 Tools_t Tools;

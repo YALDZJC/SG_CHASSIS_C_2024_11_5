@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Dji_Motor.hpp"
-#include "dr16.hpp"
 #include "PID.hpp"
 #include "Wheel.hpp"
 #include "Dm_Motor.hpp"
@@ -48,10 +47,10 @@
 #define R_Back_3508_ID      0x203
 #define R_Forward_3508_ID   0x204
 
-#define Chassis_angle_Init_0x205 7427
-#define Chassis_angle_Init_0x206 5391 + 4096
-#define Chassis_angle_Init_0x207 3210
-#define Chassis_angle_Init_0x208 5400 + 4096
+#define Chassis_angle_Init_0x205 1010
+#define Chassis_angle_Init_0x206 5809
+#define Chassis_angle_Init_0x207 5173 + 4096
+#define Chassis_angle_Init_0x208 3023
 
 typedef struct
 {
@@ -121,8 +120,6 @@ extern FeedTar feed_6020_1;
 extern FeedTar feed_6020_2;
 extern FeedTar feed_6020_3;
 extern FeedTar feed_6020_4;
-
-extern RM_Clicker dr16;
 
 extern Wheel_t<SG> Wheel;
 

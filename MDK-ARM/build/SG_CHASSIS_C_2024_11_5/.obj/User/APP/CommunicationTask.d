@@ -1,7 +1,9 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/CommunicationTask.o: \
   User\APP\CommunicationTask.cpp User\APP\CommunicationTask.hpp \
-  User\BSP\stdxxx.hpp User\BSP\dr16.hpp User\HAL\My_hal.hpp \
-  User\BSP\Bsp_Can.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
+  User\BSP\stdxxx.hpp User\Task\EvenTask.hpp \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
+  User\APP\Variable.hpp User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp \
+  User\BSP\StaticTime.hpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -27,13 +29,12 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\gpio.h User\HAL\HAL.hpp \
-  User\BSP\StaticTime.hpp User\BSP\Key.hpp User\Task\EvenTask.hpp \
-  ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
-  User\APP\Variable.hpp User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp \
-  User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
-  User\APP\State.hpp User\APP\Tools.hpp User\APP\PM01.hpp \
-  User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
+  User\BSP\Key.hpp User\HAL\My_hal.hpp User\BSP\Bsp_Can.hpp \
+  ..\Core\Inc\can.h ..\Core\Inc\main.h ..\Core\Inc\usart.h \
+  ..\Core\Inc\gpio.h User\HAL\HAL.hpp User\Algorithm\PID.hpp \
+  User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp User\APP\State.hpp \
+  User\APP\Tools.hpp User\APP\PM01.hpp User\Task\PowerTask.hpp \
+  User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
