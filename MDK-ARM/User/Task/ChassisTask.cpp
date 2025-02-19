@@ -75,14 +75,30 @@ public:
 
     void handle() override
     {
-        m_task.Base_UpData();
+		RotingTarget();
+        m_task.Wheel_UpData();
+        m_task.Filtering();
 
+        m_task.PID_Updata();
+
+        m_task.CAN_Setting();
+        m_task.CAN_Send();
         // Tar_Updata();
 
         // Wheel_UpData();
 
         // CAN_Updata();
     }
+	
+	void RotingTarget()
+	{
+		tar_vx.Calc(TAR_LX * 660);
+		tar_vy.Calc(TAR_LY * 660);
+		td_FF_Tar.Calc(TAR_LX * 660);
+
+		if (CONTROL_SIG == 0)
+			tar_vw.Calc(660);
+	}
 };
 
 class Chassis_Task::StopHandler : public StateHandler

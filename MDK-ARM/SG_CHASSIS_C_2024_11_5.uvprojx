@@ -10,7 +10,7 @@
       <TargetName>SG_CHASSIS_C_2024_11_5</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
+      <pCCUsed>6140001::V6.14.1::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -186,7 +186,6 @@
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
-            <nBranchProt>0</nBranchProt>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -314,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>4</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -635,11 +634,6 @@
               <FilePath>.\User\BSP\BSP_Motor.cpp</FilePath>
             </File>
             <File>
-              <FileName>HI12H3_IMU.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\..\SG_GIMBAL_C_2025_2_7\User\BSP\HI12H3_IMU.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Dbus.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\User\BSP\Dbus.cpp</FilePath>
@@ -693,6 +687,11 @@
               <FileName>LED.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\User\APP\LED.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Mode.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\APP\Mode.hpp</FilePath>
             </File>
           </Files>
         </Group>

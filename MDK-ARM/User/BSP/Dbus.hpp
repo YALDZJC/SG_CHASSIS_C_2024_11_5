@@ -83,8 +83,9 @@ class Dr16
         uint64_t joystick_channel2 : 11;
         uint64_t joystick_channel3 : 11;
 
-        uint64_t switch_right : 2;
         uint64_t switch_left : 2;
+		uint64_t switch_right : 2;
+
 
         uint64_t padding : 16;
     };
