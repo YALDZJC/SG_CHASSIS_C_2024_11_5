@@ -1,7 +1,7 @@
 #include "Dbus.hpp"
 #include "memory"
 
-namespace Remote
+namespace BSP ::Remote
 {
 Dr16 dr16;
 
@@ -118,7 +118,7 @@ bool Dr16::ISDir()
 
         ClearORE(&ClickerHuart, pData, sizeof(pData));
     }
-		
+
     return Dir_Flag;
 }
-} // namespace Remote
+} // namespace BSP::Remote

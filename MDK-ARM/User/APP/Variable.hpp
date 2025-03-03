@@ -47,10 +47,10 @@
 #define R_Back_3508_ID      0x203
 #define R_Forward_3508_ID   0x204
 
-#define Chassis_angle_Init_0x205 1010
-#define Chassis_angle_Init_0x206 5809
-#define Chassis_angle_Init_0x207 5173 + 4096
-#define Chassis_angle_Init_0x208 3023
+#define Chassis_angle_Init_0x205 6453
+#define Chassis_angle_Init_0x206 5853
+#define Chassis_angle_Init_0x207 2405
+#define Chassis_angle_Init_0x208 5759
 
 typedef struct
 {
@@ -66,6 +66,9 @@ typedef struct
     float final_6020_Out[4];
     float FF_Zero_cross[4];
 
+    float vx, vy, vw;
+
+    int8_t is_v_reverse;
 } Chassis_Data_t;
 
 extern uint32_t Send_ms;
@@ -86,6 +89,10 @@ extern PID pid_angle_String[4];
 
 extern Kpid_t Kpid_6020_vel;
 extern PID pid_vel_String[4];
+
+// 底盘跟随环
+extern Kpid_t Kpid_vw;
+extern PID pid_vw;
 
 extern Kpid_t ude_Kpid_angle;
 extern PID ude_angle_demo;

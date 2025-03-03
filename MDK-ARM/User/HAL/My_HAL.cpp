@@ -7,7 +7,7 @@
 #include "Variable.hpp"
 #include "math.h"
 #include "../BSP/Dbus.hpp"
-
+#include "../Task/CommunicationTask.hpp"
 // 初始化
 void My_hal::_timer_init()
 {
@@ -25,7 +25,7 @@ void My_hal::_timer_init()
 
 void My_hal::_dr16_init()
 {
-	Remote::dr16.Init();
+	BSP::Remote::dr16.Init();
 }
 
 void My_hal::_can_init()

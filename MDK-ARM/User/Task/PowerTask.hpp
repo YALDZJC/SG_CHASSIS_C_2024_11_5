@@ -68,7 +68,7 @@ namespace SGPowerControl
     public:
         PowerTask_t()
         {
-            Wheel_PowerData.MAXPower = 50;
+            Wheel_PowerData.MAXPower = 120;
             Wheel_PowerData.k1 = 2.32443824e-07;
             Wheel_PowerData.k2 = 2.32332226e-07;
 

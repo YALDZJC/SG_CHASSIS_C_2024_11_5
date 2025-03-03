@@ -2,11 +2,16 @@
 
 
 
+
+
+
+
+
+
 >>> ld
 
 Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
-Error: L6200E: Symbol format multiply defined (by CommunicationTask.o and CommunicationTask.o).
 Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
 Not enough information to list image symbols.
 Not enough information to list the image map.
-Finished: 2 information, 0 warning and 3 error messages.
+Finished: 2 information, 0 warning and 2 error messages.

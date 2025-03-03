@@ -32,7 +32,7 @@ void EventTask(void *argument)
 }
 bool Dir::Dir_Remote()
 {
-    bool Dir = Remote::dr16.ISDir();
+    bool Dir = BSP::Remote::dr16.ISDir();
 
     DirData.Dr16 = Dir;
 
