@@ -13,6 +13,8 @@ struct Dir_Data_t
     bool String[4];
     bool Wheel[4];
 
+    bool Communication;
+
     bool InitFlag;
 };
 
@@ -92,6 +94,7 @@ private:
     bool Dir_Remote();
     bool Dir_MeterPower();
     bool Init_Flag();
+    bool Dir_Communication();
 
 public:
     void UpEvent();
@@ -101,6 +104,7 @@ public:
     bool GetDir_Remote();
     bool GetDir_MeterPower();
     bool Ger_Init_Flag();
+    bool getDir_Communication();
 };
 
 
@@ -166,6 +170,10 @@ inline bool Dir::Ger_Init_Flag()
     return DirData.InitFlag;
 }
 
+inline bool Dir::getDir_Communication()
+{
+    return DirData.Communication;
+}
 
 extern Dir Dir_Event;
 

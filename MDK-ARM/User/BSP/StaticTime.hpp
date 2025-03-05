@@ -6,33 +6,18 @@
 class RM_StaticTime
 {
 public:
-	uint32_t lastTime;	//ÉÏÒ»Ê±¿Ì
-	RM_Key key;			//ÐÅºÅÀà
-	void UpLastTime();//¸üÐÂÉÏÒ»Ê±¿Ì
-	bool ISOne(uint32_t targetTime);//ÅÐ¶Ïµ¥´ÎÐÅºÅ
-	bool ISGL(uint32_t targetTime, uint8_t percentage = 50/*°Ù·Ö±ÈÕ¼±È*/);//ÅÐ¶ÏÁ¬ÐøÐÅºÅ
-	bool ISDir(uint32_t dirTime);//¶¨Ê±Æ÷ËÀÍö
-	bool ISFromOne(uint64_t nowTime, uint64_t targetTime);//×Ô¶¨ÒåÅÐ¶Ïµ¥´ÎÐÅºÅ
-	bool ISFromGL(uint64_t nowTime, uint64_t targetTime, uint8_t percentage = 50/*°Ù·Ö±ÈÕ¼±È*/);//×Ô¶¨ÒåÅÐ¶ÏÁ¬ÐøÐÅºÅ
+	uint32_t lastTime;	//ä¸Šä¸€æ—¶åˆ»
+	void UpLastTime();//æ›´æ–°ä¸Šä¸€æ—¶åˆ»
+	// bool ISOne(uint32_t targetTime);//åˆ¤æ–­å•æ¬¡ä¿¡å·
+	// bool ISGL(uint32_t targetTime, uint8_t percentage = 50/*ç™¾åˆ†æ¯”å æ¯”*/);//åˆ¤æ–­è¿žç»­ä¿¡å·
+	bool ISDir(uint32_t dirTime);//å®šæ—¶å™¨æ­»äº¡
+	bool ISFromOne(uint64_t nowTime, uint64_t targetTime);//è‡ªå®šä¹‰åˆ¤æ–­å•æ¬¡ä¿¡å·
+	bool ISFromGL(uint64_t nowTime, uint64_t targetTime, uint8_t percentage = 50/*ç™¾åˆ†æ¯”å æ¯”*/);//è‡ªå®šä¹‰åˆ¤æ–­è¿žç»­ä¿¡å·
 };
 
 inline void RM_StaticTime::UpLastTime()
 {
 	this->lastTime = HAL_GetTick();
-}
-
-inline bool RM_StaticTime::ISOne(uint32_t targetTime)
-{
-	this->key.UpKey(HAL_GetTick() % targetTime);//ÊäÈë¸üÐÂ×´Ì¬
-	if (this->key.GetRisingKey()) return true;
-
-	return false;
-}
-
-inline bool RM_StaticTime::ISGL(uint32_t targetTime, uint8_t percentage)
-{
-	this->key.UpKey((HAL_GetTick() % targetTime / (float)targetTime) * 100 > 100 - percentage);//ÊäÈë¸üÐÂ×´Ì¬
-	return this->key.NowKey;
 }
 
 inline bool RM_StaticTime::ISDir(uint32_t dirTime)
@@ -42,19 +27,3 @@ inline bool RM_StaticTime::ISDir(uint32_t dirTime)
 		
   	return false;
 }
-
-inline bool RM_StaticTime::ISFromOne(uint64_t nowTime, uint64_t targetTime)
-{
-	this->key.UpKey(nowTime % targetTime);//ÊäÈë¸üÐÂ×´Ì¬
-	if (this->key.GetRisingKey())return true;
-	return false;
-}
-
-inline bool RM_StaticTime::ISFromGL(uint64_t nowTime, uint64_t targetTime, uint8_t percentage)
-{
-	this->key.UpKey((nowTime % targetTime / (float)targetTime) * 100 > 100 - percentage);//ÊäÈë¸üÐÂ×´Ì¬
-	return this->key.NowKey;
-}
-
-
-

@@ -5,7 +5,9 @@
 #include "Variable.hpp"
 #include "cmsis_os2.h"
 
-#include "../APP/Mode.hpp"
+#include "../APP/Remote/KeyBroad.hpp"
+#include "../APP/Remote/Mode.hpp"
+
 #include "../BSP/Dbus.hpp"
 
 TaskManager taskManager;
@@ -33,10 +35,27 @@ class Chassis_Task::UniversalHandler : public StateHandler
     {
     }
 
+    void UniversalTarget()
+    {
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+
+        tar_vx.Calc(TAR_LX * 660);
+        tar_vy.Calc(TAR_LY * 660);
+
+        Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
+        Chassis_Data.vy = (tar_vx.x1 * sin_theta + tar_vy.x1 * cos_theta);
+    }
+
     void handle() override
     {
         // 可访问m_task的私有成员进行底盘操作
-        m_task.Base_UpData();
+        UniversalTarget();
+        m_task.Wheel_UpData();
+        m_task.Filtering();
+        m_task.PID_Updata();
+        m_task.CAN_Setting();
+        m_task.CAN_Send();
     }
 };
 
@@ -52,23 +71,71 @@ class Chassis_Task::FollowHandler : public StateHandler
 
     void FllowTarget()
     {
-        auto cos_theta =
-            HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
-        auto sin_theta =
-            HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
 
-        pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
-        tar_vw.Calc(pid_vw.GetCout());
+        if (Gimbal_to_Chassis_Data.getRotatingVel() > 0)
+        {
+            tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel());
+        }
+        else
+        {
+            pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+            tar_vw.Calc(pid_vw.GetCout());
+        }
 
         Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
         Chassis_Data.vy = (tar_vx.x1 * sin_theta + tar_vy.x1 * cos_theta);
+        Chassis_Data.vw = (tar_vw.x1);
 
-        //				if(Gimbal_to_Chassis_Data.getEncoderAngleErr() < 3.14 / 12)
-        //					Chassis_Data.vw = 0;
-        //				else
+        td_FF_Tar.Calc(TAR_LX * 660);
+    }
+
+    void handle() override
+    {
+        // 可访问m_task的私有成员进行底盘操作
+
+        FllowTarget();
+        m_task.Wheel_UpData();
+        m_task.Filtering();
+        m_task.PID_Updata();
+        m_task.CAN_Setting();
+        m_task.CAN_Send();
+    }
+};
+
+class Chassis_Task::KeyBoardHandler : public StateHandler
+{
+  public:
+    Chassis_Task &m_task;
+
+    explicit KeyBoardHandler(Chassis_Task &task) : m_task(task)
+    {
+    }
+
+    void FllowTarget()
+    {
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+
+        tar_vx.Calc(TAR_LX * 660);
+        tar_vy.Calc(TAR_LY * 660);
+
+        if (Gimbal_to_Chassis_Data.getRotatingVel() > 0)
+        {
+            tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 3);
+        }
+        else
+        {
+            pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+            tar_vw.Calc(pid_vw.GetCout());
+        }
+
+        Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
+        Chassis_Data.vy = (tar_vx.x1 * sin_theta + tar_vy.x1 * cos_theta);
         Chassis_Data.vw = (tar_vw.x1);
 
         td_FF_Tar.Calc(TAR_LX * 660);
@@ -98,10 +165,8 @@ class Chassis_Task::RotatingHandler : public StateHandler
 
     void RotatingTarget()
     {
-        auto cos_theta =
-            HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
-        auto sin_theta =
-            HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
@@ -214,6 +279,10 @@ void Chassis_Task::updateState()
     {
         m_currentState = State::RotatingState;
     }
+    if (Mode::Chassis::KeyBoard())
+    {
+        m_currentState = State::KeyBoardState;
+    }
     if (Mode::Chassis::Stop())
     {
         m_currentState = State::StopState;
@@ -230,6 +299,9 @@ void Chassis_Task::updateState()
         break;
     case State::RotatingState:
         m_stateHandler = std::make_unique<RotatingHandler>(*this);
+        break;
+    case State::KeyBoardState:
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
         break;
     case State::StopState:
         m_stateHandler = std::make_unique<StopHandler>(*this);

@@ -26,6 +26,7 @@ void My_hal::_timer_init()
 void My_hal::_dr16_init()
 {
 	BSP::Remote::dr16.Init();
+	Gimbal_to_Chassis_Data.Init();
 }
 
 void My_hal::_can_init()

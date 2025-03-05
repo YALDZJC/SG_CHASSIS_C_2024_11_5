@@ -2423,3 +2423,896 @@ Not enough information to list the image map.
 Finished: 2 information, 0 warning and 2 error messages.
 
 
+[2025-03-05 14:06:29]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\APP\LED.h'
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Buzzer.h'
+
+[2025-03-05 14:06:30]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Buzzer.o -MMD ./User/APP/Buzzer.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Buzzer.cpp:2:10: fatal error: '../App/Buzzer.h' file not found
+#include "../App/Buzzer.h"
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+
+[2025-03-05 14:06:38]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\APP\LED.h'
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Buzzer.h'
+
+[2025-03-05 14:06:40]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/LED.o -MMD ./User/APP/LED.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/LED.cpp:1:10: fatal error: '../APP/LED.h' file not found
+#include "../APP/LED.h"
+         ^~~~~~~~~~~~~~
+1 error generated.
+
+[2025-03-05 14:07:41]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Buzzer.h'
+
+[2025-03-05 14:07:45]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/EvenTask.o -MMD ./User/Task/EvenTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/EvenTask.cpp:5:10: fatal error: '../APP/Buzzer.h' file not found
+#include "../APP/Buzzer.h"
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+
+[2025-03-05 14:07:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': object (.o) file not exist
+
+[2025-03-05 14:07:56]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol CommunicationTask multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 2 error messages.
+
+
+[2025-03-05 14:08:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': source file has been changed.
+
+[2025-03-05 14:08:08]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+
+
+[2025-03-05 14:08:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.hpp' has been changed.
+
+[2025-03-05 14:08:13]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+
+
+[2025-03-05 14:08:21]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.hpp' has been changed.
+
+[2025-03-05 14:08:22]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol Gimbal_to_Chassis_Data multiply defined (by CommunicationTask.o and CommunicationTask.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+
+
+[2025-03-05 14:08:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': source file has been changed.
+
+[2025-03-05 14:08:28]	[done]
+	build successfully !
+
+[2025-03-05 14:08:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': source file has been changed.
+
+[2025-03-05 14:08:44]	[done]
+	build successfully !
+
+[2025-03-05 14:08:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.hpp' has been changed.
+
+[2025-03-05 14:08:58]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/CommunicationTask.o -MMD ./User/APP/CommunicationTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/CommunicationTask.cpp:1:
+User/APP/CommunicationTask.hpp:33:2: error: #elif without #if
+#elif CONTROL_SIG == 1
+ ^
+User/APP/CommunicationTask.hpp:47:2: error: #endif without #if
+#endif
+ ^
+2 errors generated.
+
+[2025-03-05 14:09:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': object (.o) file not exist
+
+[2025-03-05 14:09:04]	[done]
+	build successfully !
+
+[2025-03-05 14:10:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': check dependence failed, msg: no such file 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Mode.hpp'
+
+[2025-03-05 14:10:41]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/ChassisTask.cpp:8:10: fatal error: '../APP/Mode.hpp' file not found
+#include "../APP/Mode.hpp"
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+
+[2025-03-05 14:10:51]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+
+[2025-03-05 14:10:53]	[done]
+	build successfully !
+
+[2025-03-05 14:23:51]	[info] incremental build: 14 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+
+[2025-03-05 14:23:55]	[done]
+	build successfully !
+
+[2025-03-05 14:53:42]	[info] incremental build: 15 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+
+[2025-03-05 14:53:44]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o -MMD ./User/APP/Remote/KeyBroad.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Remote/KeyBroad.cpp:1:9: warning: #pragma once in main file [-Wpragma-once-outside-header]
+#pragma once
+        ^
+./User/APP/Remote/KeyBroad.cpp:3:10: fatal error: 'BSP/Dbus.hpp' file not found
+#include "BSP/Dbus.hpp"
+         ^~~~~~~~~~~~~~
+1 warning and 1 error generated.
+
+[2025-03-05 14:54:00]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+
+[2025-03-05 14:54:02]	[done]
+	build successfully !
+
+[2025-03-05 15:17:24]	[info] incremental build: 14 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+
+[2025-03-05 15:17:28]	[done]
+	build successfully !
+
+[2025-03-05 15:32:58]	[info] incremental build: 15 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Key.hpp' has been changed.
+
+[2025-03-05 15:32:59]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/CommunicationTask.o -MMD ./User/APP/CommunicationTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Dji_Motor.cpp:1:
+In file included from User/APP/Dji_Motor.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:10:2: error: unknown type name 'RM_Key'
+        RM_Key key;                     //信号类
+        ^
+1 error generated.
+In file included from ./User/APP/Dm_Motor.cpp:1:
+In file included from User/APP/Dm_Motor.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:10:2: error: unknown type name 'RM_Key'
+        RM_Key key;                     //信号类
+        ^
+1 error generated.
+In file included from ./User/APP/PM01.cpp:1:
+In file included from User/APP/PM01.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:10:2: error: unknown type name 'RM_Key'
+        RM_Key key;                     //信号类
+        ^
+1 error generated.
+In file included from ./User/APP/CommunicationTask.cpp:3:
+In file included from User/APP/Variable.hpp:3:
+In file included from User/APP/Dji_Motor.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:10:2: error: unknown type name 'RM_Key'
+        RM_Key key;                     //信号类
+        ^
+1 error generated.
+
+[2025-03-05 15:33:08]	[info] incremental build: 15 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+
+[2025-03-05 15:33:09]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/CommunicationTask.o -MMD ./User/APP/CommunicationTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Dm_Motor.cpp:1:
+In file included from User/APP/Dm_Motor.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:33:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey(nowTime % targetTime);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:34:12: error: no member named 'key' in 'RM_StaticTime'
+        if (this->key.GetRisingKey())return true;
+            ~~~~  ^
+User/BSP/StaticTime.hpp:40:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey((nowTime % targetTime / (float)targetTime) * 100 > 100 - percentage);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:41:15: error: no member named 'key' in 'RM_StaticTime'
+        return this->key.NowKey;
+               ~~~~  ^
+4 errors generated.
+In file included from ./User/APP/PM01.cpp:1:
+In file included from User/APP/PM01.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:33:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey(nowTime % targetTime);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:34:12: error: no member named 'key' in 'RM_StaticTime'
+        if (this->key.GetRisingKey())return true;
+            ~~~~  ^
+User/BSP/StaticTime.hpp:40:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey((nowTime % targetTime / (float)targetTime) * 100 > 100 - percentage);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:41:15: error: no member named 'key' in 'RM_StaticTime'
+        return this->key.NowKey;
+               ~~~~  ^
+4 errors generated.
+In file included from ./User/APP/Dji_Motor.cpp:1:
+In file included from User/APP/Dji_Motor.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:33:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey(nowTime % targetTime);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:34:12: error: no member named 'key' in 'RM_StaticTime'
+        if (this->key.GetRisingKey())return true;
+            ~~~~  ^
+User/BSP/StaticTime.hpp:40:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey((nowTime % targetTime / (float)targetTime) * 100 > 100 - percentage);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:41:15: error: no member named 'key' in 'RM_StaticTime'
+        return this->key.NowKey;
+               ~~~~  ^
+4 errors generated.
+In file included from ./User/APP/CommunicationTask.cpp:3:
+In file included from User/APP/Variable.hpp:3:
+In file included from User/APP/Dji_Motor.hpp:3:
+In file included from User/BSP\BSP_Motor.hpp:3:
+User/BSP/StaticTime.hpp:33:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey(nowTime % targetTime);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:34:12: error: no member named 'key' in 'RM_StaticTime'
+        if (this->key.GetRisingKey())return true;
+            ~~~~  ^
+User/BSP/StaticTime.hpp:40:8: error: no member named 'key' in 'RM_StaticTime'
+        this->key.UpKey((nowTime % targetTime / (float)targetTime) * 100 > 100 - percentage);//输入更新状态
+        ~~~~  ^
+User/BSP/StaticTime.hpp:41:15: error: no member named 'key' in 'RM_StaticTime'
+        return this->key.NowKey;
+               ~~~~  ^
+4 errors generated.
+
+[2025-03-05 15:33:29]	[info] incremental build: 15 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dji_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Dm_Motor.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PM01.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\BSP_Motor.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Dbus.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\..\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\StaticTime.hpp' has been changed.
+
+[2025-03-05 15:33:33]	[done]
+	build successfully !
+
+[2025-03-05 15:35:28]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 15:35:29]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o -MMD ./User/APP/Remote/KeyBroad.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Remote/KeyBroad.cpp:2:6: error: use of undeclared identifier 'KeyBroad'; did you mean 'APP::KeyBroad'?
+void KeyBroad::UpKey(bool key)
+     ^~~~~~~~
+     APP::KeyBroad
+User/APP\../APP/Remote/KeyBroad.hpp:7:16: note: 'APP::KeyBroad' declared here
+namespace APP::KeyBroad
+               ^
+./User/APP/Remote/KeyBroad.cpp:2:16: error: out-of-line definition of 'UpKey' does not match any declaration in namespace 'APP::KeyBroad'
+void KeyBroad::UpKey(bool key)
+               ^~~~~
+./User/APP/Remote/KeyBroad.cpp:4:5: error: use of undeclared identifier 'keyState'
+    keyState.lastKey = keyState.NowKey;  // 保存上次状态
+    ^
+./User/APP/Remote/KeyBroad.cpp:4:24: error: use of undeclared identifier 'keyState'
+    keyState.lastKey = keyState.NowKey;  // 保存上次状态
+                       ^
+./User/APP/Remote/KeyBroad.cpp:5:5: error: use of undeclared identifier 'keyState'
+    keyState.NowKey = key;               // 更新当前状态
+    ^
+./User/APP/Remote/KeyBroad.cpp:8:9: error: use of undeclared identifier 'keyState'
+    if (keyState.NowKey && !keyState.lastKey) {
+        ^
+./User/APP/Remote/KeyBroad.cpp:8:29: error: use of undeclared identifier 'keyState'
+    if (keyState.NowKey && !keyState.lastKey) {
+                            ^
+./User/APP/Remote/KeyBroad.cpp:9:9: error: use of undeclared identifier 'keyState'
+        keyState.pressTick = HAL_GetTick();
+        ^
+./User/APP/Remote/KeyBroad.cpp:10:9: error: use of undeclared identifier 'keyState'
+        keyState.eventType = KEY_CLICK;  // 初始为点击状态
+        ^
+./User/APP/Remote/KeyBroad.cpp:14:10: error: use of undeclared identifier 'keyState'
+    if (!keyState.NowKey && keyState.lastKey) {
+         ^
+./User/APP/Remote/KeyBroad.cpp:14:29: error: use of undeclared identifier 'keyState'
+    if (!keyState.NowKey && keyState.lastKey) {
+                            ^
+./User/APP/Remote/KeyBroad.cpp:15:45: error: use of undeclared identifier 'keyState'
+        uint32_t holdTime = HAL_GetTick() - keyState.pressTick;
+                                            ^
+./User/APP/Remote/KeyBroad.cpp:18:9: error: use of undeclared identifier 'keyState'
+        keyState.eventType = (holdTime >= KeyBroad::LONG_PRESS_THRESHOLD) ? 
+        ^
+./User/APP/Remote/KeyBroad.cpp:23:9: error: use of undeclared identifier 'keyState'
+    if (keyState.NowKey && 
+        ^
+./User/APP/Remote/KeyBroad.cpp:24:25: error: use of undeclared identifier 'keyState'
+       (HAL_GetTick() - keyState.pressTick) >= KeyBroad::LONG_PRESS_THRESHOLD) {
+                        ^
+./User/APP/Remote/KeyBroad.cpp:25:9: error: use of undeclared identifier 'keyState'
+        keyState.eventType = KEY_LONG_PRESS;
+        ^
+./User/APP/Remote/KeyBroad.cpp:29:5: error: use of undeclared identifier 'keyState'
+    keyState.RisingEdge = (keyState.NowKey && !keyState.lastKey);
+    ^
+./User/APP/Remote/KeyBroad.cpp:29:28: error: use of undeclared identifier 'keyState'
+    keyState.RisingEdge = (keyState.NowKey && !keyState.lastKey);
+                           ^
+./User/APP/Remote/KeyBroad.cpp:29:48: error: use of undeclared identifier 'keyState'
+    keyState.RisingEdge = (keyState.NowKey && !keyState.lastKey);
+                                               ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+
+[2025-03-05 15:35:45]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 15:35:46]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o -MMD ./User/APP/Remote/KeyBroad.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Remote/KeyBroad.cpp:2:6: error: use of undeclared identifier 'KeyBroad'; did you mean 'APP::Remote::KeyBroad'?
+void KeyBroad::UpKey(bool key)
+     ^~~~~~~~
+     APP::Remote::KeyBroad
+User/APP\../APP/Remote/KeyBroad.hpp:21:7: note: 'APP::Remote::KeyBroad' declared here
+class KeyBroad
+      ^
+./User/APP/Remote/KeyBroad.cpp:33:6: error: use of undeclared identifier 'KeyBroad'; did you mean 'APP::Remote::KeyBroad'?
+bool KeyBroad::getRisingKey() { return keyState.RisingEdge; }
+     ^~~~~~~~
+     APP::Remote::KeyBroad
+User/APP\../APP/Remote/KeyBroad.hpp:21:7: note: 'APP::Remote::KeyBroad' declared here
+class KeyBroad
+      ^
+./User/APP/Remote/KeyBroad.cpp:34:6: error: use of undeclared identifier 'KeyBroad'; did you mean 'APP::Remote::KeyBroad'?
+bool KeyBroad::getFallingKey() { return keyState.FallingEdge; }
+     ^~~~~~~~
+     APP::Remote::KeyBroad
+User/APP\../APP/Remote/KeyBroad.hpp:21:7: note: 'APP::Remote::KeyBroad' declared here
+class KeyBroad
+      ^
+./User/APP/Remote/KeyBroad.cpp:35:6: error: use of undeclared identifier 'KeyBroad'; did you mean 'APP::Remote::KeyBroad'?
+bool KeyBroad::getLongPress() { return keyState.eventType == KEY_LONG_PRESS; }
+     ^~~~~~~~
+     APP::Remote::KeyBroad
+User/APP\../APP/Remote/KeyBroad.hpp:21:7: note: 'APP::Remote::KeyBroad' declared here
+class KeyBroad
+      ^
+4 errors generated.
+
+[2025-03-05 15:36:35]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 15:36:37]	[done]
+	build successfully !
+
+[2025-03-05 15:44:32]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 15:44:32]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o -MMD ./User/APP/Remote/KeyBroad.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Remote/KeyBroad.cpp:67:1: error: extraneous closing brace ('}')
+} // namespace APP::Remote
+^
+1 error generated.
+
+[2025-03-05 15:44:42]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 15:44:44]	[done]
+	build successfully !
+
+[2025-03-05 16:08:40]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 16:08:40]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o -MMD ./User/APP/Remote/KeyBroad.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Remote/KeyBroad.cpp:14:15: error: no member named 'pressTick' in 'APP::Remote::KeyBroad::KeyStateInfo'
+        state.pressTick = HAL_GetTick();
+        ~~~~~ ^
+./User/APP/Remote/KeyBroad.cpp:21:51: error: no member named 'pressTick' in 'APP::Remote::KeyBroad::KeyStateInfo'
+        uint32_t holdTime = HAL_GetTick() - state.pressTick;
+                                            ~~~~~ ^
+./User/APP/Remote/KeyBroad.cpp:26:48: error: no member named 'pressTick' in 'APP::Remote::KeyBroad::KeyStateInfo'
+    if (state.NowKey && (HAL_GetTick() - state.pressTick) >= LONG_PRESS_THRESHOLD)
+                                         ~~~~~ ^
+3 errors generated.
+
+[2025-03-05 16:08:44]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Remote\KeyBroad.hpp' has been changed.
+
+[2025-03-05 16:08:46]	[done]
+	build successfully !
+
+[2025-03-06 01:12:27]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Remote\KeyBroad.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+
+[2025-03-06 01:12:30]	[done]
+	build successfully !
+
+[2025-03-06 01:19:05]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\Task\EvenTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\Task\EvenTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+
+[2025-03-06 01:19:08]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/EvenTask.o -MMD ./User/Task/EvenTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/EvenTask.cpp:78:1: error: non-void function does not return a value [-Werror,-Wreturn-type]
+}
+^
+1 error generated.
+
+[2025-03-06 01:19:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': object (.o) file not exist
+
+[2025-03-06 01:19:24]	[done]
+	build successfully !
+
+[2025-03-06 01:29:59]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+
+[2025-03-06 01:30:02]	[done]
+	build successfully !
+
+[2025-03-06 01:33:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+
+[2025-03-06 01:33:16]	[done]
+	build successfully !
+
+[2025-03-06 01:34:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\LED.cpp': source file has been changed.
+
+[2025-03-06 01:34:35]	[done]
+	build successfully !
+
+[2025-03-06 01:51:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 01:51:18]	[done]
+	build successfully !
+
+[2025-03-06 01:56:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 01:56:05]	[done]
+	build successfully !
+
+[2025-03-06 02:39:10]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-06 02:39:15]	[done]
+	build successfully !
+
+[2025-03-06 02:43:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 02:43:58]	[done]
+	build successfully !
+
+[2025-03-06 02:44:03]	[done]
+	build successfully !
+
+[2025-03-06 02:49:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 02:49:39]	[done]
+	build successfully !
+
+[2025-03-06 02:53:21]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+
+[2025-03-06 02:53:28]	[done]
+	build successfully !
+
+[2025-03-06 02:55:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 02:55:39]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/ChassisTask.cpp:256:30: error: expected ':' after 'case'
+    case State::KeyBoardState
+                             ^
+                             :
+./User/Task/ChassisTask.cpp:257:24: error: no viable overloaded '='
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+        ~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:233:15: note: candidate function not viable: no known conversion from 'unique_ptr<Chassis_Task::KeyBoardHandler, default_delete<Chassis_Task::KeyBoardHandler>>' to 'unique_ptr<StateHandler, default_delete<StateHandler>>' for 1st argument
+  unique_ptr& operator=(unique_ptr&& __u) _NOEXCEPT {
+              ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:244:15: note: candidate template ignored: requirement 'is_convertible<Chassis_Task::KeyBoardHandler *, StateHandler *>::value' was not satisfied [with _Up = Chassis_Task::KeyBoardHandler, _Ep = std::default_delete<Chassis_Task::KeyBoardHandler>]
+  unique_ptr& operator=(unique_ptr<_Up, _Ep>&& __u) _NOEXCEPT {
+              ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:272:15: note: candidate function not viable: no known conversion from 'typename __unique_if<KeyBoardHandler>::__unique_single' (aka 'unique_ptr<Chassis_Task::KeyBoardHandler>') to 'std::nullptr_t' for 1st argument
+  unique_ptr& operator=(nullptr_t) _NOEXCEPT {
+              ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:118:59: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'unique_ptr<Chassis_Task::KeyBoardHandler, default_delete<Chassis_Task::KeyBoardHandler>>' to 'const unique_ptr<StateHandler, default_delete<StateHandler>>' for 1st argument
+class _LIBCPP_UNIQUE_PTR_TRIVIAL_ABI _LIBCPP_TEMPLATE_VIS unique_ptr {
+                                                          ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:725:32: error: allocation of incomplete type 'Chassis_Task::KeyBoardHandler'
+    return unique_ptr<_Tp>(new _Tp(_VSTD::forward<_Args>(__args)...));
+                               ^~~
+./User/Task/ChassisTask.cpp:257:31: note: in instantiation of function template specialization 'std::make_unique<Chassis_Task::KeyBoardHandler, Chassis_Task &>' requested here
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+                              ^
+User/Task/ChassisTask.hpp:35:11: note: forward declaration of 'Chassis_Task::KeyBoardHandler'
+    class KeyBoardHandler;
+          ^
+In file included from ./User/Task/ChassisTask.cpp:1:
+In file included from User/Task/ChassisTask.hpp:2:
+In file included from User/APP/State.hpp:2:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\vector:274:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__bit_reference:15:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\algorithm:670:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\functional:506:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__functional/function.h:22:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/shared_ptr.h:25:
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:50:19: error: invalid application of 'sizeof' to an incomplete type 'Chassis_Task::KeyBoardHandler'
+    static_assert(sizeof(_Tp) > 0,
+                  ^~~~~~~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:315:7: note: in instantiation of member function 'std::default_delete<Chassis_Task::KeyBoardHandler>::operator()' requested here
+      __ptr_.second()(__tmp);
+      ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:269:19: note: in instantiation of member function 'std::unique_ptr<Chassis_Task::KeyBoardHandler>::reset' requested here
+  ~unique_ptr() { reset(); }
+                  ^
+./User/Task/ChassisTask.cpp:257:26: note: in instantiation of member function 'std::unique_ptr<Chassis_Task::KeyBoardHandler>::~unique_ptr' requested here
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+                         ^
+User/Task/ChassisTask.hpp:35:11: note: forward declaration of 'Chassis_Task::KeyBoardHandler'
+    class KeyBoardHandler;
+          ^
+4 errors generated.
+
+[2025-03-06 02:55:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+
+[2025-03-06 02:55:44]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/ChassisTask.cpp:257:24: error: no viable overloaded '='
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+        ~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:233:15: note: candidate function not viable: no known conversion from 'unique_ptr<Chassis_Task::KeyBoardHandler, default_delete<Chassis_Task::KeyBoardHandler>>' to 'unique_ptr<StateHandler, default_delete<StateHandler>>' for 1st argument
+  unique_ptr& operator=(unique_ptr&& __u) _NOEXCEPT {
+              ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:244:15: note: candidate template ignored: requirement 'is_convertible<Chassis_Task::KeyBoardHandler *, StateHandler *>::value' was not satisfied [with _Up = Chassis_Task::KeyBoardHandler, _Ep = std::default_delete<Chassis_Task::KeyBoardHandler>]
+  unique_ptr& operator=(unique_ptr<_Up, _Ep>&& __u) _NOEXCEPT {
+              ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:272:15: note: candidate function not viable: no known conversion from 'typename __unique_if<KeyBoardHandler>::__unique_single' (aka 'unique_ptr<Chassis_Task::KeyBoardHandler>') to 'std::nullptr_t' for 1st argument
+  unique_ptr& operator=(nullptr_t) _NOEXCEPT {
+              ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:118:59: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'unique_ptr<Chassis_Task::KeyBoardHandler, default_delete<Chassis_Task::KeyBoardHandler>>' to 'const unique_ptr<StateHandler, default_delete<StateHandler>>' for 1st argument
+class _LIBCPP_UNIQUE_PTR_TRIVIAL_ABI _LIBCPP_TEMPLATE_VIS unique_ptr {
+                                                          ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:725:32: error: allocation of incomplete type 'Chassis_Task::KeyBoardHandler'
+    return unique_ptr<_Tp>(new _Tp(_VSTD::forward<_Args>(__args)...));
+                               ^~~
+./User/Task/ChassisTask.cpp:257:31: note: in instantiation of function template specialization 'std::make_unique<Chassis_Task::KeyBoardHandler, Chassis_Task &>' requested here
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+                              ^
+User/Task/ChassisTask.hpp:35:11: note: forward declaration of 'Chassis_Task::KeyBoardHandler'
+    class KeyBoardHandler;
+          ^
+In file included from ./User/Task/ChassisTask.cpp:1:
+In file included from User/Task/ChassisTask.hpp:2:
+In file included from User/APP/State.hpp:2:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\vector:274:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__bit_reference:15:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\algorithm:670:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\functional:506:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__functional/function.h:22:
+In file included from D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/shared_ptr.h:25:
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:50:19: error: invalid application of 'sizeof' to an incomplete type 'Chassis_Task::KeyBoardHandler'
+    static_assert(sizeof(_Tp) > 0,
+                  ^~~~~~~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:315:7: note: in instantiation of member function 'std::default_delete<Chassis_Task::KeyBoardHandler>::operator()' requested here
+      __ptr_.second()(__tmp);
+      ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__memory/unique_ptr.h:269:19: note: in instantiation of member function 'std::unique_ptr<Chassis_Task::KeyBoardHandler>::reset' requested here
+  ~unique_ptr() { reset(); }
+                  ^
+./User/Task/ChassisTask.cpp:257:26: note: in instantiation of member function 'std::unique_ptr<Chassis_Task::KeyBoardHandler>::~unique_ptr' requested here
+        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+                         ^
+User/Task/ChassisTask.hpp:35:11: note: forward declaration of 'Chassis_Task::KeyBoardHandler'
+    class KeyBoardHandler;
+          ^
+3 errors generated.
+
+[2025-03-06 02:57:02]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+
+[2025-03-06 02:57:04]	[done]
+	build successfully !
+
+[2025-03-06 03:03:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 03:03:06]	[done]
+	build successfully !
+

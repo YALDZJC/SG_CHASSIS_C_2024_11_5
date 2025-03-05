@@ -8,35 +8,35 @@
 
 #define SIZE 8
 
-
 void CommunicationTask(void *argument)
 {
     for (;;)
     {
-        Gimbal_to_Chassis_Data.Data_receive(&huart1);
+        // Gimbal_to_Chassis_Data.Data_receive(&huart1);
 
         osDelay(5);
     }
 }
 Communicat::Gimbal_to_Chassis Gimbal_to_Chassis_Data;
 
-
 namespace Communicat
-
 {
+void Gimbal_to_Chassis::Init()
+{
+    HAL_UART_Receive_IT(&huart1, pData, sizeof(pData));
+}
+
 void Gimbal_to_Chassis::Data_receive(UART_HandleTypeDef *huart)
-{    
+{
     const uint8_t EXPECTED_HEAD = 0xA5; // 根据发送端设置的头字节
     const uint8_t EXPECTED_LEN = 1 + sizeof(Direction) + sizeof(ChassisMode) + sizeof(UiList);
 
-		HAL_UART_Receive_DMA(&huart1, pData, sizeof(pData));
 
-	
     // 校验长度和头字节
     if (pData[0] != EXPECTED_HEAD)
     {
-				SlidingWindowRecovery();
-				return;
+        SlidingWindowRecovery();
+        return;
     }
 
     auto ptr = pData + 1; // 跳过头字节
@@ -49,6 +49,10 @@ void Gimbal_to_Chassis::Data_receive(UART_HandleTypeDef *huart)
 
     std::memcpy(&ui_list, ptr, sizeof(ui_list));
     ptr += sizeof(ui_list);
+
+    dirTime.UpLastTime();
+
+    HAL_UART_Receive_IT(&huart1, pData, sizeof(pData));
 }
 
 void Gimbal_to_Chassis::SlidingWindowRecovery()
@@ -70,11 +74,18 @@ void Gimbal_to_Chassis::SlidingWindowRecovery()
     {
         // 使用memmove处理可能重叠的内存区域
         std::memmove(pData, &pData[found_pos], window_size - found_pos);
-        
-        //可选：重新配置DMA接收剩余空间
+
+        // 可选：重新配置DMA接收剩余空间
         int remaining_space = window_size - found_pos;
         HAL_UART_Receive_DMA(&huart1, pData + remaining_space, found_pos);
     }
+}
+bool Gimbal_to_Chassis::ISDir()
+{
+    char Dir = 0;
+
+    is_dir = dirTime.ISDir(50) | Dir;
+    return is_dir;
 }
 
 }; // namespace Communicat

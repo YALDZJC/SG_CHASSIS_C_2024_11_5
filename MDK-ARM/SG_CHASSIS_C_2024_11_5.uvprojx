@@ -689,11 +689,6 @@
               <FileType>8</FileType>
               <FilePath>.\User\APP\LED.cpp</FilePath>
             </File>
-            <File>
-              <FileName>Mode.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\User\APP\Mode.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

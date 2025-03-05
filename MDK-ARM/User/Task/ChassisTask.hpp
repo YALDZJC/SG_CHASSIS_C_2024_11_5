@@ -6,30 +6,34 @@
  */
 class Chassis_Task : public Task
 {
-public:
+  public:
     // 专属状态枚举（使用作用域限定）
-    enum class State {
+    enum class State
+    {
         UniversalState, // 通用模式
         FollowState,    // 跟随模式
         RotatingState,  // 旋转模式
-        StopState       // 急停状态
+        KeyBoardState,  // 键盘控制模式
+        StopState // 急停状态
     };
 
     explicit Chassis_Task();
 
     // 禁用拷贝和赋值
-    Chassis_Task(const Chassis_Task &)            = delete;
+    Chassis_Task(const Chassis_Task &) = delete;
     Chassis_Task &operator=(const Chassis_Task &) = delete;
 
-protected:
+  protected:
     void executeState() override;
     void updateState() override;
 
-private:
+  private:
     // 状态处理器实现类声明
     class UniversalHandler;
     class FollowHandler;
     class RotatingHandler;
+    class KeyBoardHandler;
+
     class StopHandler;
 
     // 成员变量
@@ -62,10 +66,11 @@ private:
 };
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-void ChassisTask(void* argument);
+    void ChassisTask(void *argument);
 
 #ifdef __cplusplus
 }

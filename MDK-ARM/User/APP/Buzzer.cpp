@@ -1,7 +1,7 @@
 
-#include "../App/Buzzer.h"
-#include "cmsis_os2.h"
+#include "../App/Buzzer.hpp"
 #include "HAL.hpp"
+#include "cmsis_os2.h"
 #include "tim.h"
 
 /**
@@ -35,23 +35,25 @@ bool Buzzer::Update()
     dir_t[2] = dir->GetDir_String();
     dir_t[3] = dir->GetDir_Wheel();
 
-    if (dir->Ger_Init_Flag() && buzzerInit == false) {
+    if (dir->Ger_Init_Flag() && buzzerInit == false)
+    {
         SYSTEM_START();
 
         buzzerInit = true;
     }
 
     uint8_t String = dir->GetDir_String();
-		uint8_t Wheel = dir->GetDir_Wheel();
+    uint8_t Wheel = dir->GetDir_Wheel();
 
-    if (String) {
+    if (String)
+    {
         Buzzer::B(String);
-			return false;
+        return false;
     }
-    if (Wheel) {
+    if (Wheel)
+    {
         Buzzer::B(Wheel);
-						return false;
-
+        return false;
     }
     // buzzer_off();
     osDelay(10);
@@ -85,21 +87,22 @@ void Buzzer::SYSTEM_START()
 
 void Buzzer::B(uint8_t num)
 {
-    switch (num) {
-        case 1:
-            B_();
-            break;
-        case 2:
-            B_B_();
-            break;
-        case 3:
-            B_B_B_();
-            break;
-        case 4:
-            B_B_B_B_();
-        default:
-            buzzer_off();
-            break;
+    switch (num)
+    {
+    case 1:
+        B_();
+        break;
+    case 2:
+        B_B_();
+        break;
+    case 3:
+        B_B_B_();
+        break;
+    case 4:
+        B_B_B_B_();
+    default:
+        buzzer_off();
+        break;
     }
 }
 
@@ -110,7 +113,7 @@ void Buzzer::B_()
     buzzer_on(1, 10000);
     osDelay(50);
     buzzer_off();
-		osDelay(950);
+    osDelay(950);
     is_busy = false;
 }
 

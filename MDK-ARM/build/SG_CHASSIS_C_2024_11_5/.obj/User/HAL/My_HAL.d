@@ -47,4 +47,5 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
   User\Task\EvenTask.hpp User\APP\PowerMeter.hpp \
   User\HAL\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
-  User\HAL\..\Task\CommunicationTask.hpp User\Task\..\BSP\Dbus.hpp
+  User\HAL\..\Task\CommunicationTask.hpp User\Task\..\BSP\Dbus.hpp \
+  User\Task\..\BSP\StaticTime.hpp

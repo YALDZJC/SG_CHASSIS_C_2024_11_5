@@ -3,7 +3,7 @@
 #include "../BSP/Dbus.hpp"
 #include "EvenTask.hpp"
 #include "stdxxx.hpp"
-
+#include "../BSP/StaticTime.hpp"
 // /*遥控器信号源切换*/
 // /*
 // 	CONTROL_SIG 0 遥控器
@@ -81,11 +81,15 @@ class Gimbal_to_Chassis
     void Data_send();
     void Data_receive(UART_HandleTypeDef *huart);
     void Init();
+    bool ISDir();
 
   private:
     uint8_t head = 0xA5; // 帧头
 
-	void SlidingWindowRecovery();
+    bool is_dir;
+    RM_StaticTime dirTime;
+
+    void SlidingWindowRecovery();
 	
     struct __attribute__((packed)) Direction // 方向结构体
     {
@@ -164,6 +168,11 @@ class Gimbal_to_Chassis
     int8_t get_is_reverse()
     {
         return direction.is_v_reverse ? 1 : -1;
+    }
+
+    uint8_t getRotatingVel()
+    {
+        return direction.Rotating_vel;
     }
 };
 

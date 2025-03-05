@@ -1,12 +1,12 @@
 #include "EvenTask.hpp"
+#include "../APP/Buzzer.hpp"
+#include "../APP/LED.hpp"
+#include "../BSP/Dbus.hpp"
+#include "../BSP/Init.hpp"
+#include "../Task/CommunicationTask.hpp"
 #include "Variable.hpp"
 #include "cmsis_os2.h"
 #include "tim.h"
-#include "../APP/Buzzer.h"
-#include "../APP/LED.h"
-#include "../BSP/Init.hpp"
-#include "../BSP/Dbus.hpp"
-
 // using namespace Event;
 
 Dir Dir_Event;
@@ -72,6 +72,17 @@ bool Dir::Dir_MeterPower()
     return Dir;
 }
 
+bool Dir::Dir_Communication()
+{
+    DirData.Communication = Gimbal_to_Chassis_Data.ISDir();
+    if (DirData.Communication == true)
+    {
+        Gimbal_to_Chassis_Data.Init();
+    }
+
+    return DirData.Communication;
+}
+
 bool Dir::Init_Flag()
 {
     DirData.InitFlag = InitFlag;
@@ -88,5 +99,6 @@ void Dir::UpEvent()
     Dir_String();
     Dir_Wheel();
     Dir_MeterPower();
+    Dir_Communication();
     Init_Flag();
 }

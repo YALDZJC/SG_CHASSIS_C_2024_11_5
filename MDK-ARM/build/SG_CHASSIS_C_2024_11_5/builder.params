@@ -91,6 +91,7 @@
         "User/APP/PM01.cpp",
         "User/APP/PowerMeter.cpp",
         "User/APP/PowerMeter.cpp",
+        "User/APP/Remote/KeyBroad.cpp",
         "User/APP/State.cpp",
         "User/APP/State.cpp",
         "User/APP/Tools.cpp",
@@ -125,7 +126,6 @@
         "User/Task/PowerTask.cpp",
         "User/Task/RefeeTask.cpp",
         "User/Task/RefeeTask.cpp",
-        "User/del/dr16.cpp",
         "startup_stm32f407xx.s"
     ],
     "sourceParams": {},

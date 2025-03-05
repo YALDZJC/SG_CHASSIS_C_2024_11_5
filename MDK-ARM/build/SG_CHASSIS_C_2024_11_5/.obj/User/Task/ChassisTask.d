@@ -28,13 +28,13 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
   User\BSP\stdxxx.hpp User\BSP\Key.hpp ..\Core\Inc\usart.h \
-  ..\Core\Inc\main.h User\Task\EvenTask.hpp User\HAL\HAL.hpp \
-  ..\Core\Inc\can.h User\APP\State.hpp User\APP\Variable.hpp \
-  User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp \
-  User\HAL\My_hal.hpp User\BSP\Bsp_Can.hpp ..\Core\Inc\gpio.h \
-  User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
-  User\APP\Tools.hpp User\APP\PM01.hpp User\Task\PowerTask.hpp \
-  User\Algorithm\RLS.hpp \
+  ..\Core\Inc\main.h User\Task\EvenTask.hpp \
+  User\Task\..\BSP\StaticTime.hpp User\HAL\HAL.hpp ..\Core\Inc\can.h \
+  User\APP\State.hpp User\APP\Variable.hpp User\APP\Dji_Motor.hpp \
+  User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp User\HAL\My_hal.hpp \
+  User\BSP\Bsp_Can.hpp ..\Core\Inc\gpio.h User\Algorithm\PID.hpp \
+  User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp User\APP\Tools.hpp \
+  User\APP\PM01.hpp User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
@@ -48,5 +48,6 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
   User\APP\PowerMeter.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
-  User\Task\..\APP\Mode.hpp User\APP\..\BSP\Dbus.hpp \
+  User\Task\..\APP\Remote\KeyBroad.hpp User\APP\..\BSP\Dbus.hpp \
+  User\APP\..\BSP\StaticTime.hpp User\Task\..\APP\Remote\Mode.hpp \
   User\APP\..\Task\CommunicationTask.hpp User\APP\..\Task\EvenTask.hpp

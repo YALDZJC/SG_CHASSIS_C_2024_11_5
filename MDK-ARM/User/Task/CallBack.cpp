@@ -31,8 +31,8 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 	BSP::Remote::dr16.Parse(huart,Size);
 }
 
-//// UART中断
-//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-//{
-//    Gimbal_to_Chassis_Data.Data_receive(huart);
-//}
+// UART中断
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+   Gimbal_to_Chassis_Data.Data_receive(huart);
+}
