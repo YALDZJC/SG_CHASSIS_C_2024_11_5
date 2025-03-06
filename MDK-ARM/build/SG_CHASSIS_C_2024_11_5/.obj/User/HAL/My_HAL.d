@@ -48,4 +48,7 @@
   User\Task\EvenTask.hpp User\APP\PowerMeter.hpp \
   User\HAL\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
   User\HAL\..\Task\CommunicationTask.hpp User\Task\..\BSP\Dbus.hpp \
-  User\Task\..\BSP\StaticTime.hpp
+  User\Task\..\BSP\StaticTime.hpp \
+  User\HAL\..\APP\Referee\RM_RefereeSystem.h \
+  User\HAL\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
+  User\APP\..\BSP\stdxxx.hpp

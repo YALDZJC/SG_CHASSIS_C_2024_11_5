@@ -689,6 +689,16 @@
               <FileType>8</FileType>
               <FilePath>.\User\APP\LED.cpp</FilePath>
             </File>
+            <File>
+              <FileName>RM_RefereeSystem.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\Referee\RM_RefereeSystem.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RM_RefereeSystemCRC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\Referee\RM_RefereeSystemCRC.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

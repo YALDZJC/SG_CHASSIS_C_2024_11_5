@@ -45,6 +45,8 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/LED.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/PM01.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/PowerMeter.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystemCRC.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/State.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Tools.o

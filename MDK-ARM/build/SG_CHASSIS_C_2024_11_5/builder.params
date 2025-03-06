@@ -91,6 +91,8 @@
         "User/APP/PM01.cpp",
         "User/APP/PowerMeter.cpp",
         "User/APP/PowerMeter.cpp",
+        "User/APP/Referee/RM_RefereeSystem.cpp",
+        "User/APP/Referee/RM_RefereeSystemCRC.cpp",
         "User/APP/Remote/KeyBroad.cpp",
         "User/APP/State.cpp",
         "User/APP/State.cpp",

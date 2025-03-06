@@ -3316,3 +3316,1138 @@ These source files will be recompiled
 [2025-03-06 03:03:06]	[done]
 	build successfully !
 
+[2025-03-06 12:23:16]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:23:16]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:40:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:51:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:65:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:76:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //交互数据接收信息：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:82:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端删除图形 机器人间通信：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:87:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //图形数据
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:103:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制一个图形 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:107:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制字符 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:112:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct//选手端小地图交互数据，选手端触发发送
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:121:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:2:10: fatal error: 'RM_StaticTime.h' file not found
+#include "RM_StaticTime.h"
+         ^~~~~~~~~~~~~~~~~
+10 warnings and 1 error generated.
+
+[2025-03-06 12:23:35]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:23:36]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:40:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:51:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:65:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:76:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //交互数据接收信息：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:82:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端删除图形 机器人间通信：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:87:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //图形数据
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:103:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制一个图形 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:107:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制字符 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:112:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct//选手端小地图交互数据，选手端触发发送
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:121:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:6:17: error: no namespace named 'RM_RefereeSystemCRC'; did you mean 'RM_RefereeSystem'?
+using namespace RM_RefereeSystemCRC;
+                ^~~~~~~~~~~~~~~~~~~
+                RM_RefereeSystem
+User/APP\../APP/Referee/RM_RefereeSystem.h:6:11: note: namespace 'RM_RefereeSystem' defined here
+namespace RM_RefereeSystem
+          ^
+./User/APP/Referee/RM_RefereeSystem.cpp:275:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:276:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:266:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:299:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:300:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:292:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:355:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:356:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:344:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:381:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:382:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:372:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:407:34: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(rrrdata, CRC8LEN);
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:408:35: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(rrrdata, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:403:38: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&rrrdata, 0, sizeof(rrrdata));
+                                 ~                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:406:3: warning: 'memcpy' will always overflow; destination buffer has size 20, but size argument is 122 [-Wfortify-source]
+                memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:78: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                                                           ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:36: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:88: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                                                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:41: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                      ^
+16 warnings and 15 errors generated.
+
+[2025-03-06 12:24:21]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:24:21]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:40:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:51:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:65:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:76:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //交互数据接收信息：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:82:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端删除图形 机器人间通信：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:87:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //图形数据
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:103:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制一个图形 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:107:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制字符 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:112:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct//选手端小地图交互数据，选手端触发发送
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:121:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:6:17: error: no namespace named 'RM_RefereeSystemCRC'; did you mean 'RM_RefereeSystem'?
+using namespace RM_RefereeSystemCRC;
+                ^~~~~~~~~~~~~~~~~~~
+                RM_RefereeSystem
+User/APP\../APP/Referee/RM_RefereeSystem.h:6:11: note: namespace 'RM_RefereeSystem' defined here
+namespace RM_RefereeSystem
+          ^
+./User/APP/Referee/RM_RefereeSystem.cpp:275:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:276:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:266:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:299:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:300:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:292:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:355:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:356:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:344:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:381:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:382:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:372:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:407:34: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(rrrdata, CRC8LEN);
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:408:35: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(rrrdata, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:403:38: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&rrrdata, 0, sizeof(rrrdata));
+                                 ~                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:406:3: warning: 'memcpy' will always overflow; destination buffer has size 20, but size argument is 122 [-Wfortify-source]
+                memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:78: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                                                           ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:36: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:88: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                                                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:41: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                      ^
+16 warnings and 15 errors generated.
+
+[2025-03-06 12:28:24]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:28:24]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:60:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:71:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:85:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:96:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 交互数据接收信息：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:102:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 客户端删除图形 机器人间通信：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:107:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 图形数据
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:123:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 客户端绘制一个图形 机器人间通信：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:127:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 客户端绘制字符 机器人间通信：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:132:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 选手端小地图交互数据，选手端触发发送
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:141:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+./User/APP/Referee/RM_RefereeSystem.cpp:6:17: error: no namespace named 'RM_RefereeSystemCRC'; did you mean 'RM_RefereeSystem'?
+using namespace RM_RefereeSystemCRC;
+                ^~~~~~~~~~~~~~~~~~~
+                RM_RefereeSystem
+User/APP\../APP/Referee/RM_RefereeSystem.h:6:11: note: namespace 'RM_RefereeSystem' defined here
+namespace RM_RefereeSystem
+          ^
+./User/APP/Referee/RM_RefereeSystem.cpp:275:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:276:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:266:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:299:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:300:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:292:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:355:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:356:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:344:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:381:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:382:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:372:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:407:34: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(rrrdata, CRC8LEN);
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:408:35: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(rrrdata, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:403:38: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&rrrdata, 0, sizeof(rrrdata));
+                                 ~                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:406:3: warning: 'memcpy' will always overflow; destination buffer has size 20, but size argument is 122 [-Wfortify-source]
+                memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:78: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                                                           ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:36: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:88: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                                                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:41: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                      ^
+16 warnings and 15 errors generated.
+
+[2025-03-06 12:28:42]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:28:43]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:40:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:51:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:65:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:76:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //交互数据接收信息：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:82:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端删除图形 机器人间通信：0x0301
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:87:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //图形数据
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:103:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制一个图形 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:107:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct //客户端绘制字符 机器人间通信：0x0301 
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:112:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct//选手端小地图交互数据，选手端触发发送
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:121:9: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __packed struct
+        ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:116:38: note: expanded from macro '__packed'
+    #define __packed  __attribute__((packed))
+                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:6:17: error: no namespace named 'RM_RefereeSystemCRC'; did you mean 'RM_RefereeSystem'?
+using namespace RM_RefereeSystemCRC;
+                ^~~~~~~~~~~~~~~~~~~
+                RM_RefereeSystem
+User/APP\../APP/Referee/RM_RefereeSystem.h:6:11: note: namespace 'RM_RefereeSystem' defined here
+namespace RM_RefereeSystem
+          ^
+./User/APP/Referee/RM_RefereeSystem.cpp:275:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:276:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:266:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:299:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:300:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:292:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:355:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:356:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:344:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:381:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:382:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:372:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:407:34: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(rrrdata, CRC8LEN);
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:408:35: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(rrrdata, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:403:38: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&rrrdata, 0, sizeof(rrrdata));
+                                 ~                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:406:3: warning: 'memcpy' will always overflow; destination buffer has size 20, but size argument is 122 [-Wfortify-source]
+                memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:78: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                                                           ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:36: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:88: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                                                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:41: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                      ^
+16 warnings and 15 errors generated.
+
+[2025-03-06 12:28:55]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:28:55]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+User/APP\../APP/Referee/RM_RefereeSystem.h:60:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:71:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:85:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:96:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 交互数据接收信息：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:102:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 客户端删除图形 机器人间通信：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:107:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 图形数据
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:123:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 客户端绘制一个图形 机器人间通信：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:127:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 客户端绘制字符 机器人间通信：0x0301
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:132:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 选手端小地图交互数据，选手端触发发送
+                       ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:141:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+./User/APP/Referee/RM_RefereeSystem.cpp:6:17: error: no namespace named 'RM_RefereeSystemCRC'; did you mean 'RM_RefereeSystem'?
+using namespace RM_RefereeSystemCRC;
+                ^~~~~~~~~~~~~~~~~~~
+                RM_RefereeSystem
+User/APP\../APP/Referee/RM_RefereeSystem.h:6:11: note: namespace 'RM_RefereeSystem' defined here
+namespace RM_RefereeSystem
+          ^
+./User/APP/Referee/RM_RefereeSystem.cpp:275:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:276:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:266:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:299:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:300:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:292:39: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                                ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:355:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:356:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:344:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:381:33: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(tx_buf, CRC8LEN);
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:382:34: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(tx_buf, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:372:36: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&tx_buf, 0, sizeof(tx_buf));
+                                ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:407:34: error: use of undeclared identifier 'CRC8LEN'
+                Append_CRC8_Check_Sum(rrrdata, CRC8LEN);
+                                               ^
+./User/APP/Referee/RM_RefereeSystem.cpp:408:35: error: use of undeclared identifier 'CRC16LEN'
+                Append_CRC16_Check_Sum(rrrdata, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
+                                                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:403:38: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+                memcpy(&rrrdata, 0, sizeof(rrrdata));
+                                 ~                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:406:3: warning: 'memcpy' will always overflow; destination buffer has size 20, but size argument is 122 [-Wfortify-source]
+                memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:78: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                                                           ^
+./User/APP/Referee/RM_RefereeSystem.cpp:421:36: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(data, CRC8LEN) || !Verify_CRC16_Check_Sum(data, CRC16LEN(RM_RefereeSystemData01.data_length)))
+                                                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:88: error: use of undeclared identifier 'CRC16LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                                                                     ^
+./User/APP/Referee/RM_RefereeSystem.cpp:441:41: error: use of undeclared identifier 'CRC8LEN'
+                if (!Verify_CRC8_Check_Sum(RM_pDatas, CRC8LEN) || !Verify_CRC16_Check_Sum(RM_pDatas, CRC16LEN(RM_RefereeSystemData.data_length)))
+                                                      ^
+16 warnings and 15 errors generated.
+
+[2025-03-06 12:29:32]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystemCRC.cpp': object (.o) file not exist
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-06 12:29:34]	[done]
+	build successfully !
+
+[2025-03-06 12:52:42]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 12:52:43]	[done]
+	build successfully !
+
+[2025-03-06 12:53:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 12:53:48]	[done]
+	build successfully !
+
+[2025-03-06 12:55:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 12:55:38]	[done]
+	build successfully !
+
+[2025-03-06 12:57:32]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 12:57:32]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/Referee/RM_RefereeSystem.cpp:1:
+./User/APP/Referee/RM_RefereeSystem.h:72:1: error: declaration of anonymous struct must be a definition
+struct __attribute__((packed)) struct
+^
+./User/APP/Referee/RM_RefereeSystem.h:72:1: warning: declaration does not declare anything [-Wmissing-declarations]
+./User/APP/Referee/RM_RefereeSystem.h:86:1: error: declaration of anonymous struct must be a definition
+struct __attribute__((packed)) struct
+^
+./User/APP/Referee/RM_RefereeSystem.h:86:1: warning: declaration does not declare anything [-Wmissing-declarations]
+./User/APP/Referee/RM_RefereeSystem.h:97:1: error: declaration of anonymous struct must be a definition
+struct __attribute__((packed)) struct // 交互数据接收信息：0x0301
+^
+./User/APP/Referee/RM_RefereeSystem.h:97:1: warning: declaration does not declare anything [-Wmissing-declarations]
+./User/APP/Referee/RM_RefereeSystem.h:103:1: error: declaration of anonymous struct must be a definition
+struct __attribute__((packed)) struct // 客户端删除图形 机器人间通信：0x0301
+^
+./User/APP/Referee/RM_RefereeSystem.h:103:1: warning: declaration does not declare anything [-Wmissing-declarations]
+./User/APP/Referee/RM_RefereeSystem.h:108:1: error: declaration of anonymous struct must be a definition
+struct __attribute__((packed)) struct // 图形数据
+^
+./User/APP/Referee/RM_RefereeSystem.h:108:1: warning: declaration does not declare anything [-Wmissing-declarations]
+./User/APP/Referee/RM_RefereeSystem.h:126:5: error: unknown type name 'graphic_data_struct_t'
+    graphic_data_struct_t grapic_data_struct;
+    ^
+./User/APP/Referee/RM_RefereeSystem.h:130:5: error: unknown type name 'graphic_data_struct_t'
+    graphic_data_struct_t grapic_data_struct;
+    ^
+./User/APP/Referee/RM_RefereeSystem.h:133:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct // 选手端小地图交互数据，选手端触发发送
+                       ^
+./User/APP/Referee/RM_RefereeSystem.h:142:24: warning: 'packed' attribute ignored [-Wignored-attributes]
+typedef __attribute__((packed)) struct
+                       ^
+./User/APP/Referee/RM_RefereeSystem.h:167:38: error: unknown type name 'graphic_data_struct_t'
+void RM_RefereeSystemSendDataN(const graphic_data_struct_t graphic_data_struct[], int size);
+                                     ^
+./User/APP/Referee/RM_RefereeSystem.h:174:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetLine(char *name, uint32_t layer, uint32_t start_x, uint32_t start_y,
+^
+./User/APP/Referee/RM_RefereeSystem.h:177:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetRectangle(char *name, uint32_t layer, uint32_t start_x, uint32_t start_y,
+^
+./User/APP/Referee/RM_RefereeSystem.h:180:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetCircle(char *name, uint32_t layer, uint32_t start_x, uint32_t start_y,
+^
+./User/APP/Referee/RM_RefereeSystem.h:183:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetElliptic(char *name, uint32_t layer, uint32_t start_x, uint32_t start_y,
+^
+./User/APP/Referee/RM_RefereeSystem.h:186:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetArced(char *name, uint32_t layer, uint32_t start_angle, uint32_t end_angle,
+^
+./User/APP/Referee/RM_RefereeSystem.h:189:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetFzloat(char *name, uint32_t layer, float x, uint32_t start_x,
+^
+./User/APP/Referee/RM_RefereeSystem.h:192:1: error: unknown type name 'graphic_data_struct_t'
+graphic_data_struct_t RM_RefereeSystemSetInt(char *name, uint32_t layer, int32_t x, uint32_t start_x, uint32_t start_y);
+^
+./User/APP/Referee/RM_RefereeSystem.h:206:26: error: no type named 'ext_game_robot_status_t' in namespace 'RM_RefereeSystem'
+extern RM_RefereeSystem::ext_game_robot_status_t ext_power_heat_data_0x0201;
+       ~~~~~~~~~~~~~~~~~~^
+./User/APP/Referee/RM_RefereeSystem.h:208:26: error: no type named 'ext_power_heat_data_t' in namespace 'RM_RefereeSystem'
+extern RM_RefereeSystem::ext_power_heat_data_t ext_power_heat_data_0x0202;
+       ~~~~~~~~~~~~~~~~~~^
+./User/APP/Referee/RM_RefereeSystem.h:210:26: error: no type named 'graphic_data_struct_t' in namespace 'RM_RefereeSystem'
+extern RM_RefereeSystem::graphic_data_struct_t graphic_data_struct_0x0301;
+       ~~~~~~~~~~~~~~~~~~^
+./User/APP/Referee/RM_RefereeSystem.cpp:17:1: error: unknown type name 'RM_RefereeSystemData_t'; did you mean 'RM_RefereeSystemToop_t'?
+RM_RefereeSystemData_t RM_RefereeSystemData = {0};
+^~~~~~~~~~~~~~~~~~~~~~
+RM_RefereeSystemToop_t
+./User/APP/Referee/RM_RefereeSystem.h:60:3: note: 'RM_RefereeSystemToop_t' declared here
+} RM_RefereeSystemToop_t;
+  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+7 warnings and 20 errors generated.
+
+[2025-03-06 12:57:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+
+[2025-03-06 12:57:53]	[done]
+	build successfully !
+
+[2025-03-06 17:22:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 17:22:53]	[done]
+	build successfully !
+
+[2025-03-06 17:23:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 17:23:27]	[done]
+	build successfully !
+
+[2025-03-06 17:23:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 17:23:46]	[done]
+	build successfully !
+
+[2025-03-06 20:05:38]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+
+[2025-03-06 20:05:41]	[done]
+	build successfully !
+
+[2025-03-06 20:06:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:06:04]	[done]
+	build successfully !
+
+[2025-03-06 20:06:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:06:13]	[done]
+	build successfully !
+
+[2025-03-06 20:07:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 20:07:41]	[done]
+	build successfully !
+
+[2025-03-06 20:08:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 20:08:27]	[done]
+	build successfully !
+
+[2025-03-06 20:08:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.h' has been changed.
+
+[2025-03-06 20:08:58]	[done]
+	build successfully !
+
+[2025-03-06 20:09:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:09:47]	[done]
+	build successfully !
+
+[2025-03-06 20:14:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:14:16]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Referee/RM_RefereeSystem.cpp:275:46: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+    std::memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                         ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:302:5: error: no member named 'std' in namespace 'std'; did you mean simply 'std'?
+    std::std::memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+    ^~~~~~~~
+    std
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\memory:848:1: note: 'std' declared here
+_LIBCPP_BEGIN_NAMESPACE_STD
+^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\libcxx\__config:868:47: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_STD'
+#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std { inline namespace _LIBCPP_ABI_NAMESPACE {
+                                              ^
+./User/APP/Referee/RM_RefereeSystem.cpp:302:51: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+    std::std::memcpy(&tx_buf, 0x00, sizeof(tx_buf));
+                              ~~~~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:355:43: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+    std::memcpy(&tx_buf, 0, sizeof(tx_buf));
+                         ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:384:43: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+    std::memcpy(&tx_buf, 0, sizeof(tx_buf));
+                         ~                ^
+./User/APP/Referee/RM_RefereeSystem.cpp:419:45: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+    std::memcpy(&rrrdata, 0, sizeof(rrrdata));
+                          ~                 ^
+./User/APP/Referee/RM_RefereeSystem.cpp:422:5: warning: 'memcpy' will always overflow; destination buffer has size 20, but size argument is 120 [-Wfortify-source]
+    std::memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+    ^
+6 warnings and 1 error generated.
+
+[2025-03-06 20:14:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+
+[2025-03-06 20:14:23]	[done]
+	build successfully !
+
+[2025-03-06 20:21:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:21:08]	[done]
+	build successfully !
+
+[2025-03-06 20:21:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:21:43]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Referee/RM_RefereeSystem.cpp:422:5: error: no matching function for call to 'memset'
+    memset(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+    ^~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\string.h:321:22: note: candidate function not viable: no known conversion from 'RM_RefereeSystem::RM_RefereeSystemData_t *' to 'int' for 2nd argument
+extern _ARMABI void *memset(void * /*s*/, int /*c*/, size_t /*n*/) __attribute__((__nonnull__(1)));
+                     ^
+1 error generated.
+
+[2025-03-06 20:21:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+
+[2025-03-06 20:21:58]	[done]
+	build successfully !
+
+[2025-03-06 20:22:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:22:09]	[done]
+	build successfully !
+
+[2025-03-06 20:23:09]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:23:09]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o -MMD ./User/APP/Referee/RM_RefereeSystem.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/Referee/RM_RefereeSystem.cpp:422:5: error: no matching function for call to 'memset'
+    memset(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+    ^~~~~~
+D:\Keil5\ARM\ARMCLANG\bin\..\include\string.h:321:22: note: candidate function not viable: no known conversion from 'RM_RefereeSystem::RM_RefereeSystemData_t *' to 'int' for 2nd argument
+extern _ARMABI void *memset(void * /*s*/, int /*c*/, size_t /*n*/) __attribute__((__nonnull__(1)));
+                     ^
+1 error generated.
+
+[2025-03-06 20:23:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': object (.o) file not exist
+
+[2025-03-06 20:23:59]	[done]
+	build successfully !
+
+[2025-03-06 20:24:38]	[done]
+	build successfully !
+
+[2025-03-06 20:25:09]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:25:10]	[done]
+	build successfully !
+
+[2025-03-06 20:25:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:25:20]	[done]
+	build successfully !
+
+[2025-03-06 20:25:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+
+[2025-03-06 20:25:28]	[done]
+	build successfully !
+
+[2025-03-06 20:37:46]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+
+[2025-03-06 20:37:48]	[done]
+	build successfully !
+
+[2025-03-06 21:01:50]	[done]
+	build successfully !
+

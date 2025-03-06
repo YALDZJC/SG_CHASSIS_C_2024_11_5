@@ -3,6 +3,7 @@
 #include "Variable.hpp"
 #include "../BSP/Dbus.hpp"
 #include "../Task/CommunicationTask.hpp"
+#include "../APP/Referee/RM_RefereeSystem.h"
 
 //can_filo0中断接收
 CAN_RxHeaderTypeDef RxHeader;	//can接收数据
@@ -35,4 +36,5 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
    Gimbal_to_Chassis_Data.Data_receive(huart);
+   RM_RefereeSystem::RM_RefereeSystemParse(huart);
 }
