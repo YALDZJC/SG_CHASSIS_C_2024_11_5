@@ -29,4 +29,4 @@
   User\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
   User\APP\..\BSP\stdxxx.hpp \
   User\APP\..\APP\Referee\RM_RefereeSystemCRC.h \
-  User\APP\..\BSP\StaticTime.hpp User\BSP\stdxxx.hpp User\BSP\Key.hpp
+  User\APP\..\BSP\StaticTime.hpp User\BSP\Key.hpp User\BSP\stdxxx.hpp

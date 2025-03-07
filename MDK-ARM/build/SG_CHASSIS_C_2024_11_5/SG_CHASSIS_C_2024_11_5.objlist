@@ -48,6 +48,10 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Remote/KeyBroad.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/State.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Tools.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Static/darw_static.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/UI_Init/Init.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/UI_Queue.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Variable.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Algorithm/PID.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Algorithm/Wheel.o

@@ -1,6 +1,7 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/CommunicationTask.o: \
   User\Task\CommunicationTask.cpp User\Task\CommunicationTask.hpp \
   User\Task\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
+  User\BSP\Key.hpp User\BSP\stdxxx.hpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -26,8 +27,7 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  User\BSP\stdxxx.hpp User\BSP\Key.hpp ..\Core\Inc\usart.h \
-  ..\Core\Inc\main.h User\Task\EvenTask.hpp \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\EvenTask.hpp \
   User\Task\..\BSP\StaticTime.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
   ..\Core\Inc\tim.h

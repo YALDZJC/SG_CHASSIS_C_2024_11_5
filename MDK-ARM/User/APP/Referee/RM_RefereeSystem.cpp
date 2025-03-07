@@ -3,7 +3,7 @@
 #include "../BSP/StaticTime.hpp"
 #include "memory"
 #include "string.h"
-#define RM_RefereeSystemHuart huart1
+#define RM_RefereeSystemHuart huart6
 using namespace RM_RefereeSystem;
 using namespace RM_RefereeSystemCRC;
 // 死亡时间
@@ -419,10 +419,11 @@ void RM_daohangtx(const map_robot_data_t map_robot_data)
     memset(&rrrdata, 0, sizeof(rrrdata));
 
     memcpy((void *)(RM_RefereeSystemDataTemp.data), &map_robot_data, sizeof(map_robot_data));
-    memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(RM_RefereeSystemDataTemp));
+    memcpy(rrrdata, &RM_RefereeSystemDataTemp, sizeof(rrrdata));
     Append_CRC8_Check_Sum(rrrdata, CRC8LEN);
     Append_CRC16_Check_Sum(rrrdata, CRC16LEN(RM_RefereeSystemDataTemp.data_length));
 }
+
 void RM_daohangtxParsea(uint8_t *data)
 {
     RM_RefereeSystemData01.SOF = data[0];

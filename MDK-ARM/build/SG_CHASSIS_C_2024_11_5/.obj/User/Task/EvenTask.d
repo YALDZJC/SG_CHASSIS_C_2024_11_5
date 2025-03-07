@@ -3,6 +3,7 @@
   User\Task\..\APP\Buzzer.hpp User\APP\..\BSP\stdxxx.hpp \
   User\APP\..\Task\EvenTask.hpp User\Task\..\APP\LED.hpp \
   User\Task\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
+  User\BSP\Key.hpp User\BSP\stdxxx.hpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -28,8 +29,7 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  User\BSP\stdxxx.hpp User\BSP\Key.hpp ..\Core\Inc\usart.h \
-  ..\Core\Inc\main.h User\Task\..\BSP\Init.hpp \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\..\BSP\Init.hpp \
   User\Task\..\Task\CommunicationTask.hpp \
   User\Task\..\BSP\StaticTime.hpp User\APP\Variable.hpp \
   User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp \

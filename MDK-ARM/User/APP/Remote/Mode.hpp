@@ -151,7 +151,7 @@ inline bool KeyBoard()
 inline bool Stop()
 {
     return ((dr16.switchLeft() == Dr16::Switch::DOWN) && (dr16.switchRight() == Dr16::Switch::DOWN) ||
-            Gimbal_to_Chassis_Data.getStop());
+            Gimbal_to_Chassis_Data.getStop() || Dir_Event.getDir_Communication());
 }
 } // namespace Chassis
 
