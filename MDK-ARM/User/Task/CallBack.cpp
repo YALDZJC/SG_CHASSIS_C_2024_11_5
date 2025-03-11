@@ -2,6 +2,7 @@
 #include "My_hal.hpp"
 #include "Variable.hpp"
 #include "../BSP/Dbus.hpp"
+#include "../App/PM01.hpp"
 #include "../Task/CommunicationTask.hpp"
 #include "../APP/Referee/RM_RefereeSystem.h"
 
@@ -17,14 +18,14 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	{
 		Motor3508.Parse(RxHeader,RxHeaderData);
 		Motor6020.Parse(RxHeader,RxHeaderData);		
-
 	}
 	if(hcan == &hcan2)
 	{
 //		pm01.PM01Parse(RxHeader,RxHeaderData);
 		MeterPower.Parse(RxHeader,RxHeaderData);
-
-	}
+		BSP::Power::pm01.PM01Parse(RxHeader,RxHeaderData);
+        BSP::Power::pm01.PM01SendData(5000);
+    }
 }
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)

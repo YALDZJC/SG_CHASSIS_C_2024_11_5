@@ -133,5 +133,5 @@ extern Wheel_t<SG> Wheel;
 extern Tools_t Tools;
 extern Chassis_Data_t Chassis_Data;
 
-extern PM01 pm01;
+// extern PM01 pm01;
 

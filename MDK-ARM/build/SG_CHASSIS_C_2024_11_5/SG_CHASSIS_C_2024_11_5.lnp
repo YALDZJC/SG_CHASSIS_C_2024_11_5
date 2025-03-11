@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp --scatter "e:/RM_CODE/SG_CHASSIS_C_2024_11_5/MDK-ARM/build/SG_CHASSIS_C_2024_11_5/SG_CHASSIS_C_2024_11_5.sct" --diag_suppress=L6329 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--cpu=Cortex-M4.fp --scatter "d:/E/GitHub_Desktop/demo/SG_WHEEL/MDK-ARM/build/SG_CHASSIS_C_2024_11_5/SG_CHASSIS_C_2024_11_5.sct" --diag_suppress=L6329 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
 --list ./build/SG_CHASSIS_C_2024_11_5/SG_CHASSIS_C_2024_11_5.map
 ./build/SG_CHASSIS_C_2024_11_5/.obj/__/Core/Src/can.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/__/Core/Src/dma.o
