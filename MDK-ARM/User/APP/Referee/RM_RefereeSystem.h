@@ -9,7 +9,7 @@ namespace RM_RefereeSystem
 enum RM_Operate
 {
 	//空，添加，修改，删除
-	OperateNull,OperateAdd,OperateRevise,OperateDelete
+	OperateNull,OperateAdd,	OperateRevise,OperateDelete
 };
 //删除操作
 enum RM_DeleteOperate

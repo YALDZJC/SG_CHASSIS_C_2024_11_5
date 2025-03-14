@@ -6,7 +6,6 @@
 #include "Dm_Motor.hpp"
 #include "State.hpp"
 #include "Tools.hpp"
-#include "PM01.hpp"
 #include "PowerTask.hpp"
 #include "EvenTask.hpp"
 #include "PowerMeter.hpp"

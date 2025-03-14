@@ -8,9 +8,11 @@ class darw_static
   private:
     /* data */
   public:
-    // void aimLine();
+    void AimLine();
     void PitchLine();
     void setLayer();
+
+    void Init();
 };
 
 inline darw_static UI_static;

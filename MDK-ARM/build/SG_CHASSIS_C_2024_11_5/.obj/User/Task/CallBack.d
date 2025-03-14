@@ -31,8 +31,7 @@
   User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp \
   User\BSP\Key.hpp User\Algorithm\PID.hpp User\BSP\stdxxx.hpp \
   User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp User\APP\State.hpp \
-  User\APP\Tools.hpp User\APP\PM01.hpp User\Task\PowerTask.hpp \
-  User\Algorithm\RLS.hpp \
+  User\APP\Tools.hpp User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
@@ -46,8 +45,10 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
   User\Task\EvenTask.hpp User\APP\PowerMeter.hpp \
   User\Task\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
-  User\Task\..\App\PM01.hpp User\Task\..\Task\CommunicationTask.hpp \
-  User\Task\EvenTask.hpp User\Task\..\BSP\StaticTime.hpp \
+  User\Task\..\Task\CommunicationTask.hpp User\Task\EvenTask.hpp \
+  User\Task\..\BSP\StaticTime.hpp \
   User\Task\..\APP\Referee\RM_RefereeSystem.h \
   User\Task\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
-  User\APP\..\BSP\stdxxx.hpp
+  User\APP\..\BSP\stdxxx.hpp User\Task\..\BSP\Power\PM01.hpp \
+  User\APP\..\BSP\StaticTime.hpp \
+  User\APP\..\APP\Referee\RM_RefereeSystem.h

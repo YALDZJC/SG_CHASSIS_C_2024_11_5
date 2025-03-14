@@ -65,8 +65,9 @@ class send_graphic_queue // 发送数据队列
     int8_t wz_size;
     // 刷新图层
     bool is_Delete_all;
+    bool is_up_ui = false; // 上锁
 
-  public:
+public:
     void add(RM_RefereeSystem::graphic_data_struct_t graphic_data_struct_temp)
     {
         if (size >= 49)
@@ -154,6 +155,6 @@ class send_graphic_queue // 发送数据队列
         is_Delete_all = true;
     }
 };
-inline UI::send_graphic_queue UI_send_queue;
+inline send_graphic_queue UI_send_queue;
 
 } // namespace UI

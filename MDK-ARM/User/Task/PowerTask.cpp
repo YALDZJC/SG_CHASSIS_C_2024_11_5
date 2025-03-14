@@ -3,6 +3,7 @@
 #include "Variable.hpp"
 #include "Tools.hpp"
 #include "math.h"
+#include "../BSP/Power/PM01.hpp"
 #include "stdxxx.hpp"
 
 using namespace SGPowerControl;
@@ -12,6 +13,7 @@ uint32_t pm01_ms = 0;
 
 float W2, T2;
 float EffectivePower_t;
+uint16_t time = 2;
 void RLSTask(void *argument)
 {
     for (;;)
@@ -19,7 +21,7 @@ void RLSTask(void *argument)
         PowerControl.Wheel_PowerData.UpRLS(pid_vel_Wheel, Motor3508, toque_const_3508);
         PowerControl.String_PowerData.UpRLS(pid_vel_String, Motor6020, toque_const_6020);
 
-        osDelay(1);
+        osDelay(time);
     }
 }
 
@@ -39,9 +41,9 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
 
     // if (EventParse.DirData.MeterPower == false)
     // {
-    //     params = rls.update(samples, MeterPower.GetPower() - EffectivePower - k3);
-    //     k1 = params[0][0]; // In case the k1 diverge to negative number
-    //     k2 = params[1][0]; // In case the k2 diverge to negative number
+        params = rls.update(samples, BSP::Power::pm01.cin_power - EffectivePower - k3);
+        k1 = params[0][0]; // In case the k1 diverge to negative number
+        k2 = params[1][0]; // In case the k2 diverge to negative number
     // }
 
     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;

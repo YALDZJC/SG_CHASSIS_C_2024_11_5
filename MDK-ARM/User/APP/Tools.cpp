@@ -23,7 +23,7 @@ void Tools_t::vofaSend(float x1, float x2, float x3, float x4, float x5, float x
     *((float *)&send_str2[sendSize * 5]) = x6;
 
     *((uint32_t *)&send_str2[sizeof(float) * (7)]) = 0x7f800000;
-//    HAL_UART_Transmit_DMA(&huart1, send_str2, sizeof(float) * (7 + 1));
+    HAL_UART_Transmit_DMA(&huart6, send_str2, sizeof(float) * (7 + 1));
 }
 
 // 过零处理

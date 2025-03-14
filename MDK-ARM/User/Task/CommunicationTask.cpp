@@ -31,7 +31,6 @@ void Gimbal_to_Chassis::Data_receive(UART_HandleTypeDef *huart)
     const uint8_t EXPECTED_HEAD = 0xA5; // 根据发送端设置的头字节
     const uint8_t EXPECTED_LEN = 1 + sizeof(Direction) + sizeof(ChassisMode) + sizeof(UiList);
 
-
     // 校验长度和头字节
     if (pData[0] != EXPECTED_HEAD)
     {

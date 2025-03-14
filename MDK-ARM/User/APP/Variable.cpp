@@ -58,9 +58,9 @@ TD td_3508_speed[4] = {
 
 
 // 期望值滤波
-TD tar_vw(30);
-TD tar_vx(30);
-TD tar_vy(30);
+TD tar_vw(20);
+TD tar_vx(20);
+TD tar_vy(20);
 TD td_FF_Tar(100);
 
 TD td_Power[4] = {

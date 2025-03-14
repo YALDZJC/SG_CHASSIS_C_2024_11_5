@@ -1,13 +1,19 @@
 >>> cc
 
-
-
-
-
-
-
-
+./User/APP/UI/Dynamic/darw_dynamic.cpp:40:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch", 1, pitch_out, pitch_out + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:55:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:65:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:69:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+4 warnings generated.
 
 >>> ld
 
-Program Size: Code=61992 RO-data=6640 RW-data=96 ZI-data=29016  
+Program Size: Code=67996 RO-data=6908 RW-data=104 ZI-data=29192  

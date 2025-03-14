@@ -641,7 +641,7 @@
             <File>
               <FileName>PM01.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>.\User\BSP\PM01.hpp</FilePath>
+              <FilePath>.\User\BSP\Power\PM01.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -679,11 +679,6 @@
               <FilePath>.\User\APP\Tools.cpp</FilePath>
             </File>
             <File>
-              <FileName>PM01.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\User\APP\PM01.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Buzzer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\User\APP\Buzzer.cpp</FilePath>
@@ -704,9 +699,14 @@
               <FilePath>.\User\APP\Referee\RM_RefereeSystemCRC.cpp</FilePath>
             </File>
             <File>
-              <FileName>PM01.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\User\APP\PM01.hpp</FilePath>
+              <FileName>darw_static.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\UI\Static\darw_static.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>darw_dynamic.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\User\APP\UI\Dynamic\darw_dynamic.cpp</FilePath>
             </File>
           </Files>
         </Group>

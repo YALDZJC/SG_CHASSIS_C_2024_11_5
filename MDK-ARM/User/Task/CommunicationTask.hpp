@@ -48,6 +48,7 @@
 // 模式切换
 #define TAR_LX (Gimbal_to_Chassis_Data.getLX() - 110) / 110.0f
 #define TAR_LY (Gimbal_to_Chassis_Data.getLY() - 110) / 110.0f
+#define TAR_VW (Gimbal_to_Chassis_Data.getRotatingVel() - 110) / 110.0f
 #define TAR_RX BSP::Remote::dr16.remoteRight().x
 #define TAR_RY BSP::Remote::dr16.remoteRight().y
 
@@ -98,7 +99,9 @@ class Gimbal_to_Chassis
 
         uint8_t Rotating_vel;
         float Yaw_encoder_angle_err;
-			uint8_t is_v_reverse : 1;
+		uint8_t is_v_reverse : 1;
+		uint8_t target_offset_angle;
+
     };
 
     struct __attribute__((packed)) ChassisMode // 底盘模式
@@ -113,12 +116,14 @@ class Gimbal_to_Chassis
     struct __attribute__((packed)) UiList // 底盘模式
     {
         uint8_t MCL : 1;
-        uint8_t CM : 1;
         uint8_t BP : 1;
+        uint8_t UI_F5 : 1;
+        uint8_t Shift : 1;
+        float pitch_pos;
     };
 
 
-    uint8_t pData[11];
+    uint8_t pData[16];
 
     struct Direction direction;
     struct ChassisMode chassis_mode;
@@ -150,6 +155,11 @@ class Gimbal_to_Chassis
         return chassis_mode.stop;
     }
 
+    bool getShitf()
+    {
+        return ui_list.Shift;
+    }
+
     uint8_t getLX()
     {
         return direction.LX;
@@ -174,6 +184,16 @@ class Gimbal_to_Chassis
     {
         return direction.Rotating_vel;
     }
+
+    float getPitchDeg()
+    {
+        return ui_list.pitch_pos;
+    }
+	
+	float getTargetOffsetAngle()
+	{
+		return direction.target_offset_angle * 0.017453;
+	}
 };
 
 inline uint8_t getSendRc(uint16_t RcData)

@@ -72,7 +72,7 @@ namespace SGPowerControl
             Wheel_PowerData.k1 = 2.32443824e-07;
             Wheel_PowerData.k2 = 2.32332226e-07;
 
-            String_PowerData.MAXPower = 50 * 0.8f;
+            String_PowerData.MAXPower = 50 * 0.6f;
             String_PowerData.k1 = -3.58174657e-05;
             String_PowerData.k2 = 2.06377621e-07;
         }
@@ -87,6 +87,13 @@ namespace SGPowerControl
         {
             return String_PowerData.EstimatedPower;
         }
+
+        inline void setMaxPower(float maxPower)
+        {
+            Wheel_PowerData.MAXPower = maxPower;
+            String_PowerData.MAXPower = maxPower * 0.6f;//舵向电机限制百分之六十的功率上限
+        }
+
     };
 } // namespace PowerControl
 static inline bool floatEqual(float a, float b) { return fabs(a - b) < 1e-5f; }

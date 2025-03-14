@@ -41,7 +41,6 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Dji_Motor.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Dm_Motor.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/LED.o
-./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/PM01.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/PowerMeter.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystem.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Referee/RM_RefereeSystemCRC.o
@@ -59,6 +58,7 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Bsp_Can.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Dbus.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Init.o
+./build/SG_CHASSIS_C_2024_11_5/.obj/User/BSP/Power/PM01.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/HAL/HAL.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/HAL/My_HAL.o
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/CallBack.o

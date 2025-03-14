@@ -1,5 +1,6 @@
 #include "ChassisTask.hpp"
 #include "../Task/CommunicationTask.hpp"
+#include "../APP/Referee/RM_RefereeSystem.h"
 #include "HAL.hpp"
 #include "State.hpp"
 #include "Variable.hpp"
@@ -7,7 +8,7 @@
 
 #include "../APP/Remote/KeyBroad.hpp"
 #include "../APP/Remote/Mode.hpp"
-
+#include "../BSP/Power/PM01.hpp"
 #include "../BSP/Dbus.hpp"
 
 TaskManager taskManager;
@@ -18,8 +19,7 @@ void ChassisTask(void *argument)
 
     taskManager.addTask<Chassis_Task>();
 
-    for (;;)
-    {
+    for (;;) {
         taskManager.updateAll();
         osDelay(2);
     }
@@ -30,8 +30,9 @@ class Chassis_Task::UniversalHandler : public StateHandler
 {
     Chassis_Task &m_task;
 
-  public:
-    explicit UniversalHandler(Chassis_Task &task) : m_task(task)
+public:
+    explicit UniversalHandler(Chassis_Task &task)
+        : m_task(task)
     {
     }
 
@@ -62,10 +63,11 @@ class Chassis_Task::UniversalHandler : public StateHandler
 float gyro_vel = 150;
 class Chassis_Task::FollowHandler : public StateHandler
 {
-  public:
+public:
     Chassis_Task &m_task;
 
-    explicit FollowHandler(Chassis_Task &task) : m_task(task)
+    explicit FollowHandler(Chassis_Task &task)
+        : m_task(task)
     {
     }
 
@@ -77,15 +79,8 @@ class Chassis_Task::FollowHandler : public StateHandler
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
 
-        if (Gimbal_to_Chassis_Data.getRotatingVel() > 0)
-        {
-            tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel());
-        }
-        else
-        {
-            pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
-            tar_vw.Calc(pid_vw.GetCout());
-        }
+        pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+        tar_vw.Calc(pid_vw.GetCout());
 
         Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
         Chassis_Data.vy = (tar_vx.x1 * sin_theta + tar_vy.x1 * cos_theta);
@@ -106,32 +101,41 @@ class Chassis_Task::FollowHandler : public StateHandler
         m_task.CAN_Send();
     }
 };
-
+float angle;
 class Chassis_Task::KeyBoardHandler : public StateHandler
 {
-  public:
+public:
     Chassis_Task &m_task;
 
-    explicit KeyBoardHandler(Chassis_Task &task) : m_task(task)
+    explicit KeyBoardHandler(Chassis_Task &task)
+        : m_task(task)
     {
     }
 
     void FllowTarget()
     {
-        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
-        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+		float total_angle = Gimbal_to_Chassis_Data.getEncoderAngleErr();
+        auto cos_theta = HAL::cosf(-total_angle);
+        auto sin_theta = HAL::sinf(-total_angle);
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
 
-        if (Gimbal_to_Chassis_Data.getRotatingVel() > 0)
-        {
+		angle = Gimbal_to_Chassis_Data.getTargetOffsetAngle();
+		
+        if (Gimbal_to_Chassis_Data.getRotatingVel() > 0) {
             tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 3);
-        }
-        else
-        {
-            pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+        } else {
+            pid_vw.GetPidPos(Kpid_vw, Gimbal_to_Chassis_Data.getTargetOffsetAngle(), total_angle, 10000);
             tar_vw.Calc(pid_vw.GetCout());
+        }
+
+        if (Gimbal_to_Chassis_Data.getShitf()) {
+            PowerControl.setMaxPower(120);
+        }
+		else
+        {
+            PowerControl.setMaxPower(ext_power_heat_data_0x0201.chassis_power_limit);
         }
 
         Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
@@ -156,10 +160,11 @@ class Chassis_Task::KeyBoardHandler : public StateHandler
 
 class Chassis_Task::RotatingHandler : public StateHandler
 {
-  public:
+public:
     Chassis_Task &m_task;
 
-    explicit RotatingHandler(Chassis_Task &task) : m_task(task)
+    explicit RotatingHandler(Chassis_Task &task)
+        : m_task(task)
     {
     }
 
@@ -170,17 +175,16 @@ class Chassis_Task::RotatingHandler : public StateHandler
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
+        tar_vw.Calc(TAR_VW * 660);
 
-        pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
-        tar_vw.Calc(pid_vw.GetCout());
+//        pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+//        tar_vw.Calc(pid_vw.GetCout());
 
         Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
         Chassis_Data.vy = (tar_vx.x1 * sin_theta + tar_vy.x1 * cos_theta);
+		Chassis_Data.vw = (tar_vw.x1);
 
-        //				if(Gimbal_to_Chassis_Data.getEncoderAngleErr() < 3.14 / 12)
-        //					Chassis_Data.vw = 0;
-        //				else
-        Chassis_Data.vw = gyro_vel;
+		
 
         td_FF_Tar.Calc(TAR_LX * 660);
     }
@@ -210,8 +214,9 @@ class Chassis_Task::StopHandler : public StateHandler
 {
     Chassis_Task &m_task;
 
-  public:
-    explicit StopHandler(Chassis_Task &task) : m_task(task)
+public:
+    explicit StopHandler(Chassis_Task &task)
+        : m_task(task)
     {
     }
 
@@ -221,8 +226,7 @@ class Chassis_Task::StopHandler : public StateHandler
         // Base_UpData();
         m_task.Tar_Updata();
 
-        for (int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             Chassis_Data.final_6020_Out[i] = 0;
             Chassis_Data.final_3508_Out[i] = 0;
         }
@@ -253,8 +257,7 @@ Chassis_Task::Chassis_Task()
 
 void Chassis_Task::executeState()
 {
-    if (m_stateHandler)
-    {
+    if (m_stateHandler) {
         m_stateHandler->handle();
     }
 }
@@ -265,47 +268,41 @@ void Chassis_Task::updateState()
     using namespace BSP::Remote;
 
     auto switch_right = dr16.switchRight();
-    auto switch_left = dr16.switchLeft();
+    auto switch_left  = dr16.switchLeft();
 
-    if (Mode::Chassis::Universal())
-    {
+    if (Mode::Chassis::Universal()) {
         m_currentState = State::UniversalState;
     }
-    if (Mode::Chassis::Follow())
-    {
+    if (Mode::Chassis::Follow()) {
         m_currentState = State::FollowState;
     }
-    if (Mode::Chassis::Rotating())
-    {
+    if (Mode::Chassis::Rotating()) {
         m_currentState = State::RotatingState;
     }
-    if (Mode::Chassis::KeyBoard())
-    {
+    if (Mode::Chassis::KeyBoard()) {
         m_currentState = State::KeyBoardState;
     }
-    if (Mode::Chassis::Stop())
-    {
+    if (Mode::Chassis::Stop()) {
         m_currentState = State::StopState;
     }
 
     // 更新状态处理器
-    switch (m_currentState)
-    {
-    case State::UniversalState:
-        m_stateHandler = std::make_unique<UniversalHandler>(*this);
-        break;
-    case State::FollowState:
-        m_stateHandler = std::make_unique<FollowHandler>(*this);
-        break;
-    case State::RotatingState:
-        m_stateHandler = std::make_unique<RotatingHandler>(*this);
-        break;
-    case State::KeyBoardState:
-        m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
-        break;
-    case State::StopState:
-        m_stateHandler = std::make_unique<StopHandler>(*this);
-        break;
+    switch (m_currentState) {
+        case State::UniversalState:
+            m_stateHandler = std::make_unique<UniversalHandler>(*this);
+            break;
+        case State::FollowState:
+            m_stateHandler = std::make_unique<FollowHandler>(*this);
+            break;
+        case State::RotatingState:
+            m_stateHandler = std::make_unique<RotatingHandler>(*this);
+            break;
+        case State::KeyBoardState:
+            m_stateHandler = std::make_unique<KeyBoardHandler>(*this);
+            break;
+        case State::StopState:
+            m_stateHandler = std::make_unique<StopHandler>(*this);
+            break;
     }
 }
 
@@ -337,14 +334,12 @@ void Chassis_Task::Wheel_UpData()
     Wheel.WheelType.UpDate(Chassis_Data.vx, Chassis_Data.vy, Chassis_Data.vw, 7200);
 
     // 储存最小角判断的速度
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.tar_speed[i] = Wheel.WheelType.speed[i];
     }
 
     // 储存最小角判断的角度
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.tar_angle[i] = Wheel.WheelType.angle[i];
     }
 
@@ -362,13 +357,11 @@ void Chassis_Task::Wheel_UpData()
         Tools.MinPosHelm(Chassis_Data.tar_angle[3] + Chassis_angle_Init_0x208,
                          Motor6020.GetEquipData(R_Forward_6020_ID, Dji_Angle), &Chassis_Data.tar_speed[3], 16384, 8192);
 
-    if (is_sin == true)
-    {
-        sin_t = 4096 + HAL::sinf(2 * 3.1415926 * ms * 0.001 * hz) * 4000;
+    if (is_sin == true) {
+        sin_t   = 4096 + HAL::sinf(2 * 3.1415926 * ms * 0.001 * hz) * 4000;
         ude_tar = 4096 + HAL::sinf(2 * 3.1415926 * ms * 0.001 * hz) * 4000;
         ms++;
-    }
-    else
+    } else
         sin_t = pos;
 
     // 过零处理         //发现直接用for会使电机疯
@@ -390,8 +383,7 @@ void Chassis_Task::Wheel_UpData()
 void Chassis_Task::Filtering()
 {
     // 电机一般速度反馈噪声大
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         td_3508_speed[i].Calc(Motor3508.GetRPMFeedback(i));
     }
 }
@@ -399,8 +391,7 @@ void Chassis_Task::Filtering()
 void Chassis_Task::PID_Updata()
 {
     // 舵向电机更新
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         // 舵向电机前馈更新
         feed_6020[i].UpData(Chassis_Data.Zero_cross[i]);
         Chassis_Data.FF_Zero_cross[i] = Tools.Round_Error(feed_6020[i].cout, feed_6020[i].target_e, 8191);
@@ -414,8 +405,7 @@ void Chassis_Task::PID_Updata()
     }
 
     // 轮毂电机速度环更新
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         pid_vel_Wheel[i].GetPidPos(Kpid_3508_vel, Chassis_Data.tar_speed[i], td_3508_speed[i].x1, 16384.0f);
     }
 }
@@ -423,14 +413,12 @@ void Chassis_Task::PID_Updata()
 bool is_ude;
 void Chassis_Task::CAN_Setting()
 {
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.final_6020_Out[i] = pid_vel_String[i].GetCout();
     }
 
     // 如果，没有超功率就沿用pid输出，如果超功率就进入功率控制部分的判断
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         Chassis_Data.final_3508_Out[i] = pid_vel_Wheel[i].GetCout();
     }
 
@@ -462,22 +450,20 @@ void Chassis_Task::CAN_Setting()
 void Chassis_Task::CAN_Send()
 {
     // 发送数据
-    if (Send_ms == 0)
-    {
+    if (Send_ms == 0) {
+        BSP::Power::pm01.PM01SendFun();
         Motor3508.Send_CAN_MAILBOX1(&msd_3508_2006, SEND_MOTOR_ID_3508);
-    }
-    else if (Send_ms == 1)
-    {
+    } else if (Send_ms == 1) {
         Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);
     }
 
     Send_ms++;
     Send_ms %= 2;
 
-    //    Tools.vofaSend(ude_tar,
-    //                   Motor6020.GetAngleFeedback(1),
-    //                   0,
-    //                   0,
-    //                   0,
-    //                   PowerControl.String_PowerData.pMaxPower[3]);
+    // Tools.vofaSend(BSP::Power::pm01.cin_power,
+    //                PowerControl.String_PowerData.EstimatedPower,
+    //                PowerControl.Wheel_PowerData.EstimatedPower,
+    //                0,
+    //                0,
+    //                PowerControl.String_PowerData.pMaxPower[3]);
 }
