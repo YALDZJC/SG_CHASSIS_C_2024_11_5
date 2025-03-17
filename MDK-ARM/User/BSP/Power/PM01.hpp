@@ -1,10 +1,12 @@
 #pragma once
 
 #include "stm32f4xx_hal.h"
+#include "../Task/PowerTask.hpp"
 #include "../BSP/StaticTime.hpp" //静态定时器
 #include "../APP/Referee/RM_RefereeSystem.h"
 #include "../BSP/stdxxx.hpp"
 #include "can.h"
+#include "../Task/CommunicationTask.hpp"
 #define WARNING_POWER_BUFFER 30
 
 namespace BSP::Power
@@ -21,11 +23,12 @@ namespace BSP::Power
     };
 
     struct RM_PM01 {
-        float cout_voltage;         // 电容电压*100
-        float cout_ampere;          // 电容电流*100
-        float cout_power;           // 电容当前功率
-        float lim_cin_power;        // 输入上限功率*100
-        float add_lim_cin_power;    // 输入增加的功率，最大不超过45w
+        float cout_voltage;      // 电容电压*100
+        float cout_ampere;       // 电容电流*100
+        float cout_power;        // 电容当前功率
+        float lim_cin_power;     // 输入上限功率*100
+        float add_lim_cin_power; // 输入增加的功率，最大不超过45w
+        uint8_t is_limit;
         float cin_voltage;          // 电压
         float cin_ampere;           // 电流
         float cin_power;            // 当前功率
@@ -73,17 +76,24 @@ namespace BSP::Power
                     this->PM01SendData(set_open_or_close, 2);
                     this->is_open = true;
                 } else {
+                    // if (Gimbal_to_Chassis_Data.getShitf() != true) {
+                    //     this->is_open = false;
+                    // }
+
                     // 设置输入功率
                     if (send_cnt < 5) // 保证必须发对功率
                     {
-                        if (wwww == 1) {
-                            add_lim_cin_power = 45;
-                        } else {
-                            add_lim_cin_power = (ext_power_heat_data_0x0201.robot_level * 5);
-                            if (add_lim_cin_power > 45) add_lim_cin_power = 45;
+                        //                        if (wwww == 1) {
+                        //                            add_lim_cin_power = 45;
+                        //                        } else {
+                        //                            add_lim_cin_power = (ext_power_heat_data_0x0201.chassis_power_limit - 5);
+                        //                            if (add_lim_cin_power > 45) add_lim_cin_power = 45;
+                        //                        }
+                        if (is_limit == 0) {
+                            lim_cin_power = ext_power_heat_data_0x0201.chassis_power_limit - 5;
                         }
 
-                        this->PM01SendData(set_cin_power, (lim_cin_power + add_lim_cin_power) * 100);
+                        this->PM01SendData(set_cin_power, (lim_cin_power) * 100);
                     } else {
                         this->PM01SendRemote(read_cout_state); // 获取输出状态
                         this->PM01SendRemote(read_cin_state);  // 获取输出状态

@@ -55,5 +55,8 @@
   User\Task\..\APP\Remote\KeyBroad.hpp User\APP\..\BSP\Dbus.hpp \
   User\APP\..\BSP\StaticTime.hpp User\Task\..\APP\Remote\Mode.hpp \
   User\APP\..\Task\CommunicationTask.hpp User\APP\..\Task\EvenTask.hpp \
-  User\Task\..\BSP\Power\PM01.hpp \
-  User\APP\..\APP\Referee\RM_RefereeSystem.h
+  User\Task\..\BSP\Power\PM01.hpp User\APP\..\Task\PowerTask.hpp \
+  User\APP\..\APP\Referee\RM_RefereeSystem.h \
+  User\Task\..\APP\UI\UI_Queue.hpp \
+  User\Task\..\APP\UI\..\Referee\RM_RefereeSystem.h \
+  User\Task\..\APP\UI\Static\darw_static.hpp

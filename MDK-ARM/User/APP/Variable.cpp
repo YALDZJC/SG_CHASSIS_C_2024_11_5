@@ -33,11 +33,11 @@ Kpid_t ude_Kpid_vel(15, 0, 0);
 PID ude_vel_demo;
 
 //底盘跟随环
-Kpid_t Kpid_vw(-200, 0, -5);
+Kpid_t Kpid_vw(-180, 0, 0);
 PID pid_vw;
 
 // PID速度环设置
-Kpid_t Kpid_3508_vel(5, 0.2, 0);
+Kpid_t Kpid_3508_vel(5, 0, 0);
 PID pid_vel_Wheel[4] = {
     {1000, 8000},
     {1000, 8000},
@@ -58,9 +58,9 @@ TD td_3508_speed[4] = {
 
 
 // 期望值滤波
-TD tar_vw(20);
-TD tar_vx(20);
-TD tar_vy(20);
+TD tar_vw(50);
+TD tar_vx(15);
+TD tar_vy(15);
 TD td_FF_Tar(100);
 
 TD td_Power[4] = {

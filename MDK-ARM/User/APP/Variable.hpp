@@ -68,6 +68,8 @@ typedef struct
     float vx, vy, vw;
 
     int8_t is_v_reverse;
+
+    int8_t now_power;
 } Chassis_Data_t;
 
 extern uint32_t Send_ms;

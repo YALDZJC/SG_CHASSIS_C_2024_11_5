@@ -56,7 +56,7 @@
 
 class Communicat_Data
 {
-  public:
+public:
     Communicat_Data(uint16_t size)
     {
         size_ = size;
@@ -67,140 +67,141 @@ class Communicat_Data
         delete[] data_;
     }
 
-  protected:
-  private:
+protected:
+private:
     uint16_t *data_;
     uint16_t size_;
 };
 
-
 namespace Communicat
 {
-class Gimbal_to_Chassis
-{
-  public:
-    void Data_send();
-    void Data_receive(UART_HandleTypeDef *huart);
-    void Init();
-    bool ISDir();
-
-  private:
-    uint8_t head = 0xA5; // 帧头
-
-    bool is_dir;
-    RM_StaticTime dirTime;
-
-    void SlidingWindowRecovery();
-	
-    struct __attribute__((packed)) Direction // 方向结构体
+    class Gimbal_to_Chassis
     {
-        uint8_t LX;
-        uint8_t LY;
+    public:
+        void Data_send();
+        void Data_receive(UART_HandleTypeDef *huart);
+        void Init();
+        bool ISDir();
 
-        uint8_t Rotating_vel;
-        float Yaw_encoder_angle_err;
-		uint8_t is_v_reverse : 1;
-		uint8_t target_offset_angle;
+    private:
+        uint8_t head = 0xA5; // 帧头
 
-    };
+        bool is_dir;
+        RM_StaticTime dirTime;
 
-    struct __attribute__((packed)) ChassisMode // 底盘模式
-    {
-        uint8_t Universal_mode : 1;
-        uint8_t Follow_mode : 1;
-        uint8_t Rotating_mode : 1;
-        uint8_t KeyBoard_mode : 1;
-        uint8_t stop : 1;
-    };
+        void SlidingWindowRecovery();
 
-    struct __attribute__((packed)) UiList // 底盘模式
-    {
-        uint8_t MCL : 1;
-        uint8_t BP : 1;
-        uint8_t UI_F5 : 1;
-        uint8_t Shift : 1;
-        float pitch_pos;
-    };
+        struct __attribute__((packed)) Direction // 方向结构体
+        {
+            uint8_t LX;
+            uint8_t LY;
 
+            uint8_t Rotating_vel;
+            float Yaw_encoder_angle_err;
+            uint8_t target_offset_angle;
+            int8_t Power;
+        };
 
-    uint8_t pData[16];
+        struct __attribute__((packed)) ChassisMode // 底盘模式
+        {
+            uint8_t Universal_mode : 1;
+            uint8_t Follow_mode : 1;
+            uint8_t Rotating_mode : 1;
+            uint8_t KeyBoard_mode : 1;
+            uint8_t stop : 1;
+        };
 
-    struct Direction direction;
-    struct ChassisMode chassis_mode;
-    struct UiList ui_list;
+        struct __attribute__((packed)) UiList // 底盘模式
+        {
+            uint8_t MCL : 1;
+            uint8_t BP : 1;
+            uint8_t UI_F5 : 1;
+            uint8_t Shift : 1;
+            uint8_t Vision : 2;
+        };
+
+        uint8_t pData[12];
+
+        struct Direction direction;
+        struct ChassisMode chassis_mode;
+        struct UiList ui_list;
 
     public:
-    bool getUniversal()
+        bool getUniversal()
+        {
+            return chassis_mode.Universal_mode;
+        }
+
+        bool getFollow()
+        {
+            return chassis_mode.Follow_mode;
+        }
+
+        bool getRotating()
+        {
+            return chassis_mode.Rotating_mode;
+        }
+
+        bool getKeyBoard()
+        {
+            return chassis_mode.KeyBoard_mode;
+        }
+
+        bool getStop()
+        {
+            return chassis_mode.stop;
+        }
+
+        bool getShitf()
+        {
+            return ui_list.Shift;
+        }
+
+        uint8_t getLX()
+        {
+            return direction.LX;
+        }
+
+        uint8_t getLY()
+        {
+            return direction.LY;
+        }
+
+        float getEncoderAngleErr()
+        {
+            return direction.Yaw_encoder_angle_err * 0.017453;
+        }
+
+        uint8_t getRotatingVel()
+        {
+            return direction.Rotating_vel;
+        }
+
+        float getTargetOffsetAngle()
+        {
+            return direction.target_offset_angle * 0.017453;
+        }
+
+        int8_t getPower()
+        {
+            return direction.Power;
+        }
+
+        bool getF5()
+        {
+            return ui_list.UI_F5;
+        }
+
+        inline uint8_t getVisionMode()
+        {
+            return ui_list.Vision;
+        }
+    };
+
+    inline uint8_t getSendRc(uint16_t RcData)
     {
-        return chassis_mode.Universal_mode;
+        return (RcData / 6) - 110;
     }
-
-    bool getFollow()
-    {
-        return chassis_mode.Follow_mode;
-    }
-
-    bool getRotating()
-    {
-        return chassis_mode.Rotating_mode;
-    }
-
-    bool getKeyBoard()
-    {
-        return chassis_mode.KeyBoard_mode;
-    }
-
-    bool getStop()
-    {
-        return chassis_mode.stop;
-    }
-
-    bool getShitf()
-    {
-        return ui_list.Shift;
-    }
-
-    uint8_t getLX()
-    {
-        return direction.LX;
-    }
-
-    uint8_t getLY()
-    {
-        return direction.LY;
-    }
-
-    float getEncoderAngleErr()
-    {
-        return direction.Yaw_encoder_angle_err * 0.017453;
-    }
-
-    int8_t get_is_reverse()
-    {
-        return direction.is_v_reverse ? 1 : -1;
-    }
-
-    uint8_t getRotatingVel()
-    {
-        return direction.Rotating_vel;
-    }
-
-    float getPitchDeg()
-    {
-        return ui_list.pitch_pos;
-    }
-	
-	float getTargetOffsetAngle()
-	{
-		return direction.target_offset_angle * 0.017453;
-	}
-};
-
-inline uint8_t getSendRc(uint16_t RcData)
-{
-    return (RcData / 6) - 110;
-}
-
 
 } // namespace Communicat
 extern Communicat::Gimbal_to_Chassis Gimbal_to_Chassis_Data;
@@ -209,11 +210,10 @@ extern Communicat::Gimbal_to_Chassis Gimbal_to_Chassis_Data;
 
 // 将RTOS任务引至.c文件
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    void CommunicationTask(void *argument);
+void CommunicationTask(void *argument);
 
 #ifdef __cplusplus
 }

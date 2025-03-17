@@ -68,13 +68,13 @@ namespace SGPowerControl
     public:
         PowerTask_t()
         {
-            Wheel_PowerData.MAXPower = 50;
-            Wheel_PowerData.k1 = 2.32443824e-07;
-            Wheel_PowerData.k2 = 2.32332226e-07;
+            Wheel_PowerData.MAXPower = 45;
+            Wheel_PowerData.k1 = 6.91571415e-07;
+            Wheel_PowerData.k2 = 7.07674985e-07;
 
-            String_PowerData.MAXPower = 50 * 0.6f;
-            String_PowerData.k1 = -3.58174657e-05;
-            String_PowerData.k2 = 2.06377621e-07;
+            String_PowerData.MAXPower = 45 * 0.6f;
+            String_PowerData.k1 = 0.000164319485;
+            String_PowerData.k2 = 3.0557274e-07;
         }
 
         PowerUpData_t String_PowerData;
@@ -92,6 +92,11 @@ namespace SGPowerControl
         {
             Wheel_PowerData.MAXPower = maxPower;
             String_PowerData.MAXPower = maxPower * 0.6f;//舵向电机限制百分之六十的功率上限
+        }
+
+        inline uint16_t getMAXPower()
+        {
+            return Wheel_PowerData.MAXPower;
         }
 
     };

@@ -31,4 +31,27 @@
   User\APP\UI\Static\..\..\Referee\RM_RefereeSystem.h \
   ..\Core\Inc\usart.h ..\Core\Inc\main.h \
   User\APP\UI\Static\..\..\Referee\..\Referee\RM_RefereeSystemCRC.h \
-  User\APP\..\BSP\stdxxx.hpp
+  User\APP\..\BSP\stdxxx.hpp User\APP\..\BSP\Power\PM01.hpp \
+  User\APP\..\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
+  ..\Core\Inc\FreeRTOSConfig.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\mpu_wrappers.h \
+  User\Algorithm\Matrix.hpp ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\task.h \
+  ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
+  User\APP\Variable.hpp User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp \
+  User\BSP\StaticTime.hpp User\HAL\My_hal.hpp User\BSP\Bsp_Can.hpp \
+  User\HAL\My_HAL.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
+  ..\Core\Inc\gpio.h User\HAL\HAL.hpp User\Algorithm\PID.hpp \
+  User\BSP\stdxxx.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
+  User\APP\State.hpp User\APP\Tools.hpp User\Task\PowerTask.hpp \
+  User\Task\EvenTask.hpp User\APP\PowerMeter.hpp \
+  User\APP\..\APP\Referee\RM_RefereeSystem.h \
+  User\APP\..\Task\CommunicationTask.hpp User\Task\..\BSP\Dbus.hpp \
+  User\BSP\..\BSP\StaticTime.hpp User\Task\EvenTask.hpp \
+  User\Task\..\BSP\StaticTime.hpp

@@ -10,7 +10,8 @@
 #include "../APP/Remote/Mode.hpp"
 #include "../BSP/Power/PM01.hpp"
 #include "../BSP/Dbus.hpp"
-
+#include "../APP/UI/UI_Queue.hpp"
+#include "../APP/UI/Static/darw_static.hpp"
 TaskManager taskManager;
 
 void ChassisTask(void *argument)
@@ -114,15 +115,15 @@ public:
 
     void FllowTarget()
     {
-		float total_angle = Gimbal_to_Chassis_Data.getEncoderAngleErr();
-        auto cos_theta = HAL::cosf(-total_angle);
-        auto sin_theta = HAL::sinf(-total_angle);
+        float total_angle = Gimbal_to_Chassis_Data.getEncoderAngleErr();
+        auto cos_theta    = HAL::cosf(-total_angle);
+        auto sin_theta    = HAL::sinf(-total_angle);
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
 
-		angle = Gimbal_to_Chassis_Data.getTargetOffsetAngle();
-		
+        angle = Gimbal_to_Chassis_Data.getTargetOffsetAngle();
+
         if (Gimbal_to_Chassis_Data.getRotatingVel() > 0) {
             tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 3);
         } else {
@@ -131,11 +132,17 @@ public:
         }
 
         if (Gimbal_to_Chassis_Data.getShitf()) {
-            PowerControl.setMaxPower(120);
+            Chassis_Data.now_power = 120.0f;
+        } else {
+//            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
+
+            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5, 120.0f, 0);
         }
-		else
-        {
-            PowerControl.setMaxPower(ext_power_heat_data_0x0201.chassis_power_limit);
+        PowerControl.setMaxPower(Chassis_Data.now_power);
+
+        if (Gimbal_to_Chassis_Data.getF5()) {
+            UI::UI_send_queue.is_Delete_all = true;
+            UI::Static::UI_static.Init();
         }
 
         Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
@@ -177,14 +184,12 @@ public:
         tar_vy.Calc(TAR_LY * 660);
         tar_vw.Calc(TAR_VW * 660);
 
-//        pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
-//        tar_vw.Calc(pid_vw.GetCout());
+        //        pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+        //        tar_vw.Calc(pid_vw.GetCout());
 
         Chassis_Data.vx = (tar_vx.x1 * cos_theta - tar_vy.x1 * sin_theta);
         Chassis_Data.vy = (tar_vx.x1 * sin_theta + tar_vy.x1 * cos_theta);
-		Chassis_Data.vw = (tar_vw.x1);
-
-		
+        Chassis_Data.vw = (tar_vw.x1);
 
         td_FF_Tar.Calc(TAR_LX * 660);
     }

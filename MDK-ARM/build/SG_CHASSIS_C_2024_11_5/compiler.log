@@ -1,19 +1,128 @@
 >>> cc
 
-./User/APP/UI/Dynamic/darw_dynamic.cpp:40:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
-            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch", 1, pitch_out, pitch_out + 2, 960, 540, 380, 380));
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 0, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:40:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:43:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:45:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:49:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:89:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
                                                                          ^
-./User/APP/UI/Dynamic/darw_dynamic.cpp:55:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+./User/APP/UI/Dynamic/darw_dynamic.cpp:96:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:106:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
                                                                          ^
-./User/APP/UI/Dynamic/darw_dynamic.cpp:65:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+./User/APP/UI/Dynamic/darw_dynamic.cpp:122:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
                                                                          ^
-./User/APP/UI/Dynamic/darw_dynamic.cpp:69:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+./User/APP/UI/Dynamic/darw_dynamic.cpp:126:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
                                                                         ^
-4 warnings generated.
+10 warnings generated.
+./User/APP/UI/Static/darw_static.cpp:39:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("W", 0, 568, Win_H * 0.5, 1350, Win_H * 0.5));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:40:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("H", 0, Win_W * 0.5, 0, Win_W * 0.5, Win_H));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:41:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("high", 0, aim_x, aim_y, aim_x + 520, aim_y));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:43:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetLine("mid", 0, aim_x + 100, aim_y - 75, aim_x + 420, aim_y - 75));
+                                                      ^
+./User/APP/UI/Static/darw_static.cpp:45:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetLine("low", 0, aim_x + 160, aim_y - 150, aim_x + 360, aim_y - 150));
+                                                      ^
+./User/APP/UI/Static/darw_static.cpp:54:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, 100, 100 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:58:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, 120, 120 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:62:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 310, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:66:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1600, 750, 80, 80));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:70:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:76:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:80:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 2, 166, 193, 956, 520, 360, 360));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:86:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_130", 0, 50, 51, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:88:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_120", 1, 60, 61, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:90:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_110", 2, 70, 71, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:92:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_100", 3, 80, 81, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:94:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_90", 4, 90, 91, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:96:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_80", 5, 100, 101, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:98:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_60", 6, 110, 111, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:100:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 7, 120, 121, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:102:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 8, 130, 131, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:108:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 120, 1210, 770));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:109:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 90, 1270, 660));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:110:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 60, 1300, 540));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:111:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 30, 1280, 420));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:112:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_50", 4, 0, 1210, 310));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:118:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd1", 2, 570, 540, 595, 540));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:122:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd2", 2, 673, 800, 690, 785));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:127:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1600, 750, 67));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:132:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1600 - 20, 750 - 61, 1600 + 20, 750 + 62));
+                                                           ^
+30 warnings generated.
 
 >>> ld
 
-Program Size: Code=67996 RO-data=6908 RW-data=104 ZI-data=29192  
+Program Size: Code=68992 RO-data=6908 RW-data=96 ZI-data=29200  

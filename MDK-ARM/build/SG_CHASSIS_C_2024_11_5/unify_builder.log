@@ -8440,3 +8440,1102 @@ These source files will be recompiled
 [2025-03-14 04:24:45]	[done]
 	build successfully !
 
+[2025-03-14 22:05:34]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Static\darw_static.hpp' has been changed.
+
+[2025-03-14 22:05:36]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Static/darw_static.o -MMD ./User/APP/UI/Static/darw_static.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Static/darw_static.cpp:18:58: error: use of undeclared identifier 'Operate'
+        RM_RefereeSystem::RM_RefereeSystemSetOperateTpye(Operate); // 设置修改
+                                                         ^
+./User/APP/UI/Static/darw_static.cpp:22:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetStr("Power", 1, "NowPowerLimit:", ZM_of_X, ZM_of_Y));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:22:83: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetStr("Power", 1, "NowPowerLimit:", ZM_of_X, ZM_of_Y));
+                                                                                  ^
+./User/APP/UI/Static/darw_static.cpp:37:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("W", 0, 568, Win_H * 0.5, 1350, Win_H * 0.5));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:38:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("H", 0, Win_W * 0.5, 0, Win_W * 0.5, Win_H));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:39:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("high", 0, aim_x, aim_y, aim_x + 520, aim_y));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:41:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetLine("mid", 0, aim_x + 100, aim_y - 75, aim_x + 420, aim_y - 75));
+                                                      ^
+./User/APP/UI/Static/darw_static.cpp:43:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetLine("low", 0, aim_x + 160, aim_y - 150, aim_x + 360, aim_y - 150));
+                                                      ^
+./User/APP/UI/Static/darw_static.cpp:49:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch_Init", 1, 50, 130, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:53:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 310, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:57:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1600, 750, 80, 80));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:61:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:67:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_130", 0, 50, 51, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:69:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_120", 1, 60, 61, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:71:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_110", 2, 70, 71, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:73:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_100", 3, 80, 81, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:75:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_90", 4, 90, 91, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:77:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_80", 5, 100, 101, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:79:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_60", 6, 110, 111, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:81:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 7, 120, 121, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:83:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 8, 130, 131, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:89:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 130, 1210, 770));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:90:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 110, 1270, 660));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:91:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 90, 1300, 540));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:92:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 70, 1280, 420));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:93:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 4, 50, 1210, 310));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:100:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd1", 2, 570, 540, 595, 540));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:104:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd2", 2, 673, 800, 690, 785));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:109:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1600, 750, 67));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:114:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1600 - 20, 750 - 61, 1600 + 20, 750 + 62));
+                                                           ^
+29 warnings and 1 error generated.
+
+[2025-03-14 22:06:24]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Static\darw_static.hpp' has been changed.
+
+[2025-03-14 22:06:26]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol UI::Static::darw_static::AimLine() (referred from darw_static.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-03-14 22:06:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-14 22:06:57]	[done]
+	build successfully !
+
+[2025-03-15 02:09:40]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-15 02:09:46]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/ChassisTask.cpp:137:86: error: invalid operands to binary expression ('void' and 'std::int8_t' (aka 'signed char'))
+            PowerControl.setMaxPower(ext_power_heat_data_0x0201.chassis_power_limit) + Gimbal_to_Chassis_Data.getPower();
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./User/Task/ChassisTask.cpp:141:13: error: use of undeclared identifier 'set_send_graphic_queue_is_Delete_all'
+            set_send_graphic_queue_is_Delete_all(); // 删除全部图层
+            ^
+./User/Task/ChassisTask.cpp:142:13: error: use of undeclared identifier 'darw_graphic_static_ui_init'
+            darw_graphic_static_ui_init();          // 静态ui初始化
+            ^
+3 errors generated.
+
+[2025-03-15 02:09:58]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-15 02:09:59]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/ChassisTask.o -MMD ./User/Task/ChassisTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/ChassisTask.cpp:137:86: error: invalid operands to binary expression ('void' and 'std::int8_t' (aka 'signed char'))
+            PowerControl.setMaxPower(ext_power_heat_data_0x0201.chassis_power_limit) + Gimbal_to_Chassis_Data.getPower();
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+
+[2025-03-15 02:10:18]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-15 02:10:23]	[done]
+	build successfully !
+
+[2025-03-15 04:26:13]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-15 04:26:18]	[done]
+	build successfully !
+
+[2025-03-15 04:26:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 04:26:27]	[done]
+	build successfully !
+
+[2025-03-15 04:34:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 04:34:33]	[done]
+	build successfully !
+
+[2025-03-15 04:35:20]	[done]
+	build successfully !
+
+[2025-03-15 04:46:25]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Dynamic\darw_dynamic.hpp' has been changed.
+
+[2025-03-15 04:46:28]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o -MMD ./User/APP/UI/Dynamic/darw_dynamic.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 1, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                                                                      ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:30: error: no viable conversion from 'RM_RefereeSystem::graphic_data_struct_t' to 'RM_RefereeSystem::ext_client_custom_character_t'
+        UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 1, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./User/APP/UI/Dynamic/../../Referee/RM_RefereeSystem.h:107:32: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'RM_RefereeSystem::graphic_data_struct_t' to 'const RM_RefereeSystem::ext_client_custom_character_t &' for 1st argument
+struct __attribute__((packed)) ext_client_custom_character_t // 客户端绘制字符 机器人间通信：0x0301
+                               ^
+./User/APP/UI/Dynamic/../../Referee/RM_RefereeSystem.h:107:32: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'RM_RefereeSystem::graphic_data_struct_t' to 'RM_RefereeSystem::ext_client_custom_character_t &&' for 1st argument
+./User/APP/UI/Dynamic/../UI_Queue.hpp:79:65: note: passing argument to parameter 'ext_client_custom_character_temp' here
+    void add_wz(RM_RefereeSystem::ext_client_custom_character_t ext_client_custom_character_temp)
+                                                                ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:52:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch", 1, pitch_pos, pitch_pos + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:67:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:77:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:81:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+5 warnings and 1 error generated.
+
+[2025-03-15 04:46:58]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Static\darw_static.hpp' has been changed.
+
+[2025-03-15 04:46:59]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o -MMD ./User/APP/UI/Dynamic/darw_dynamic.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 1, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                                                                      ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:30: error: no viable conversion from 'RM_RefereeSystem::graphic_data_struct_t' to 'RM_RefereeSystem::ext_client_custom_character_t'
+        UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 1, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./User/APP/UI/Dynamic/../../Referee/RM_RefereeSystem.h:107:32: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'RM_RefereeSystem::graphic_data_struct_t' to 'const RM_RefereeSystem::ext_client_custom_character_t &' for 1st argument
+struct __attribute__((packed)) ext_client_custom_character_t // 客户端绘制字符 机器人间通信：0x0301
+                               ^
+./User/APP/UI/Dynamic/../../Referee/RM_RefereeSystem.h:107:32: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'RM_RefereeSystem::graphic_data_struct_t' to 'RM_RefereeSystem::ext_client_custom_character_t &&' for 1st argument
+./User/APP/UI/Dynamic/../UI_Queue.hpp:79:65: note: passing argument to parameter 'ext_client_custom_character_temp' here
+    void add_wz(RM_RefereeSystem::ext_client_custom_character_t ext_client_custom_character_temp)
+                                                                ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:52:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch", 1, pitch_pos, pitch_pos + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:67:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:77:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:81:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+5 warnings and 1 error generated.
+
+[2025-03-15 04:48:16]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Static\darw_static.hpp' has been changed.
+
+[2025-03-15 04:48:24]	[done]
+	build successfully !
+
+[2025-03-15 04:49:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-15 04:49:19]	[done]
+	build successfully !
+
+[2025-03-15 04:52:29]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-15 04:52:31]	[done]
+	build successfully !
+
+[2025-03-15 04:53:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-15 04:53:46]	[done]
+	build successfully !
+
+[2025-03-15 04:54:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-15 04:54:44]	[done]
+	build successfully !
+
+[2025-03-15 04:55:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-15 04:55:16]	[done]
+	build successfully !
+
+[2025-03-15 04:59:01]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-15 04:59:03]	[done]
+	build successfully !
+
+[2025-03-15 05:11:55]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:11:58]	[done]
+	build successfully !
+
+[2025-03-15 05:26:52]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-15 05:26:58]	[done]
+	build successfully !
+
+[2025-03-15 05:29:10]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:29:13]	[done]
+	build successfully !
+
+[2025-03-15 05:37:43]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-15 05:37:45]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Static/darw_static.o -MMD ./User/APP/UI/Static/darw_static.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Static/darw_static.cpp:37:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("W", 0, 568, Win_H * 0.5, 1350, Win_H * 0.5));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:38:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("H", 0, Win_W * 0.5, 0, Win_W * 0.5, Win_H));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:39:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("high", 0, aim_x, aim_y, aim_x + 520, aim_y));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:41:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetLine("mid", 0, aim_x + 100, aim_y - 75, aim_x + 420, aim_y - 75));
+                                                      ^
+./User/APP/UI/Static/darw_static.cpp:43:55: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetLine("low", 0, aim_x + 160, aim_y - 150, aim_x + 360, aim_y - 150));
+                                                      ^
+./User/APP/UI/Static/darw_static.cpp:52:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch_Init", 1, 50, 130, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:56:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 310, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:60:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1600, 750, 80, 80));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:64:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:69:79: error: use of undeclared identifier 'BSP'
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetFzloat("p", 5, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
+                                                                              ^
+./User/APP/UI/Static/darw_static.cpp:75:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_130", 0, 50, 51, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:77:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_120", 1, 60, 61, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:79:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_110", 2, 70, 71, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:81:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_100", 3, 80, 81, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:83:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_90", 4, 90, 91, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:85:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_80", 5, 100, 101, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:87:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_60", 6, 110, 111, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:89:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 7, 120, 121, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:91:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 8, 130, 131, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:97:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 130, 1210, 770));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:98:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 110, 1270, 660));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:99:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 90, 1300, 540));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:100:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 70, 1280, 420));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:101:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_50", 4, 50, 1210, 310));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:107:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd1", 2, 570, 540, 595, 540));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:111:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd2", 2, 673, 800, 690, 785));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:116:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1600, 750, 67));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:121:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1600 - 20, 750 - 61, 1600 + 20, 750 + 62));
+                                                           ^
+27 warnings and 1 error generated.
+
+[2025-03-15 05:38:00]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+
+[2025-03-15 05:38:04]	[done]
+	build successfully !
+
+[2025-03-15 05:44:32]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:44:34]	[done]
+	build successfully !
+
+[2025-03-15 05:45:34]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:45:36]	[done]
+	build successfully !
+
+[2025-03-15 05:48:00]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:48:03]	[done]
+	build successfully !
+
+[2025-03-15 05:51:49]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:51:52]	[done]
+	build successfully !
+
+[2025-03-15 05:54:14]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-15 05:54:16]	[done]
+	build successfully !
+
+[2025-03-16 11:19:00]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': source file has been changed.
+
+[2025-03-16 11:19:07]	[done]
+	build successfully !
+
+[2025-03-16 11:21:12]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-16 11:21:16]	[done]
+	build successfully !
+
+[2025-03-16 11:29:57]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-16 11:30:01]	[done]
+	build successfully !
+
+[2025-03-16 11:38:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-16 11:38:51]	[done]
+	build successfully !
+
+[2025-03-16 11:40:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-16 11:40:32]	[done]
+	build successfully !
+
+[2025-03-16 11:46:41]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-16 11:46:45]	[done]
+	build successfully !
+
+[2025-03-16 11:48:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-16 11:48:22]	[done]
+	build successfully !
+
+[2025-03-16 11:49:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-16 11:49:27]	[done]
+	build successfully !
+
+[2025-03-16 11:55:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-16 11:55:22]	[done]
+	build successfully !
+
+[2025-03-16 12:22:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+
+[2025-03-16 12:22:51]	[done]
+	build successfully !
+
+[2025-03-16 12:37:29]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+
+[2025-03-16 12:37:32]	[done]
+	build successfully !
+
+[2025-03-16 13:34:28]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\Core\Src\main.c': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+
+[2025-03-16 13:34:34]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/CallBack.o -MMD ./User/Task/CallBack.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/CallBack.cpp:23:1: error: unknown type name 'p'
+p        BSP::Power::pm01.PM01Parse(RxHeader, RxHeaderData);
+^
+./User/Task/CallBack.cpp:23:22: error: definition or redeclaration of 'pm01' not allowed inside a function
+p        BSP::Power::pm01.PM01Parse(RxHeader, RxHeaderData);
+         ~~~~~~~~~~~~^
+./User/Task/CallBack.cpp:23:26: error: expected ';' at end of declaration
+p        BSP::Power::pm01.PM01Parse(RxHeader, RxHeaderData);
+                         ^
+                         ;
+3 errors generated.
+
+[2025-03-16 15:10:18]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\BSP\Power\PM01.hpp' has been changed.
+
+[2025-03-16 15:10:31]	[done]
+	build successfully !
+
+[2025-03-16 17:44:33]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\startup_stm32f407xx.s': source file has been changed.
+
+[2025-03-16 17:44:42]	[done]
+	build successfully !
+
+[2025-03-16 17:45:15]	[done]
+	build successfully !
+
+[2025-03-16 19:51:32]	[info] incremental build: 10 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Tools.hpp' has been changed.
+
+[2025-03-16 19:51:37]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/PowerTask.o -MMD ./User/Task/PowerTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/PowerTask.cpp:96:60: error: too few arguments to function call, expected 3, have 2
+            Cmd_MaxT[i] = Tools.clamp(Cmd_MaxT[i], 16384.0f);
+                          ~~~~~~~~~~~                      ^
+User/APP\Tools.hpp:22:5: note: 'clamp' declared here
+    float clamp(float value, float maxValue, float miniValue);
+    ^
+1 error generated.
+
+[2025-03-16 19:52:02]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': object (.o) file not exist
+
+[2025-03-16 19:52:05]	[done]
+	build successfully !
+
+[2025-03-16 19:57:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-16 19:57:42]	[done]
+	build successfully !
+
+[2025-03-16 22:01:09]	[info] incremental build: 9 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-16 22:01:14]	[done]
+	build successfully !
+
+[2025-03-17 10:21:27]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-17 10:21:33]	[done]
+	build successfully !
+
+[2025-03-17 10:22:17]	[done]
+	build successfully !
+
+[2025-03-17 10:24:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 10:24:06]	[done]
+	build successfully !
+
+[2025-03-17 11:01:02]	[info] incremental build: 9 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Dynamic\darw_dynamic.hpp' has been changed.
+
+[2025-03-17 11:01:07]	[done]
+	build successfully !
+
+[2025-03-17 11:03:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-17 11:03:29]	[done]
+	build successfully !
+
+[2025-03-17 11:13:14]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 11:13:18]	[done]
+	build successfully !
+
+[2025-03-17 11:34:06]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 11:34:10]	[done]
+	build successfully !
+
+[2025-03-17 11:46:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-17 11:46:47]	[done]
+	build successfully !
+
+[2025-03-17 13:08:30]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 13:08:34]	[done]
+	build successfully !
+
+[2025-03-17 13:10:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-17 13:10:18]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o -MMD ./User/APP/UI/Dynamic/darw_dynamic.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 0, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:60:10: error: use of undeclared identifier 'darw_dynamic'; did you mean 'UI::Dynamic::darw_dynamic'?
+    void darw_dynamic::darw_UI()
+         ^~~~~~~~~~~~
+         UI::Dynamic::darw_dynamic
+User/APP\../APP/UI/Dynamic/darw_dynamic.hpp:5:11: note: 'UI::Dynamic::darw_dynamic' declared here
+    class darw_dynamic
+          ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:88:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:95:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:105:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:121:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:125:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:130:1: error: extraneous closing brace ('}')
+}
+^
+6 warnings and 2 errors generated.
+
+[2025-03-17 13:10:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+
+[2025-03-17 13:10:35]	[done]
+	build successfully !
+
+[2025-03-17 17:46:09]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 17:46:12]	[done]
+	build successfully !
+
+[2025-03-17 17:54:28]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 17:54:35]	[done]
+	build successfully !
+
+[2025-03-17 17:56:11]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 17:56:18]	[done]
+	build successfully !
+
+[2025-03-17 17:56:51]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 17:56:57]	[done]
+	build successfully !
+
+[2025-03-17 17:58:01]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 17:58:07]	[done]
+	build successfully !
+
+[2025-03-17 17:59:11]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 17:59:17]	[done]
+	build successfully !
+
+[2025-03-17 18:00:04]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 18:00:11]	[done]
+	build successfully !
+
+[2025-03-17 18:01:56]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 18:02:03]	[done]
+	build successfully !
+
+[2025-03-17 18:05:23]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\..\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\UI_Queue.hpp' has been changed.
+
+[2025-03-17 18:05:29]	[done]
+	build successfully !
+
+[2025-03-17 18:05:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-17 18:05:39]	[done]
+	build successfully !
+
+[2025-03-17 18:07:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-17 18:07:33]	[done]
+	build successfully !
+
+[2025-03-17 18:08:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-17 18:08:32]	[done]
+	build successfully !
+
+[2025-03-17 18:09:40]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:09:44]	[done]
+	build successfully !
+
+[2025-03-17 18:10:42]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:10:46]	[done]
+	build successfully !
+
+[2025-03-17 18:12:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:12:49]	[done]
+	build successfully !
+
+[2025-03-17 18:16:04]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:16:08]	[done]
+	build successfully !
+
+[2025-03-17 18:18:01]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:18:04]	[done]
+	build successfully !
+
+[2025-03-17 18:18:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:18:12]	[done]
+	build successfully !
+
+[2025-03-17 18:19:29]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:19:33]	[done]
+	build successfully !
+
+[2025-03-17 18:21:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 18:21:11]	[done]
+	build successfully !
+
+[2025-03-17 23:17:09]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-17 23:17:13]	[done]
+	build successfully !
+

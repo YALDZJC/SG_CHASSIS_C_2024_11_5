@@ -1,7 +1,9 @@
 #include "../Static/darw_static.hpp"
 #include "../UI_Queue.hpp"
-
+#include "../BSP/Power/PM01.hpp"
 #include <stdio.h>
+uint16_t x = 128;
+uint16_t y = 228;
 
 namespace UI::Static
 {
@@ -13,10 +15,15 @@ namespace UI::Static
         RM_RefereeSystem::RM_RefereeSystemSetWidth(1);
     }
 
-    void darw_static::AimLine()
-    {
-
-    }
+    // void darw_static::setNowPower()
+    // {
+    //     RM_RefereeSystem::RM_RefereeSystemSetOperateTpye(RM_RefereeSystem::OperateAdd); // 设置修改
+    //     RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+    //     RM_RefereeSystem::RM_RefereeSystemSetStringSize(15);
+    //     RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
+    //     UI_send_queue.add_wz(RM_RefereeSystem::RM_RefereeSystemSetStr("P", 1, "Power:", ZM_of_X, ZM_of_Y));
+    //     RM_RefereeSystem::RM_RefereeSystemClsToop();
+    // }
 
     void darw_static::PitchLine()
     {
@@ -37,11 +44,18 @@ namespace UI::Static
         UI_send_queue.add(
             RM_RefereeSystem::RM_RefereeSystemSetLine("low", 0, aim_x + 160, aim_y - 150, aim_x + 360, aim_y - 150));
 
+        //		setNowPower();
+
         /***************************动态UI初始化***************************/
         // pitch初始化
-        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
+        // 绘制pitch指示
+        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorAmaranth);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("pitch_Init", 1, 50, 130, 960, 540, 380, 380));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, 100, 100 + 2, 960, 540, 380, 380));
+
+        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, 120, 120 + 2, 960, 540, 380, 380));
 
         // 超电初始化
         RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
@@ -54,6 +68,16 @@ namespace UI::Static
         // 转速条初始化
         RM_RefereeSystem::RM_RefereeSystemSetWidth(35);
         UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+
+        // 真实功率
+        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+        RM_RefereeSystem::RM_RefereeSystemSetStringSize(15);
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
+
+        // 视觉模式背景
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 2, 166, 193, 956, 520, 360, 360));
 
         /***************************绘制静态UI***************************/
         // pitch刻度
@@ -81,11 +105,12 @@ namespace UI::Static
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
         RM_RefereeSystem::RM_RefereeSystemSetStringSize(10);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 130, 1210, 770));
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 110, 1270, 660));
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 90, 1300, 540));
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 70, 1280, 420));
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 4, 50, 1210, 310));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 120, 1210, 770));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 90, 1270, 660));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 60, 1300, 540));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 30, 1280, 420));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_50", 4, 0, 1210, 310));
+        //        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_40", 5, 40, ZM_of_X, ZM_of_Y));
 
         // 超电上限位
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
@@ -113,7 +138,7 @@ namespace UI::Static
     {
         setLayer();
         PitchLine();
-        AimLine();
+
+        // AimLine();
     }
 } // namespace UI::Static
-

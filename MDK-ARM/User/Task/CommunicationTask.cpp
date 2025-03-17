@@ -56,6 +56,7 @@ void Gimbal_to_Chassis::Data_receive(UART_HandleTypeDef *huart)
 
 void Gimbal_to_Chassis::SlidingWindowRecovery()
 {
+
     const int window_size = sizeof(pData);
     int found_pos = -1;
 

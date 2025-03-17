@@ -47,7 +47,10 @@
   User\Task\PowerTask.hpp User\Task\EvenTask.hpp User\APP\PowerMeter.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
   User\APP\Tools.hpp User\Task\..\BSP\Power\PM01.hpp \
-  User\APP\..\BSP\StaticTime.hpp \
+  User\APP\..\Task\PowerTask.hpp User\APP\..\BSP\StaticTime.hpp \
   User\APP\..\APP\Referee\RM_RefereeSystem.h \
   User\APP\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
-  User\APP\..\BSP\stdxxx.hpp
+  User\APP\..\BSP\stdxxx.hpp User\APP\..\Task\CommunicationTask.hpp \
+  User\Task\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
+  User\Task\EvenTask.hpp User\Task\..\BSP\StaticTime.hpp \
+  User\Task\..\Task\CommunicationTask.hpp

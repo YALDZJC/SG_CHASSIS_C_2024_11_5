@@ -4,8 +4,9 @@ namespace UI::Dynamic
 {
     class darw_dynamic
     {
-			public:
-
+    public:
+        void setNowPower();
+        void VisionMode();
         void darw_UI();
     };
 

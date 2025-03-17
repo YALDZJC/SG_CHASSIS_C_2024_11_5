@@ -53,5 +53,6 @@
   User\HAL\..\APP\Referee\RM_RefereeSystem.h \
   User\HAL\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
   User\APP\..\BSP\stdxxx.hpp User\HAL\..\BSP\Power\PM01.hpp \
-  User\APP\..\BSP\StaticTime.hpp \
-  User\APP\..\APP\Referee\RM_RefereeSystem.h
+  User\APP\..\Task\PowerTask.hpp User\APP\..\BSP\StaticTime.hpp \
+  User\APP\..\APP\Referee\RM_RefereeSystem.h \
+  User\APP\..\Task\CommunicationTask.hpp

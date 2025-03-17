@@ -11,7 +11,7 @@ class darw_static
     void AimLine();
     void PitchLine();
     void setLayer();
-
+    // void setNowPower();
     void Init();
 };
 
