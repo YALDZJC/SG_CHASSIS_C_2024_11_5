@@ -118,9 +118,11 @@ namespace Communicat
             uint8_t UI_F5 : 1;
             uint8_t Shift : 1;
             uint8_t Vision : 2;
+            uint8_t vis_aim_x;
+            uint8_t vis_aim_y;
         };
 
-        uint8_t pData[12];
+        uint8_t pData[14];
 
         struct Direction direction;
         struct ChassisMode chassis_mode;
@@ -195,6 +197,15 @@ namespace Communicat
         inline uint8_t getVisionMode()
         {
             return ui_list.Vision;
+        }
+
+        uint8_t getAimX()
+        {
+            return ui_list.vis_aim_x;
+        }
+        uint8_t getAimY()
+        {
+            return ui_list.vis_aim_y;
         }
     };
 

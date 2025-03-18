@@ -5,8 +5,10 @@ namespace UI::Dynamic
     class darw_dynamic
     {
     public:
-        void setNowPower();
+        void setLimitPower();
+        void curPower();
         void VisionMode();
+        void VisionArmor();
         void darw_UI();
     };
 

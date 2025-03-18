@@ -9539,3 +9539,536 @@ These source files will be recompiled
 [2025-03-17 23:17:13]	[done]
 	build successfully !
 
+[2025-03-18 06:51:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 06:51:18]	[done]
+	build successfully !
+
+[2025-03-18 07:01:45]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-18 07:01:49]	[done]
+	build successfully !
+
+[2025-03-18 07:02:23]	[done]
+	build successfully !
+
+[2025-03-18 07:05:18]	[done]
+	build successfully !
+
+[2025-03-18 07:05:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-18 07:05:25]	[done]
+	build successfully !
+
+[2025-03-18 07:13:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-18 07:13:57]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Static/darw_static.o -MMD ./User/APP/UI/Static/darw_static.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Static/darw_static.cpp:42:95: error: too many arguments to function call, expected 5, have 6
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("W", 0, 954, 495, 1350, 6));
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                         ^
+User/APP\../APP/Referee/RM_RefereeSystem.h:157:1: note: 'RM_RefereeSystemSetCircle' declared here
+graphic_data_struct_t RM_RefereeSystemSetCircle(char* name,uint32_t layer,uint32_t start_x,uint32_t start_y,uint32_t radius);
+^
+./User/APP/UI/Static/darw_static.cpp:57:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, 100, 100 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:61:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, 120, 120 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:65:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 310, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:69:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1600, 750, 80, 80));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:73:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:79:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:83:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:89:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_130", 0, 50, 51, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:91:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_120", 1, 60, 61, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:93:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_110", 2, 70, 71, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:95:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_100", 3, 80, 81, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:97:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_90", 4, 90, 91, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:99:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_80", 5, 100, 101, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:101:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_60", 6, 110, 111, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:103:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 7, 120, 121, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:105:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 8, 130, 131, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:111:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 120, 1210, 770));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:112:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 90, 1270, 660));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:113:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 60, 1300, 540));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:114:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 30, 1280, 420));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:115:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_50", 4, 0, 1210, 310));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:121:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd1", 2, 570, 540, 595, 540));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:125:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd2", 2, 673, 800, 690, 785));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:130:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1600, 750, 67));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:135:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1600 - 20, 750 - 61, 1600 + 20, 750 + 62));
+                                                           ^
+25 warnings and 1 error generated.
+
+[2025-03-18 07:14:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': object (.o) file not exist
+
+[2025-03-18 07:14:26]	[done]
+	build successfully !
+
+[2025-03-18 07:41:35]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-18 07:41:38]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o -MMD ./User/APP/UI/Dynamic/darw_dynamic.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/UI/Static/darw_static.cpp:3:
+In file included from User/APP\../BSP/Power/PM01.hpp:9:
+User/APP\../Task/CommunicationTask.hpp:121:21: error: expected member name or ';' after declaration specifiers
+            uint8_t aim_x;
+            ~~~~~~~ ^
+./User/APP/UI/Static/../UI_Queue.hpp:26:15: note: expanded from macro 'aim_x'
+#define aim_x 700
+              ^
+In file included from ./User/APP/UI/Static/darw_static.cpp:3:
+In file included from User/APP\../BSP/Power/PM01.hpp:9:
+User/APP\../Task/CommunicationTask.hpp:122:21: error: expected member name or ';' after declaration specifiers
+            uint8_t aim_y;
+            ~~~~~~~ ^
+./User/APP/UI/Static/../UI_Queue.hpp:27:15: note: expanded from macro 'aim_y'
+#define aim_y 465
+              ^
+In file included from ./User/APP/UI/Static/darw_static.cpp:3:
+In file included from User/APP\../BSP/Power/PM01.hpp:9:
+User/APP\../Task/CommunicationTask.hpp:204:28: error: expected unqualified-id
+            return ui_list.aim_x;
+                           ^
+./User/APP/UI/Static/../UI_Queue.hpp:26:15: note: expanded from macro 'aim_x'
+#define aim_x 700
+              ^
+In file included from ./User/APP/UI/Static/darw_static.cpp:3:
+In file included from User/APP\../BSP/Power/PM01.hpp:9:
+User/APP\../Task/CommunicationTask.hpp:208:28: error: expected unqualified-id
+            return ui_list.aim_y;
+                           ^
+./User/APP/UI/Static/../UI_Queue.hpp:27:15: note: expanded from macro 'aim_y'
+#define aim_y 465
+              ^
+./User/APP/UI/Static/darw_static.cpp:41:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("W", 0, 954, 495, 6));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:58:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, 100, 100 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:62:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, 120, 120 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:66:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 310, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:70:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1600, 750, 80, 80));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:74:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:80:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:84:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:90:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_130", 0, 50, 51, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:92:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_120", 1, 60, 61, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:94:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_110", 2, 70, 71, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:96:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_100", 3, 80, 81, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:98:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_90", 4, 90, 91, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:100:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_80", 5, 100, 101, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:102:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_60", 6, 110, 111, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:104:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 7, 120, 121, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:106:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 8, 130, 131, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:112:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 120, 1210, 770));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:113:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 90, 1270, 660));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:114:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 60, 1300, 540));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:115:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 30, 1280, 420));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:116:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_50", 4, 0, 1210, 310));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:122:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd1", 2, 570, 540, 595, 540));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:126:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd2", 2, 673, 800, 690, 785));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:131:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1600, 750, 67));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:136:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1600 - 20, 750 - 61, 1600 + 20, 750 + 62));
+                                                           ^
+26 warnings and 4 errors generated.
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 0, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:39:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:41:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:43:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:45:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:87:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:93:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:102:142: error: no member named 'getAimy' in 'Communicat::Gimbal_to_Chassis'
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 3, Gimbal_to_Chassis_Data.getAimX(), Gimbal_to_Chassis_Data.getAimy(), 10));
+                                                                                                                      ~~~~~~~~~~~~~~~~~~~~~~ ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:108:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:124:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:128:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+10 warnings and 1 error generated.
+
+[2025-03-18 07:44:18]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-18 07:44:20]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o -MMD ./User/APP/UI/Dynamic/darw_dynamic.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Dynamic/darw_dynamic.cpp:25:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("P", 0, PowerControl.getMAXPower(), ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:39:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:41:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:43:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:45:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:87:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:93:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:102:142: error: no member named 'getAimy' in 'Communicat::Gimbal_to_Chassis'
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 3, Gimbal_to_Chassis_Data.getAimX(), Gimbal_to_Chassis_Data.getAimy(), 10));
+                                                                                                                      ~~~~~~~~~~~~~~~~~~~~~~ ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:108:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:124:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:128:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+10 warnings and 1 error generated.
+
+[2025-03-18 07:44:33]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-18 07:44:41]	[done]
+	build successfully !
+
+[2025-03-18 07:44:49]	[info] incremental build: 8 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\Task\CommunicationTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+
+[2025-03-18 07:44:53]	[done]
+	build successfully !
+
+[2025-03-18 08:22:48]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+
+[2025-03-18 08:22:51]	[done]
+	build successfully !
+
+[2025-03-18 08:27:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 08:27:20]	[done]
+	build successfully !
+
+[2025-03-18 09:13:30]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+
+[2025-03-18 09:13:33]	[done]
+	build successfully !
+
+[2025-03-18 09:30:15]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Dynamic\darw_dynamic.hpp' has been changed.
+
+[2025-03-18 09:30:22]	[done]
+	build successfully !
+
+[2025-03-18 09:32:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 09:32:11]	[done]
+	build successfully !
+
+[2025-03-18 09:33:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 09:33:42]	[done]
+	build successfully !
+
+[2025-03-18 09:34:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 09:34:58]	[done]
+	build successfully !
+
+[2025-03-18 09:37:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 09:37:37]	[done]
+	build successfully !
+
+[2025-03-18 09:51:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 09:51:41]	[done]
+	build successfully !
+
+[2025-03-18 09:53:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 09:53:08]	[done]
+	build successfully !
+
+[2025-03-18 10:03:22]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Dynamic\darw_dynamic.hpp' has been changed.
+
+[2025-03-18 10:03:25]	[done]
+	build successfully !
+
+[2025-03-18 10:09:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-18 10:09:11]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/UI/Dynamic/darw_dynamic.o -MMD ./User/APP/UI/Dynamic/darw_dynamic.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/APP/UI/Dynamic/darw_dynamic.cpp:29:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:43:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:45:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:47:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:49:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:61:24: error: out-of-line definition of 'curPower' does not match any declaration in 'UI::Dynamic::darw_dynamic'
+    void darw_dynamic::curPower()
+                       ^~~~~~~~
+./User/APP/UI/Dynamic/darw_dynamic.cpp:76:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:78:34: error: expected ';' after expression
+            lastvalue = super_cap
+                                 ^
+                                 ;
+./User/APP/UI/Dynamic/darw_dynamic.cpp:92:79: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, aimX * 2.75 + 580, aimY * 2.05 + 275, 20));
+                                                                              ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:97:75: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, aimX * 2.75 + 580, aimY * 2.05 + 275, 20));
+                                                                          ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:101:75: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, aimX * 2.75 + 580, aimY * 2.05 + 275, 20));
+                                                                          ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:137:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:149:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:159:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+                                                                        ^
+12 warnings and 2 errors generated.
+
+[2025-03-18 10:10:30]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\APP\UI\Dynamic\darw_dynamic.hpp' has been changed.
+
+[2025-03-18 10:10:33]	[done]
+	build successfully !
+

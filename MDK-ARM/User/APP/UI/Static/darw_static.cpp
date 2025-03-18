@@ -35,14 +35,18 @@ namespace UI::Static
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(1);
 
-        // 瞄准线
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("W", 0, 568, Win_H * 0.5, 1350, Win_H * 0.5));
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("H", 0, Win_W * 0.5, 0, Win_W * 0.5, Win_H));
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("high", 0, aim_x, aim_y, aim_x + 520, aim_y));
-        UI_send_queue.add(
-            RM_RefereeSystem::RM_RefereeSystemSetLine("mid", 0, aim_x + 100, aim_y - 75, aim_x + 420, aim_y - 75));
-        UI_send_queue.add(
-            RM_RefereeSystem::RM_RefereeSystemSetLine("low", 0, aim_x + 160, aim_y - 150, aim_x + 360, aim_y - 150));
+        // 瞄准点
+        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("W", 0, 954, 495, 6));
+		
+		// 瞄准线
+        // UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("H", 0, Win_W * 0.5, 0, Win_W * 0.5, Win_H));
+        // UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("high", 0, aim_x, aim_y, aim_x + 520, aim_y));
+        // UI_send_queue.add(
+        //     RM_RefereeSystem::RM_RefereeSystemSetLine("mid", 0, aim_x + 100, aim_y - 75, aim_x + 420, aim_y - 75));
+        // UI_send_queue.add(
+        //     RM_RefereeSystem::RM_RefereeSystemSetLine("low", 0, aim_x + 160, aim_y - 150, aim_x + 360, aim_y - 150));
 
         //		setNowPower();
 
@@ -77,7 +81,12 @@ namespace UI::Static
 
         // 视觉模式背景
         RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 2, 166, 193, 956, 520, 360, 360));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
+		
+		            // 视觉点
+            RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
+            RM_RefereeSystem::RM_RefereeSystemSetWidth(3);
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, Gimbal_to_Chassis_Data.getAimX() * 2.72 + 615,  Gimbal_to_Chassis_Data.getAimY() * 2.05+265, 12));
 
         /***************************绘制静态UI***************************/
         // pitch刻度
