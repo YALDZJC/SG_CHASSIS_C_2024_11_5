@@ -23,7 +23,6 @@ namespace UI::Dynamic
 
         int16_t limit_power = -(PowerControl.getMAXPower() * 0.666) + 130;
         if (limit_power != lastvalue) {
-
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorYellow);
             RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
@@ -62,21 +61,27 @@ namespace UI::Dynamic
     {
         uint16_t super_cap        = BSP::Power::pm01.cout_voltage * 1.60;
         static uint16_t lastvalue = 0;
-        if (super_cap != lastvalue) {
+		
+            // 绘制超电能量调
+        if (super_cap < 30) {
+            RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
+        } else {
+            RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorGreen);
+        }
+		
+		if (Gimbal_to_Chassis_Data.getShitf()) {
+			RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorOrange);
+		}
+		
+//        if (super_cap != lastvalue) {
 
             super_cap = Tools.clamp(super_cap, 40.0f, 0.0f);
-            // 绘制超电能量调
-            if (super_cap < 30) {
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
-            } else {
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorGreen);
-            }
 
             RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
 
             lastvalue = super_cap;
-        }
+//        }
     }
     void darw_dynamic::VisionArmor()
     {
@@ -104,15 +109,13 @@ namespace UI::Dynamic
             is_up = false;
         }
     }
-    void
-    darw_dynamic::darw_UI()
+    void darw_dynamic::darw_UI()
     {
         sin_tick += 0.001;
 
         if (UI_send_queue.send_delet_all() == true && UI_send_queue.is_up_ui == true && UI_send_queue.send_wz() == true && UI_send_queue.send() == true) {
             yaw_e_rad = ((Gimbal_to_Chassis_Data.getEncoderAngleErr()) / 0.017453 + 180); // 获取yaw误差
 
-            VisionMode();
 
             // pitch_out       = HAL::sinf(2 * 3.14 * sin_tick * 0.5) * 40 + 90; // 示例，pitch起始角度为90，上下40°范围
             // yaw_out         = Gimbal_to_Chassis_Data.getEncoderAngleErr();    // 示例，yaw过零处理
@@ -127,7 +130,6 @@ namespace UI::Dynamic
             //            RM_RefereeSystem::RM_RefereeSystemSetStringSize(15);
             //            RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
             //            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
-
             RM_RefereeSystem::RM_RefereeSystemSetOperateTpye(RM_RefereeSystem::OperateRevise);
 
             // 绘制pitch指示
@@ -136,9 +138,7 @@ namespace UI::Dynamic
             RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
 
-            // // 绘制小陀螺指示
-            // RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorPink);
-            // RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+            VisionMode();
 
             VisionArmor();
             curPower();
@@ -146,17 +146,17 @@ namespace UI::Dynamic
                 yaw_e_rad -= 360;
             }
 
-            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1600, 750, 80, 80));
+            // // 绘制小陀螺指示
+            RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorPink);
+            RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1450, 750, 80, 80));
 
             setLimitPower();
 
-            if (Gimbal_to_Chassis_Data.getShitf()) {
-                RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorOrange);
-            }
 
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorYellow);
             RM_RefereeSystem::RM_RefereeSystemSetWidth(35);
-            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, vel + 690));
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1450, 690, 1450, vel + 690));
         }
     }
 }

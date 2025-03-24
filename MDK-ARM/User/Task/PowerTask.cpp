@@ -40,11 +40,11 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
 
     // if (EventParse.DirData.MeterPower == false)
     // {
-   if (Gimbal_to_Chassis_Data.getRotatingVel() < 110) {
-       params = rls.update(samples, BSP::Power::pm01.cin_power - EffectivePower - k3);
-   }
-   k1 = params[0][0]; // In case the k1 diverge to negative number
-   k2 = params[1][0]; // In case the k2 diverge to negative number
+//   if (Gimbal_to_Chassis_Data.getRotatingVel() < 110) {
+//       params = rls.update(samples, BSP::Power::pm01.cin_power - EffectivePower - k3);
+//   }
+//   k1 = params[0][0]; // In case the k1 diverge to negative number
+//   k2 = params[1][0]; // In case the k2 diverge to negative number
     // }
 
     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;

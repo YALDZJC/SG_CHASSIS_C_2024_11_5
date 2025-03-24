@@ -39,8 +39,8 @@ namespace UI::Static
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(5);
         UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("W", 0, 954, 495, 6));
-		
-		// 瞄准线
+
+        // 瞄准线
         // UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("H", 0, Win_W * 0.5, 0, Win_W * 0.5, Win_H));
         // UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("high", 0, aim_x, aim_y, aim_x + 520, aim_y));
         // UI_send_queue.add(
@@ -67,11 +67,11 @@ namespace UI::Static
 
         // 小陀螺初始化
         RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1600, 750, 80, 80));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1450, 750, 80, 80));
 
         // 转速条初始化
         RM_RefereeSystem::RM_RefereeSystemSetWidth(35);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1600, 690, 1600, 750 + 61));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1450, 690, 1450, 750 + 61));
 
         // 真实功率
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
@@ -82,11 +82,11 @@ namespace UI::Static
         // 视觉模式背景
         RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
         UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
-		
-		            // 视觉点
-            RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
-            RM_RefereeSystem::RM_RefereeSystemSetWidth(3);
-            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, Gimbal_to_Chassis_Data.getAimX() * 2.72 + 615,  Gimbal_to_Chassis_Data.getAimY() * 2.05+265, 12));
+
+        // 视觉点
+        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(3);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, Gimbal_to_Chassis_Data.getAimX() * 2.72 + 615, Gimbal_to_Chassis_Data.getAimY() * 2.05 + 265, 12));
 
         /***************************绘制静态UI***************************/
         // pitch刻度
@@ -133,12 +133,17 @@ namespace UI::Static
         // 小陀螺内圆
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(1);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1600, 750, 67));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1450, 750, 67));
 
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(1);
         UI_send_queue.add(
-            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1600 - 20, 750 - 61, 1600 + 20, 750 + 62));
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1450 - 20, 750 - 61, 1450 + 20, 750 + 62));
+
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+
 
         UI_send_queue.is_up_ui = true;
     }

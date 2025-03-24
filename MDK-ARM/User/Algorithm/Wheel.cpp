@@ -23,12 +23,28 @@ void SG::UpDate(float vx, float vy, float vw, float MaxSpeed) // speed最大速�
 	// 特殊角度
 	float _angle = 45 * 3.14 / 180;
 	float tempvx[4] = {0}, tempvy[4] = {0}, tempvw = 0;
+	
+    // vw削弱逻辑
+    const float VW_THRESHOLD = 2.0f;  // 可调整的阈值
+    float vw_scale = 1.0f;            // 角速度的缩放因子
+    float vxy_scale = 1.0f;           // 线速度的增强因子
+    
+    // 当vw超过阈值时调整缩放因子
+    if (fabs(vw) > VW_THRESHOLD) {
+        // 计算角速度的削弱系数，可以根据需要调整公式
+        vw_scale = VW_THRESHOLD / fabs(vw) + 0.5f;  // 例如：高速时削弱到50%以上
+        // 同时加强线速度的影响
+        vxy_scale = 1.0f + (fabs(vw) - VW_THRESHOLD) * 0.1f;  // 随vw增加而增强vx/vy
+    }
+    
+    // 应用缩放
+    tempvw = -vw * vw_scale;
+	
 	for (char i = 0; i < 4; i++)
 	{
 		tempvx[i] = vx;
 		tempvy[i] = vy;
 	}
-	tempvw = -vw;
 
 	tempvy[0] = tempvy[0] - tempvw * HAL::cosf(_angle);
 	tempvy[1] = tempvy[1] + tempvw * HAL::cosf(_angle);

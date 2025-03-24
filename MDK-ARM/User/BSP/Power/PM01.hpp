@@ -90,7 +90,7 @@ namespace BSP::Power
                         //                            if (add_lim_cin_power > 45) add_lim_cin_power = 45;
                         //                        }
                         if (is_limit == 0) {
-                            lim_cin_power = ext_power_heat_data_0x0201.chassis_power_limit - 5;
+                            lim_cin_power = ext_power_heat_data_0x0201.chassis_power_limit - 1;
                         }
 
                         this->PM01SendData(set_cin_power, (lim_cin_power) * 100);

@@ -68,21 +68,23 @@ namespace SGPowerControl
     public:
         PowerTask_t()
         {
-            Wheel_PowerData.MAXPower = 45;
+            Wheel_PowerData.MAXPower = 60;
             Wheel_PowerData.k1 = 6.91571415e-07;
             Wheel_PowerData.k2 = 7.07674985e-07;
 
-            String_PowerData.MAXPower = 45 * 0.6f;
+            String_PowerData.MAXPower = 60 * 0.6f;
             String_PowerData.k1 = 0.000164319485;
             String_PowerData.k2 = 3.0557274e-07;
         }
 
         PowerUpData_t String_PowerData;
         PowerUpData_t Wheel_PowerData;
+		
         inline float GetEstWheelPow()
         {
             return Wheel_PowerData.EstimatedPower;
         }
+		
         inline float GetEstStringPow()
         {
             return String_PowerData.EstimatedPower;

@@ -20,7 +20,7 @@ PowerMeter::Meter_Data _MeterPowerData_[_PowerMeter_SIZE] = {0}; uint8_t _PowerM
 PowerMeter::Meter MeterPower(0x210, _PowerMeter_SIZE, _MeterPowerData_, _PowerMeter_ID_);
 
 // PID角度环设置
-Kpid_t Kpid_6020_angle(0.3, 0, 0);
+Kpid_t Kpid_6020_angle(0.2, 0, 0);
 PID pid_angle_String[4];
 
 // PID角度环设置
@@ -33,7 +33,7 @@ Kpid_t ude_Kpid_vel(15, 0, 0);
 PID ude_vel_demo;
 
 //底盘跟随环
-Kpid_t Kpid_vw(-180, 0, 0);
+Kpid_t Kpid_vw(-150, 0, -3);
 PID pid_vw;
 
 // PID速度环设置
@@ -58,7 +58,7 @@ TD td_3508_speed[4] = {
 
 
 // 期望值滤波
-TD tar_vw(10);
+TD tar_vw(30);
 TD tar_vx(15);
 TD tar_vy(15);
 TD td_FF_Tar(100);

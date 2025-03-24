@@ -10072,3 +10072,33 @@ These source files will be recompiled
 [2025-03-18 10:10:33]	[done]
 	build successfully !
 
+[2025-03-19 02:56:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-19 02:56:56]	[done]
+	build successfully !
+
+[2025-03-19 02:57:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+
+[2025-03-19 02:58:01]	[done]
+	build successfully !
+
+[2025-03-21 04:18:06]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+
+[2025-03-21 04:18:19]	[done]
+	build successfully !
+
