@@ -10102,3 +10102,44 @@ These source files will be recompiled
 [2025-03-21 04:18:19]	[done]
 	build successfully !
 
+[2025-05-03 20:32:09]	[info] incremental build: 14 source files changed
+These source files will be recompiled
+---
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Buzzer.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\App\Buzzer.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\PowerMeter.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Referee\RM_RefereeSystem.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\Task\CommunicationTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\..\BSP\Power\PM01.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\APP\Variable.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\BSP\Init.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\HAL\My_HAL.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CallBack.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\CommunicationTask.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\EvenTask.cpp': dependence 'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\..\APP\Buzzer.hpp' has been changed.
+'e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+
+[2025-05-03 20:32:14]	compilation failed at : "e:\RM_CODE\SG_CHASSIS_C_2024_11_5\MDK-ARM\User\Task\PowerTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/PowerTask.o -MMD ./User/Task/PowerTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/PowerTask.cpp:17:10: error: declaration conflicts with target of using declaration already in scope
+uint16_t time = 2;
+         ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\time.h:156:23: note: target of using declaration
+extern _ARMABI time_t time(time_t * /*timer*/);
+                      ^
+D:\Keil5\ARM\ARMCLANG\bin\..\include\time.h:271:20: note: using declaration
+      using ::std::time;
+                   ^
+./User/Task/PowerTask.cpp:25:9: error: no matching function for call to 'osDelay'
+        osDelay(time);
+        ^~~~~~~
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2\cmsis_os2.h:459:12: note: candidate function not viable: no known conversion from 'std::time_t (std::time_t *) __attribute__((nothrow))' (aka 'unsigned int (unsigned int *) __attribute__((nothrow))') to 'std::uint32_t' (aka 'unsigned int') for 1st argument
+osStatus_t osDelay (uint32_t ticks);
+           ^
+2 errors generated.
+
