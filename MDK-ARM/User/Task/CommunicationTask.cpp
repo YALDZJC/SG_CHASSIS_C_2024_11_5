@@ -1,4 +1,5 @@
 #include "CommunicationTask.hpp"
+#include "../APP/Referee/RM_RefereeSystem.h"
 #include "cmsis_os2.h"
 // #include "Variable.hpp"
 // #include "State.hpp"
@@ -13,7 +14,7 @@ void CommunicationTask(void *argument)
     for (;;)
     {
         // Gimbal_to_Chassis_Data.Data_receive(&huart1);
-
+        Gimbal_to_Chassis_Data.Transmit();
         osDelay(5);
     }
 }
@@ -86,6 +87,29 @@ bool Gimbal_to_Chassis::ISDir()
 
     is_dir = dirTime.ISDir(50) | Dir;
     return is_dir;
+}
+
+void Gimbal_to_Chassis::Transmit()
+{
+    // 使用临时指针将数据拷贝到缓冲区
+    auto temp_ptr = send_buffer;
+    const auto memcpy_safe = [&](const auto &data) {
+        std::memcpy(temp_ptr, &data, sizeof(data));
+        temp_ptr += sizeof(data);
+    };
+
+    booster.heat_one = 0x21;
+    booster.heat_one = 0x12;
+
+    setNowBoosterHeat(ext_power_heat_data_0x0202.shooter_id1_17mm_cooling_heat);
+    setBoosterMAX(ext_power_heat_data_0x0201.shooter_barrel_heat_limit);
+    setBoosterCd(ext_power_heat_data_0x0201.shooter_barrel_cooling_value);
+
+    memcpy_safe(booster);
+
+    uint8_t len = sizeof(booster);
+    // 发送数据
+    HAL_UART_Transmit_DMA(&huart6, send_buffer, len);
 }
 
 }; // namespace Communicat

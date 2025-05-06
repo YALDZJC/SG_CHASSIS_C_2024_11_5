@@ -14,7 +14,7 @@ uint32_t pm01_ms = 0;
 
 float W2, T2;
 float EffectivePower_t;
-uint16_t time = 2;
+uint16_t time1 = 2;
 void RLSTask(void *argument)
 {
     for (;;)
@@ -22,7 +22,7 @@ void RLSTask(void *argument)
         PowerControl.Wheel_PowerData.UpRLS(pid_vel_Wheel, Motor3508, toque_const_3508);
         PowerControl.String_PowerData.UpRLS(pid_vel_String, Motor6020, toque_const_6020);
 
-        osDelay(time);
+        osDelay(time1);
     }
 }
 
