@@ -136,7 +136,7 @@ public:
         } else {
 //            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
 
-            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 0);
+            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20);
         }
         PowerControl.setMaxPower(Chassis_Data.now_power);
 
