@@ -125,7 +125,7 @@ public:
         angle = Gimbal_to_Chassis_Data.getTargetOffsetAngle();
 
         if (Gimbal_to_Chassis_Data.getRotatingVel() > 0) {
-            tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 3);
+            tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 4);
         } else {
             pid_vw.GetPidPos(Kpid_vw, Gimbal_to_Chassis_Data.getTargetOffsetAngle(), total_angle, 10000);
             tar_vw.Calc(pid_vw.GetCout());
@@ -405,7 +405,7 @@ void Chassis_Task::PID_Updata()
         pid_angle_String[i].GetPidPos(Kpid_6020_angle, Chassis_Data.Zero_cross[i], Motor6020.GetAngleFeedback(i),
                                       16384.0f);
         // 舵向电机速度环更新
-        pid_vel_String[i].GetPidPos(Kpid_6020_vel, pid_angle_String[i].pid.cout + Chassis_Data.FF_Zero_cross[i],
+        pid_vel_String[i].GetPidPos(Kpid_6020_vel, pid_angle_String[i].pid.cout,
                                     Motor6020.GetRPMFeedback(i), 16384);
     }
 
