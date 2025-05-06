@@ -6,7 +6,6 @@
 
 namespace Math
 {
-
     template <uint32_t dim>
     class RLS
     {
