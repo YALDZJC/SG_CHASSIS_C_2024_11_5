@@ -99,8 +99,18 @@ void Gimbal_to_Chassis::Transmit()
     setBoosterMAX(ext_power_heat_data_0x0201.shooter_barrel_heat_limit);
     setBoosterCd(ext_power_heat_data_0x0201.shooter_barrel_cooling_value);
 
-    uint8_t len = sizeof(booster);
+    // 使用临时指针将数据拷贝到缓冲区
+    auto temp_ptr = send_buffer;
+
+    const auto memcpy_safe = [&](const auto &data) {
+        std::memcpy(temp_ptr, &data, sizeof(data));
+        temp_ptr += sizeof(data);
+    };
+
+    memcpy_safe(booster); // 序列化方向数据
+
     // 发送数据
+    uint8_t len = sizeof(booster);
     HAL_UART_Transmit_DMA(&huart1, send_buffer, len);
 }
 

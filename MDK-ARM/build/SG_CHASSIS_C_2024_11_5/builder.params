@@ -115,6 +115,7 @@
         "User/BSP/Init.cpp",
         "User/BSP/Init.cpp",
         "User/BSP/Power/PM01.cpp",
+        "User/BSP/SuperCap/SuperCap.cpp",
         "User/BSP/dr16.cpp",
         "User/HAL/HAL.cpp",
         "User/HAL/HAL.cpp",

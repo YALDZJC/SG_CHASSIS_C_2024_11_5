@@ -1,8 +1,10 @@
 #include "PowerTask.hpp"
 #include "../BSP/Power/PM01.hpp"
+#include "../BSP/SuperCap/SuperCap.hpp"
 #include "../Task/CommunicationTask.hpp"
 #include "Tools.hpp"
 #include "Variable.hpp"
+
 #include "cmsis_os2.h"
 #include "math.h"
 #include "stdxxx.hpp"
@@ -22,6 +24,11 @@ void RLSTask(void *argument)
         PowerControl.Wheel_PowerData.UpRLS(pid_vel_Wheel, Motor3508, toque_const_3508);
         PowerControl.String_PowerData.UpRLS(pid_vel_String, Motor6020, toque_const_6020);
 
+yt
+        float lim_cin_power = ext_power_heat_data_0x0201.chassis_power_limit - 1;
+        BSP::SuperCap::cap.SetSendValue(lim_cin_power);
+        BSP::SuperCap::cap.sendCAN(&hcan2, CAN_TX_MAILBOX0);
+
         osDelay(time1);
     }
 }
@@ -34,30 +41,27 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const)
 
     for (int i = 0; i < 4; i++)
     {
-        EffectivePower += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Speed) * toque_const;
+        EffectivePower +=
+            motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Speed) * toque_const * rpm_to_rads;
 
-        samples[0][0] += motor.GetEquipData_for(i, Dji_Speed) * motor.GetEquipData_for(i, Dji_Speed);
-        samples[1][0] += motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Torque);
+        samples[0][0] += fabs(motor.GetEquipData_for(i, Dji_Speed));
+        samples[1][0] +=
+            motor.GetEquipData_for(i, Dji_Torque) * motor.GetEquipData_for(i, Dji_Torque) * toque_const * toque_const;
     }
 
-    // if (EventParse.DirData.MeterPower == false)
-    // {
-    // if (Gimbal_to_Chassis_Data.getRotatingVel() < 110)
-    // {
-//    params = rls.update(samples, BSP::Power::pm01.cin_power - EffectivePower - k3);
-//    // }
-//    k1 = params[0][0]; // In case the k1 diverge to negative number
-//    k2 = params[1][0]; // In case the k2 diverge to negative number
+    params = rls.update(samples, BSP::SuperCap::cap.getOutPower() - EffectivePower - k3);
     // }
+    k1 = params[0][0]; // In case the k1 diverge to negative number
+    k2 = params[1][0]; // In case the k2 diverge to negative number
 
     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;
 
     EstimatedPower = 0;
     for (int i = 0; i < 4; i++)
     {
-        Initial_Est_power[i] = k1 * motor.GetEquipData_for(i, Dji_Speed) * motor.GetEquipData_for(i, Dji_Speed) +
-                               k2 * pid[i].pid.cout * toque_const * pid[i].pid.cout * toque_const +
-                               pid[i].pid.cout * motor.GetEquipData_for(i, Dji_Speed) * toque_const + k3 / 4.0f;
+        Initial_Est_power[i] = pid->GetCout() * toque_const * motor.GetEquipData_for(i, Dji_Speed) * rpm_to_rads +
+                               +fabs(motor.GetEquipData_for(i, Dji_Speed) * rpm_to_rads) * k1 +
+                               pid->GetCout() * toque_const * pid->GetCout() * toque_const * k2 + k3 / 4.0f;
 
         if (Initial_Est_power[i] < 0) // negative power not included (transitory)
             continue;
@@ -90,19 +94,21 @@ void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid
     {
         for (int i = 0; i < 4; i++)
         {
-            float omega = motor.GetEquipData_for(i, Dji_Speed);
+            float omega = motor.GetEquipData_for(i, Dji_Speed) * rpm_to_rads;
 
             float A = k2;
-            float B = toque_const * omega;
-            float C = k1 * omega * omega + k3 / 4 - pMaxPower[i];
+            float B = omega;
+            float C = k1 * fabs(omega) + k3 / 4 - pMaxPower[i];
 
             float delta = (B * B) - 4.0f * A * C;
+
             if (delta <= 0)
             {
-                Cmd_MaxT[i] = -B / (2.0f * A);
+                Cmd_MaxT[i] = -B / (2.0f * A) / toque_const;
             }
 
-            Cmd_MaxT[i] = pid[i].GetCout() > 0.0f ? (-B + sqrtf(delta)) / (2.0f * A) : (-B - sqrtf(delta)) / (2.0f * A);
+            Cmd_MaxT[i] = pid[i].GetCout() > 0.0f ? (-B + sqrtf(delta)) / (2.0f * A) / toque_const
+                                                  : (-B - sqrtf(delta)) / (2.0f * A) / toque_const;
 
             Cmd_MaxT[i] = Tools.clamp(Cmd_MaxT[i], 16384.0f, -16384.0f);
 
@@ -110,3 +116,5 @@ void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid
         }
     }
 }
+
+
