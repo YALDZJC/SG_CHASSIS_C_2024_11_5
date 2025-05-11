@@ -39,6 +39,7 @@ namespace BSP::Power
         float now_run_time;         // 本次运行时间,单位分钟
         RM_StaticTime time;
         bool is_open;     // 打开
+		bool is_dir;
         uint8_t send_cnt; // 发送次数用于调节发送，定时发送输入功率
         CAN_TxHeaderTypeDef TxHeader;
         uint8_t SendData[8];
@@ -56,12 +57,13 @@ namespace BSP::Power
         void PM01SendFun();
         // 初始化
         void PM01Init();
+		bool ISDir();
     };
 
     static float pm01_chao;
     inline void RM_PM01::PM01Init()
     {
-        this->lim_cin_power = 52; // 默认52w55
+        this->lim_cin_power = 100; // 默认52w55
         this->is_open       = false;
     }
     static uint8_t wwww = 0;
@@ -90,7 +92,7 @@ namespace BSP::Power
                         //                            if (add_lim_cin_power > 45) add_lim_cin_power = 45;
                         //                        }
                         if (is_limit == 0) {
-                            lim_cin_power = ext_power_heat_data_0x0201.chassis_power_limit - 1;
+//                            lim_cin_power = ext_power_heat_data_0x0201.chassis_power_limit - 1;
                         }
 
                         this->PM01SendData(set_cin_power, (lim_cin_power) * 100);
@@ -167,6 +169,13 @@ namespace BSP::Power
         }
         time.UpLastTime();
     }
+	
+	inline bool RM_PM01::ISDir()
+	{
+		is_dir = time.ISDir(10);
+
+		return is_dir;
+	}
     inline RM_PM01 pm01;
 
 } // namespace BSP::Power

@@ -25,8 +25,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         //		pm01.PM01Parse(RxHeader,RxHeaderData);
         // MeterPower.Parse(RxHeader, RxHeaderData);
         // BSP::Power::pm01.PM01Parse(RxHeader, RxHeaderData);
-        // BSP::Power::pm01.PM01Parse(RxHeader,RxHeaderData);
-        // BSP::Power::pm01.PM01SendData(5000);
+        BSP::Power::pm01.PM01Parse(RxHeader,RxHeaderData);
 
         BSP::SuperCap::cap.Parse(RxHeader, RxHeaderData);
     }

@@ -461,7 +461,7 @@ void Chassis_Task::CAN_Send()
 {
     // 发送数据
     if (Send_ms == 0) {
-//        BSP::Power::pm01.PM01SendFun();
+        BSP::Power::pm01.PM01SendFun();
         Motor3508.Send_CAN_MAILBOX1(&msd_3508_2006, SEND_MOTOR_ID_3508);
     } else if (Send_ms == 1) {
         Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);

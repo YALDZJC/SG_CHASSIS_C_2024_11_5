@@ -5,6 +5,7 @@
 #include "../BSP/Init.hpp"
 #include "../Task/CommunicationTask.hpp"
 #include "../BSP/SuperCap/SuperCap.hpp"
+#include "../BSP/Power/PM01.hpp"
 #include "Variable.hpp"
 #include "cmsis_os2.h"
 #include "tim.h"
@@ -12,7 +13,7 @@
 
 Dir Dir_Event;
 
-auto LED_Event = std::make_unique<LED>(&Dir_Event); // 让LED灯先订阅，先亮灯再更新蜂鸣器
+auto LED_Event    = std::make_unique<LED>(&Dir_Event); // 让LED灯先订阅，先亮灯再更新蜂鸣器
 auto Buzzer_Event = std::make_unique<Buzzer>(&Dir_Event);
 
 void DirUpdata()
@@ -24,8 +25,7 @@ void EventTask(void *argument)
 {
     osDelay(500);
 
-    for (;;)
-    {
+    for (;;) {
         Dir_Event.Notify();
 
         osDelay(1);
@@ -44,8 +44,7 @@ bool Dir::Dir_String()
 {
     bool Dir = Motor6020.ISDir();
 
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         DirData.String[i] = Motor6020.GetDir(Get_InitID_6020(i));
     }
 
@@ -56,8 +55,7 @@ bool Dir::Dir_Wheel()
 {
     bool Dir = Motor3508.ISDir();
 
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         DirData.Wheel[i] = Motor3508.GetDir(Get_InitID_3508(i));
     }
 
@@ -76,8 +74,7 @@ bool Dir::Dir_MeterPower()
 bool Dir::Dir_Communication()
 {
     DirData.Communication = Gimbal_to_Chassis_Data.ISDir();
-    if (DirData.Communication == true)
-    {
+    if (DirData.Communication == true) {
         Gimbal_to_Chassis_Data.Init();
     }
 
@@ -86,10 +83,11 @@ bool Dir::Dir_Communication()
 
 bool Dir::Dir_SuperCap()
 {
-	bool Dir = BSP::SuperCap::cap.ISDir();
-	DirData.SuperCap = Dir;
-	
-	return Dir;
+    bool Dir = BSP::SuperCap::cap.ISDir() && BSP::Power::pm01.ISDir();
+
+    DirData.SuperCap = Dir;
+
+    return Dir;
 }
 
 bool Dir::Init_Flag()
@@ -110,5 +108,5 @@ void Dir::UpEvent()
     Dir_MeterPower();
     Dir_Communication();
     Init_Flag();
-	Dir_SuperCap();
+    Dir_SuperCap();
 }

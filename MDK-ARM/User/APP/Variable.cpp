@@ -33,7 +33,7 @@ Kpid_t ude_Kpid_vel(15, 0, 0);
 PID ude_vel_demo;
 
 //底盘跟随环
-Kpid_t Kpid_vw(-180, 0, -10);
+Kpid_t Kpid_vw(-100, 0, -5);
 PID pid_vw;
 
 // PID速度环设置

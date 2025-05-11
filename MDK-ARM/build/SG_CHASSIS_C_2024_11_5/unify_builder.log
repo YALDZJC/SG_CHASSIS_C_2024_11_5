@@ -10180,3 +10180,333 @@ These source files will be recompiled
 [2025-05-09 03:47:56]	[done]
 	build successfully !
 
+[2025-05-11 13:39:27]	[info] incremental build: 15 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\Core\Src\usart.c': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Buzzer.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\EvenTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\LED.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\EvenTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Algorithm\Wheel.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': source file has been changed.
+
+[2025-05-11 13:39:30]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/APP/Variable.o -MMD ./User/APP/Variable.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./User/APP/CommunicationTask.cpp:3:
+In file included from User/APP\Variable.hpp:9:
+User/Task\PowerTask.hpp:82:38: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            Wheel_PowerData.E_upper  = 1000;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:83:38: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            Wheel_PowerData.E_lower  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:90:39: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            String_PowerData.E_upper  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:91:39: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            String_PowerData.E_lower  = 100;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+4 errors generated.
+In file included from ./User/APP/UI/Dynamic/darw_dynamic.cpp:3:
+In file included from User/APP\../BSP/Power/PM01.hpp:4:
+User/Task\PowerTask.hpp:82:38: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            Wheel_PowerData.E_upper  = 1000;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:83:38: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            Wheel_PowerData.E_lower  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:90:39: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            String_PowerData.E_upper  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:91:39: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            String_PowerData.E_lower  = 100;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+./User/APP/UI/Dynamic/darw_dynamic.cpp:30:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, limit_power, limit_power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:44:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:46:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:48:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:50:78: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+                                                                             ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:83:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:99:79: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, aimX * 2.75 + 580, aimY * 2.05 + 275, 20));
+                                                                              ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:104:75: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, aimX * 2.75 + 580, aimY * 2.05 + 275, 20));
+                                                                          ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:108:75: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, aimX * 2.75 + 580, aimY * 2.05 + 275, 20));
+                                                                          ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:141:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:154:74: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1450, 750, 80, 80));
+                                                                         ^
+./User/APP/UI/Dynamic/darw_dynamic.cpp:161:73: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1450, 690, 1450, vel + 690));
+                                                                        ^
+12 warnings and 4 errors generated.
+In file included from ./User/APP/UI/Static/darw_static.cpp:3:
+In file included from User/APP\../BSP/Power/PM01.hpp:4:
+User/Task\PowerTask.hpp:82:38: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            Wheel_PowerData.E_upper  = 1000;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:83:38: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            Wheel_PowerData.E_lower  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:90:39: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            String_PowerData.E_upper  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:91:39: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            String_PowerData.E_lower  = 100;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+./User/APP/UI/Static/darw_static.cpp:42:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("W", 0, 954, 495, 6));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:59:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, 100, 100 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:63:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("limPower", 1, 120, 120 + 2, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:67:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 310, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:71:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, 0, 360, 1450, 750, 80, 80));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:75:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("dp1", 0, 1450, 690, 1450, 750 + 61));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:81:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::SuperCap::cap.getOutPower(), ZM_of_X, ZM_of_Y));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:85:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:90:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("vsA", 4, Gimbal_to_Chassis_Data.getAimX() * 2.72 + 615, Gimbal_to_Chassis_Data.getAimY() * 2.05 + 265, 12));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:96:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_130", 0, 50, 51, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:98:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_120", 1, 60, 61, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:100:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_110", 2, 70, 71, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:102:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_100", 3, 80, 81, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:104:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_90", 4, 90, 91, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:106:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_80", 5, 100, 101, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:108:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_60", 6, 110, 111, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:110:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 7, 120, 121, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:112:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("angle_50", 8, 130, 131, 960, 540, 380, 380));
+                                                                     ^
+./User/APP/UI/Static/darw_static.cpp:118:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_130", 0, 120, 1210, 770));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:119:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_110", 1, 90, 1270, 660));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:120:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_90", 2, 60, 1300, 540));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:121:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_70", 3, 30, 1280, 420));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:122:68: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("write_50", 4, 0, 1210, 310));
+                                                                   ^
+./User/APP/UI/Static/darw_static.cpp:128:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd1", 2, 570, 540, 595, 540));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:132:69: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetLine("cd2", 2, 673, 800, 690, 785));
+                                                                    ^
+./User/APP/UI/Static/darw_static.cpp:137:71: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetCircle("xtl_in", 2, 1450, 750, 67));
+                                                                      ^
+./User/APP/UI/Static/darw_static.cpp:142:60: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+            RM_RefereeSystem::RM_RefereeSystemSetRectangle("dp9", 2, 1450 - 20, 750 - 61, 1450 + 20, 750 + 62));
+                                                           ^
+./User/APP/UI/Static/darw_static.cpp:146:70: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+                                                                     ^
+28 warnings and 4 errors generated.
+In file included from ./User/APP/Variable.cpp:1:
+In file included from User/APP\Variable.hpp:9:
+User/Task\PowerTask.hpp:82:38: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            Wheel_PowerData.E_upper  = 1000;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:83:38: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            Wheel_PowerData.E_lower  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:90:39: error: cannot assign to non-static data member 'E_upper' with const-qualified type 'const float'
+            String_PowerData.E_upper  = 500;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:63:21: note: non-static data member 'E_upper' declared const here
+        const float E_upper = 20.0f; // 误差上限阈值
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+User/Task\PowerTask.hpp:91:39: error: cannot assign to non-static data member 'E_lower' with const-qualified type 'const float'
+            String_PowerData.E_lower  = 100;
+            ~~~~~~~~~~~~~~~~~~~~~~~~  ^
+User/Task\PowerTask.hpp:62:21: note: non-static data member 'E_lower' declared const here
+        const float E_lower = 5.0f;  // 误差下限阈值（单位：rad/s或自定义）
+        ~~~~~~~~~~~~^~~~~~~~~~~~~~
+4 errors generated.
+
+[2025-05-11 13:40:00]	[info] incremental build: 12 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': object (.o) file not exist
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Algorithm\Wheel.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': source file has been changed.
+
+[2025-05-11 13:40:06]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/PowerTask.o -MMD ./User/Task/PowerTask.cpp
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/PowerTask.cpp:101:81: error: expected ')'
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                                                                ^
+./User/Task/PowerTask.cpp:101:48: note: to match this '('
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                               ^
+./User/Task/PowerTask.cpp:101:88: error: expected ':'
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                                                                       ^
+                                                                                       : 
+./User/Task/PowerTask.cpp:101:46: note: to match this '?'
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                             ^
+./User/Task/PowerTask.cpp:101:88: error: expected expression
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                                                                       ^
+3 errors generated.
+
+[2025-05-11 13:41:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': object (.o) file not exist
+
+[2025-05-11 13:41:50]	compilation failed at : "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc++ -std=c++17 -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../../../AppData/Local/Arm/Packs/ARM/CMSIS-DSP/1.15.0/Include -I../Middlewares/ST/ARM/DSP/Inc -IUser/APP -IUser/BSP -IUser/Algorithm -IUser/HAL -IUser/Task -I.cmsis/include -IRTE/_SG_CHASSIS_C_2024_11_5 -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -O3 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/SG_CHASSIS_C_2024_11_5/.obj/User/Task/PowerTask.o -MMD ./User/Task/PowerTask.cpp
+   at unify_builder.Program.Main(String[] args_)
+---
+./User/Task/PowerTask.cpp:102:81: error: expected ')'
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                                                                ^
+./User/Task/PowerTask.cpp:102:48: note: to match this '('
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                               ^
+./User/Task/PowerTask.cpp:102:88: error: expected ':'
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                                                                       ^
+                                                                                       : 
+./User/Task/PowerTask.cpp:102:46: note: to match this '?'
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                             ^
+./User/Task/PowerTask.cpp:102:88: error: expected expression
+        float error_ratio = (sumErr > 1e-6f) ? (fabsf(pid[i].GetErr()) / sumErr : 0.25f; // 默认均分
+                                                                                       ^
+3 errors generated.
+
+[2025-05-11 13:42:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': object (.o) file not exist
+
+[2025-05-11 13:42:20]	[done]
+	build successfully !
+

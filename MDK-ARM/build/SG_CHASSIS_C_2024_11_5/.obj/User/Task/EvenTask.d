@@ -32,10 +32,12 @@
   ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\..\BSP\Init.hpp \
   User\Task\..\Task\CommunicationTask.hpp \
   User\Task\..\BSP\StaticTime.hpp User\BSP\stdxxx.hpp \
+  User\Task\..\BSP\SuperCap\SuperCap.hpp \
+  User\Task\..\BSP\SuperCap\..\Bsp_Can.hpp User\HAL\My_HAL.hpp \
+  User\BSP\Bsp_Can.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
+  ..\Core\Inc\gpio.h User\HAL\HAL.hpp User\APP\..\BSP\StaticTime.hpp \
   User\APP\Variable.hpp User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp \
-  User\BSP\StaticTime.hpp User\HAL\My_hal.hpp User\BSP\Bsp_Can.hpp \
-  User\HAL\My_HAL.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
-  ..\Core\Inc\gpio.h User\HAL\HAL.hpp User\Algorithm\PID.hpp \
+  User\BSP\StaticTime.hpp User\HAL\My_hal.hpp User\Algorithm\PID.hpp \
   User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp User\APP\State.hpp \
   User\APP\Tools.hpp User\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
