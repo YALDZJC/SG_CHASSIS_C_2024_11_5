@@ -136,7 +136,7 @@ public:
         } else {
 //            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
 
-            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20);
+            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20) - 2;
         }
         PowerControl.setMaxPower(Chassis_Data.now_power);
 
@@ -336,7 +336,7 @@ float ude_tar;
 void Chassis_Task::Wheel_UpData()
 {
     // 对轮子进行运动学变换
-    Wheel.WheelType.UpDate(Chassis_Data.vx, Chassis_Data.vy, Chassis_Data.vw, 7200);
+    Wheel.WheelType.UpDate(Chassis_Data.vx, Chassis_Data.vy, Chassis_Data.vw, 15000);
 
     // 储存最小角判断的速度
     for (int i = 0; i < 4; i++) {
@@ -428,14 +428,19 @@ void Chassis_Task::CAN_Setting()
     }
 
     // 功率控制部分
-    PowerControl.String_PowerData.UpScaleMaxPow(pid_angle_String, Motor6020);
-    PowerControl.String_PowerData.UpCalcMaxTorque(Chassis_Data.final_6020_Out, Motor6020, pid_vel_String,
-                                                  toque_const_6020);
-
-    PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
-    PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel,
-                                                 toque_const_3508);
-
+	if(Dir_Event.GetDir_String() == false)
+	{
+		PowerControl.String_PowerData.UpScaleMaxPow(pid_angle_String, Motor6020);
+		PowerControl.String_PowerData.UpCalcMaxTorque(Chassis_Data.final_6020_Out, Motor6020, pid_vel_String,
+													toque_const_6020, rpm_to_rads_6020);
+	}
+	
+	if(Dir_Event.GetDir_Wheel() == false)
+	{
+		PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
+		PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel,
+													toque_const_3508, rpm_to_rads_3508);
+	}
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));
@@ -456,7 +461,7 @@ void Chassis_Task::CAN_Send()
 {
     // 发送数据
     if (Send_ms == 0) {
-        BSP::Power::pm01.PM01SendFun();
+//        BSP::Power::pm01.PM01SendFun();
         Motor3508.Send_CAN_MAILBOX1(&msd_3508_2006, SEND_MOTOR_ID_3508);
     } else if (Send_ms == 1) {
         Motor6020.Send_CAN_MAILBOX0(&msd_6020, SEND_MOTOR_CurrentID_6020);

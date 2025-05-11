@@ -6,10 +6,12 @@
 
 #define My_PI 3.14152653529799323
 // #define toque_const 1.502e-5f
-#define toque_const_3508 0.0003662109375
-#define rpm_to_rads 0.00551157
+#define toque_const_3508 0.00010986328f
+#define rpm_to_rads_3508 0.0029088820f
 
-#define toque_const_6020 1.420745050719895e-5f
+#define toque_const_6020 0.000128173828f
+#define rpm_to_rads_6020 0.104719555f
+
 //  #define toque_coefficient  1.99688994e-6f // (20/16384)*(0.3)*(187/3591)/9.55
 
 #define pMAX 120.0f
@@ -40,6 +42,8 @@ class PowerUpData_t
     {
     }
 
+	bool is_RLS = false;
+	
     /* data */
     float k1, k2, k3 = 8.50f, k0;
 
@@ -55,11 +59,11 @@ class PowerUpData_t
     float pMaxPower[4];
     double Cmd_MaxT[4];
 
-    void UpRLS(PID *pid, Dji_Motor &motor, const float toque_const);
+    void UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, const float rpm_to_rads);
     // 等比缩放的最大分配功率
     void UpScaleMaxPow(PID *pid, Dji_Motor &motor);
     // 计算应分配的力矩
-    void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const);
+    void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const, const float rpm_to_rads);
 };
 
 class PowerTask_t
@@ -68,12 +72,17 @@ class PowerTask_t
     PowerTask_t()
     {
         Wheel_PowerData.MAXPower = 60;
-        Wheel_PowerData.k1 = 6.91571415e-07;
-        Wheel_PowerData.k2 = 7.07674985e-07;
+        Wheel_PowerData.k1 = 1;
+        Wheel_PowerData.k2 = 1;
+		Wheel_PowerData.k3 = 6.8;
+		Wheel_PowerData.is_RLS = true;
 
         String_PowerData.MAXPower = 60 * 0.6f;
-        String_PowerData.k1 = 0.000164319485;
-        String_PowerData.k2 = 3.0557274e-07;
+        String_PowerData.k1 = 0.182967603;
+        String_PowerData.k2 = 8.78055;
+		String_PowerData.k3 = 6.8;
+		String_PowerData.is_RLS = false;
+
     }
 
     PowerUpData_t String_PowerData;

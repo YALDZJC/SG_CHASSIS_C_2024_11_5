@@ -9,8 +9,8 @@ void RefeeTask(void *argument)
    UI::Static::UI_static.Init();
     for (;;)
     {
-        UI::Dynamic::UI_dynamic.darw_UI();
-        UI::UI_send_queue.send();
+//        UI::Dynamic::UI_dynamic.darw_UI();
+//        UI::UI_send_queue.send();
 
         osDelay(1);
     }

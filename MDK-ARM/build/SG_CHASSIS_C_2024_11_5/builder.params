@@ -3,11 +3,11 @@
     "target": "SG_CHASSIS_C_2024_11_5",
     "toolchain": "AC6",
     "toolchainLocation": "D:\\Keil5\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\Administrator.DESKTOP-IAACAVF\\.vscode\\extensions\\cl.eide-3.21.2\\res\\data\\models\\win32/arm.v6.model.json",
+    "toolchainCfgFile": "c:\\Users\\79932\\.vscode\\extensions\\cl.eide-3.21.2\\res\\data\\models\\win32/arm.v6.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
-    "rootDir": "e:\\RM_CODE\\SG_CHASSIS_C_2024_11_5\\MDK-ARM",
+    "rootDir": "d:\\E\\GitHub_Desktop\\demo\\SG_WHEEL\\MDK-ARM",
     "dumpPath": "build\\SG_CHASSIS_C_2024_11_5",
     "outDir": "build\\SG_CHASSIS_C_2024_11_5",
     "ram": 131072,
@@ -168,21 +168,21 @@
             "output-format": "elf",
             "misc-controls": "--diag_suppress=L6329",
             "link-scatter": [
-                "\"e:/RM_CODE/SG_CHASSIS_C_2024_11_5/MDK-ARM/build/SG_CHASSIS_C_2024_11_5/SG_CHASSIS_C_2024_11_5.sct\""
+                "\"d:/E/GitHub_Desktop/demo/SG_WHEEL/MDK-ARM/build/SG_CHASSIS_C_2024_11_5/SG_CHASSIS_C_2024_11_5.sct\""
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "SG_CHASSIS_C_2024_11_5",
-        "workspaceFolder": "e:\\RM_CODE\\SG_CHASSIS_C_2024_11_5\\MDK-ARM",
+        "workspaceFolder": "d:\\E\\GitHub_Desktop\\demo\\SG_WHEEL\\MDK-ARM",
         "workspaceFolderBasename": "MDK-ARM",
-        "OutDir": "e:\\RM_CODE\\SG_CHASSIS_C_2024_11_5\\MDK-ARM\\build\\SG_CHASSIS_C_2024_11_5",
+        "OutDir": "d:\\E\\GitHub_Desktop\\demo\\SG_WHEEL\\MDK-ARM\\build\\SG_CHASSIS_C_2024_11_5",
         "OutDirRoot": "build",
         "OutDirBase": "build\\SG_CHASSIS_C_2024_11_5",
         "ProjectName": "SG_CHASSIS_C_2024_11_5",
         "ConfigName": "SG_CHASSIS_C_2024_11_5",
-        "ProjectRoot": "e:\\RM_CODE\\SG_CHASSIS_C_2024_11_5\\MDK-ARM",
-        "ExecutableName": "e:\\RM_CODE\\SG_CHASSIS_C_2024_11_5\\MDK-ARM\\build\\SG_CHASSIS_C_2024_11_5\\SG_CHASSIS_C_2024_11_5",
+        "ProjectRoot": "d:\\E\\GitHub_Desktop\\demo\\SG_WHEEL\\MDK-ARM",
+        "ExecutableName": "d:\\E\\GitHub_Desktop\\demo\\SG_WHEEL\\MDK-ARM\\build\\SG_CHASSIS_C_2024_11_5\\SG_CHASSIS_C_2024_11_5",
         "ChipPackDir": "",
         "ChipName": "",
         "SYS_Platform": "win32",
@@ -191,9 +191,9 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator.DESKTOP-IAACAVF\\.vscode\\extensions\\cl.eide-3.21.2\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\79932\\.vscode\\extensions\\cl.eide-3.21.2\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.0.1",
-        "EIDE_MSYS": "C:\\Users\\Administrator.DESKTOP-IAACAVF\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_MSYS": "C:\\Users\\79932\\.eide\\bin\\builder\\msys\\bin",
         "ToolchainRoot": "D:\\Keil5\\ARM\\ARMCLANG"
     },
     "sysPaths": []

@@ -1,7 +1,7 @@
 ./build/SG_CHASSIS_C_2024_11_5/.obj/User/HAL/My_HAL.o: \
   User\HAL\My_HAL.cpp User\HAL\My_HAL.hpp User\BSP\Bsp_Can.hpp \
-  User\BSP\stdxxx.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+  User\HAL\My_HAL.hpp User\BSP\stdxxx.hpp ..\Core\Inc\can.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
@@ -26,13 +26,14 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\gpio.h User\HAL\HAL.hpp \
-  ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
+  ..\Core\Inc\main.h ..\Core\Inc\usart.h ..\Core\Inc\gpio.h \
+  User\HAL\HAL.hpp ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
-  ..\Core\Inc\tim.h User\APP\Variable.hpp User\APP\Dji_Motor.hpp \
-  User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp User\BSP\Key.hpp \
-  User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
+  User\BSP\BSP_Can.hpp ..\Core\Inc\tim.h User\APP\Variable.hpp \
+  User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp User\BSP\StaticTime.hpp \
+  User\BSP\Key.hpp User\HAL\My_hal.hpp User\Algorithm\PID.hpp \
+  User\BSP\stdxxx.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
   User\APP\State.hpp User\APP\Tools.hpp User\Task\PowerTask.hpp \
   User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
@@ -48,7 +49,7 @@
   User\Task\EvenTask.hpp User\APP\PowerMeter.hpp \
   User\HAL\..\BSP\Dbus.hpp User\BSP\..\BSP\StaticTime.hpp \
   User\HAL\..\Task\CommunicationTask.hpp User\Task\..\BSP\Dbus.hpp \
-  User\Task\..\BSP\StaticTime.hpp \
+  User\Task\..\BSP\StaticTime.hpp User\Task\EvenTask.hpp \
   User\HAL\..\APP\Referee\RM_RefereeSystem.h \
   User\HAL\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
   User\APP\..\BSP\stdxxx.hpp User\HAL\..\BSP\Power\PM01.hpp \

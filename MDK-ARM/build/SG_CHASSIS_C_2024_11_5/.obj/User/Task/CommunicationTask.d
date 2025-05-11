@@ -27,7 +27,10 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\EvenTask.hpp \
-  User\Task\..\BSP\StaticTime.hpp \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\..\BSP\StaticTime.hpp \
+  User\Task\EvenTask.hpp User\BSP\stdxxx.hpp \
+  User\Task\..\APP\Referee\RM_RefereeSystem.h \
+  User\Task\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
+  User\APP\..\BSP\stdxxx.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.h \
   ..\Core\Inc\tim.h

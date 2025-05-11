@@ -28,9 +28,10 @@
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\EvenTask.hpp \
-  User\Task\..\BSP\StaticTime.hpp User\APP\..\BSP\Power\PM01.hpp \
-  User\APP\..\Task\PowerTask.hpp User\Algorithm\RLS.hpp \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h User\Task\..\BSP\StaticTime.hpp \
+  User\Task\EvenTask.hpp User\BSP\stdxxx.hpp \
+  User\APP\..\BSP\Power\PM01.hpp User\APP\..\Task\PowerTask.hpp \
+  User\Algorithm\RLS.hpp \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
@@ -44,12 +45,15 @@
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\list.h \
   User\APP\Variable.hpp User\APP\Dji_Motor.hpp User\BSP\BSP_Motor.hpp \
   User\BSP\StaticTime.hpp User\HAL\My_hal.hpp User\BSP\Bsp_Can.hpp \
-  ..\Core\Inc\can.h ..\Core\Inc\gpio.h User\HAL\HAL.hpp \
-  User\Algorithm\PID.hpp User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp \
-  User\APP\State.hpp User\APP\Tools.hpp User\Task\PowerTask.hpp \
+  User\HAL\My_HAL.hpp ..\Core\Inc\can.h ..\Core\Inc\main.h \
+  ..\Core\Inc\gpio.h User\HAL\HAL.hpp User\Algorithm\PID.hpp \
+  User\Algorithm\Wheel.hpp User\APP\Dm_Motor.hpp User\APP\State.hpp \
+  User\APP\Tools.hpp User\Task\PowerTask.hpp User\Task\EvenTask.hpp \
   User\APP\PowerMeter.hpp User\APP\..\BSP\StaticTime.hpp \
   User\APP\..\APP\Referee\RM_RefereeSystem.h \
   User\APP\..\APP\Referee\..\Referee\RM_RefereeSystemCRC.h \
   User\APP\..\BSP\stdxxx.hpp User\APP\UI\Dynamic\..\UI_Queue.hpp \
   User\APP\UI\Dynamic\..\..\Referee\RM_RefereeSystem.h \
-  User\APP\..\HAL\HAL.hpp User\APP\..\APP\Variable.hpp
+  User\APP\..\HAL\HAL.hpp User\APP\..\APP\Variable.hpp \
+  User\APP\..\BSP\SuperCap\SuperCap.hpp \
+  User\APP\..\BSP\SuperCap\..\Bsp_Can.hpp

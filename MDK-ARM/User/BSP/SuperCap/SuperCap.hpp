@@ -1,4 +1,5 @@
 #include "../Bsp_Can.hpp"
+#include "../BSP/StaticTime.hpp"
 #include "can.h"
 #include <memory>
 
@@ -37,6 +38,8 @@ class LH_Cap
 
         CapState_ = static_cast<State>(feedback_.State);
         CapSwitch_ = static_cast<Switch>(feedback_.Is_On);
+		
+		dirTime.UpLastTime();
     }
 
     enum class State : uint8_t
@@ -77,6 +80,8 @@ class LH_Cap
     uint8_t send_data[8];
     uint32_t sendID = 0x666;
 
+	RM_StaticTime dirTime;
+	bool Dir_Flag = false;
   public:
     /**
      * @brief 获取底盘电压
@@ -131,8 +136,16 @@ class LH_Cap
     void sendCAN(CAN_HandleTypeDef *han, uint32_t pTxMailbox)
     {
         // 发送
-        HAL::Can_SendDATA(&hcan1, sendID, send_data, pTxMailbox);
+        HAL::Can_SendDATA(&hcan2, sendID, send_data, pTxMailbox);
     }
+	
+	bool ISDir()
+	{
+		char Dir = 0;
+
+		this->Dir_Flag = dirTime.ISDir(100) | Dir;
+		return Dir_Flag;
+	}
 };
 
 inline LH_Cap cap;

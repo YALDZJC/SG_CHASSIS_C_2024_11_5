@@ -15,6 +15,9 @@ struct Dir_Data_t
 
     bool Communication;
 
+	
+	bool SuperCap;
+	
     bool InitFlag;
 };
 
@@ -95,6 +98,7 @@ private:
     bool Dir_MeterPower();
     bool Init_Flag();
     bool Dir_Communication();
+	bool Dir_SuperCap();
 
 public:
     void UpEvent();
@@ -105,6 +109,7 @@ public:
     bool GetDir_MeterPower();
     bool Ger_Init_Flag();
     bool getDir_Communication();
+	bool getSuperCap();
 };
 
 
@@ -146,6 +151,11 @@ inline uint8_t Dir::GetDir_String()
     }
 
     return 0;
+}
+
+inline bool Dir::getSuperCap()
+{
+	return DirData.SuperCap;
 }
 
 /**

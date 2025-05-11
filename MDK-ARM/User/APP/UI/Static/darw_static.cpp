@@ -1,6 +1,7 @@
 #include "../Static/darw_static.hpp"
 #include "../UI_Queue.hpp"
 #include "../BSP/Power/PM01.hpp"
+#include "../BSP/SuperCap/SuperCap.hpp"
 #include <stdio.h>
 uint16_t x = 128;
 uint16_t y = 228;
@@ -77,7 +78,7 @@ namespace UI::Static
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
         RM_RefereeSystem::RM_RefereeSystemSetStringSize(15);
         RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::Power::pm01.cin_power, ZM_of_X, ZM_of_Y));
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::SuperCap::cap.getOutPower(), ZM_of_X, ZM_of_Y));
 
         // 视觉模式背景
         RM_RefereeSystem::RM_RefereeSystemSetWidth(15);

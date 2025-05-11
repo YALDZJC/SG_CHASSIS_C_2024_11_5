@@ -7,6 +7,8 @@
 #include "../Task/PowerTask.hpp"
 #include "../BSP/Power/PM01.hpp"
 #include "../APP/Referee/RM_RefereeSystem.h"
+#include "../BSP/SuperCap/SuperCap.hpp"
+
 #include <stdio.h>
 float sin_tick;
 int16_t pitch_out, cap_out, speed_out;
@@ -59,7 +61,7 @@ namespace UI::Dynamic
 
     void darw_dynamic::curPower()
     {
-        uint16_t super_cap        = BSP::Power::pm01.cout_voltage * 1.60;
+        uint16_t super_cap        = BSP::SuperCap::cap.getOutPower() *1.60;
         static uint16_t lastvalue = 0;
 		
             // 绘制超电能量调
@@ -133,7 +135,7 @@ namespace UI::Dynamic
             RM_RefereeSystem::RM_RefereeSystemSetOperateTpye(RM_RefereeSystem::OperateRevise);
 
             // 绘制pitch指示
-            int16_t power = -(BSP::Power::pm01.cin_power * 0.666) + 130;
+            int16_t power = -(BSP::SuperCap::cap.ISDir() * 0.666) + 130;
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
             RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));

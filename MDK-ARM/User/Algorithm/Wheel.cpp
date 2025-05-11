@@ -38,7 +38,7 @@ void SG::UpDate(float vx, float vy, float vw, float MaxSpeed) // speed最大速�
     }
     
     // 应用缩放
-    tempvw = -vw * vw_scale;
+    tempvw = -vw;
 	
 	for (char i = 0; i < 4; i++)
 	{

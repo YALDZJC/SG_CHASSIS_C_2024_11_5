@@ -4,6 +4,7 @@
 #include "../BSP/Dbus.hpp"
 #include "../BSP/Init.hpp"
 #include "../Task/CommunicationTask.hpp"
+#include "../BSP/SuperCap/SuperCap.hpp"
 #include "Variable.hpp"
 #include "cmsis_os2.h"
 #include "tim.h"
@@ -83,6 +84,14 @@ bool Dir::Dir_Communication()
     return DirData.Communication;
 }
 
+bool Dir::Dir_SuperCap()
+{
+	bool Dir = BSP::SuperCap::cap.ISDir();
+	DirData.SuperCap = Dir;
+	
+	return Dir;
+}
+
 bool Dir::Init_Flag()
 {
     DirData.InitFlag = InitFlag;
@@ -101,4 +110,5 @@ void Dir::UpEvent()
     Dir_MeterPower();
     Dir_Communication();
     Init_Flag();
+	Dir_SuperCap();
 }

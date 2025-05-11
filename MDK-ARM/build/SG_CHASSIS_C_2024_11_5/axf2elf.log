@@ -1,4 +1,4 @@
-arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\79932\AppData\Local\Temp\\SG_CHASSIS_C_2024_11_5_E3agViKR.bin" "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\build\SG_CHASSIS_C_2024_11_5\SG_CHASSIS_C_2024_11_5.axf" "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\build\SG_CHASSIS_C_2024_11_5\SG_CHASSIS_C_2024_11_5.elf"
+arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\79932\AppData\Local\Temp\\SG_CHASSIS_C_2024_11_5_/XfWR4v3.bin" "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\build\SG_CHASSIS_C_2024_11_5\SG_CHASSIS_C_2024_11_5.axf" "d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\build\SG_CHASSIS_C_2024_11_5\SG_CHASSIS_C_2024_11_5.elf"
 
 arm-none-eabi-objcopy: d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\build\SG_CHASSIS_C_2024_11_5\SG_CHASSIS_C_2024_11_5.elf: warning: allocated section `RW_IRAM1' not in segment
 
