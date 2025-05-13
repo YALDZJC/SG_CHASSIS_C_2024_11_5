@@ -60,7 +60,7 @@ public:
         m_task.CAN_Send();
     }
 };
-
+float tar_vw_angle = 3.1415926535f;
 float gyro_vel = 150;
 class Chassis_Task::FollowHandler : public StateHandler
 {
@@ -74,8 +74,8 @@ public:
 
     void FllowTarget()
     {
-        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
-        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
@@ -132,7 +132,7 @@ public:
         }
 
         if (Gimbal_to_Chassis_Data.getShitf()) {
-            Chassis_Data.now_power = 60.0f + ext_power_heat_data_0x0201.chassis_power_limit;
+            Chassis_Data.now_power = 30.0f + ext_power_heat_data_0x0201.chassis_power_limit;
         } else {
 //            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
 

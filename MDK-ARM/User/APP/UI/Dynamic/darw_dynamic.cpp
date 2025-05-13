@@ -33,27 +33,27 @@ namespace UI::Dynamic
     }
     void darw_dynamic::VisionMode()
     {
-        static int8_t lastVisionMode = -1; // 初始值设为-1或其他不可能的值
-        // 获取当前模式
-        int8_t currentMode = Gimbal_to_Chassis_Data.getVisionMode();
+//        static int8_t lastVisionMode = -1; // 初始值设为-1或其他不可能的值
+//        // 获取当前模式
+//        int8_t currentMode = Gimbal_to_Chassis_Data.getVisionMode();
 
-        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorPink);
-        if (currentMode != lastVisionMode) {
-            if (Gimbal_to_Chassis_Data.getVisionMode() == 1) {
-                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
-            } else if (Gimbal_to_Chassis_Data.getVisionMode() == 2) {
-                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
-            } else if (Gimbal_to_Chassis_Data.getVisionMode() == 3) {
-                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
-            } else {
-                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
-            }
-            RM_RefereeSystem::RM_RefereeSystemClsToop();
+//        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+//        RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorPink);
+//        if (currentMode != lastVisionMode) {
+//            if (Gimbal_to_Chassis_Data.getVisionMode() == 1) {
+//                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 184, 193, 956, 520, 360, 360));
+//            } else if (Gimbal_to_Chassis_Data.getVisionMode() == 2) {
+//                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 175, 184, 956, 520, 360, 360));
+//            } else if (Gimbal_to_Chassis_Data.getVisionMode() == 3) {
+//                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 175, 956, 520, 360, 360));
+//            } else {
+//                UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vis", 2, 166, 193, 956, 520, 360, 360));
+//            }
+//            RM_RefereeSystem::RM_RefereeSystemClsToop();
 
-            // 更新上次模式值
-            lastVisionMode = currentMode;
-        }
+//            // 更新上次模式值
+//            lastVisionMode = currentMode;
+//        }
         //		RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorWhite);
         //		UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vision", 3, 166, 193, 956, 520, 360, 360));
         // 视觉模式背景
@@ -61,29 +61,29 @@ namespace UI::Dynamic
 
     void darw_dynamic::curPower()
     {
-        uint16_t super_cap        = BSP::SuperCap::cap.getOutPower() *1.60;
+        uint16_t super_cap        = BSP::Power::pm01.cout_voltage * 1.60;
         static uint16_t lastvalue = 0;
-		
-            // 绘制超电能量调
+
+        // 绘制超电能量调
         if (super_cap < 30) {
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
         } else {
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorGreen);
         }
-		
-		if (Gimbal_to_Chassis_Data.getShitf()) {
-			RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorOrange);
-		}
-		
-//        if (super_cap != lastvalue) {
 
-            super_cap = Tools.clamp(super_cap, 40.0f, 0.0f);
+        if (Gimbal_to_Chassis_Data.getShitf()) {
+            RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorOrange);
+        }
 
-            RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-            UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+        //        if (super_cap != lastvalue) {
 
-            lastvalue = super_cap;
-//        }
+        super_cap = Tools.clamp(super_cap, 40.0f, 0.0f);
+
+        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
+
+        lastvalue = super_cap;
+        //        }
     }
     void darw_dynamic::VisionArmor()
     {
@@ -118,7 +118,6 @@ namespace UI::Dynamic
         if (UI_send_queue.send_delet_all() == true && UI_send_queue.is_up_ui == true && UI_send_queue.send_wz() == true && UI_send_queue.send() == true) {
             yaw_e_rad = ((Gimbal_to_Chassis_Data.getEncoderAngleErr()) / 0.017453 + 180); // 获取yaw误差
 
-
             // pitch_out       = HAL::sinf(2 * 3.14 * sin_tick * 0.5) * 40 + 90; // 示例，pitch起始角度为90，上下40°范围
             // yaw_out         = Gimbal_to_Chassis_Data.getEncoderAngleErr();    // 示例，yaw过零处理
             cap_out = HAL::sinf(2 * 3.14 * sin_tick * 0.5) * 20 + 21; // 示例40左右，从271开始到311
@@ -135,7 +134,7 @@ namespace UI::Dynamic
             RM_RefereeSystem::RM_RefereeSystemSetOperateTpye(RM_RefereeSystem::OperateRevise);
 
             // 绘制pitch指示
-            int16_t power = -(BSP::SuperCap::cap.ISDir() * 0.666) + 130;
+            int16_t power = -(BSP::Power::pm01.cin_power * 0.666) + 130;
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorRedAndBlue);
             RM_RefereeSystem::RM_RefereeSystemSetWidth(25);
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("power", 1, power, power + 2, 960, 540, 380, 380));
@@ -154,7 +153,6 @@ namespace UI::Dynamic
             UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("gyro_Init", 2, yaw_e_rad + 210, yaw_e_rad + 160, 1450, 750, 80, 80));
 
             setLimitPower();
-
 
             RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorYellow);
             RM_RefereeSystem::RM_RefereeSystemSetWidth(35);

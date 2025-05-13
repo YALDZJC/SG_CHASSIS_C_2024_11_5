@@ -80,9 +80,9 @@ namespace UI::Static
         RM_RefereeSystem::RM_RefereeSystemSetWidth(2);
         UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetInt("p", 0, BSP::SuperCap::cap.getOutPower(), ZM_of_X, ZM_of_Y));
 
-        // 视觉模式背景
-        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
-        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
+//        // 视觉模式背景
+//        RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
+//        UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("vim", 0, 166, 193, 956, 520, 360, 360));
 
         // 视觉点
         RM_RefereeSystem::RM_RefereeSystemSetColor(RM_RefereeSystem::ColorCyan);

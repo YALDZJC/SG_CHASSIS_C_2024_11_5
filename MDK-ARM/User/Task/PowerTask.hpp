@@ -59,7 +59,7 @@ namespace SGPowerControl
         double Cmd_MaxT[4];
 
         // 定义阈值参数（需根据实际场景调整）
-        float E_lower;  // 误差下限阈值（单位：rad/s或自定义）
+        float E_lower; // 误差下限阈值（单位：rad/s或自定义）
         float E_upper; // 误差上限阈值
 
         void UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, const float rpm_to_rads);
@@ -74,18 +74,20 @@ namespace SGPowerControl
     public:
         PowerTask_t()
         {
-            Wheel_PowerData.MAXPower = 60;
-            Wheel_PowerData.k1       = 1.08900523;
-            Wheel_PowerData.k2       = 0.814881027;
-            Wheel_PowerData.k3       = 6.8;
-            Wheel_PowerData.is_RLS   = true;
-            Wheel_PowerData.E_upper  = 1000;
-            Wheel_PowerData.E_lower  = 500;
+            Wheel_PowerData.MAXPower     = 60;
+            Wheel_PowerData.k1           = 1.08900523;
+            Wheel_PowerData.k2           = 0.814881027;
+            Wheel_PowerData.k3           = 5;
+            Wheel_PowerData.is_RLS       = true;
+            Wheel_PowerData.E_upper      = 1000;
+            Wheel_PowerData.E_lower      = 500;
+            Wheel_PowerData.params[0][0] = 1.08900523;
+            Wheel_PowerData.params[1][0] = 0.814881027;
 
             String_PowerData.MAXPower = 60 * 0.6f;
             String_PowerData.k1       = 0.182967603;
             String_PowerData.k2       = 8.78055;
-            String_PowerData.k3       = 6.8;
+            String_PowerData.k3       = 5;
             String_PowerData.is_RLS   = false;
             String_PowerData.E_upper  = 500;
             String_PowerData.E_lower  = 100;

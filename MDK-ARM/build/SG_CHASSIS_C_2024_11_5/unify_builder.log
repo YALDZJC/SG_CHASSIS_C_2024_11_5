@@ -10510,3 +10510,55 @@ These source files will be recompiled
 [2025-05-11 13:42:20]	[done]
 	build successfully !
 
+[2025-05-12 04:57:00]	[info] incremental build: 11 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\Core\Src\usart.c': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\BSP\Power\PM01.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': source file has been changed.
+
+[2025-05-12 04:57:09]	[done]
+	build successfully !
+
+[2025-05-12 05:00:09]	[info] incremental build: 11 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\Core\Src\usart.c': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': source file has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\RefeeTask.cpp': source file has been changed.
+
+[2025-05-12 05:00:17]	[done]
+	build successfully !
+
+[2025-05-12 05:00:25]	[info] incremental build: 9 source files changed
+These source files will be recompiled
+---
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\CommunicationTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Dynamic\darw_dynamic.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\UI\Static\darw_static.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\Variable.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\HAL\My_HAL.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\CallBack.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\ChassisTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\EvenTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\APP\..\Task\PowerTask.hpp' has been changed.
+'d:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.cpp': dependence 'd:\E\GitHub_Desktop\demo\SG_WHEEL\MDK-ARM\User\Task\PowerTask.hpp' has been changed.
+
+[2025-05-12 05:00:31]	[done]
+	build successfully !
+

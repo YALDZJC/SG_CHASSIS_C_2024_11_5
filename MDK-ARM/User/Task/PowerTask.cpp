@@ -30,12 +30,12 @@ void RLSTask(void *argument)
         BSP::SuperCap::cap.SetSendValue(lim_cin_power);
         BSP::SuperCap::cap.sendCAN(&hcan2, CAN_TX_MAILBOX0);
 
-        Tools.vofaSend(PowerControl.Wheel_PowerData.k1,
-                       PowerControl.Wheel_PowerData.k2,
-                       PowerControl.Wheel_PowerData.EstimatedPower,
-                       PowerControl.Wheel_PowerData.Cur_EstimatedPower,
-                       BSP::SuperCap::cap.getOutPower(),
-                       BSP::Power::pm01.cin_power);
+//        Tools.vofaSend(PowerControl.Wheel_PowerData.k1,
+//                       PowerControl.Wheel_PowerData.k2,
+//                       PowerControl.Wheel_PowerData.EstimatedPower,
+//                       PowerControl.Wheel_PowerData.Cur_EstimatedPower,
+//                       BSP::SuperCap::cap.getOutPower(),
+//                       BSP::Power::pm01.cin_power);
 
         osDelay(1);
     }
@@ -61,8 +61,8 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, c
         params = rls.update(samples, BSP::Power::pm01.cin_power - EffectivePower - k3);
 
         // }
-        k1 = fmax(params[0][0], 1e-2f); // In case the k1 diverge to negative number
-        k2 = fmax(params[1][0], 1e-2f); // In case the k2 diverge to negative number
+        k1 = fmax(params[0][0], 1e-5f); // In case the k1 diverge to negative number
+        k2 = fmax(params[1][0], 1e-5f); // In case the k2 diverge to negative number
     }
 
     Cur_EstimatedPower = k1 * samples[0][0] + k2 * samples[1][0] + EffectivePower + k3;
@@ -85,18 +85,16 @@ void PowerUpData_t::UpScaleMaxPow(PID *pid, Dji_Motor &motor)
     // 计算总误差和总原计划功率
     float sumErr = 0.0f;
 
-    for (int i = 0; i < 4; i++) 
-	{
+    for (int i = 0; i < 4; i++) {
         sumErr += fabsf(pid[i].GetErr());
     }
-	
-	for (int i = 0; i < 4; i++) 
-	{
+
+    for (int i = 0; i < 4; i++) {
         pMaxPower[i] = MAXPower * (fabsf(pid[i].GetErr()) / sumErr);
         if (pMaxPower[i] < 0) {
             continue;
         }
-	}
+    }
 }
 
 void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const, const float rpm_to_rads)
