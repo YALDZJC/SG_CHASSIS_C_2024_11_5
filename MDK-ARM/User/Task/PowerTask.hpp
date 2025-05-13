@@ -57,6 +57,8 @@ namespace SGPowerControl
 
         float pMaxPower[4];
         double Cmd_MaxT[4];
+		
+		bool Init_flag;
 
         // 定义阈值参数（需根据实际场景调整）
         float E_lower; // 误差下限阈值（单位：rad/s或自定义）

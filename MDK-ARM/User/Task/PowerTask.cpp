@@ -43,9 +43,15 @@ void RLSTask(void *argument)
 
 void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, const float rpm_to_rads)
 {
+	
     EffectivePower = 0;
-    samples[0][0]  = 0;
-    samples[1][0]  = 0;
+	
+	if(Init_flag == true)
+	{
+	    samples[0][0]  = 0;
+		samples[1][0]  = 0;
+	}
+
 
     for (int i = 0; i < 4; i++) {
         EffectivePower +=
@@ -78,6 +84,8 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, c
 
         EstimatedPower += Initial_Est_power[i];
     }
+	
+	Init_flag = true;
 }
 
 void PowerUpData_t::UpScaleMaxPow(PID *pid, Dji_Motor &motor)

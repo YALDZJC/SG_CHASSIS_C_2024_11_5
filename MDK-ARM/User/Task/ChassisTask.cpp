@@ -26,6 +26,8 @@ void ChassisTask(void *argument)
     }
 }
 
+float tar_vw_angle = 3.1415926535f;
+
 //=== 状态处理器实现 ===//
 class Chassis_Task::UniversalHandler : public StateHandler
 {
@@ -39,8 +41,8 @@ public:
 
     void UniversalTarget()
     {
-        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
-        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
@@ -60,7 +62,6 @@ public:
         m_task.CAN_Send();
     }
 };
-float tar_vw_angle = 3.1415926535f;
 float gyro_vel = 150;
 class Chassis_Task::FollowHandler : public StateHandler
 {
@@ -115,9 +116,8 @@ public:
 
     void FllowTarget()
     {
-        float total_angle = Gimbal_to_Chassis_Data.getEncoderAngleErr();
-        auto cos_theta    = HAL::cosf(-total_angle);
-        auto sin_theta    = HAL::sinf(-total_angle);
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
@@ -127,8 +127,8 @@ public:
         if (Gimbal_to_Chassis_Data.getRotatingVel() > 0) {
             tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 4);
         } else {
-            pid_vw.GetPidPos(Kpid_vw, Gimbal_to_Chassis_Data.getTargetOffsetAngle(), total_angle, 10000);
-            tar_vw.Calc(pid_vw.GetCout());
+			pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+			tar_vw.Calc(pid_vw.GetCout());
         }
 
         if (Gimbal_to_Chassis_Data.getShitf()) {
@@ -136,7 +136,7 @@ public:
         } else {
 //            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
 
-            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20) - 2;
+            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20) - 5;
         }
         PowerControl.setMaxPower(Chassis_Data.now_power);
 
@@ -177,8 +177,8 @@ public:
 
     void RotatingTarget()
     {
-        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
-        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr());
+        auto cos_theta = HAL::cosf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
+        auto sin_theta = HAL::sinf(-Gimbal_to_Chassis_Data.getEncoderAngleErr() + tar_vw_angle);
 
         tar_vx.Calc(TAR_LX * 660);
         tar_vy.Calc(TAR_LY * 660);
