@@ -138,6 +138,12 @@ public:
 
             Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20) - 5;
         }
+		
+		if(BSP::Power::pm01.cout_voltage < 12.0f)
+		{
+			Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit - 10.0f;
+		}
+		
         PowerControl.setMaxPower(Chassis_Data.now_power);
 
         if (Gimbal_to_Chassis_Data.getF5()) {
