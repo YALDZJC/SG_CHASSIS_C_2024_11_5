@@ -61,7 +61,7 @@ namespace UI::Dynamic
 
     void darw_dynamic::curPower()
     {
-        uint16_t super_cap        = (BSP::Power::pm01.cout_voltage - 12) * 3.20;
+        uint16_t super_cap        = (BSP::Power::pm01.cout_voltage - 12) * 3.3;
         static uint16_t lastvalue = 0;
 
         // 绘制超电能量调
@@ -77,7 +77,7 @@ namespace UI::Dynamic
 
         //        if (super_cap != lastvalue) {
 
-        super_cap = Tools.clamp(super_cap, 40, 0);
+        super_cap = Tools.clamp(super_cap, 39, 1);
 
         RM_RefereeSystem::RM_RefereeSystemSetWidth(15);
         UI_send_queue.add(RM_RefereeSystem::RM_RefereeSystemSetArced("cd_Init", 3, 271, 271 + super_cap, 960, 540, 380, 380));
