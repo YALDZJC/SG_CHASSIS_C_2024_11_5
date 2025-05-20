@@ -127,23 +127,23 @@ public:
         if (Gimbal_to_Chassis_Data.getRotatingVel() > 0) {
             tar_vw.Calc(Gimbal_to_Chassis_Data.getRotatingVel() * 4);
         } else {
-			pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
-			tar_vw.Calc(pid_vw.GetCout());
+            pid_vw.GetPidPos(Kpid_vw, 0, Gimbal_to_Chassis_Data.getEncoderAngleErr(), 10000);
+            tar_vw.Calc(pid_vw.GetCout());
         }
 
         if (Gimbal_to_Chassis_Data.getShitf()) {
             Chassis_Data.now_power = 30.0f + ext_power_heat_data_0x0201.chassis_power_limit;
         } else {
-//            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
+            //            Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower() - 5;
 
-            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20) - 5;
+            Chassis_Data.now_power = Tools.clamp(ext_power_heat_data_0x0201.chassis_power_limit + Gimbal_to_Chassis_Data.getPower(), 120.0f, 20) - 10;
         }
-		
-		if(BSP::Power::pm01.cout_voltage < 12.0f)
-		{
-			Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit - 10.0f;
-		}
-		
+
+        // if(BSP::Power::pm01.cout_voltage < 12.0f)
+        // {
+        // 	Chassis_Data.now_power = ext_power_heat_data_0x0201.chassis_power_limit - 10.0f;
+        // }
+
         PowerControl.setMaxPower(Chassis_Data.now_power);
 
         if (Gimbal_to_Chassis_Data.getF5()) {
@@ -434,19 +434,17 @@ void Chassis_Task::CAN_Setting()
     }
 
     // 功率控制部分
-	if(Dir_Event.GetDir_String() == false)
-	{
-		PowerControl.String_PowerData.UpScaleMaxPow(pid_angle_String, Motor6020);
-		PowerControl.String_PowerData.UpCalcMaxTorque(Chassis_Data.final_6020_Out, Motor6020, pid_vel_String,
-													toque_const_6020, rpm_to_rads_6020);
-	}
-	
-	if(Dir_Event.GetDir_Wheel() == false)
-	{
-		PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
-		PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel,
-													toque_const_3508, rpm_to_rads_3508);
-	}
+    if (Dir_Event.GetDir_String() == false) {
+        PowerControl.String_PowerData.UpScaleMaxPow(pid_angle_String, Motor6020);
+        PowerControl.String_PowerData.UpCalcMaxTorque(Chassis_Data.final_6020_Out, Motor6020, pid_vel_String,
+                                                      toque_const_6020, rpm_to_rads_6020);
+    }
+
+    if (Dir_Event.GetDir_Wheel() == false) {
+        PowerControl.Wheel_PowerData.UpScaleMaxPow(pid_vel_Wheel, Motor3508);
+        PowerControl.Wheel_PowerData.UpCalcMaxTorque(Chassis_Data.final_3508_Out, Motor3508, pid_vel_Wheel,
+                                                     toque_const_3508, rpm_to_rads_3508);
+    }
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[0], Get_MOTOR_SET_ID_6020(0x205));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[1], Get_MOTOR_SET_ID_6020(0x206));
     Motor6020.setMSD(&msd_6020, Chassis_Data.final_6020_Out[2], Get_MOTOR_SET_ID_6020(0x207));

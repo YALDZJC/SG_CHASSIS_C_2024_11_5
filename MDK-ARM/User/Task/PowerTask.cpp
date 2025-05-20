@@ -2,6 +2,7 @@
 #include "../BSP/Power/PM01.hpp"
 #include "../BSP/SuperCap/SuperCap.hpp"
 #include "../Task/CommunicationTask.hpp"
+#include "../APP/Referee/RM_RefereeSystem.h"
 #include "Tools.hpp"
 #include "Variable.hpp"
 
@@ -30,12 +31,12 @@ void RLSTask(void *argument)
         BSP::SuperCap::cap.SetSendValue(lim_cin_power);
         BSP::SuperCap::cap.sendCAN(&hcan2, CAN_TX_MAILBOX0);
 
-//        Tools.vofaSend(PowerControl.Wheel_PowerData.k1,
-//                       PowerControl.Wheel_PowerData.k2,
-//                       PowerControl.Wheel_PowerData.EstimatedPower,
-//                       PowerControl.Wheel_PowerData.Cur_EstimatedPower,
-//                       BSP::SuperCap::cap.getOutPower(),
-//                       BSP::Power::pm01.cin_power);
+        //        Tools.vofaSend(PowerControl.Wheel_PowerData.k1,
+        //                       PowerControl.Wheel_PowerData.k2,
+        //                       PowerControl.Wheel_PowerData.EstimatedPower,
+        //                       PowerControl.Wheel_PowerData.Cur_EstimatedPower,
+        //                       BSP::SuperCap::cap.getOutPower(),
+        //                       BSP::Power::pm01.cin_power);
 
         osDelay(1);
     }
@@ -43,15 +44,13 @@ void RLSTask(void *argument)
 
 void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, const float rpm_to_rads)
 {
-	
-    EffectivePower = 0;
-	
-	if(Init_flag == true)
-	{
-	    samples[0][0]  = 0;
-		samples[1][0]  = 0;
-	}
 
+    EffectivePower = 0;
+
+    if (Init_flag == true) {
+        samples[0][0] = 0;
+        samples[1][0] = 0;
+    }
 
     for (int i = 0; i < 4; i++) {
         EffectivePower +=
@@ -84,8 +83,8 @@ void PowerUpData_t::UpRLS(PID *pid, Dji_Motor &motor, const float toque_const, c
 
         EstimatedPower += Initial_Est_power[i];
     }
-	
-	Init_flag = true;
+
+    Init_flag = true;
 }
 
 void PowerUpData_t::UpScaleMaxPow(PID *pid, Dji_Motor &motor)
@@ -105,8 +104,26 @@ void PowerUpData_t::UpScaleMaxPow(PID *pid, Dji_Motor &motor)
     }
 }
 
+// 能量环
+void PowerUpData_t::EnergyLoop()
+{
+    float base_err = sqrt(target_base_power) - sqrt(BSP::Power::pm01.cout_voltage);
+    float full_err = sqrt(target_full_power) - sqrt(BSP::Power::pm01.cout_voltage);
+
+    base_Max_power = fmax(ext_power_heat_data_0x0201.chassis_power_limit - base_err * base_kp, 15.0f);
+    full_Max_power = fmax(ext_power_heat_data_0x0201.chassis_power_limit - full_err * full_kp, 15.0f);
+}
+
 void PowerUpData_t::UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const, const float rpm_to_rads)
 {
+    EnergyLoop();
+
+    if (BSP::Power::pm01.cout_voltage > 24 * 0.9) {
+        MAXPower = full_Max_power;
+    }
+
+    MAXPower = clamp(MAXPower, full_Max_power, base_Max_power);
+
     if (EstimatedPower > MAXPower) {
         for (int i = 0; i < 4; i++) {
             float omega = motor.GetEquipData_for(i, Dji_Speed) * rpm_to_rads;

@@ -130,7 +130,6 @@
         "User/Task/EvenTask.cpp",
         "User/Task/EvenTask.cpp",
         "User/Task/PowerTask.cpp",
-        "User/Task/PowerTask.cpp",
         "User/Task/RefeeTask.cpp",
         "User/Task/RefeeTask.cpp",
         "startup_stm32f407xx.s"

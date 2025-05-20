@@ -57,8 +57,8 @@ namespace SGPowerControl
 
         float pMaxPower[4];
         double Cmd_MaxT[4];
-		
-		bool Init_flag;
+
+        bool Init_flag;
 
         // 定义阈值参数（需根据实际场景调整）
         float E_lower; // 误差下限阈值（单位：rad/s或自定义）
@@ -69,6 +69,20 @@ namespace SGPowerControl
         void UpScaleMaxPow(PID *pid, Dji_Motor &motor);
         // 计算应分配的力矩
         void UpCalcMaxTorque(float *final_Out, Dji_Motor &motor, PID *pid, const float toque_const, const float rpm_to_rads);
+
+        float target_full_power;
+        float target_base_power;
+
+        float cur_power;
+
+        float full_kp = 0.1;
+        float base_kp = 0.1;
+
+        float base_Max_power;
+        float full_Max_power;
+
+        // 能量环
+        void EnergyLoop();
     };
 
     class PowerTask_t
